@@ -199,6 +199,7 @@ custom_js:
 # 指定自定义 .css 文件路径，用法和 custom_js 相同
 # The usage is the same as custom_js
 custom_css:
+ - //cdn.jsdelivr.net/gh/bynotes/texiao/source/css/shubiao.css # 鼠标指针
 
 # 自定义 <head> 节点中的 HTML 内容
 # Customize <head> HTML content
@@ -651,11 +652,11 @@ post:
   # 评论插件
   # Comment plugin
   comments:
-    enable: false
+    enable: true
     # 指定的插件，需要同时设置对应插件的必要参数
     # The specified plugin needs to set the necessary parameters at the same time
     # Options: utterances | disqus | gitalk | valine | waline | changyan | livere | remark42 | twikoo | cusdis
-    type: disqus
+    type: gitalk
 
 
 #---------------------------
@@ -683,7 +684,7 @@ utterances:
 # Based on third-party service
 # See: https://disqus.com
 disqus:
-  shortname:
+  shortname: 
   # 以下为 Disqusjs 支持, 国内用户如果想使用 Disqus 建议配合使用
   # The following are Disqusjs configurations, please ignore if DisqusJS is not required
   # See: https://github.com/SukkaW/DisqusJS
@@ -695,16 +696,16 @@ disqus:
 # Based on GitHub Issues
 # See: https://github.com/gitalk/gitalk#options
 gitalk:
-  clientID:
-  clientSecret:
-  repo:
-  owner:
-  admin: ['name']
+  clientID: 57daa2b8b164ac83c803
+  clientSecret: 4ade86bfb6d64a077ff5d7763c6840451e39c264
+  repo: Blog_Commit
+  owner: xlzf
+  admin: ['xlzf']
   language: zh-CN
   labels: ['Gitalk']
   perPage: 10
   pagerDirection: last
-  distractionFreeMode: false
+  distractionFreeMode: true
   createIssueManually: true
   # 默认 proxy 可能会失效，解决方法请见下方链接
   # The default proxy may be invalid, refer to the links for solutions
