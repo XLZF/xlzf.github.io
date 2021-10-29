@@ -1,13 +1,11 @@
 ---
 title: My Tool Graph
 date: 2021-10-29 10:01:35
-tags: 
-    - IDE 
-    - DB 
-    - Oralce 
-    - VS 
+tags: [IDE, DB, Oralce, VS] 
 keywords: 工具
-description： 把常用的工具放这做个备忘
+description: 把常用的工具放这做个备忘
+excerpt: 本文主要是收纳常用的软件，以备不时只需。
+categories: 收纳箱
 ---
 
 ##  Integrated Development Environment
