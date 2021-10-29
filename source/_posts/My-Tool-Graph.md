@@ -14,83 +14,149 @@ banner_img: /img/1.jpg
 
 ### Microsoft Visual Studio
 
+[Microsoft Visual Studio Installer Projects](https://marketplace.visualstudio.com/items?itemName=VisualStudioClient.MicrosoftVisualStudio2017InstallerProjects)
+
 ### Microsoft Visual Code
+
+[Download](https://code.visualstudio.com/download)
 
 ## DB Server Management
 
 ### Microsoft  SQL Server 
 
+[SQL Server 下载 ](https://www.microsoft.com/zh-cn/sql-server/sql-server-downloads)
+
 ### ORACLE
 
+[Home Page](https://www.oracle.com/index.html)
+
 ### MySql
+
+[Home Page](https://www.mysql.com/)
 
 ## DB Management Tool
 
 ### PLSQL
 
+[Home Page](https://www.oracle.com/database/technologies/appdev/plsql.html)
+
 ### Navicat
+
+[Home Page](https://www.navicat.com.cn/)
 
 ### DBeaver
 
+[Download](https://download.dbeaver.com/community/21.2.3/dbeaver-ce-21.2.3-x86_64-setup.exe)
+
 ## Git Management Tool
+
+### Git
+
+[Git Download](https://git-scm.com/)
 
 ### TortoiseGit
 
+[Download](https://tortoisegit.org/download/)
+
+[Language](https://download.tortoisegit.org/tgit/2.12.0.0/TortoiseGit-LanguagePack-2.12.0.0-64bit-zh_CN.msi)
+
 ### SourceTree
 
-### GitHub Desktop
+[Download](https://product-downloads.atlassian.com/software/sourcetree/windows/ga/SourceTreeSetup-3.4.1.exe)
+
+### GitHubDesktop
+
+[Download](https://desktop.github.com/)
 
 ## Download Tool
 
 ### IDM
 
+[Download](https://www.internetdownloadmanager.com/) 
+
 ## Print Screen
 
 ### Snipaste
+
+[Download](https://zh.snipaste.com/)
 
 ## Gif Recording
 
 ### FScapture
 
+[Download](https://www.faststonecapture.cn/)
+
 ### LICEcap
 
+[Download](https://www.cockos.com/licecap/)
+
 ### ScreenToGif 
+
+[Download](https://www.screentogif.com/)
 
 ## Screen control
 
 ### Mouse without Borders
 
+[Download](https://www.microsoft.com/en-us/download/details.aspx?id=35460)
+
 ## Figure bed
 
 ### PicGo
+
+玩这个图床前提还需要安装 [Node js 环境](http://nodejs.cn/download/)
+
+[Download](https://molunerfinn.com/PicGo/)
+
+此工具需要配合代码托管平台，比如GitHub、Gitee...
+
+![设置图床](https://gitee.com/xlzf/blog-image/raw/master/image-20211029230925649.png)
+
+![安装插件](https://gitee.com/xlzf/blog-image/raw/master/image-20211029231021534.png)
+
+还需要配合 Typora 
+
+![配置Typora图形偏好](https://gitee.com/xlzf/blog-image/raw/master/image-20211029231145747.png)
+
+到此，配合上面记录的截图软件，写点东西，纵享丝滑。
 
 ## Server Management
 
 ### Xshell
 
+[Download](https://www.netsarang.com/zh/xshell/)
+
 ## API Management Tool
 
 ### Postman
+
+[Download](https://www.postman.com/)
 
 ## Decompilation Tool
 
 ### dnSpy
 
-## Network Disk
-
-### 百度网盘
-
-### 阿里云盘
+[Download](https://github.com/dnSpy/dnSpy/releases)
 
 ## System Tools
 
 ### CPU-Z
 
+[Download](https://www.cpuid.com/)
+
 ### Everything
+
+[Download](https://www.voidtools.com/zh-cn/)
 
 ### Typora
 
+[Download](https://www.typora.io/#windows)
+
 ### SwichHosts
+
+[Download](https://github.com/oldj/SwitchHosts/releases)
+
+[GitHub520](https://cdn.jsdelivr.net/gh/521xueweihan/GitHub520@main/hosts)
 
 
 

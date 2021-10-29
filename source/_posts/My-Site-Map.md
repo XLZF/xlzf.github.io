@@ -8,6 +8,10 @@ index_img: /img/2.jpg
 banner_img: /img/2.jpg
 ---
 
+## 我告诉你
+
+1. [MSDN, 我告诉你 - 做一个安静的工具站 (itellyou.cn)](https://msdn.itellyou.cn/)
+
 ## 编程语言
 
 1. [文档 - Go 编程语言 (go-zh.org)](https://go-zh.org/doc/)
