@@ -158,5 +158,7 @@ banner_img: /img/1.jpg
 
 [GitHub520](https://cdn.jsdelivr.net/gh/521xueweihan/GitHub520@main/hosts)
 
+### OCR
 
+[天若OCR文字识别](http://ocr.tianruo.net/)
 
