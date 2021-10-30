@@ -3,7 +3,7 @@ title: My Site Map
 date: 2021-10-29 11:31:38
 tags: [URL, Site, Map]
 excerpt: 本文主要是收纳我平时用到的几个站点，以备不时只需。
-categories: 收纳箱
+categories: StorageBox
 index_img: /img/2.jpg
 banner_img: /img/2.jpg
 ---
