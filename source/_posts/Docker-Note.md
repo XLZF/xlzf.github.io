@@ -1,7 +1,7 @@
 ---
 title: Docker Note
 date: 2021-10-31 19:13:24
-tags: [docker, .net core]
+tags: [Docker, .net core]
 excerpt: 在window10中部署Docker环境运行dotnetcore web app为主线记录过程。
 categories: C#
 index_img: /img/docker.jpeg
