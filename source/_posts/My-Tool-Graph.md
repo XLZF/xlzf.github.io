@@ -12,6 +12,10 @@ banner_img: /img/1.jpg
 
 ##  Integrated Development Environment
 
+### CodeProducter
+
+[1.0.0.2](https://raw.githubusercontent.com/XLZF/CodeProducter/main/CodeProduct.msi)
+
 ### Microsoft Visual Studio
 
 [Microsoft Visual Studio Installer Projects](https://marketplace.visualstudio.com/items?itemName=VisualStudioClient.MicrosoftVisualStudio2017InstallerProjects)

@@ -4,8 +4,8 @@ date: 2021-10-30 18:38:05
 tags: [DevExpress, winform] 
 excerpt: 本文记录关于DevExpress中GridControl与SeachLookUpEdit的使用。
 categories: C#
-index_img: /img/2.jpg
-banner_img: /img/2.jpg
+index_img: /img/8.png
+banner_img: /img/8.png
 ---
 
 # DevExpress Note
