@@ -48,6 +48,18 @@ banner_img: /img/1.jpg
 
 [Home Page](https://www.navicat.com.cn/)
 
+#### Navicat Premium 连接Oracle
+
+1. 先查询Oracle版本
+2. `select * from v$version`
+3. 32 位 11.2.0.1.0
+4. Navicat Premium 下载
+5. 安装32位的
+6. 破解
+7. 找到 `instantclient-basic-win32-11.2.0.1.0.zip`
+8. 解压到D盘根目录（随便）
+9. Navicat - 选项 - 其他 `oci.dll` 设置一下
+
 ### DBeaver
 
 [Download](https://download.dbeaver.com/community/21.2.3/dbeaver-ce-21.2.3-x86_64-setup.exe)
