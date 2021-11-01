@@ -1,14 +1,11 @@
 ---
-title: CSharp Base
+title: C# Base
 date: 2021-10-30 18:16:33
 tags: [Base]
 excerpt: 温故而知新，可以为师矣。
 categories: C#
-index_img: /img/5.jpg
-banner_img: /img/5.jpg
+index_img: /img/CSharp.jpeg
 ---
-
-# CSharp Base
 
 ## 面向对象编程
 
