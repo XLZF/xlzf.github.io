@@ -4,7 +4,7 @@ date: 2021-11-01 22:05:43
 tags: [Linq]
 excerpt: 之前记录的关于Linq的笔记，花式Linq拓展。
 categories: C#
-index_img: /img/CSharp.jpeg
+index_img: https://gitee.com/xlzf/blog-image/raw/master/Gongsi/Csharp.jpeg
 ---
 
 ## 前言
