@@ -4,8 +4,8 @@ date: 2021-10-30 17:46:10
 tags: [Linux, Ubuntu, Docker]
 excerpt: 在Window10上通过Microsoft Store安装Ubuntu. 
 categories: Linux 
-index_img: /img/Ubuntu.jpeg 
-banner_img: /img/4.jpg 
+index_img: https://gitee.com/xlzf/blog-image/raw/master/Ubuntu.jpeg 
+banner_img: https://gitee.com/xlzf/blog-image/raw/master/4.jpg 
 ---
 
 # window10 Install Linux 

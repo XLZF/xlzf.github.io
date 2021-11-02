@@ -4,7 +4,7 @@ date: 2021-10-31 19:24:17
 tags: [.net core, IOC, JWT]
 excerpt: 把之前学习.net core的笔记同步到此博客上，慢慢完善吧。
 categories: C#
-index_img: /img/netcore.jpg
+index_img: https://gitee.com/xlzf/blog-image/raw/master/netcore.jpg
 ---
 
 # Note Dot Net Core 

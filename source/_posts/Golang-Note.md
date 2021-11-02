@@ -4,7 +4,7 @@ date: 2021-10-31 19:47:01
 tags: [Go]
 excerpt: 本文记录Golang环境配置和一点基础知识。
 categories: Golang
-index_img: /img/Go.jpeg
+index_img: https://gitee.com/xlzf/blog-image/raw/master/Go.jpeg
 ---
 
 ## 环境部署

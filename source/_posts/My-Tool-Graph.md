@@ -6,8 +6,8 @@ keywords: 工具
 description: 把常用的工具放这做个备忘
 excerpt: 本文主要是收纳常用的软件，以备不时只需。
 categories: StorageBox
-index_img: /img/1.jpg
-banner_img: /img/1.jpg
+index_img: https://gitee.com/xlzf/blog-image/raw/master/1.jpg
+banner_img: https://gitee.com/xlzf/blog-image/raw/master/1.jpg
 ---
 
 ##  Integrated Development Environment

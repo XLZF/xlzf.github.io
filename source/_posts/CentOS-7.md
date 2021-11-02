@@ -4,8 +4,8 @@ date: 2021-10-30 17:23:05
 tags: [Linux, CentOS7, Docker, Xshell]
 excerpt: 一直玩Windows,尝试一下CentOs7解解渴。
 categories: Linux
-index_img: /img/CentOS_VM.jpeg
-banner_img: /img/3.jpg
+index_img: https://gitee.com/xlzf/blog-image/raw/master/CentOS_VM.jpeg
+banner_img: https://gitee.com/xlzf/blog-image/raw/master/3.jpg
 ---
 
 # CentOS7
