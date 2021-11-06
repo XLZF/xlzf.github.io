@@ -1,7 +1,7 @@
 ---
 title: Dev GridControl VS SeachLookUpEdit
 date: 2021-11-01 21:38:50
-tags: [winform, DevExpress]
+tags: [Winform, DevExpress]
 excerpt: DevGridControl中，两SeachlookUpEdit联动.
 categories: C#
 index_img: https://gitee.com/xlzf/blog-image/raw/master/DevExpress.jpeg

@@ -5,8 +5,7 @@ tags: [Program]
 keywords: 工具
 excerpt: Typora 自动添加序号
 categories: StorageBox
-index_img: https://gitee.com/xlzf/blog-image/raw/master/1.jpg
-banner_img: https://gitee.com/xlzf/blog-image/raw/master/1.jpg
+index_img: https://gitee.com/xlzf/blog-image/raw/master/Typora.jpeg
 ---
 
 ## Typora 自动添加序号
