@@ -656,7 +656,7 @@ post:
     # 指定的插件，需要同时设置对应插件的必要参数
     # The specified plugin needs to set the necessary parameters at the same time
     # Options: utterances | disqus | gitalk | valine | waline | changyan | livere | remark42 | twikoo | cusdis
-    type: gitalk
+    type: valine # gitalk
 
 
 #---------------------------
@@ -718,18 +718,18 @@ gitalk:
 # Based on LeanCloud
 # See: https://valine.js.org/
 valine:
-  appId:
-  appKey:
-  path: window.location.pathname
-  placeholder:
-  avatar: 'retro'
-  meta: ['nick', 'mail', 'link']
+  appId: q3pc0gbhQF3puHJQ3XjiByyg-gzGzoHsz # 从 LeanCloud 的应用中得到的 appId
+  appKey: yIsNaqJVWRbpKxcC4phLbjXt # 从 LeanCloud 的应用中得到的 APP Key
+  path: window.location.pathname # 当前文章页路径，用于区分不同的文章页，以保证正确读取该文章页下的评论列表
+  placeholder: 吐槽 # 评论框占位提示符
+  avatar: 'retro' # Gravatar 头像展示方式
+  meta: ['nick', 'mail', 'link'] # 评论者相关属性
   requiredFields: []
-  pageSize: 10
-  lang: 'zh-CN'
-  highlight: false
-  recordIP: false
-  serverURLs: ''
+  pageSize: 10 # 评论列表分页，每页条数
+  lang: 'zh-CN' # zh-CN | zh-TW | en | ja
+  highlight: true # 代码高亮
+  recordIP: true # 是否记录评论者IP
+  serverURLs: 'https://q3pc0gbh.lc-cn-n1-shared.com' # REST API 服务器地址，国际版不填
   emojiCDN:
   emojiMaps:
   enableQQ: false
