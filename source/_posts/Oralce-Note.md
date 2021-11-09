@@ -44,4 +44,55 @@ index_img: https://gitee.com/xlzf/blog-image/raw/master/Oracle.jpeg
    )'
    ```
 
-   
+
+## Oracle SEQUENCE
+
+​		序列(SEQUENCE)是序列号生成器，可以为表中的行自动生成序列号，产生一组等间隔的数值(类型为数字)。不占用磁盘空间，占用内存。
+
+其主要用途是生成表的主键值，可以在插入语句中引用，也可以通过查询检查当前值，或使序列增至下一个值。
+
+之前用的自增序列：
+
+``` sql
+create sequence SEQ_BlogTestID
+minvalue 1
+maxvalue 999999999999999999999999999
+start with 1
+increment by 1
+cache 20;
+```
+
+基本语法：
+
+``` sql
+CREATE SEQUENCE 序列名
+
+　　[INCREMENT BY n]
+
+　　[START WITH n]
+
+　　[{MAXVALUE/ MINVALUE n| NOMAXVALUE}]
+
+　　[{CYCLE|NOCYCLE}]
+
+　　[{CACHE n| NOCACHE}];
+```
+
+1.  INCREMENT BY用于定义序列的步长，如果省略，则默认为1，如果出现负值，则代表Oracle序列的值是按照此步长递减的。
+
+2.  START WITH 定义序列的初始值(即产生的第一个值)，默认为1。
+
+3.  MAXVALUE 定义序列生成器能产生的最大值。选项NOMAXVALUE是默认选项，代表没有最大值定义，这时对于递增Oracle序列，系统能够产生的最大值是10的27次方;对于递减序列，最大值是-1。
+
+4.  MINVALUE定义序列生成器能产生的最小值。选项NOMAXVALUE是默认选项，代表没有最小值定义，这时对于递减序列，系统能够产生的最小值是?10的26次方;对于递增序列，最小值是1。
+
+5. CYCLE和NOCYCLE 表示当序列生成器的值达到限制值后是否循环。CYCLE代表循环，NOCYCLE代表不循环。如果循环，则当递增序列达到最大值时，循环到最小值;对于递减序列达到最小值时，循环到最大值。如果不循环，达到限制值后，继续产生新值就会发生错误。
+
+6. CACHE(缓冲)定义存放序列的内存块的大小，默认为20。NOCACHE表示不对序列进行内存缓冲。对序列进行内存缓冲，可以改善序列的性能。
+
+   大量语句发生请求，申请序列时，为了避免序列在运用层实现序列而引起的性能瓶颈。Oracle序列允许将序列提前生成 cache x个先存入内存，在发生大量申请序列语句时，可直接到运行最快的内存中去得到序列。但cache个数也不能设置太大，因为在数据库重启时，会清空内存信息，预存在内存中的序列会丢失，当数据库再次启动后，序列从上次内存中最大的序列号+1 开始存入cache x个。这种情况也能会在数据库关闭时也会导致序号不连续。
+
+7. NEXTVAL 返回序列中下一个有效的值，任何用户都可以引用。
+
+8. CURRVAL 中存放序列的当前值,NEXTVAL 应在 CURRVAL 之前指定 ，二者应同时有效。
+
