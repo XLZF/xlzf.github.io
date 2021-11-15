@@ -4,7 +4,7 @@ date: 2021-11-04 22:08:55
 tags: [Oracle]
 excerpt: Oracle 批量 Insert Blob 操作
 categories: C#
-index_img: https://gitee.com/xlzf/blog-image/raw/master/Gongsi/Csharp.jpeg
+index_img: https://gitee.com/xlzf/blog-image/raw/master/Oracle.jpeg
 ---
 
 # Oracle 批量 Insert Blob 操作
