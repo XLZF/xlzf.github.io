@@ -3,7 +3,7 @@ title: DotNet Core Note
 date: 2021-10-31 19:24:17
 tags: [.net core, IOC, JWT]
 excerpt: 把之前学习.net core的笔记同步到此博客上，慢慢完善吧。
-categories: C#
+categories: CSharp
 index_img: https://gitee.com/xlzf/blog-image/raw/master/netcore.jpg
 ---
 
@@ -87,14 +87,14 @@ index_img: https://gitee.com/xlzf/blog-image/raw/master/netcore.jpg
 
 1. 引入命名空间
 
-   ``` c#
+   ``` CSharp
    using Microsoft.Extensions.FileProviders;
    using System.IO;
    ```
 
 2. 配置读取静态文件中间件
 
-   ``` C#
+   ``` CSharp
    //获取相对路径
    string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot");
    
@@ -117,15 +117,15 @@ index_img: https://gitee.com/xlzf/blog-image/raw/master/netcore.jpg
 
 2. 控制器注入
 
-   ``` c#
+   ``` CSharp
    using Microsoft.Extensions.Configuration;
    ```
 
-   ``` c#
+   ``` CSharp
    private readonly IConfiguration _iconfiguration;
    ```
 
-   ``` c#
+   ``` CSharp
    public HomeController(ILogger<HomeController> logger, IConfiguration configuration)
    {
        _logger = logger;
@@ -135,7 +135,7 @@ index_img: https://gitee.com/xlzf/blog-image/raw/master/netcore.jpg
    }
    ```
 
-   ``` c#
+   ``` CSharp
    string Parame = _iconfiguration["Parame"];//参数名称
    
    base.ViewBag.User1 = "张三" + " -- 参数：" + Parame; //使用
@@ -169,7 +169,7 @@ index_img: https://gitee.com/xlzf/blog-image/raw/master/netcore.jpg
 
 应用：
 
-``` C#
+``` CSharp
 
 ViewBag.Setting1 = _iconfiguration["TESTID"];
 
@@ -213,7 +213,7 @@ ViewBag.Setting4 = _iconfiguration["Family:1"];
 
 实例化一个实体
 
-``` c#
+``` CSharp
 public class TESTMODEL
 {
     public string TESTID { get; set; }
@@ -237,7 +237,7 @@ public class TESTAdress
 
 然后 Startup.cs
 
-``` c#
+``` CSharp
 public void ConfigureServices(IServiceCollection services)
 {
     services.AddControllersWithViews();
@@ -253,7 +253,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ![image-20210819230720154](https://gitee.com/xlzf/blog-image/raw/master/image-20210819230720154.png)
 
-``` c#
+``` CSharp
 public HomeController(ILogger<HomeController> logger, IConfiguration configuration,IOptions<TESTMODEL> options)
 {
     _logger = logger;
@@ -267,7 +267,7 @@ public HomeController(ILogger<HomeController> logger, IConfiguration configurati
 
 应用：
 
-``` c#
+``` CSharp
 object parame = Newtonsoft.Json.JsonConvert.SerializeObject(_tESTMODEL);
 //然后返回给视图
 return View(parame);
@@ -361,7 +361,7 @@ return View(parame);
 
 ### Startup
 
-``` c#
+``` CSharp
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -452,7 +452,7 @@ namespace DotNetCoreDemo
 
 ### Interface 层
 
-``` c#
+``` CSharp
 namespace DotNetCoreDemo.Interface
 {
     public interface ICoustomInterface
@@ -464,7 +464,7 @@ namespace DotNetCoreDemo.Interface
 
 ### Service 层
 
-``` c#
+``` CSharp
 public class CoustomService : Interface.ICoustomInterface
 {
     public string Show()
@@ -589,7 +589,7 @@ public class CoustomService : Interface.ICoustomInterface
 
 2. 新建一个静态方法 
 
-   ``` c#
+   ``` CSharp
    using Microsoft.AspNetCore.Html;
    using Microsoft.AspNetCore.Mvc.Rendering;
    using System;
@@ -625,7 +625,7 @@ public class CoustomService : Interface.ICoustomInterface
 
 1. 新建一个类 CustomTagHelper
 
-   ``` c#
+   ``` CSharp
    using Microsoft.AspNetCore.Razor.TagHelpers;
    using System;
    using System.Collections.Generic;
@@ -675,7 +675,7 @@ public class CoustomService : Interface.ICoustomInterface
 
       设置好对象
 
-      ``` C#
+      ``` CSharp
       using Microsoft.AspNetCore.Razor.TagHelpers;
       using System;
       using System.Collections.Generic;
@@ -767,7 +767,7 @@ public class CoustomService : Interface.ICoustomInterface
 
 1. 新建视图组件扩展类
 
-   ``` c#
+   ``` CSharp
    using Microsoft.AspNetCore.Mvc;
    using System;
    using System.Collections.Generic;
@@ -911,7 +911,7 @@ DI—Dependency Injection，即“依赖注入”：是组件之间依赖关系�
 
 交代一下服务和接口
 
-``` c#
+``` CSharp
 //InterFace
 using System;
 using System.Collections.Generic;
@@ -959,13 +959,13 @@ namespace DotNetCoreDemo.Service
 
    1. 在 `Startup` 中的 `ConfigureServices` 中注册。
 
-      ``` c#
+      ``` CSharp
       services.AddTransient<ITestServiceA, TestServiceA>();
       ```
 
    2. 在控制器中先实例化一个私有只读的`ITestServiceA` 对象，然后新建构造函数，构造函数的入参也是`ITestServiceA` 对象。在构造函数中，将入参的`ITestServiceA`对象赋值给实例化好的`ITestServiceA` 对象，然后就可以在方法中使用。
 
-      ```c#
+      ```CSharp
       using DotNetCoreDemo.Interface;
       using Microsoft.AspNetCore.Mvc;
       using System;
@@ -1002,7 +1002,7 @@ namespace DotNetCoreDemo.Service
 
    2. 在控制器中先实例化一个私有只读的`IServiceProvider` 对象，然后新建构造函数，构造函数的入参也是`IServiceProvider` 对象。在构造函数中，将入参的`IServiceProvider`对象赋值给实例化好的`IServiceProvider` 对象。但是在使用的时候有差异。
 
-      ``` c#
+      ``` CSharp
       using DotNetCoreDemo.Interface;
       using Microsoft.AspNetCore.Mvc;
       using System;
@@ -1059,7 +1059,7 @@ namespace DotNetCoreDemo.Service
 
 ServiceA 层
 
-``` c#
+``` CSharp
 using DotNetCoreDemo.Interface;
 using System;
 using System.Collections.Generic;
@@ -1092,7 +1092,7 @@ namespace DotNetCoreDemo.Service
 
 InterfaceA 层
 
-``` c#
+``` CSharp
 namespace DotNetCoreDemo.Interface
 {
     public interface ITestServiceA
@@ -1106,7 +1106,7 @@ namespace DotNetCoreDemo.Interface
 
 ServiceB层
 
-``` c#
+``` CSharp
 using DotNetCoreDemo.Interface;
 using System;
 using System.Collections.Generic;
@@ -1155,7 +1155,7 @@ namespace DotNetCoreDemo.Service
 
 InterfaceB层
 
-``` c#
+``` CSharp
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -1175,7 +1175,7 @@ namespace DotNetCoreDemo.Interface
 
 Startup 注入
 
-``` c#
+``` CSharp
 public void ConfigureServices(IServiceCollection services)
 {
     #region IOC注册服务
@@ -1220,7 +1220,7 @@ public void ConfigureServices(IServiceCollection services)
 
 4. Code
 
-   ``` c#
+   ``` CSharp
    public void ConfigureServices(IServiceCollection services)
    {
                #region IOC注册服务
@@ -1322,7 +1322,7 @@ public void ConfigureServices(IServiceCollection services)
 5. 管 container 容器 要 ITestServiceA 服务
 6. 应用 要到的 ITestServiceA 服务
 
-``` c#
+``` CSharp
 #region Autofac 应用
 //1. Nuget Autofac 
 //2. 创建一个ContainerBuilder 对象 
@@ -1342,7 +1342,7 @@ testServiceA.Show();
 
 **第一种：构造函数注入** 
 
-``` c#
+``` CSharp
 ContainerBuilder builder1 = new ContainerBuilder();
 builder1.RegisterType<TestServiceA>().As<ITestServiceA>();
 builder1.RegisterType<TestServiceB>().As<ITestServiceB>();
@@ -1356,7 +1356,7 @@ testServiceC1.Show();
 
 **第二种：属性注入**
 
-``` c#
+``` CSharp
 ContainerBuilder builder2 = new ContainerBuilder();
 builder2.RegisterType<TestServiceA>().As<ITestServiceA>();
 builder2.RegisterType<TestServiceB>().As<ITestServiceB>();
@@ -1369,7 +1369,7 @@ testServiceD.Show();
 
 关注一下`TestServiceD` 里，还有 `PropertiesAutowired()`
 
-``` c#
+``` CSharp
 using DotNetCoreDemo.Interface;
 using System;
 using System.Collections.Generic;
@@ -1403,7 +1403,7 @@ namespace DotNetCoreDemo.Service
 
 **第三种：方法注入**
 
-``` C#
+``` CSharp
 ContainerBuilder builder3 = new ContainerBuilder();
 builder3.RegisterType<TestServiceA>().As<ITestServiceA>();
 builder3.RegisterType<TestServiceB>().As<ITestServiceB>();
@@ -1420,7 +1420,7 @@ testServiceC.Show();
 
 2. 上述不同的注册方式是需要结合下面的代码使用,注意 `SetService`方法
 
-   ``` c#
+   ``` CSharp
    using DotNetCoreDemo.Interface;
    using System;
    using System.Collections.Generic;
@@ -1460,7 +1460,7 @@ testServiceC.Show();
 
 第一种：瞬时生命周期（InstancePerDependency）
 
-``` c#
+``` CSharp
 #region 瞬时生命周期 (InstancePerDependency)
 {
     ContainerBuilder builder4 = new ContainerBuilder();
@@ -1479,7 +1479,7 @@ testServiceC.Show();
 
 第二种：单例生命周期（SingleInstance）
 
-```c#
+```CSharp
 #region 单例生命周期（SingleInstance）
 {
     ContainerBuilder builder4 = new ContainerBuilder();
@@ -1498,7 +1498,7 @@ testServiceC.Show();
 
 第三种：作用域生命周期（InstancePerLifetimeScope）
 
-``` c#
+``` CSharp
 #region 作用域生命周期（InstancePerLifetimeScope）
 {
     ContainerBuilder builder4 = new ContainerBuilder();
@@ -1540,7 +1540,7 @@ testServiceC.Show();
 
 第三种扩展：加参数标记 
 
-``` c#
+``` CSharp
 #region 作用域生命周期-扩展（InstancePerLifetimeScope+参数标记）
 {
     ContainerBuilder builder4 = new ContainerBuilder();
@@ -1646,7 +1646,7 @@ testServiceC.Show();
 
 3. 读取配置文件，通过Autofac 配置文件实现注册抽象服务和具体方法。
 
-   ``` c#
+   ``` CSharp
    #region Autofac 读取配置文件注册服务
    {
        ContainerBuilder builder = new ContainerBuilder();
@@ -1684,7 +1684,7 @@ testServiceC.Show();
 
    举个例子：如果现在有个`TestServiceE`,依赖于`ItestServiceA`
 
-   ``` c#
+   ``` CSharp
    using DotNetCoreDemo.Interface;
    using System;
    using System.Collections.Generic;
@@ -1752,7 +1752,7 @@ testServiceC.Show();
 
 1. Autofac 是一个第三方容器，需要在Program 中告诉框架，要是使用哪个IOC工厂。(AutofacServiceProviderFactory)
 
-   ``` c#
+   ``` CSharp
    public static IHostBuilder CreateHostBuilder(string[] args) =>
                Host.CreateDefaultBuilder(args)
                .ConfigureWebHostDefaults(webBuilder =>
@@ -1764,7 +1764,7 @@ testServiceC.Show();
 
 2. Startup 文件中新增方法，这个方法被 Autofac 承包了，是个默认执行的方法
 
-   ``` c#
+   ``` CSharp
    /// <summary>
    /// Autofac 此方法会在加载的时候默认执行
    /// 
@@ -1794,7 +1794,7 @@ testServiceC.Show();
 
 1. 指定控制器的实例让容器来创建 -- Startup ConfigureServices()
 
-   ``` c#
+   ``` CSharp
    #region 指定控制器的实例让容器来创建,告诉框架，要使用Autofac容器来创建控制器的实例。
    
    services.Replace(ServiceDescriptor.Transient<IControllerActivator, ServiceBasedControllerActivator>());
@@ -1804,7 +1804,7 @@ testServiceC.Show();
 
 2. 注册所有控制器的关系+控制器实例化所需要的所有组件 -- Startup ConfigureContainer()
 
-   ``` c#
+   ``` CSharp
    #region 注册所有控制器的关系+控制器实例化所需要的所有组件
    
    Type[] controllerTypesInAssmbly = typeof(Startup).Assembly.GetExportedTypes().Where(type => typeof(ControllerBase).IsAssignableFrom(type)).ToArray();
@@ -1816,7 +1816,7 @@ testServiceC.Show();
 
 3. `CustomPropertySelector` 帮助框架去查找符合条件的属性
 
-   ``` c#
+   ``` CSharp
    using Autofac.Core;
    using System;
    using System.Collections.Generic;
@@ -1839,7 +1839,7 @@ testServiceC.Show();
 
 4. `CustomPropertyAttribute` 自定义特性
 
-   ``` c#
+   ``` CSharp
    using System;
    using System.Collections.Generic;
    using System.Linq;
@@ -1878,7 +1878,7 @@ testServiceC.Show();
 
 **第一种：**
 
-``` c#
+``` CSharp
 #region 抽象多实现问题
 
 container.RegisterType<TestServiceA>().As<ITestServiceA>();
@@ -1905,7 +1905,7 @@ container.RegisterType<TestServiceE>().As<ITestServiceA>();
 
 Startup 中注册所有与`ItestServiceA`相关的对象
 
-``` c#
+``` CSharp
 container.RegisterSource(new AnyConcreteTypeNotAlreadyRegisteredSource(t => t.IsAssignableTo<ITestServiceA>()));
 ```
 
@@ -1917,7 +1917,7 @@ container.RegisterSource(new AnyConcreteTypeNotAlreadyRegisteredSource(t => t.Is
 
 新建 AutofacModule.cs
 
-``` c#
+``` CSharp
 using Autofac;
 using Autofac.Features.ResolveAnything;
 using DotNetCoreDemo.Interface;
@@ -1940,7 +1940,7 @@ namespace DotNetCoreDemo.Utility
 
 然后修改 Startup `container.RegisterModule(new AutofacModule());`
 
-``` c#
+``` CSharp
 #region 抽象多实现问题
 
 ////1. 正常操作 在同一个接口下多个对象的时候，最后注册的那个对象才会生效。
@@ -1967,7 +1967,7 @@ container.RegisterModule(new AutofacModule());
 
 2. 新建AutoAop 扩展类，建议这个类不要新建在主程序中，可能会引起服务互相依赖的后果。
 
-   ``` c#
+   ``` CSharp
    using Castle.DynamicProxy;
    using System;
    using System.Collections.Generic;
@@ -1994,7 +1994,7 @@ container.RegisterModule(new AutofacModule());
 
 3. 在Interface 层想管的类上添加特性 `[Intercept(typeof(CustomAutofacAOP))]`，为了AOP能在当前接口生效。*也得引入 Castle.DynamicProxy*
 
-   ``` c#
+   ``` CSharp
    using Autofac.Extras.DynamicProxy;
    using DotNetCoreDemo.Common.AutofacExtension;
    using System;
@@ -2017,7 +2017,7 @@ container.RegisterModule(new AutofacModule());
 
 4. 需要在 Startup.cs 中注册 `container.RegisterType(typeof(CustomAutofacAOP));`
 
-   ``` c#
+   ``` CSharp
    #region Autofac 支持 AOP
    container.RegisterType(typeof(CustomAutofacAOP));//注册
    //EnableInterfaceInterceptors() 告诉框架这个要支持AOP
@@ -2027,7 +2027,7 @@ container.RegisterModule(new AutofacModule());
 
 5. 应用
 
-   ``` c#
+   ``` CSharp
    using DotNetCoreDemo.Interface;
    using DotNetCoreDemo.Utility;
    using Microsoft.AspNetCore.Mvc;
@@ -2078,7 +2078,7 @@ container.RegisterModule(new AutofacModule());
 
 注意：如果同时使用`EnableInterfaceInterceptors` 就会重复执行AOP.
 
-``` c#
+``` CSharp
 using Autofac.Extras.DynamicProxy;
 using DotNetCoreDemo.Common.AutofacExtension;
 using DotNetCoreDemo.Interface;
@@ -2121,7 +2121,7 @@ namespace DotNetCoreDemo.Service
 
 1. 先上一波传统手艺
 
-   ``` c#
+   ``` CSharp
    //在 方法 ：ConfigureServices 中
    #region 一抽象多个实现问题
    {
@@ -2147,7 +2147,7 @@ namespace DotNetCoreDemo.Service
 
    Startup.cs  - ConfigureContainer 注册 ，注意 `Named` ，同时实现AOP
    
-   ``` c#
+   ``` CSharp
    #region 一抽象多实现问题2
    {
    container.RegisterType<TestServiceA>().Named<ITestServiceA>("TestServiceA").EnableClassInterceptors();
@@ -2157,14 +2157,14 @@ namespace DotNetCoreDemo.Service
    
    应用：
    
-   ``` c#
+   ``` CSharp
    ITestServiceA obja = _componentContext.ResolveNamed<ITestServiceA>("TestServiceA");
    ITestServiceA objb = _componentContext.ResolveNamed<ITestServiceA>("TestServiceE");
    ```
    
    全文：需要注意注册 Autofac 上下文
    
-   ``` c#
+   ``` CSharp
    using Autofac;
    using DotNetCoreDemo.Interface;
    using DotNetCoreDemo.Utility;
@@ -2221,7 +2221,7 @@ namespace DotNetCoreDemo.Service
 
 其他与一个抽象多个实现构造函数注入一样
 
-``` c#
+``` CSharp
 //首先，把属性注入
 [CustomProperty]
 private IComponentContext componentContextprop { get; set; }
@@ -2232,7 +2232,7 @@ ITestServiceA objd = componentContextprop.ResolveNamed<ITestServiceA>("TestServi
 
 全文：
 
-``` c#
+``` CSharp
 using Autofac;
 using DotNetCoreDemo.Interface;
 using DotNetCoreDemo.Utility;
@@ -2297,7 +2297,7 @@ Filter : 过滤器 ActionFilter 即动作过滤器
 
 1. 新建 CustomActionFilterAttrubute.cs **特性**，并且继承 IActionFilter 接口 和实现 IActionFilter 接口
 
-   ``` c#
+   ``` CSharp
    using Microsoft.AspNetCore.Mvc.Filters;
    using System;
    using System.Collections.Generic;
@@ -2325,7 +2325,7 @@ Filter : 过滤器 ActionFilter 即动作过滤器
 
 2. 控制器类 需要在对应的Action 方法上标记 `[CustomActionFilterAttribute]`特性
 
-   ``` c#
+   ``` CSharp
    using DotNetCoreDemo.Utility;
    using Microsoft.AspNetCore.Mvc;
    using System;
@@ -2365,7 +2365,7 @@ Filter : 过滤器 ActionFilter 即动作过滤器
 2. 通过继承 `ActionFilterAttribute` 通过override 重写方法。（系统框架提供）
 3. 通过继承 `IAnsyncActionFilter` 实现接口实现，此为异步版本。
 
-``` c#
+``` CSharp
 using Microsoft.AspNetCore.Mvc.Filters;
 using System;
 using System.Collections.Generic;
@@ -2434,7 +2434,7 @@ namespace DotNetCoreDemo.Utility
 
 2. 自定义版本中写的，需要注意Ilogger 的注册，还有就是context的各种扩展功能。
 
-   ``` c#
+   ``` CSharp
    /// <summary>
    /// 自定义版本
    /// </summary>
@@ -2473,7 +2473,7 @@ namespace DotNetCoreDemo.Utility
 
    这里需要注意的是，由于修改了上述的代码，导致给Action特性`[CustomActionFilterAttribute]`会报错，所以将Action特性修改为`[TypeFilter(typeof(CustomActionFilterAttribute))]` 为的是让`CustomActionFilterAttribute` 可以支持依赖注入。
 
-   ``` c#
+   ``` CSharp
    using DotNetCoreDemo.Utility;
    using Microsoft.AspNetCore.Mvc;
    using Microsoft.Extensions.Logging;
@@ -2519,14 +2519,14 @@ namespace DotNetCoreDemo.Utility
 
       Startup.cs
 
-      ``` c#
+      ``` CSharp
       //注册自定义Filter扩展，且支持属性注入（PropertiesAutowired）
       container.RegisterType(typeof(CustomActionFilterAttribute)).PropertiesAutowired();
       ```
 
       CustomActionFilterAttribute
 
-      ``` c#
+      ``` CSharp
       //属性
       public ILogger<CustomActionFilterAttribute> loggerProp { get; set; }
       
@@ -2542,7 +2542,7 @@ namespace DotNetCoreDemo.Utility
 
 1. 首先先创建一个自定义的类 `CustomActionFilterFactory`, 继承`Attribute` 实现 `IFilterFactory` 接口
 
-   ``` c#
+   ``` CSharp
    using Microsoft.AspNetCore.Mvc.Filters;
    using System;
    using System.Collections.Generic;
@@ -2574,7 +2574,7 @@ namespace DotNetCoreDemo.Utility
 
 2. 然后，替换 TypeFilter 和 ServiceFilter 的地位，将 `CustomActionFilterFactory` 特性用上。
 
-   ``` c#
+   ``` CSharp
    using DotNetCoreDemo.Utility;
    using DotNetCoreDemo.Utility.Filter;
    using Microsoft.AspNetCore.Mvc;
@@ -2625,7 +2625,7 @@ namespace DotNetCoreDemo.Utility
 
 3. 全局注册，对当前整个项目所有 Action生效。
 
-   ``` c#
+   ``` CSharp
    // Startup.cs - ConfigureServices
    #region 全局注册 Filter 
    
@@ -2649,7 +2649,7 @@ namespace DotNetCoreDemo.Utility
    6. 控制器  OnActionExecuted
    7. 全局 OnActionExecuted
 
-   ``` c#
+   ``` CSharp
    using Microsoft.AspNetCore.Mvc.Filters;
    using System;
    using System.Collections.Generic;
@@ -2710,7 +2710,7 @@ namespace DotNetCoreDemo.Utility
 
    如果想修改执行顺序
 
-   ``` c#
+   ``` CSharp
    using DotNetCoreDemo.Utility;
    using DotNetCoreDemo.Utility.Filter;
    using Microsoft.AspNetCore.Mvc;
@@ -2767,7 +2767,7 @@ namespace DotNetCoreDemo.Utility
 
 新建自定义ResourceFilter 扩展类
 
-``` c#
+``` CSharp
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using System;
@@ -2803,7 +2803,7 @@ namespace DotNetCoreDemo.Utility.Filter
 
 控制器应用
 
-``` c#
+``` CSharp
 [CustomResourceFilterAttribute]
 public IActionResult IndexTestResource()
 {
@@ -2815,7 +2815,7 @@ public IActionResult IndexTestResource()
 
 IndexTestResource.cshtml
 
-``` c#
+``` CSharp
 
 @{
     ViewData["Title"] = "IndexTestResource";
@@ -2838,7 +2838,7 @@ IndexTestResource.cshtml
 
 现在全局注册：` TestGlobalActionFilterAttribute` 
 
-``` c#
+``` CSharp
 #region 全局注册 Filter 
 services.AddMvc(option =>
                     {
@@ -2853,7 +2853,7 @@ services.AddMvc(option =>
 
 然后再去 ` TestGlobalActionFilterAttribute` 添加判断就OK了，不走这玩意`TestGlobalActionFilterAttribute`了。
 
-``` c#
+``` CSharp
 /// <summary>
 /// 用来注册全局的
 /// </summary>
@@ -2898,7 +2898,7 @@ public class TestGlobalActionFilterAttribute : ActionFilterAttribute
 
 ![image-20210905161745655](https://gitee.com/xlzf/blog-image/raw/master/image-20210905161745655.png)
 
-``` c#
+``` CSharp
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
@@ -2956,7 +2956,7 @@ namespace DotNetCoreDemo.Utility.Filter
 
 Controller 
 
-``` c#
+``` CSharp
 [TypeFilter(typeof(CustomExceptionFilterAttribute))] // 带参的就得这么标记哦
 public IActionResult IndexException()
 {
@@ -2972,7 +2972,7 @@ public IActionResult IndexException()
 
 Error.cshtml
 
-``` c#
+``` CSharp
 @{ 
     ViewData["Title"] = "Error";
     Exception exception = base.ViewData["Exception"] as Exception;
@@ -3002,7 +3002,7 @@ Error.cshtml
 
 1. Startup.cs 中的 Configure 方法中添加中间件，记得放前面点，放最后不管用。
 
-   ``` c#
+   ``` CSharp
    #region 捕捉异常补充
    
    app.UseStatusCodePagesWithReExecute("/Home/Error/{0}");//只要不是状态200的请求，都能进来
@@ -3045,7 +3045,7 @@ Error.cshtml
 1. IModeIMetadataProvider 是为了接受参数的
 2. 通过接收的参数在Controller 标记 `[TypeFilter(typeof(CustomResultFilterAttribute))] ` Action 方法中，在return View() 这个操作时，判断参数跳转不同的cshtml页。
 
-``` c#
+``` CSharp
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
@@ -3116,7 +3116,7 @@ namespace DotNetCoreDemo.Utility.Filter
 
 2. Startup.cs - ConfigureServices
 
-   ``` c#
+   ``` CSharp
    #region Auth-cookie-验证
    
    services.AddAuthentication("Cookies").AddCookie(option =>
@@ -3129,7 +3129,7 @@ namespace DotNetCoreDemo.Utility.Filter
 
 3. 正文
 
-   ``` c#
+   ``` CSharp
    using Microsoft.AspNetCore.Authentication;
    using Microsoft.AspNetCore.Authorization;
    using Microsoft.AspNetCore.Mvc;
@@ -3219,7 +3219,7 @@ namespace DotNetCoreDemo.Utility.Filter
 
 3. 注册
 
-   ``` c#
+   ``` CSharp
    using DotNetCoreDemo.AuthenticationCenter.Utility;
    using Microsoft.AspNetCore.Builder;
    using Microsoft.AspNetCore.Hosting;
@@ -3288,7 +3288,7 @@ namespace DotNetCoreDemo.Utility.Filter
 
 4. 入口
 
-   ``` c#
+   ``` CSharp
    using DotNetCoreDemo.AuthenticationCenter.Utility;
    using Microsoft.AspNetCore.Mvc;
    using Newtonsoft.Json;
@@ -3347,7 +3347,7 @@ namespace DotNetCoreDemo.Utility.Filter
 
 4. 抽象类
 
-   ``` c#
+   ``` CSharp
    public interface ICustomJWTService
    {
        string GetToken(string UserName, string password);
@@ -3356,7 +3356,7 @@ namespace DotNetCoreDemo.Utility.Filter
 
 5. HS JWT
 
-   ``` c#
+   ``` CSharp
    using Microsoft.Extensions.Options;
    using Microsoft.IdentityModel.Tokens;
    using System;
@@ -3413,7 +3413,7 @@ namespace DotNetCoreDemo.Utility.Filter
 
 6. RSA JWT
 
-   ``` c#
+   ``` CSharp
    using Microsoft.Extensions.Options;
    using Microsoft.IdentityModel.Tokens;
    using System;
@@ -3475,7 +3475,7 @@ namespace DotNetCoreDemo.Utility.Filter
 
 6. `JWTTokenOptions`
 
-   ```c#
+   ```CSharp
    using System;
    using System.Collections.Generic;
    using System.Linq;
@@ -3511,7 +3511,7 @@ namespace DotNetCoreDemo.Utility.Filter
 
 9. RSA Helper
 
-   ``` c#
+   ``` CSharp
    using Newtonsoft.Json;
    using System;
    using System.Collections.Generic;
@@ -3612,7 +3612,7 @@ namespace DotNetCoreDemo.Utility.Filter
 
 2. `Startup.cs`  中 `ConfigureServices` 方法，先把之前测试`Cookie`的方法注释掉。
 
-	``` c#
+	``` CSharp
 #region RSA
 {
     // 读取公钥
@@ -3660,7 +3660,7 @@ namespace DotNetCoreDemo.Utility.Filter
 
 3. 具体入口 `SixController` 特性 `[Authorize]`
 
-   ``` c#
+   ``` CSharp
    using Microsoft.AspNetCore.Authorization;
    using Microsoft.AspNetCore.Mvc;
    using System;
