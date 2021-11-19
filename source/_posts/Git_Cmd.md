@@ -50,35 +50,47 @@ and the repository exists
 
 解决：
 
-1. > ```shell
-   > ssh-keygen -t rsa -C "XXX@qq.com"
-   > ```
+1. 生成`SSHKey`
 
-2. > ```shell
-   > ssh -v git@github.com
-   > ```
+   ``` shell
+   ssh-keygen -t rsa -C "XXX@qq.com"
+   ```
 
-3. > ```shell
-   > ssh-agent -s
-   > ```
+2. debug
 
-4. > ```shell
-   > $ ssh-add ~/.ssh/id_rsa
-   > ```
+   ``` shell
+   ssh -v git@github.com
+   ```
 
-到这里如果遇到这个问题
+3. agent
 
-``` shell
-Could not open a connection to your authentication agent
-```
+   ``` shell
+   ssh-agent -s
+   ```
 
-5. > ```shell
-   > eval `ssh-agent -s`
-   > ```
+4. 将对应的`SSHKey`
 
-6. > ```shell
-   > ssh-add ~/.ssh/id_rsa
-   > ```
+   ``` shell
+   ssh-add ~/.ssh/id_rsa
+   ```
 
-自己遇到这个问题不是没生成`sshkey`,而是多个`sshkey` 没有对应好
+​		到这里如果遇到这个问题
+
+​		`Could not open a connection to your authentication agent`
+
+5. 啥意思我也不知道
+
+   ``` shell
+   eval `ssh-agent -s`
+   ```
+
+6. 重新指向
+
+   ``` shell
+   ssh-add ~/.ssh/id_rsa
+   ```
+
+​	自己遇到这个问题不是没生成`sshkey`,而是多个`sshkey` 没有对应好
+
+​	参考地址:[Git报错解决：git@gitee.com: Permission denied (publickey). - 尚码园 (shangmayuan.com)](https://www.shangmayuan.com/a/39405a3fee8f4ce0aca1bc39.html)
 
