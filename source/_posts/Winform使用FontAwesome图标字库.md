@@ -7,6 +7,8 @@ categories: C#
 index_img: https://gitee.com/xlzf/blog-image/raw/master/Gongsi/Csharp.jpeg
 ---
 
+# 方式1
+
 ## Nuget FontAwesomeNet
 
 ![image-20211119113023849](https://gitee.com/xlzf/blog-image/raw/master/Gongsi/image-20211119113023849.png)
@@ -63,3 +65,136 @@ public UC_UseFontAwesomeNet()
 
 https://www.bootcss.com/p/font-awesome/design.html  
 http://www.fontawesome.com.cn/cheatsheet/ 
+
+**需要将 &#x 替换成 \u 最终是\ue603**
+
+# 方式2
+
+## 添加按钮
+
+通方式1中一样，都用imageCollection 去指向
+
+![再添加一个按钮](https://gitee.com/xlzf/blog-image/raw/master/Gongsi/image-20211119161159228.png)
+
+## 代码
+
+``` csharp
+public UC_UseFontAwesomeNet()
+{
+    InitializeComponent();
+
+    // get FontAwesome icon class names(type is Dictionary<string, int>)
+    string[] names = FontAwesome.TypeDict.Select(v => v.Key).ToArray();
+
+    // use FontAwesome icon class name get FontAwesome icon Unicode value
+    int val = FontAwesome.TypeDict["fa-heart"];//0xf004
+
+    // defalut:
+    Bitmap bmp = FontAwesome.GetImage(val);//0xf004
+    Icon ico = FontAwesome.GetIcon(val);//0xf004
+
+    // custom:
+    FontAwesome.IconSize = 128;//change icon size
+    FontAwesome.ForeColer = Color.Purple;//change icon forecolor
+    Bitmap bmp1 = FontAwesome.GetImage(val);//0xf004
+    Icon ico1 = FontAwesome.GetIcon(val);//0xf004
+
+    imageCollection1.AddImage(bmp);
+    imageCollection1.AddImage(bmp1);
+
+    simpleButton1.ImageList = imageCollection1;
+    simpleButton2.ImageList = imageCollection1;
+    
+    simpleButton1.ImageIndex = 0;
+    simpleButton2.ImageIndex = 1;
+	// ***********************上面使用的是FontAwesomeNet****************
+	// ***********************simpleButton3 使用转换方法****************
+    //simpleButton3 
+    Image img = GetFontImage("\uf2cd", Color.Red, 20);
+    imageCollection1.AddImage(img);
+	simpleButton3.ImageList = imageCollection1;
+    simpleButton3.ImageIndex = 2;
+
+    // ***********************这里使用的是直接设置**********************************
+    //PrivateFontCollection pfc = new PrivateFontCollection();
+
+    //string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "font/fontawesome-webfont.ttf");
+
+    //pfc.AddFontFile(path);
+
+    //simpleButton3.Text = "\uf2cd";
+
+    //simpleButton3.Font = new Font(pfc.Families[0], 20);
+
+    //simpleButton3.ForeColor = Color.Red;
+
+}
+```
+
+帮助转换方法
+
+```csharp
+/// <summary>
+/// 字体图标生成图标
+/// </summary>
+/// <param name="fontIco"></param>
+/// <param name="color"></param>
+/// <param name="size"></param>
+/// <returns></returns>
+public static Image GetFontImage(string fontIco, Color color, int size)
+{
+    var bmp = new Bitmap(size, size);
+    var g = Graphics.FromImage(bmp);
+    g.TextRenderingHint = TextRenderingHint.AntiAliasGridFit;
+    g.InterpolationMode = InterpolationMode.HighQualityBilinear;
+    g.PixelOffsetMode = PixelOffsetMode.HighQuality;
+    g.SmoothingMode = SmoothingMode.HighQuality;
+
+    var ch = fontIco;
+    var font = GetAdjustedFont(g, ch, size, size, 4, true);
+    var stringSize = g.MeasureString(ch, font, size);
+    float w = stringSize.Width;
+    float h = stringSize.Height;
+    float left = (size - w) / 2;
+    float top = (size - h) / 2;
+    // Draw string to screen.
+    var brush = new SolidBrush(color);
+    g.DrawString(ch, font, brush, new PointF(left, top));
+    return bmp;
+}
+
+private static Font GetAdjustedFont(Graphics g, string graphicString, int containerWidth, int maxFontSize, int minFontSize, bool smallestOnFail)
+{
+    for (double adjustedSize = maxFontSize; adjustedSize >= minFontSize; adjustedSize = adjustedSize - 0.5)
+    {
+        Font testFont = GetIconFont((float)adjustedSize);
+        SizeF adjustedSizeNew = g.MeasureString(graphicString, testFont);
+        if (containerWidth > Convert.ToInt32(adjustedSizeNew.Width))
+        {
+            return testFont;
+        }
+    }
+    return GetIconFont(smallestOnFail ? minFontSize : maxFontSize);
+}
+
+/// <summary>
+/// 去找对应的字体
+/// </summary>
+/// <param name="size"></param>
+/// <returns></returns>
+private static Font GetIconFont(float size)
+{
+    PrivateFontCollection pfc = new PrivateFontCollection();
+	//确保此路径有 font/fontawesome-webfont.ttf 文件，debug - font -.ttf
+    string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "font/fontawesome-webfont.ttf");
+
+    pfc.AddFontFile(path);
+
+    return new Font(pfc.Families[0], size, GraphicsUnit.Point);
+}
+```
+
+## 结果
+
+![成果](https://gitee.com/xlzf/blog-image/raw/master/Gongsi/image-20211119161929305.png)
+
