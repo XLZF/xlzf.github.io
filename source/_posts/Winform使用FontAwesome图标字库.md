@@ -1,7 +1,7 @@
 ---
 title: Winform使用FontAwesome字体库
 date: 2021-11-19 14:25:09
-tags: [Winform, DevExpress]
+tags: [winform, DevExpress]
 excerpt: 之前做BS时候，前端框架中就有相关的支持库，现在做CS，也可以用字体库啦。
 categories: C#
 index_img: https://gitee.com/xlzf/blog-image/raw/master/Gongsi/Csharp.jpeg

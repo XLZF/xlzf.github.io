@@ -13,7 +13,9 @@ index_img: https://gitee.com/xlzf/blog-image/raw/master/Gongsi/Hexo_GitHub.jpeg
 
 ## 安装`cnpm`
 
+``` shell
 npm install -g cnpm --registry=https://registry.npm.taobao.org
+```
 
 ## 安装 `hexo-cli`
 

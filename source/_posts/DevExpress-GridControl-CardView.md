@@ -1,7 +1,7 @@
 ---
 title: DevExpress GridControl CardView
 date: 2021-11-06 15:47:02
-tags: [Winform, DevExpress]
+tags: [winform, DevExpress]
 excerpt: DevGridControl中使用CardView 
 categories: C#
 index_img: https://gitee.com/xlzf/blog-image/raw/master/DevExpress.jpeg

@@ -1,7 +1,7 @@
 ---
 title: Winform 动态设置控件属性
 date: 2021-11-01 21:25:09
-tags: [Winform, DevExpress]
+tags: [winform, DevExpress]
 excerpt: Winform 动态设置控件属性
 categories: C#
 index_img: https://gitee.com/xlzf/blog-image/raw/master/Gongsi/Csharp.jpeg
