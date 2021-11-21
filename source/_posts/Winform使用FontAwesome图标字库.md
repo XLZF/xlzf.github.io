@@ -198,3 +198,112 @@ private static Font GetIconFont(float size)
 
 ![成果](https://gitee.com/xlzf/blog-image/raw/master/Gongsi/image-20211119161929305.png)
 
+## 补充方法
+
+从资源文件中获取字体信息
+
+``` csharp
+/// <summary>
+/// 字体图标生成图标
+/// </summary>
+/// <param name="fontIco">图标编码</param>
+/// <param name="color">颜色</param>
+/// <param name="size">大小</param>
+/// <returns></returns>
+public static Image GetFontImage(string fontIco, Color color, int size)
+{
+    Bitmap bmp = new Bitmap(size, size);
+    Graphics g = Graphics.FromImage(bmp);
+    g.TextRenderingHint = TextRenderingHint.AntiAliasGridFit;
+    g.InterpolationMode = InterpolationMode.HighQualityBilinear;
+    g.PixelOffsetMode = PixelOffsetMode.HighQuality;
+    g.SmoothingMode = SmoothingMode.HighQuality;
+
+    string ch = fontIco;
+    Font font = GetAdjustedFont(g, ch, size, size, 4, true);
+    SizeF stringSize = g.MeasureString(ch, font, size);
+    float w = stringSize.Width;
+    float h = stringSize.Height;
+    float left = (size - w) / 2;
+    float top = (size - h) / 2;
+    // Draw string to screen.
+    SolidBrush brush = new SolidBrush(color);
+    g.DrawString(ch, font, brush, new PointF(left, top));
+    return bmp;
+}
+
+/// <summary>
+/// 找字体图片
+/// </summary>
+/// <param name="g">图片矢量</param>
+/// <param name="graphicString">图标编码</param>
+/// <param name="containerWidth">宽</param>
+/// <param name="maxFontSize">最大Size</param>
+/// <param name="minFontSize">最小Size</param>
+/// <param name="smallestOnFail">找不到最小找最大</param>
+/// <returns></returns>
+private static Font GetAdjustedFont(Graphics g, string graphicString, int containerWidth, int maxFontSize, int minFontSize, bool smallestOnFail)
+{
+    for (double adjustedSize = maxFontSize; adjustedSize >= minFontSize; adjustedSize = adjustedSize - 0.5)
+    {
+        Font testFont = GetIconFontFromResource((float)adjustedSize);
+        SizeF adjustedSizeNew = g.MeasureString(graphicString, testFont);
+        if (containerWidth > Convert.ToInt32(adjustedSizeNew.Width))
+        {
+            return testFont;
+        }
+    }
+    return GetIconFontFromResource(smallestOnFail ? minFontSize : maxFontSize);
+}
+
+/// <summary>
+/// 去文件夹中去找字体文件
+/// </summary>
+/// <param name="size"></param>
+/// <returns></returns>
+private static Font GetIconFontFromFilePath(float size)
+{
+    PrivateFontCollection pfc = new PrivateFontCollection();
+
+    string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "font/fontawesome-webfont.ttf");
+
+    pfc.AddFontFile(path);
+
+    return new Font(pfc.Families[0], size, GraphicsUnit.Point);
+}
+
+/// <summary>
+/// 去项目资源中去找字体文件
+/// 记录坑，fontawesome-webfont.ttf 加到资源中名称变成 fontawesome_webfont里
+/// </summary>
+/// <param name="size"></param>
+/// <returns></returns>
+private static Font GetIconFontFromResource(float size)
+{
+    PrivateFontCollection pfc = new PrivateFontCollection();
+
+    Assembly myAssem = Assembly.GetEntryAssembly();
+
+    ResourceManager rm = new ResourceManager(myAssem.GetName().Name.ToString() + ".Properties.Resources", myAssem);
+
+    byte[] rgbyt = (byte[])rm.GetObject("fontawesome_webfont");
+
+    IntPtr pbyt = Marshal.AllocCoTaskMem(rgbyt.Length);
+
+    if (null != pbyt)
+    {
+        Marshal.Copy(rgbyt, 0, pbyt, rgbyt.Length);
+
+        pfc.AddMemoryFont(pbyt, rgbyt.Length);
+
+        Marshal.FreeCoTaskMem(pbyt);
+
+        return new Font(pfc.Families[0], size, GraphicsUnit.Point);
+    }
+    else
+    {
+        return null;
+    }
+}
+```
+
