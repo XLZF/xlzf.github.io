@@ -5,12 +5,14 @@ date: 2021-11-28 22:31:43
 tags: [Docker, MSSQL]
 excerpt: windows docker安装MSSQL
 categories: Mssql
-index_img: https://gitee.com/xlzf/blog-image/raw/master/Home/20211128232837.jpeg
+index_img: https://gitee.com/xlzf/blog-image/raw/master/Home/20211201224941.jpeg
 ---
 
 # Docker for SqlServer
 
 ![MMSQL](https://gitee.com/xlzf/blog-image/raw/master/Home/MSSQL.jpeg)
+
+![](https://gitee.com/xlzf/blog-image/raw/master/Home/20211201224941.jpeg)
 
 ## 下载镜像
 
