@@ -163,6 +163,8 @@ docker
 
 `docker rm -f mysql1`
 
+`docker image rm -f 27600aa3d7f1`
+
 ### 重命名镜像
 
 `docker tag [镜像id] [新镜像名称]:[新镜像标签]`

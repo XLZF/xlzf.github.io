@@ -17,10 +17,10 @@ index_img: https://gitee.com/xlzf/blog-image/raw/master/Home/20211201224941.jpeg
 需要大概2G的空间
 
 ```shell
-docker pull microsoft/mssql-server-linux
+docker pull mcr.microsoft.com/mssql/server:2017-latest
 ```
 
-或者阿里云的
+*或者阿里云的*
 
 ``` shell
 docker pull registry.cn-hangzhou.aliyuncs.com/newbe36524/server:2019-latest
@@ -34,36 +34,8 @@ D:\docker\SqlServer\data
 
 ## 运行
 
-aliyun
-
 ``` shell
-docker run --name mssql 
-　　-e "ACCEPT_EULA=Y"
-　　-e "MSSQL_PID=PMBDC-FXVM3-T777P-N4FY8-PKFF4"
-　　-e "SA_PASSWORD=<SQLOnLinux123>"
-　　-v  D:\docker\SqlServer\data:/mnt/mssql/data 
-　　-p 1533:1433
-　　-d registry.cn-hangzhou.aliyuncs.com/newbe36524/server:2019-latest
-```
-
-``` shell
-docker run --name mssql -e "ACCEPT_EULA=Y" -e "MSSQL_PID=PMBDC-FXVM3-T777P-N4FY8-PKFF4" -e "SA_PASSWORD=<SQLOnLinux123>" -v  D:\docker\SqlServer\data:/mnt/mssql/data -p 1533:1433  -d registry.cn-hangzhou.aliyuncs.com/newbe36524/server:2019-latest
-```
-
-other
-
-``` shell
-docker run --name MSSQL_1433 
-	-m 512m 
-	-e "ACCEPT_EULA=Y"
-	-e "SA_PASSWORD=MyMMSQL1433..." 
-	-v  D:\docker\SqlServer\data:/mnt/mssql/data 
-	-p 1433:1433 
-	-d microsoft/mssql-server-linux
-```
-
-``` shell
-docker run --name MSSQL_1433 -m 512m -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=MyMMSQL1433..." -v  D:\docker\SqlServer\data:/mnt/mssql/data -p 1433:1433 -d microsoft/mssql-server-linux
+docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=MyMMSQL1433..."  -p 1433:1433 -v D:\docker\SqlServer\data:/var/opt/mssql/data --name mssql -d mcr.microsoft.com/mssql/server:2017-latest
 ```
 
 注意：
@@ -77,6 +49,8 @@ Server can start. The license terms for this product can be downloaded from
 
 ...
 ```
+
+![映射完毕](https://gitee.com/xlzf/blog-image/raw/master/Home/20211205003335.png)
 
 然后，连接成功
 
