@@ -18,7 +18,7 @@ index_img: https://gitee.com/xlzf/blog-image/raw/master/Home/20211201225103.jpeg
 
 ## 持久化
 
-`docker run --name mongo -v D:\docker\MongoDB\data:/data/db --rm -d -p 27017:27017 mongo`
+`docker run --name mongo -v D:\docker\MongoDB\data:/data/db -d -p 27017:27017 mongo`
 
 `D:\docker\MongoDB\data`为本地目录，作为数据持久化文件夹。
 
