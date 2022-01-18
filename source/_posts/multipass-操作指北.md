@@ -16,6 +16,10 @@ index_img: https://gitee.com/xlzf/blog-image/raw/master/Gongsi/image-20220113152
 
 由于学习需要操作`Docker`，有之前使用的`VM14PRO`+`CentOS7`+`Ubuntu`,还有就是`docker desktop for windows`,现在发现`multipass` ，忍不住想试试。
 
+本篇其实是想以虚拟机子系统安装Docker，Docker中安装Consul，模拟Consul集群，客户端进行访问。
+
+![image-20220118135857819](https://gitee.com/xlzf/blog-image/raw/master/Gongsi/image-20220118135857819.png)
+
 ## 下载安装
 
 * [下载]([Multipass orchestrates virtual Ubuntu instances](https://multipass.run/))
@@ -158,6 +162,101 @@ sudo apt-get update
 
 ``` shell
 sudo apt install net-tools
+```
+
+### 安装Docker
+
+#### 使用 Docker 仓库进行安装
+
+1. 安装 apt 依赖包
+
+```shell
+$ sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg-agent \
+    software-properties-common
+```
+
+2. 添加 Docker 的官方 GPG 密钥：
+
+```shell
+$ curl -fsSL https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/gpg | sudo apt-key add -
+```
+
+3. 验证您现在是否拥有带有指纹的密钥
+
+```shell
+$ sudo apt-key fingerprint 0EBFCD88
+   
+pub   rsa4096 2017-02-22 [SCEA]
+      9DC8 5822 9FC7 DD38 854A  E2D8 8D81 803C 0EBF CD88
+uid           [ unknown] Docker Release (CE deb) <docker@docker.com>
+sub   rsa4096 2017-02-22 [S]
+```
+
+4. 使用以下指令设置稳定版仓库
+
+``` shell
+$ sudo add-apt-repository \
+   "deb [arch=amd64] https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/ \
+  $(lsb_release -cs) \
+  stable"
+```
+
+#### 安装 Docker Engine-Community
+
+1. 更新 apt 包索引。
+
+``` shell
+sudo apt-get update
+```
+
+2. 安装最新版本的 Docker Engine-Community 和 containerd
+
+```shell
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+```
+
+3. 测试Docker
+
+``` shell
+sudo docker run hello-world
+```
+
+#### 开机自启容器
+
+``` shell
+systemctl enable docker.service
+```
+
+#### 获取Consul
+
+``` shell
+docker pull consull
+```
+
+#### 运行Consul
+
+``` shell
+docker run --publish 8600:8600 --publish 8500:8500 --publish 8300:8300 --publish 8301:8301 --publish 8302:8302 --name consul-01 --restart always \
+--volume /root/docker/consulone/data:/consul/data \
+--volume /root/docker/consulone/config:/consul/config consul:latest agent --server --bootstrap-expect=1 --ui --bind=0.0.0.0 --client=0.0.0.0 
+
+docker run --publish 8501:8500 --name consul-02 --restart always \
+--volume /root/docker/consultwo/data:/consul/data \
+--volume /root/docker/consultwo/config:/consul/config consul:latest agent --server --ui --bind=0.0.0.0 --client=0.0.0.0 --join 172.17.0.2
+
+docker run --publish 8502:8500 --name consul-03 --restart always \
+--volume /root/docker/consulthree/data:/consul/data \
+--volume /root/docker/consulthree/config:/consul/config consul:latest agent --server --ui --bind=0.0.0.0 --client=0.0.0.0 --join 172.17.0.2
+
+# http://*:8500  172.17.0.2
+
+# http://*:8501  172.17.0.3
+
+# http://*:8502  172.17.0.4
 ```
 
 ## 开启SSH登录
@@ -341,3 +440,37 @@ sudo netplan apply
 ### 现在
 
 固定IP算是设置完毕了，超简单.
+
+## 安装 FTP
+
+``` shell
+sudo apt-get install vsftpd
+# 设置开机启动并启动ftp服务
+systemctl enable vsftpd
+systemctl start vsftpd
+#查看其运行状态
+systemctl  status vsftpd
+#重启服务
+systemctl  restart vsftpd
+```
+
+``` shell
+#修改配置
+sudo /etc/vsftpd.conf
+```
+
+``` shell
+#存在的修改成酱紫：
+listen=NO # 阻止 vsftpd 在独立模式下运行
+listen_ipv6=YES # vsftpd 将监听 ipv6 而不是 IPv4，你可以根据你的网络情况设置
+anonymous_enable=NO # 关闭匿名登录
+local_enable=YES # 允许本地用户登录
+write_enable=YES # 启用可以修改文件的 FTP 命令
+local_umask=022 # 本地用户创建文件的 umask 值
+dirmessage_enable=YES # 当用户第一次进入新目录时显示提示消息
+xferlog_enable=YES # 一个存有详细的上传和下载信息的日志文件
+connect_from_port_20=YES # 在服务器上针对 PORT 类型的连接使用端口 20（FTP 数据）
+xferlog_std_format=YES # 保持标准日志文件格式
+pam_service_name=vsftpd # vsftpd 将使用的 PAM 验证设备的名字
+```
+
