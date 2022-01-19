@@ -1,10 +1,10 @@
 ---
 title: net core web + Docker + Nginx
 date: 2022-01-19 14:23:15
-tags: [Nginx, netcore, Docker]
+tags: [Nginx, .net core, Docker]
 excerpt: 在Docker中通过Nginx反向代理访问.Net Core web 应用
 categories: Nginx
-index_img: https://gitee.com/xlzf/blog-image/raw/master/Home/20220101213220.jpeg
+index_img: https://gitee.com/xlzf/blog-image/raw/master/Gongsi/image-20220119165020105.png
 ---
 
 # .NetCore Docker Nginx
