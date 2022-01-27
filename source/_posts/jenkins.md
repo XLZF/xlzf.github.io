@@ -4,10 +4,8 @@ date: 2022-01-20 22:47:51
 tags: [jenkins, Docker, GitLab, .net core]
 excerpt: Docker+GitLab+Jenkins 自动部署 DotNet Core Application
 categories: MicroService
-index_img: https://gitee.com/xlzf/blog-image/raw/master/Home/image-20220120225149050.png
+index_img: https://gitee.com/xlzf/blog-image/raw/master/Gongsi/4d27afc3178eb6444ef5cd924bf3165a.jpeg
 ---
-
-![Jenkins](https://gitee.com/xlzf/blog-image/raw/master/Home/image-20220120225149050.png)
 
 ## 前言
 
@@ -20,6 +18,8 @@ index_img: https://gitee.com/xlzf/blog-image/raw/master/Home/image-2022012022514
 ![主要容器](https://gitee.com/xlzf/blog-image/raw/master/Home/image-20220120212431735.png)
 
 ## GitLab
+
+![Gitlab](https://gitee.com/xlzf/blog-image/raw/master/Gongsi/cd796745db80288a131fb24d57d12880.jpeg)
 
 ### 镜像下载
 
@@ -54,19 +54,76 @@ ssh-keygen -t rsa -C 'xxx@xxx.com'
 
 ## Jenkins
 
-### 镜像下载
+![Jenkins](https://gitee.com/xlzf/blog-image/raw/master/Home/image-20220120225149050.png)
+
+### Windows 安装
+
+#### JDK
+
+安装 JDK 1.8 `jdk-8u321-windows-x64.exe` 
+
+安装完成之后设置环境变量
+
+#### 系统变量
+
+![image-20220125134818266](https://gitee.com/xlzf/blog-image/raw/master/Gongsi/image-20220125134818266.png)
+
+![image-20220125134838645](https://gitee.com/xlzf/blog-image/raw/master/Gongsi/image-20220125134838645.png)
+
+``` 
+JAVA_HOME
+C:\Program Files\Java\jdk1.8.0_321
+
+CLASSPATH
+%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;
+```
+
+#### 用户变量
+
+![image-20220125135007369](https://gitee.com/xlzf/blog-image/raw/master/Gongsi/image-20220125135007369.png)
+
+![image-20220125135030637](https://gitee.com/xlzf/blog-image/raw/master/Gongsi/image-20220125135030637.png)
+
+``` 
+Path
+%JAVA_HOME%\bin\
+%JAVA_HOME%\jre\bin\
+```
+
+#### 下载 war
+
+`jenkins.war`:下载 https://mirrors.huaweicloud.com/jenkins/war/2.269/ 
+
+#### 运行
+
+![image-20220125135345995](https://gitee.com/xlzf/blog-image/raw/master/Gongsi/image-20220125135345995.png)
+
+``` bash
+cd D:\jenkins
+java -jar jenkins.war
+```
+
+![image-20220125135452362](https://gitee.com/xlzf/blog-image/raw/master/Gongsi/image-20220125135452362.png)
+
+![image-20220125135709149](https://gitee.com/xlzf/blog-image/raw/master/Gongsi/image-20220125135709149.png)
+
+![image-20220125135728614](https://gitee.com/xlzf/blog-image/raw/master/Gongsi/image-20220125135728614.png)
+
+### Linux 安装
+
+#### 镜像下载
 
 ``` shell
 docker pull jenkins/jenkins
 ```
 
-### 运行镜像
+#### 运行镜像
 
 ``` shell
 docker run -u root -d -p 8080:8080 -p 50000:50000 -v /root/jenkins_data/DockerData:/var/jenkins_home -v /root/jenkins_data/docker.sock:/var/run/docker.sock jenkins/jenkins --restart always
 ```
 
-### 问题1
+#### 问题1
 
 >  Please wait while Jenkins is getting ready to work ...
 
@@ -79,7 +136,7 @@ http://updates.jenkins-io/update-center.json
 http://mirror.xmission.com/jenkins/updates/update-center.json
 ```
 
-### 问题2
+#### 问题2
 
 > 容器内执行`apt-get update` 总超时，需要添加源
 
@@ -90,7 +147,7 @@ docker cp elegant_neumann:"/etc/apt/sources.list" /root/jenkins_config/
 docker cp "/root/jenkins_config/sources.list" elegant_neumann:"/etc/apt/sources.list"
 ```
 
-### 问题3
+#### 问题3
 
 > 更新源后会报错：`NO_PUBKEY 40976EAF437D05B5 NO_PUBKEY 3B4FE6ACC0B21F32`
 
@@ -100,7 +157,7 @@ apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 40976EAF437D05B5 3B4FE6
 
 然后添加ping `apt install iputils-ping`
 
-### 问题4
+#### 问题4
 
 > 因为要在`Jenkins`中运行 `DotNet 5.0 Web`，所以需要在`Jenkins`容器内有 `dotnet 5.0 SDK`,这个问题会体现在构建的时候。
 >
@@ -146,7 +203,7 @@ docker build -t jenkins:dotnet .
 很简单的将包含dotnet环境的jenkins安装好了
 ```
 
-### 问题5
+#### 问题5
 
 > 容器内想安装别的就会用到 wget
 
@@ -156,7 +213,7 @@ docker build -t jenkins:dotnet .
  wget --version  
 ```
 
-### 问题6
+#### 问题6
 
 > 构建携带dotnet 5环境的Jenkins镜像
 
@@ -186,6 +243,8 @@ USER jenkins
 ```
 
 ## Registry
+
+![image-20220127143255440](https://gitee.com/xlzf/blog-image/raw/master/Gongsi/image-20220127143255440.png)
 
 私有仓库服务
 
