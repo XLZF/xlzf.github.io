@@ -444,7 +444,7 @@ footer:
 index:
   # 首页 Banner 头图，可以是相对路径或绝对路径，以下相同
   # Path of Banner image, can be a relative path or an absolute path, the same on other pages
-  banner_img: https://gitee.com/xlzf/blog-image/raw/master/3.png
+  banner_img: https://gitee.com/xlzf/blog-image/raw/master/Gongsi/b9e4cec47a5981199a86ee40580860f8.jpeg #https://gitee.com/xlzf/blog-image/raw/master/3.png
 
   # 头图高度，屏幕百分比
   # Height ratio of banner image
