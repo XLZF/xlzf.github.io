@@ -242,6 +242,10 @@ RUN usermod -a -G root jenkins
 USER jenkins
 ```
 
+``` shell
+docker run --name dotnetjenkins  --restart always -u root -d -p 8080:8080 -p 50000:50000 -v /root/jenkins_data/DockerData:/var/jenkins_home -v /root/jenkins_data/docker.sock:/var/run/docker.sock jenkins:dotnet
+```
+
 ## Registry
 
 ![image-20220127143255440](https://gitee.com/xlzf/blog-image/raw/master/Gongsi/image-20220127143255440.png)
