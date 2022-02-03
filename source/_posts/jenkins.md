@@ -336,3 +336,50 @@ root@microservicevm:/# curl -XGET http://192.168.137.5:5001/v2/_catalog
 {"repositories":["hello-world"]}
 ```
 
+## Harbor
+
+
+
+## Net 5 + GitLab + Jenkins
+
+### Net 5
+
+根据此处的[Dockerfile](#问题6)，创建携带.net 5.0 环境的`Jenkins`容器
+
+![创建](https://gitee.com/xlzf/blog-image/raw/master/Home/image-20220203204439495.png)
+
+![配置](https://gitee.com/xlzf/blog-image/raw/master/Home/image-20220203204544944.png)
+
+![net5.0](https://gitee.com/xlzf/blog-image/raw/master/Home/image-20220203204632628.png)
+
+![测试代码](https://gitee.com/xlzf/blog-image/raw/master/Home/image-20220203204732348.png)
+
+
+
+### Jenkins
+
+![系统管理-系统配置](https://gitee.com/xlzf/blog-image/raw/master/Home/image-20220203211820516.png)
+
+![配置GitLab账号信息](https://gitee.com/xlzf/blog-image/raw/master/Home/image-20220203211538155.png)
+
+![源码管理](https://gitee.com/xlzf/blog-image/raw/master/Home/image-20220203205927175.png)
+
+![构建触发器](https://gitee.com/xlzf/blog-image/raw/master/Home/image-20220203210045375.png)
+
+![点击高级获取Secret token](https://gitee.com/xlzf/blog-image/raw/master/Home/image-20220203210232801.png)
+
+![构建](https://gitee.com/xlzf/blog-image/raw/master/Home/image-20220203210446489.png)
+
+![设置凭证](https://gitee.com/xlzf/blog-image/raw/master/Home/image-20220203212831776.png)
+
+### GitLab
+
+![将测试代码上传到Gitlab](https://gitee.com/xlzf/blog-image/raw/master/Home/image-20220203204909533.png)
+
+![webhooks 设置网址和令牌](https://gitee.com/xlzf/blog-image/raw/master/Home/image-20220203211043489.png)
+
+### 测试
+
+![GitPush-构建](https://gitee.com/xlzf/blog-image/raw/master/Home/image-20220203213909943.png)
+
+![控制台信息](https://gitee.com/xlzf/blog-image/raw/master/Home/image-20220203230849200.png)
