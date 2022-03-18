@@ -5,8 +5,10 @@ tags: [Program]
 keywords: 工具
 excerpt: Office Tools 安装部署 老三件和Visio
 categories: StorageBox
-index_img: https://gitee.com/xlzf/blog-image/raw/master/Home/image-20220312000940784.png
+index_img: https://gitee.com/xlzf/blog-image/raw/master/Home/Snipaste_2022-03-18_21-16-56.png
 ---
+
+![](https://gitee.com/xlzf/blog-image/raw/master/Home/Snipaste_2022-03-18_21-16-56.png)
 
 # Office Tools
 
