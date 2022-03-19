@@ -4,12 +4,12 @@ date: 2022-01-19 16:46:15
 tags: [Nginx, .net core, Docker]
 excerpt: 通过Docker Compose 启动.net core web 应用程序并且使用Nginx反向代理
 categories: Nginx
-index_img: https://gitee.com/xlzf/blog-image/raw/master/Gongsi/image-20220119155234027.png
+index_img: https://gitee.com/MyHexo/blog-image/raw/master/Gongsi/image-20220119155234027.png
 ---
 
 # Docker Compose
 
-![image-20220119155234027](https://gitee.com/xlzf/blog-image/raw/master/Gongsi/image-20220119155234027.png)
+![image-20220119155234027](https://gitee.com/MyHexo/blog-image/raw/master/Gongsi/image-20220119155234027.png)
 
 ## why docker compose
 
@@ -77,13 +77,13 @@ docker-compose ps
 
 通过`docker-compose` 启动 web 应用，同时使用`Nginx`反向代理。
 
-![DockerCompose](https://gitee.com/xlzf/blog-image/raw/master/Gongsi/image-20220119161032986.png)
+![DockerCompose](https://gitee.com/MyHexo/blog-image/raw/master/Gongsi/image-20220119161032986.png)
 
 ### 开始
 
 1. 将发布好的web应用文件放到服务器上。
 
-![服务器web应用位置](https://gitee.com/xlzf/blog-image/raw/master/Gongsi/image-20220119161132040.png)
+![服务器web应用位置](https://gitee.com/MyHexo/blog-image/raw/master/Gongsi/image-20220119161132040.png)
 
 2. 在服务器应用文件夹位置添加俩文件：`docker-compose.yml` 和 `proxy.conf`
 
@@ -91,7 +91,7 @@ docker-compose ps
 
    `proxy.conf` 是要给`nginx`挂载的配置文件，回头可以放别的地方。
 
-![添加配置文件](https://gitee.com/xlzf/blog-image/raw/master/Gongsi/image-20220119161212330.png)
+![添加配置文件](https://gitee.com/MyHexo/blog-image/raw/master/Gongsi/image-20220119161212330.png)
 
 3. `docker-compose.yml`
 
@@ -210,7 +210,7 @@ webdemo.compose  | info: Microsoft.Hosting.Lifetime[0]
 webdemo.compose  |       Content root path: /app
 ```
 
-![执行日志](https://gitee.com/xlzf/blog-image/raw/master/Gongsi/image-20220119162936354.png)
+![执行日志](https://gitee.com/MyHexo/blog-image/raw/master/Gongsi/image-20220119162936354.png)
 
 #### 容器列表
 
@@ -223,11 +223,11 @@ CONTAINER ID   IMAGE             COMMAND                  CREATED              S
 686adcb2655a   webdemo_webdemo   "dotnet WebDemo.dll"     About a minute ago   Up About a minute   0.0.0.0:8081->80/tcp, :::8081->80/tcp   webdemo.compose
 ```
 
-![容器列表](https://gitee.com/xlzf/blog-image/raw/master/Gongsi/image-20220119163032471.png)
+![容器列表](https://gitee.com/MyHexo/blog-image/raw/master/Gongsi/image-20220119163032471.png)
 
 #### 访问
 
-![运行结果](https://gitee.com/xlzf/blog-image/raw/master/Gongsi/image-20220119163327957.png)
+![运行结果](https://gitee.com/MyHexo/blog-image/raw/master/Gongsi/image-20220119163327957.png)
 
 ## 最后
 

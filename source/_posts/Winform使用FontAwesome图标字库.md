@@ -4,20 +4,20 @@ date: 2021-11-19 14:25:09
 tags: [winform, DevExpress]
 excerpt: 之前做BS时候，前端框架中就有相关的支持库，现在做CS，也可以用字体库啦。
 categories: C#
-index_img: https://gitee.com/xlzf/blog-image/raw/master/Gongsi/Csharp.jpeg
+index_img: https://gitee.com/MyHexo/blog-image/raw/master/Gongsi/Csharp.jpeg
 ---
 
 # 方式1
 
 ## Nuget FontAwesomeNet
 
-![image-20211119113023849](https://gitee.com/xlzf/blog-image/raw/master/Gongsi/image-20211119113023849.png)
+![image-20211119113023849](https://gitee.com/MyHexo/blog-image/raw/master/Gongsi/image-20211119113023849.png)
 
 ## 界面
 
 放 Dev的俩 simpleButton 和一个 imageCollection
 
-![image-20211119113135384](https://gitee.com/xlzf/blog-image/raw/master/Gongsi/image-20211119113135384.png)
+![image-20211119113135384](https://gitee.com/MyHexo/blog-image/raw/master/Gongsi/image-20211119113135384.png)
 
 ## 代码
 
@@ -57,7 +57,7 @@ public UC_UseFontAwesomeNet()
 
 ## 结果
 
-![成果](https://gitee.com/xlzf/blog-image/raw/master/Gongsi/image-20211119113430451.png)
+![成果](https://gitee.com/MyHexo/blog-image/raw/master/Gongsi/image-20211119113430451.png)
 
 ## 查看图标编码
 
@@ -74,7 +74,7 @@ http://www.fontawesome.com.cn/cheatsheet/
 
 通方式1中一样，都用imageCollection 去指向
 
-![再添加一个按钮](https://gitee.com/xlzf/blog-image/raw/master/Gongsi/image-20211119161159228.png)
+![再添加一个按钮](https://gitee.com/MyHexo/blog-image/raw/master/Gongsi/image-20211119161159228.png)
 
 ## 代码
 
@@ -247,7 +247,7 @@ public class FontAwesomeHelper
 
 ## 结果
 
-![成果](https://gitee.com/xlzf/blog-image/raw/master/Gongsi/image-20211119161929305.png)
+![成果](https://gitee.com/MyHexo/blog-image/raw/master/Gongsi/image-20211119161929305.png)
 
 
 

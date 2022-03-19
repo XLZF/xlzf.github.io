@@ -5,12 +5,12 @@ date: 2021-12-01 22:34:32
 tags: [Docker, MongoDB]
 excerpt: windows docker安装MongoDB
 categories: MongoDB
-index_img: https://gitee.com/xlzf/blog-image/raw/master/Home/20211201225103.jpeg
+index_img: https://gitee.com/MyHexo/blog-image/raw/master/Home/20211201225103.jpeg
 ---
 
 # Docker for MongoDB
 
-![](https://gitee.com/xlzf/blog-image/raw/master/Home/20211201225103.jpeg)
+![](https://gitee.com/MyHexo/blog-image/raw/master/Home/20211201225103.jpeg)
 
 ## 安装镜像
 
@@ -42,4 +42,4 @@ docker exec -it [镜像ID]/bin/sh
 
 ## 登录测试
 
-![MongoDB](https://gitee.com/xlzf/blog-image/raw/master/Home/20211201223653.png)
+![MongoDB](https://gitee.com/MyHexo/blog-image/raw/master/Home/20211201223653.png)

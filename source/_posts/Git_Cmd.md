@@ -4,7 +4,7 @@ date: 2021-11-19 14:25:09
 tags: [Git]
 excerpt: 本文章用来记录Git常用命令和坑
 categories: StorageBox
-index_img: https://gitee.com/xlzf/blog-image/raw/master/Gongsi/0026119fded9dc031f1cdc028cd5b535.jpeg
+index_img: https://gitee.com/MyHexo/blog-image/raw/master/Gongsi/0026119fded9dc031f1cdc028cd5b535.jpeg
 ---
 
 ## 配置用户名及邮箱

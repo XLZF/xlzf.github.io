@@ -4,7 +4,7 @@ date: 2021-10-31 19:24:17
 tags: [.net core, IOC, JWT]
 excerpt: 把之前学习.net core的笔记同步到此博客上，慢慢完善吧。
 categories: C#
-index_img: https://gitee.com/xlzf/blog-image/raw/master/netcore.jpg
+index_img: https://gitee.com/MyHexo/blog-image/raw/master/netcore.jpg
 ---
 
 # Note Dot Net Core 
@@ -19,9 +19,9 @@ index_img: https://gitee.com/xlzf/blog-image/raw/master/netcore.jpg
 
 生成文件
 
-![image-20210817220618980](https://gitee.com/xlzf/blog-image/raw/master/image-20210817220618980.png)
+![image-20210817220618980](https://gitee.com/MyHexo/blog-image/raw/master/image-20210817220618980.png)
 
-![image-20210817220659934](https://gitee.com/xlzf/blog-image/raw/master/image-20210817220659934.png)
+![image-20210817220659934](https://gitee.com/MyHexo/blog-image/raw/master/image-20210817220659934.png)
 
 如果把`web.config`文件复制到生成文件夹中，照样可以通过`IIS`发布
 
@@ -29,31 +29,31 @@ index_img: https://gitee.com/xlzf/blog-image/raw/master/netcore.jpg
 
 当`IIS` 安装完毕之后，该设置的都设置了，但是访问直接
 
-![image-20210817221100914](https://gitee.com/xlzf/blog-image/raw/master/image-20210817221100914.png)
+![image-20210817221100914](https://gitee.com/MyHexo/blog-image/raw/master/image-20210817221100914.png)
 
 如果之前玩过`IIS`的话，就会有点懵圈，我之前玩就是这么玩的，为毛现在不行了，答案是，这样真不行。
 
 首先，需要访问 [.NET Downloads (Linux, macOS, and Windows) (microsoft.com)](https://dotnet.microsoft.com/download/dotnet)
 
-![image-20210817221438691](https://gitee.com/xlzf/blog-image/raw/master/image-20210817221438691.png)
+![image-20210817221438691](https://gitee.com/MyHexo/blog-image/raw/master/image-20210817221438691.png)
 
 根据自己的环境下载对应的Host 和 SDK
 
-![image-20210817221551567](https://gitee.com/xlzf/blog-image/raw/master/image-20210817221551567.png)
+![image-20210817221551567](https://gitee.com/MyHexo/blog-image/raw/master/image-20210817221551567.png)
 
 上面这安装完毕后，重启`IIS`服务
 
-![image-20210817221946942](https://gitee.com/xlzf/blog-image/raw/master/image-20210817221946942.png)
+![image-20210817221946942](https://gitee.com/MyHexo/blog-image/raw/master/image-20210817221946942.png)
 
-![image-20210817222017718](https://gitee.com/xlzf/blog-image/raw/master/image-20210817222017718.png)
+![image-20210817222017718](https://gitee.com/MyHexo/blog-image/raw/master/image-20210817222017718.png)
 
-![image-20210817222055216](https://gitee.com/xlzf/blog-image/raw/master/image-20210817222055216.png)
+![image-20210817222055216](https://gitee.com/MyHexo/blog-image/raw/master/image-20210817222055216.png)
 
 在模块中多俩这玩意，没有这俩玩意的，再找资源下载，都在刚才那个网址里，然 就没有那个500的毛病了。
 
 其实最主要的是依赖 `AspNetCoreModuleV2`,具体可以看问题1里说的那个`web.config`中。
 
-![image-20210817222624896](https://gitee.com/xlzf/blog-image/raw/master/image-20210817222624896.png)
+![image-20210817222624896](https://gitee.com/MyHexo/blog-image/raw/master/image-20210817222624896.png)
 
 你悟了吗？
 
@@ -65,21 +65,21 @@ index_img: https://gitee.com/xlzf/blog-image/raw/master/netcore.jpg
    dotnet DotNetCoreDemo.dll
    ```
 
-   ![image-20210817224246940](https://gitee.com/xlzf/blog-image/raw/master/image-20210817224246940.png)
+   ![image-20210817224246940](https://gitee.com/MyHexo/blog-image/raw/master/image-20210817224246940.png)
 
    ``` shell
    dotnet DotNetCoreDemo.dll --urls "http://*:8888"
    ```
 
-   ![image-20210817224330676](https://gitee.com/xlzf/blog-image/raw/master/image-20210817224330676.png)
+   ![image-20210817224330676](https://gitee.com/MyHexo/blog-image/raw/master/image-20210817224330676.png)
 
-![image-20210817224503747](https://gitee.com/xlzf/blog-image/raw/master/image-20210817224503747.png)
+![image-20210817224503747](https://gitee.com/MyHexo/blog-image/raw/master/image-20210817224503747.png)
 
 由于DotNetCore 有跨平台的优势，一般生产环境基本是不用`IIS`
 
 执行的命令在`web.config`中可以看到，仔细观察
 
-![image-20210817224712705](https://gitee.com/xlzf/blog-image/raw/master/image-20210817224712705.png)
+![image-20210817224712705](https://gitee.com/MyHexo/blog-image/raw/master/image-20210817224712705.png)
 
 在 DotNetCore 中，`IIS` 其实充当的角色是转发请求，与之前的发布网站的用法不一样了，有点怀念之前`webform`的青涩。
 
@@ -141,13 +141,13 @@ index_img: https://gitee.com/xlzf/blog-image/raw/master/netcore.jpg
    base.ViewBag.User1 = "张三" + " -- 参数：" + Parame; //使用
    ```
 
-   ![image-20210819222204161](https://gitee.com/xlzf/blog-image/raw/master/image-20210819222204161.png)
+   ![image-20210819222204161](https://gitee.com/MyHexo/blog-image/raw/master/image-20210819222204161.png)
 
 ## 控制器读取配置
 
 ### 方式1
 
-![image-20210819224059065](https://gitee.com/xlzf/blog-image/raw/master/image-20210819224059065.png)
+![image-20210819224059065](https://gitee.com/MyHexo/blog-image/raw/master/image-20210819224059065.png)
 
 ``` json
 "TESTID": "1111",
@@ -165,7 +165,7 @@ index_img: https://gitee.com/xlzf/blog-image/raw/master/netcore.jpg
 
 同样需要注入:
 
-![image-20210819224219428](https://gitee.com/xlzf/blog-image/raw/master/image-20210819224219428.png)
+![image-20210819224219428](https://gitee.com/MyHexo/blog-image/raw/master/image-20210819224219428.png)
 
 应用：
 
@@ -189,7 +189,7 @@ ViewBag.Setting4 = _iconfiguration["Family:1"];
 </ul>
 ```
 
-![image-20210819224316517](https://gitee.com/xlzf/blog-image/raw/master/image-20210819224316517.png)
+![image-20210819224316517](https://gitee.com/MyHexo/blog-image/raw/master/image-20210819224316517.png)
 
 ### 方式2
 
@@ -251,7 +251,7 @@ public void ConfigureServices(IServiceCollection services)
 
 接着控制器注入
 
-![image-20210819230720154](https://gitee.com/xlzf/blog-image/raw/master/image-20210819230720154.png)
+![image-20210819230720154](https://gitee.com/MyHexo/blog-image/raw/master/image-20210819230720154.png)
 
 ``` CSharp
 public HomeController(ILogger<HomeController> logger, IConfiguration configuration,IOptions<TESTMODEL> options)
@@ -273,7 +273,7 @@ object parame = Newtonsoft.Json.JsonConvert.SerializeObject(_tESTMODEL);
 return View(parame);
 ```
 
-![image-20210819230859533](https://gitee.com/xlzf/blog-image/raw/master/image-20210819230859533.png)
+![image-20210819230859533](https://gitee.com/MyHexo/blog-image/raw/master/image-20210819230859533.png)
 
 ## Razor 混编
 
@@ -484,15 +484,15 @@ public class CoustomService : Interface.ICoustomInterface
 
 * 在`_ViewStart.cshtml` 中设置母版页；
 
-![image-20210822120532857](https://gitee.com/xlzf/blog-image/raw/master/image-20210822120532857.png)
+![image-20210822120532857](https://gitee.com/MyHexo/blog-image/raw/master/image-20210822120532857.png)
 
 * 如果不想要模板页，想单页面展示也可以，可以在`_ViewStart.cshtml`中 注释 layout = "_Layout"; 或者 修改 layout = null;
 
-  ![image-20210822122832247](https://gitee.com/xlzf/blog-image/raw/master/image-20210822122832247.png)
+  ![image-20210822122832247](https://gitee.com/MyHexo/blog-image/raw/master/image-20210822122832247.png)
 
 ### 母版页
 
-![image-20210822120844118](https://gitee.com/xlzf/blog-image/raw/master/image-20210822120844118.png)
+![image-20210822120844118](https://gitee.com/MyHexo/blog-image/raw/master/image-20210822120844118.png)
 
 1. 可以设置一些测试的菜单。
 
@@ -502,7 +502,7 @@ public class CoustomService : Interface.ICoustomInterface
 
    当子页面不手动引用 `Scripts`类库的时候，可以和上述这行代码配套使用。
 
-   ![image-20210822121926617](https://gitee.com/xlzf/blog-image/raw/master/image-20210822121926617.png)
+   ![image-20210822121926617](https://gitee.com/MyHexo/blog-image/raw/master/image-20210822121926617.png)
 
    ``` javascript
    //这个是不行的，除非手动引入js文件
@@ -529,7 +529,7 @@ public class CoustomService : Interface.ICoustomInterface
    }
    ```
 
-   ![image-20210822122520500](https://gitee.com/xlzf/blog-image/raw/master/image-20210822122520500.png)
+   ![image-20210822122520500](https://gitee.com/MyHexo/blog-image/raw/master/image-20210822122520500.png)
 
 4. **结合上一点说的，如果不使用母版页，如果注释掉或者等于null的话，使用母版页js库的代码就废了。**
 
@@ -573,7 +573,7 @@ public class CoustomService : Interface.ICoustomInterface
 
    上述方法中有个错误的地方：就是最后一行，传的实体相对复杂，导致浏览器解析不了
 
-   ![image-20210822195432996](https://gitee.com/xlzf/blog-image/raw/master/image-20210822195432996.png)
+   ![image-20210822195432996](https://gitee.com/MyHexo/blog-image/raw/master/image-20210822195432996.png)
 
    ``` html
    <a href="/?TESTID=1&amp;TESTNAME=Harris&amp;_TESTAdress=DotNetCoreDemo.Models.TESTAdress&amp;Family=1&amp;Family=2&amp;Family=3&amp;names=DotNetCoreDemo.Models.Name">带路由信息</a>
@@ -581,9 +581,9 @@ public class CoustomService : Interface.ICoustomInterface
 
    再结合下图：
 
-   ![image-20210822195931807](https://gitee.com/xlzf/blog-image/raw/master/image-20210822195931807.png)
+   ![image-20210822195931807](https://gitee.com/MyHexo/blog-image/raw/master/image-20210822195931807.png)
 
-   ![image-20210822195634650](https://gitee.com/xlzf/blog-image/raw/master/image-20210822195634650.png)
+   ![image-20210822195634650](https://gitee.com/MyHexo/blog-image/raw/master/image-20210822195634650.png)
 
    `routeValues` 这个才是为了给浏览器解析作为页面参数传递的，所以这里不支持复杂实体应该是这个原因。
 
@@ -617,7 +617,7 @@ public class CoustomService : Interface.ICoustomInterface
    @Html.ActionImage("http://mmmp3.com/skin/default/images/logo.png")
    ```
 
-   ![image-20210822202647528](https://gitee.com/xlzf/blog-image/raw/master/image-20210822202647528.png)
+   ![image-20210822202647528](https://gitee.com/MyHexo/blog-image/raw/master/image-20210822202647528.png)
 
 ### 扩展控件（2）
 
@@ -667,9 +667,9 @@ public class CoustomService : Interface.ICoustomInterface
 
 3. 应用
 
-   ![image-20210822210047680](https://gitee.com/xlzf/blog-image/raw/master/image-20210822210047680.png)
+   ![image-20210822210047680](https://gitee.com/MyHexo/blog-image/raw/master/image-20210822210047680.png)
 
-   ![image-20210822210156272](https://gitee.com/xlzf/blog-image/raw/master/image-20210822210156272.png)
+   ![image-20210822210156272](https://gitee.com/MyHexo/blog-image/raw/master/image-20210822210156272.png)
 
    4. 传参
 
@@ -728,17 +728,17 @@ public class CoustomService : Interface.ICoustomInterface
 
       标签属性传值
 
-      ![image-20210822212634256](https://gitee.com/xlzf/blog-image/raw/master/image-20210822212634256.png)
+      ![image-20210822212634256](https://gitee.com/MyHexo/blog-image/raw/master/image-20210822212634256.png)
 
       效果
 
-      ![image-20210822212831324](https://gitee.com/xlzf/blog-image/raw/master/image-20210822212831324.png)
+      ![image-20210822212831324](https://gitee.com/MyHexo/blog-image/raw/master/image-20210822212831324.png)
 
 ### 局部视图
 
 1. 添加局部视图，其实就是在对应的view层添加一个cshtml文件
 
-   ![image-20210823212950311](https://gitee.com/xlzf/blog-image/raw/master/image-20210823212950311.png)
+   ![image-20210823212950311](https://gitee.com/MyHexo/blog-image/raw/master/image-20210823212950311.png)
 
 2. 编辑 PartialView.cshtml ,相当于定义好局部视图，就长这个样子，Harris标签应用与上一节扩展控件内容。
 
@@ -761,7 +761,7 @@ public class CoustomService : Interface.ICoustomInterface
 
 4. 呈现
 
-   ![image-20210823213304825](https://gitee.com/xlzf/blog-image/raw/master/image-20210823213304825.png)
+   ![image-20210823213304825](https://gitee.com/MyHexo/blog-image/raw/master/image-20210823213304825.png)
 
 ### 视图组件
 
@@ -852,17 +852,17 @@ public class CoustomService : Interface.ICoustomInterface
 
 4. 项目列表
 
-   ![image-20210824222129039](https://gitee.com/xlzf/blog-image/raw/master/image-20210824222129039.png)
+   ![image-20210824222129039](https://gitee.com/MyHexo/blog-image/raw/master/image-20210824222129039.png)
 
    1. `Components/CustomList/Default.cshtml` 与 `Components/Test/DefaultTest.cshtml` 中间的区别就是上面第一点中所说的，在返回View()的时候，要不要传具体路径的区别。
 
-      ![image-20210824222356654](https://gitee.com/xlzf/blog-image/raw/master/image-20210824222356654.png)
+      ![image-20210824222356654](https://gitee.com/MyHexo/blog-image/raw/master/image-20210824222356654.png)
 
    2. 还得关心一下这个类里的异步结构。
 
 5. 结果
 
-   ![image-20210824222521682](https://gitee.com/xlzf/blog-image/raw/master/image-20210824222521682.png)
+   ![image-20210824222521682](https://gitee.com/MyHexo/blog-image/raw/master/image-20210824222521682.png)
    1. 这地方主要是用的DefaultTest.cshtml,Harris 就是从 ViewBag.User 传过来滴。
 
 ## IOC
@@ -880,11 +880,11 @@ IOC（Inversion of Control），即**“控制反转”**，不是什么技术�
 - **谁控制谁，控制什么：**传统Java SE程序设计，我们直接在对象内部通过new进行创建对象，是程序主动去创建依赖对象；而IOC是有专门一个容器来创建这些对象，即由IOC容器来控制对象的创建；谁控制谁？当然是IOC容器控制了对象；控制什么？那就是主要控制了外部资源获取
 - **为何是反转，哪些方面反转了：**有反转就有正转，传统应用程序是由我们自己在对象中主动控制去直接获取依赖对象，也就是正转；而反转则是由容器来帮忙创建及注入依赖对象；为何是反转？因为由容器帮我们查找及注入依赖对象，对象只是被动的接受依赖对象，所以是反转；哪些方面反转了？依赖对象的获取被反转了。
 
-![img](https://gitee.com/xlzf/blog-image/raw/master/983950-20200828140652970-543560967.png)
+![img](https://gitee.com/MyHexo/blog-image/raw/master/983950-20200828140652970-543560967.png)
 
 
 
-![img](https://gitee.com/xlzf/blog-image/raw/master/983950-20200828141239801-1102376797.png)
+![img](https://gitee.com/MyHexo/blog-image/raw/master/983950-20200828141239801-1102376797.png)
 
 ### IOC能做什么
 
@@ -1206,17 +1206,17 @@ public void ConfigureServices(IServiceCollection services)
 
 1. 瞬时生命周期 Addtransient 注册的生命周期：每次都实例化一个新的。**正常瞬时生命周期使用的多，每次一个对象**
 
-   ![image-20210828145713938](https://gitee.com/xlzf/blog-image/raw/master/image-20210828145713938.png)
+   ![image-20210828145713938](https://gitee.com/MyHexo/blog-image/raw/master/image-20210828145713938.png)
 
 2. 单例生命周期：AddSingleton 注册的生命周期：serviceA2_1 走过一遍后，serviceA2_2 直接就过去了，所以这玩意注册，一直玩的就一个。
 
-   ![image-20210828145845491](https://gitee.com/xlzf/blog-image/raw/master/image-20210828145845491.png)
+   ![image-20210828145845491](https://gitee.com/MyHexo/blog-image/raw/master/image-20210828145845491.png)
 
 3. 作用域生命周期
 
    同一个IServiceCollection ，不同的ServiceProvider 实例化出来的对象，在每个ServiceProvider 内实例化的对象相当于单例，但是不同的 ServiceProvider 之间 是不一样的。
 
-   ![image-20210828151007374](https://gitee.com/xlzf/blog-image/raw/master/image-20210828151007374.png)
+   ![image-20210828151007374](https://gitee.com/MyHexo/blog-image/raw/master/image-20210828151007374.png)
 
 4. Code
 
@@ -1586,7 +1586,7 @@ testServiceC.Show();
 #endregion
 ```
 
-![image-20210829154658355](https://gitee.com/xlzf/blog-image/raw/master/image-20210829154658355.png)
+![image-20210829154658355](https://gitee.com/MyHexo/blog-image/raw/master/image-20210829154658355.png)
 
 ### Autofac 读取配置文件注册
 
@@ -1746,7 +1746,7 @@ testServiceC.Show();
    },
    ```
 
-   ![image-20210829182152021](https://gitee.com/xlzf/blog-image/raw/master/image-20210829182152021.png)
+   ![image-20210829182152021](https://gitee.com/MyHexo/blog-image/raw/master/image-20210829182152021.png)
 
 ### Autofac 整合到MVC
 
@@ -1858,21 +1858,21 @@ testServiceC.Show();
 
 5. 监控判断属性
 
-   ![image-20210829200529269](https://gitee.com/xlzf/blog-image/raw/master/image-20210829200529269.png)
+   ![image-20210829200529269](https://gitee.com/MyHexo/blog-image/raw/master/image-20210829200529269.png)
 
    判断 _ItestServiceAA 结果为 true ，因为它标注属性了
 
-   ![image-20210829201047537](https://gitee.com/xlzf/blog-image/raw/master/image-20210829201047537.png)
+   ![image-20210829201047537](https://gitee.com/MyHexo/blog-image/raw/master/image-20210829201047537.png)
 
    反之 _ItestServiceBB 返回 false 
 
-   ![image-20210829200904042](https://gitee.com/xlzf/blog-image/raw/master/image-20210829200904042.png)
+   ![image-20210829200904042](https://gitee.com/MyHexo/blog-image/raw/master/image-20210829200904042.png)
 
 ### Autofac 抽象多实现的问题1
 
 例如：一个Interface 多个服务实现 ，一对多。
 
-![image-20210830232226520](https://gitee.com/xlzf/blog-image/raw/master/image-20210830232226520.png)
+![image-20210830232226520](https://gitee.com/MyHexo/blog-image/raw/master/image-20210830232226520.png)
 
 遇到这种情况，在注册的时候就会有问题，尤其是在注册完应用的时候。
 
@@ -1889,7 +1889,7 @@ container.RegisterType<TestServiceE>().As<ITestServiceA>();
 
 结果就是
 
-![image-20210830232929753](https://gitee.com/xlzf/blog-image/raw/master/image-20210830232929753.png)
+![image-20210830232929753](https://gitee.com/MyHexo/blog-image/raw/master/image-20210830232929753.png)
 
 结论就是：
 
@@ -1899,7 +1899,7 @@ container.RegisterType<TestServiceE>().As<ITestServiceA>();
 
 使用 `IEnumerable<ITestServiceA>` 方式，返回多个。
 
-![image-20210830233558148](https://gitee.com/xlzf/blog-image/raw/master/image-20210830233558148.png)
+![image-20210830233558148](https://gitee.com/MyHexo/blog-image/raw/master/image-20210830233558148.png)
 
 **第三种：**
 
@@ -1911,7 +1911,7 @@ container.RegisterSource(new AnyConcreteTypeNotAlreadyRegisteredSource(t => t.Is
 
 然后如下图：直接实例化对象（不是Interface），然后通过构造函数接下来使用。
 
-![image-20210830234629332](https://gitee.com/xlzf/blog-image/raw/master/image-20210830234629332.png)
+![image-20210830234629332](https://gitee.com/MyHexo/blog-image/raw/master/image-20210830234629332.png)
 
 扩展一下：
 
@@ -2066,7 +2066,7 @@ container.RegisterModule(new AutofacModule());
 
 6. 结果
 
-   ![image-20210901221357225](https://gitee.com/xlzf/blog-image/raw/master/image-20210901221357225.png)
+   ![image-20210901221357225](https://gitee.com/MyHexo/blog-image/raw/master/image-20210901221357225.png)
 
 ### Autofac 支持 AOP2
 
@@ -2115,7 +2115,7 @@ namespace DotNetCoreDemo.Service
 }
 ```
 
-![image-20210902225117135](https://gitee.com/xlzf/blog-image/raw/master/image-20210902225117135.png)
+![image-20210902225117135](https://gitee.com/MyHexo/blog-image/raw/master/image-20210902225117135.png)
 
 ### Autofac 抽象多个实现构造函数注入
 
@@ -2141,7 +2141,7 @@ namespace DotNetCoreDemo.Service
 
    **注意 `Named` 和 `ResolveKeyed` 搭配使用更丝滑。**
 
-   ![image-20210903214211926](https://gitee.com/xlzf/blog-image/raw/master/image-20210903214211926.png)
+   ![image-20210903214211926](https://gitee.com/MyHexo/blog-image/raw/master/image-20210903214211926.png)
 
 2. 在通过AutofacIOC 实现一波
 
@@ -2213,9 +2213,9 @@ namespace DotNetCoreDemo.Service
    
    
    
-   ![image-20210904135936278](https://gitee.com/xlzf/blog-image/raw/master/image-20210904135936278.png)
+   ![image-20210904135936278](https://gitee.com/MyHexo/blog-image/raw/master/image-20210904135936278.png)
    
-   ![image-20210904140002918](https://gitee.com/xlzf/blog-image/raw/master/image-20210904140002918.png)
+   ![image-20210904140002918](https://gitee.com/MyHexo/blog-image/raw/master/image-20210904140002918.png)
 
 ### Autofac 抽象多个实现属性注入
 
@@ -2357,7 +2357,7 @@ Filter : 过滤器 ActionFilter 即动作过滤器
    2. Action
    3. CustomActionFilterAttribute - OnActionExecuted
 
-   ![image-20210904154410691](https://gitee.com/xlzf/blog-image/raw/master/image-20210904154410691.png)
+   ![image-20210904154410691](https://gitee.com/MyHexo/blog-image/raw/master/image-20210904154410691.png)
 
 ### ActionFilter 多种实现
 
@@ -2430,7 +2430,7 @@ namespace DotNetCoreDemo.Utility
    3. 执行Action-Index
    4. 执行Action-Index 之后执行操作
 
-   ![image-20210904204835244](https://gitee.com/xlzf/blog-image/raw/master/image-20210904204835244.png)
+   ![image-20210904204835244](https://gitee.com/MyHexo/blog-image/raw/master/image-20210904204835244.png)
 
 2. 自定义版本中写的，需要注意Ilogger 的注册，还有就是context的各种扩展功能。
 
@@ -2830,7 +2830,7 @@ IndexTestResource.cshtml
 
 上述主要功能是：新建ResourceFilter扩展特性类，并且在控制器FiveController 中 `IndexTestResource` Action 标记应用。应用扩展标记的作用是为了建立缓存。相比较ActionFilter ，**ResourceFilter 更适合做缓存**，参考下图
 
-<img src="https://gitee.com/xlzf/blog-image/raw/master/image-20210905121153341.png" alt="image-20210905121153341" style="zoom: 40%;" />
+<img src="https://gitee.com/MyHexo/blog-image/raw/master/image-20210905121153341.png" alt="image-20210905121153341" style="zoom: 40%;" />
 
 ### Filter 匿名
 
@@ -2896,7 +2896,7 @@ public class TestGlobalActionFilterAttribute : ActionFilterAttribute
 3. 如果没有被处理，那么需要判断异常的源头，如果是`ajax`请求的异常，返回 Jsonresult，否则，跳转到Error页面显示异常信息。
 4. 上述如果没有毛病的话，那就进行全局注册
 
-![image-20210905161745655](https://gitee.com/xlzf/blog-image/raw/master/image-20210905161745655.png)
+![image-20210905161745655](https://gitee.com/MyHexo/blog-image/raw/master/image-20210905161745655.png)
 
 ``` CSharp
 using Microsoft.AspNetCore.Http;
@@ -3034,7 +3034,7 @@ Error.cshtml
    #endregion
    ```
 
-   <img src="https://gitee.com/xlzf/blog-image/raw/master/image-20210905170801999.png" alt="image-20210905170801999" style="zoom:50%;" />
+   <img src="https://gitee.com/MyHexo/blog-image/raw/master/image-20210905170801999.png" alt="image-20210905170801999" style="zoom:50%;" />
 
 ### ResultFilter 
 
@@ -3102,7 +3102,7 @@ namespace DotNetCoreDemo.Utility.Filter
 }
 ```
 
-![image-20210905185056411](https://gitee.com/xlzf/blog-image/raw/master/image-20210905185056411.png)
+![image-20210905185056411](https://gitee.com/MyHexo/blog-image/raw/master/image-20210905185056411.png)
 
 ## 鉴权授权方式
 
@@ -3187,7 +3187,7 @@ namespace DotNetCoreDemo.Utility.Filter
 
 ### **JWT** 
 
-![Token鉴权授权](https://gitee.com/xlzf/blog-image/raw/master/Token鉴权授权.png)
+![Token鉴权授权](https://gitee.com/MyHexo/blog-image/raw/master/Token鉴权授权.png)
 
 上图是访问的过程。
 
@@ -3195,7 +3195,7 @@ namespace DotNetCoreDemo.Utility.Filter
 
 1. Nugget
 
-   ![image-20211001192934524](https://gitee.com/xlzf/blog-image/raw/master/image-20211001192934524.png)
+   ![image-20211001192934524](https://gitee.com/MyHexo/blog-image/raw/master/image-20211001192934524.png)
 
 2. `appsettings.json` 主要关注 `JWTTokenOptions`
 
@@ -3711,7 +3711,7 @@ namespace DotNetCoreDemo.Utility.Filter
 
    图一：
 
-   ![image-20211001191326110](https://gitee.com/xlzf/blog-image/raw/master/image-20211001191326110.png)
+   ![image-20211001191326110](https://gitee.com/MyHexo/blog-image/raw/master/image-20211001191326110.png)
 
    1. 点击 `Tryitout` 按钮到 
    2. 输入 `name` & `password`
@@ -3719,17 +3719,17 @@ namespace DotNetCoreDemo.Utility.Filter
 
    图二：
 
-   ![image-20211001191428193](https://gitee.com/xlzf/blog-image/raw/master/image-20211001191428193.png)
+   ![image-20211001191428193](https://gitee.com/MyHexo/blog-image/raw/master/image-20211001191428193.png)
 
    Response body 内容作为备用。
 
    将 `key.public.json` 文件放到访问的相对位置，本地放到
 
-   ![image-20211001191845619](https://gitee.com/xlzf/blog-image/raw/master/image-20211001191845619.png)
+   ![image-20211001191845619](https://gitee.com/MyHexo/blog-image/raw/master/image-20211001191845619.png)
 
 2. 启动`PostMan` 工具
 
-   ![image-20211001195024174](https://gitee.com/xlzf/blog-image/raw/master/image-20211001195024174.png)
+   ![image-20211001195024174](https://gitee.com/MyHexo/blog-image/raw/master/image-20211001195024174.png)
 
    1. 输入主程序 http://localhost:5000/Six/Index
 
@@ -3739,4 +3739,4 @@ namespace DotNetCoreDemo.Utility.Filter
 
    4. 否则 则报 `401` 错误
 
-      ![image-20211001195539225](https://gitee.com/xlzf/blog-image/raw/master/image-20211001195539225.png)
+      ![image-20211001195539225](https://gitee.com/MyHexo/blog-image/raw/master/image-20211001195539225.png)

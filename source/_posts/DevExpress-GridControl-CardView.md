@@ -4,22 +4,22 @@ date: 2021-11-06 15:47:02
 tags: [winform, DevExpress]
 excerpt: DevGridControl中使用CardView 
 categories: C#
-index_img: https://gitee.com/xlzf/blog-image/raw/master/DevExpress.jpeg
+index_img: https://gitee.com/MyHexo/blog-image/raw/master/DevExpress.jpeg
 ---
 
 # DevExpress GridControl 中使用 CardView
 
 ## 添加一个GridControl
 
-![ConvertCardView](https://gitee.com/xlzf/blog-image/raw/master/image-20211106155039479.png)
+![ConvertCardView](https://gitee.com/MyHexo/blog-image/raw/master/image-20211106155039479.png)
 
 ## GridView 转 CardView
 
-![CardView](https://gitee.com/xlzf/blog-image/raw/master/image-20211106155147102.png)
+![CardView](https://gitee.com/MyHexo/blog-image/raw/master/image-20211106155147102.png)
 
 ## 设置字段
 
-![设置](https://gitee.com/xlzf/blog-image/raw/master/image-20211106155745779.png)
+![设置](https://gitee.com/MyHexo/blog-image/raw/master/image-20211106155745779.png)
 
 ## 代码
 
@@ -115,5 +115,5 @@ public UC_PicList()
 
 选择图片文件，把图片信息放到数据源中，展示到视图中。
 
-![image-20211106161313136](https://gitee.com/xlzf/blog-image/raw/master/image-20211106161313136.png)
+![image-20211106161313136](https://gitee.com/MyHexo/blog-image/raw/master/image-20211106161313136.png)
 

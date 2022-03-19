@@ -4,22 +4,22 @@ date: 2022-01-20 22:47:51
 tags: [jenkins, Docker, GitLab, .net core]
 excerpt: Docker+GitLab+Jenkins 自动部署 DotNet Core Application
 categories: MicroService
-index_img: https://gitee.com/xlzf/blog-image/raw/master/Gongsi/4d27afc3178eb6444ef5cd924bf3165a.jpeg
+index_img: https://gitee.com/MyHexo/blog-image/raw/master/Gongsi/4d27afc3178eb6444ef5cd924bf3165a.jpeg
 ---
 
 ## 前言
 
 大概意图：`Docker`+`GitLab`+`Jenkins` 自动部署 `Dot Net Core Web Application`
 
-![大概意图](https://gitee.com/xlzf/blog-image/raw/master/Home/image-20220120211456716.png)
+![大概意图](https://gitee.com/MyHexo/blog-image/raw/master/Home/image-20220120211456716.png)
 
 ## 思路
 
-![主要容器](https://gitee.com/xlzf/blog-image/raw/master/Home/image-20220120212431735.png)
+![主要容器](https://gitee.com/MyHexo/blog-image/raw/master/Home/image-20220120212431735.png)
 
 ## GitLab
 
-![Gitlab](https://gitee.com/xlzf/blog-image/raw/master/Gongsi/cd796745db80288a131fb24d57d12880.jpeg)
+![Gitlab](https://gitee.com/MyHexo/blog-image/raw/master/Gongsi/cd796745db80288a131fb24d57d12880.jpeg)
 
 ### 镜像下载
 
@@ -54,7 +54,7 @@ ssh-keygen -t rsa -C 'xxx@xxx.com'
 
 ## Jenkins
 
-![Jenkins](https://gitee.com/xlzf/blog-image/raw/master/Home/image-20220120225149050.png)
+![Jenkins](https://gitee.com/MyHexo/blog-image/raw/master/Home/image-20220120225149050.png)
 
 ### Windows 安装
 
@@ -66,9 +66,9 @@ ssh-keygen -t rsa -C 'xxx@xxx.com'
 
 #### 系统变量
 
-![image-20220125134818266](https://gitee.com/xlzf/blog-image/raw/master/Gongsi/image-20220125134818266.png)
+![image-20220125134818266](https://gitee.com/MyHexo/blog-image/raw/master/Gongsi/image-20220125134818266.png)
 
-![image-20220125134838645](https://gitee.com/xlzf/blog-image/raw/master/Gongsi/image-20220125134838645.png)
+![image-20220125134838645](https://gitee.com/MyHexo/blog-image/raw/master/Gongsi/image-20220125134838645.png)
 
 ``` 
 JAVA_HOME
@@ -80,9 +80,9 @@ CLASSPATH
 
 #### 用户变量
 
-![image-20220125135007369](https://gitee.com/xlzf/blog-image/raw/master/Gongsi/image-20220125135007369.png)
+![image-20220125135007369](https://gitee.com/MyHexo/blog-image/raw/master/Gongsi/image-20220125135007369.png)
 
-![image-20220125135030637](https://gitee.com/xlzf/blog-image/raw/master/Gongsi/image-20220125135030637.png)
+![image-20220125135030637](https://gitee.com/MyHexo/blog-image/raw/master/Gongsi/image-20220125135030637.png)
 
 ``` 
 Path
@@ -96,18 +96,18 @@ Path
 
 #### 运行
 
-![image-20220125135345995](https://gitee.com/xlzf/blog-image/raw/master/Gongsi/image-20220125135345995.png)
+![image-20220125135345995](https://gitee.com/MyHexo/blog-image/raw/master/Gongsi/image-20220125135345995.png)
 
 ``` bash
 cd D:\jenkins
 java -jar jenkins.war
 ```
 
-![image-20220125135452362](https://gitee.com/xlzf/blog-image/raw/master/Gongsi/image-20220125135452362.png)
+![image-20220125135452362](https://gitee.com/MyHexo/blog-image/raw/master/Gongsi/image-20220125135452362.png)
 
-![image-20220125135709149](https://gitee.com/xlzf/blog-image/raw/master/Gongsi/image-20220125135709149.png)
+![image-20220125135709149](https://gitee.com/MyHexo/blog-image/raw/master/Gongsi/image-20220125135709149.png)
 
-![image-20220125135728614](https://gitee.com/xlzf/blog-image/raw/master/Gongsi/image-20220125135728614.png)
+![image-20220125135728614](https://gitee.com/MyHexo/blog-image/raw/master/Gongsi/image-20220125135728614.png)
 
 ### Linux 安装
 
@@ -248,7 +248,7 @@ docker run --name dotnetjenkins  --restart always -u root -d -p 8080:8080 -p 500
 
 ## Registry
 
-![image-20220127143255440](https://gitee.com/xlzf/blog-image/raw/master/Gongsi/image-20220127143255440.png)
+![image-20220127143255440](https://gitee.com/MyHexo/blog-image/raw/master/Gongsi/image-20220127143255440.png)
 
 私有仓库服务
 
@@ -267,7 +267,7 @@ docker run -d \
 
 访问： http://192.168.137.5:5001/v2/
 
-![image-20220126205651174](https://gitee.com/xlzf/blog-image/raw/master/Home/image-20220126205651174.png)
+![image-20220126205651174](https://gitee.com/MyHexo/blog-image/raw/master/Home/image-20220126205651174.png)
 
 ### Push
 
@@ -308,7 +308,7 @@ docker start $(docker ps -aq)
 vim /usr/lib/systemd/system/docker.service
 ```
 
-![image-20220126214929695](https://gitee.com/xlzf/blog-image/raw/master/Home/image-20220126214929695.png)
+![image-20220126214929695](https://gitee.com/MyHexo/blog-image/raw/master/Home/image-20220126214929695.png)
 
 ``` shell
 # 在ExecStart 这行后面添加 --insecure-registry 192.168.137.5:5001  也就是在Docker启动的时候添加参数
@@ -346,40 +346,40 @@ root@microservicevm:/# curl -XGET http://192.168.137.5:5001/v2/_catalog
 
 根据此处的[Dockerfile](#问题6)，创建携带.net 5.0 环境的`Jenkins`容器
 
-![创建](https://gitee.com/xlzf/blog-image/raw/master/Home/image-20220203204439495.png)
+![创建](https://gitee.com/MyHexo/blog-image/raw/master/Home/image-20220203204439495.png)
 
-![配置](https://gitee.com/xlzf/blog-image/raw/master/Home/image-20220203204544944.png)
+![配置](https://gitee.com/MyHexo/blog-image/raw/master/Home/image-20220203204544944.png)
 
-![net5.0](https://gitee.com/xlzf/blog-image/raw/master/Home/image-20220203204632628.png)
+![net5.0](https://gitee.com/MyHexo/blog-image/raw/master/Home/image-20220203204632628.png)
 
-![测试代码](https://gitee.com/xlzf/blog-image/raw/master/Home/image-20220203204732348.png)
+![测试代码](https://gitee.com/MyHexo/blog-image/raw/master/Home/image-20220203204732348.png)
 
 
 
 ### Jenkins
 
-![系统管理-系统配置](https://gitee.com/xlzf/blog-image/raw/master/Home/image-20220203211820516.png)
+![系统管理-系统配置](https://gitee.com/MyHexo/blog-image/raw/master/Home/image-20220203211820516.png)
 
-![配置GitLab账号信息](https://gitee.com/xlzf/blog-image/raw/master/Home/image-20220203211538155.png)
+![配置GitLab账号信息](https://gitee.com/MyHexo/blog-image/raw/master/Home/image-20220203211538155.png)
 
-![源码管理](https://gitee.com/xlzf/blog-image/raw/master/Home/image-20220203205927175.png)
+![源码管理](https://gitee.com/MyHexo/blog-image/raw/master/Home/image-20220203205927175.png)
 
-![构建触发器](https://gitee.com/xlzf/blog-image/raw/master/Home/image-20220203210045375.png)
+![构建触发器](https://gitee.com/MyHexo/blog-image/raw/master/Home/image-20220203210045375.png)
 
-![点击高级获取Secret token](https://gitee.com/xlzf/blog-image/raw/master/Home/image-20220203210232801.png)
+![点击高级获取Secret token](https://gitee.com/MyHexo/blog-image/raw/master/Home/image-20220203210232801.png)
 
-![构建](https://gitee.com/xlzf/blog-image/raw/master/Home/image-20220203210446489.png)
+![构建](https://gitee.com/MyHexo/blog-image/raw/master/Home/image-20220203210446489.png)
 
-![设置凭证](https://gitee.com/xlzf/blog-image/raw/master/Home/image-20220203212831776.png)
+![设置凭证](https://gitee.com/MyHexo/blog-image/raw/master/Home/image-20220203212831776.png)
 
 ### GitLab
 
-![将测试代码上传到Gitlab](https://gitee.com/xlzf/blog-image/raw/master/Home/image-20220203204909533.png)
+![将测试代码上传到Gitlab](https://gitee.com/MyHexo/blog-image/raw/master/Home/image-20220203204909533.png)
 
-![webhooks 设置网址和令牌](https://gitee.com/xlzf/blog-image/raw/master/Home/image-20220203211043489.png)
+![webhooks 设置网址和令牌](https://gitee.com/MyHexo/blog-image/raw/master/Home/image-20220203211043489.png)
 
 ### 测试
 
-![GitPush-构建](https://gitee.com/xlzf/blog-image/raw/master/Home/image-20220203213909943.png)
+![GitPush-构建](https://gitee.com/MyHexo/blog-image/raw/master/Home/image-20220203213909943.png)
 
-![控制台信息](https://gitee.com/xlzf/blog-image/raw/master/Home/image-20220203230849200.png)
+![控制台信息](https://gitee.com/MyHexo/blog-image/raw/master/Home/image-20220203230849200.png)

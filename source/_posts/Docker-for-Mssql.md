@@ -5,12 +5,12 @@ date: 2021-11-28 22:31:43
 tags: [Docker, MSSQL]
 excerpt: windows docker安装MSSQL
 categories: Mssql
-index_img: https://gitee.com/xlzf/blog-image/raw/master/Home/20211201224941.jpeg
+index_img: https://gitee.com/MyHexo/blog-image/raw/master/Home/20211201224941.jpeg
 ---
 
 # Docker for SqlServer
 
-![MSSQL](https://gitee.com/xlzf/blog-image/raw/master/Home/20211201224941.jpeg)
+![MSSQL](https://gitee.com/MyHexo/blog-image/raw/master/Home/20211201224941.jpeg)
 
 ## 下载镜像
 
@@ -50,15 +50,15 @@ Server can start. The license terms for this product can be downloaded from
 ...
 ```
 
-![映射完毕](https://gitee.com/xlzf/blog-image/raw/master/Home/20211205003335.png)
+![映射完毕](https://gitee.com/MyHexo/blog-image/raw/master/Home/20211205003335.png)
 
 然后，连接成功
 
-![image-20211128232440826](https://gitee.com/xlzf/blog-image/raw/master/Home/20211128232443.png)
+![image-20211128232440826](https://gitee.com/MyHexo/blog-image/raw/master/Home/20211128232443.png)
 
-![image-20211128231956823](https://gitee.com/xlzf/blog-image/raw/master/Home/20211128231959.png)
+![image-20211128231956823](https://gitee.com/MyHexo/blog-image/raw/master/Home/20211128231959.png)
 
-![image-20211128232044403](https://gitee.com/xlzf/blog-image/raw/master/Home/20211128232047.png)
+![image-20211128232044403](https://gitee.com/MyHexo/blog-image/raw/master/Home/20211128232047.png)
 
-![image-20211128232508455](https://gitee.com/xlzf/blog-image/raw/master/Home/20211128232509.png)
+![image-20211128232508455](https://gitee.com/MyHexo/blog-image/raw/master/Home/20211128232509.png)
 

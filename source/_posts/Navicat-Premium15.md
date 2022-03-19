@@ -5,11 +5,11 @@ date: 2021-11-30 22:31:43
 tags: [Program] 
 excerpt: 记录安装过程
 categories: StorageBox
-index_img: https://gitee.com/xlzf/blog-image/raw/master/Home/20211201224654.jpeg
+index_img: https://gitee.com/MyHexo/blog-image/raw/master/Home/20211201224654.jpeg
 ---
 # `Navicat Premium 15`
 
-![](https://gitee.com/xlzf/blog-image/raw/master/Home/20211201224654.jpeg)
+![](https://gitee.com/MyHexo/blog-image/raw/master/Home/20211201224654.jpeg)
 
 ## 前言
 
@@ -30,13 +30,13 @@ index_img: https://gitee.com/xlzf/blog-image/raw/master/Home/20211201224654.jpeg
 
 ### 打开注册机
 
-![打开注册机](https://gitee.com/xlzf/blog-image/raw/master/Home/20211130232749.png)
+![打开注册机](https://gitee.com/MyHexo/blog-image/raw/master/Home/20211130232749.png)
 
 ### 选择路径
 
-![选择路径](https://gitee.com/xlzf/blog-image/raw/master/Home/20211130232926.png)
+![选择路径](https://gitee.com/MyHexo/blog-image/raw/master/Home/20211130232926.png)
 
-![稍等一下](https://gitee.com/xlzf/blog-image/raw/master/Home/20211130233016.png)
+![稍等一下](https://gitee.com/MyHexo/blog-image/raw/master/Home/20211130233016.png)
 
 ### 核对信息
 
@@ -48,45 +48,45 @@ index_img: https://gitee.com/xlzf/blog-image/raw/master/Home/20211201224654.jpeg
 - Resale Version为Site license
 - Your Name和Your Organization可以任意填写或者默认
 
-![核对信息](https://gitee.com/xlzf/blog-image/raw/master/Home/20211130233244.png)
+![核对信息](https://gitee.com/MyHexo/blog-image/raw/master/Home/20211130233244.png)
 
 ### 生产注册码
 
 上面几项设置好后，点击“Generate”，会自动生成一个注册码，如下图
 
-![点击“Generate”](https://gitee.com/xlzf/blog-image/raw/master/Home/20211130233350.png)
+![点击“Generate”](https://gitee.com/MyHexo/blog-image/raw/master/Home/20211130233350.png)
 
 ### 激活
 
 这个时候就可以打开`navicat premium15`，将上面生成的注册码复制到注册窗口中（注册窗在头部“帮助”选项下面），点击激活，
 
-![](https://gitee.com/xlzf/blog-image/raw/master/Home/20211130233445.png)
+![](https://gitee.com/MyHexo/blog-image/raw/master/Home/20211130233445.png)
 
 会提示因为激活服务器暂时不可使用.....我们选择“手动激活”
 
-![](https://gitee.com/xlzf/blog-image/raw/master/Home/20211130233524.png)
+![](https://gitee.com/MyHexo/blog-image/raw/master/Home/20211130233524.png)
 
 会生成一个请求码
 
-![](https://gitee.com/xlzf/blog-image/raw/master/Home/20211130233829.png)
+![](https://gitee.com/MyHexo/blog-image/raw/master/Home/20211130233829.png)
 
 将请求码复制到注册机中的Request Code框中，然后点击Generate按钮
 
-![](https://gitee.com/xlzf/blog-image/raw/master/Home/20211130233900.png)
+![](https://gitee.com/MyHexo/blog-image/raw/master/Home/20211130233900.png)
 
 将上面的激活码复制到手动激活窗口中，并点击“激活”
 
-![](https://gitee.com/xlzf/blog-image/raw/master/Home/20211130233926.png)
+![](https://gitee.com/MyHexo/blog-image/raw/master/Home/20211130233926.png)
 
 这个时候就会弹出`Navicat` 现已激活
 
-![](https://gitee.com/xlzf/blog-image/raw/master/Home/20211130233955.png)
+![](https://gitee.com/MyHexo/blog-image/raw/master/Home/20211130233955.png)
 
 ## 下载
 
 扫描下述二维码，下载安装，仅供学习，资金充裕也希望充米买正版。
 
-![扫描下载，仅供学习](https://gitee.com/xlzf/blog-image/raw/master/Home/20211130231927.png)
+![扫描下载，仅供学习](https://gitee.com/MyHexo/blog-image/raw/master/Home/20211130231927.png)
 
 ## 避坑
 
@@ -94,12 +94,12 @@ index_img: https://gitee.com/xlzf/blog-image/raw/master/Home/20211201224654.jpeg
 
 ## 连接测试
 
-![Oracle](https://gitee.com/xlzf/blog-image/raw/master/Home/20211130234625.png)
+![Oracle](https://gitee.com/MyHexo/blog-image/raw/master/Home/20211130234625.png)
 
-![Mysql](https://gitee.com/xlzf/blog-image/raw/master/Home/20211130234723.png)
+![Mysql](https://gitee.com/MyHexo/blog-image/raw/master/Home/20211130234723.png)
 
-![MSSQL](https://gitee.com/xlzf/blog-image/raw/master/Home/20211130234750.png)
+![MSSQL](https://gitee.com/MyHexo/blog-image/raw/master/Home/20211130234750.png)
 
-![MongoDB](https://gitee.com/xlzf/blog-image/raw/master/Home/20211201223653.png)
+![MongoDB](https://gitee.com/MyHexo/blog-image/raw/master/Home/20211201223653.png)
 
-![Mysql|Oracle|Mssql|MongoDB](https://gitee.com/xlzf/blog-image/raw/master/Home/20211201223758.png)
+![Mysql|Oracle|Mssql|MongoDB](https://gitee.com/MyHexo/blog-image/raw/master/Home/20211201223758.png)

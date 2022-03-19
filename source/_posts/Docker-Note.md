@@ -4,7 +4,7 @@ date: 2021-10-31 19:13:24
 tags: [Docker, .net core]
 excerpt: 在window10中部署Docker环境运行dotnetcore web app为主线记录过程。
 categories: C#
-index_img: https://gitee.com/xlzf/blog-image/raw/master/docker.jpeg
+index_img: https://gitee.com/MyHexo/blog-image/raw/master/docker.jpeg
 ---
 
 # Docker 学习笔记
@@ -17,45 +17,45 @@ index_img: https://gitee.com/xlzf/blog-image/raw/master/docker.jpeg
 
 [下载Docker]: https://hub.docker.com/editions/community/docker-ce-desktop-windows	"傻瓜式安装即可"
 
-![image-20210530131053540](https://gitee.com/xlzf/blog-image/raw/master/X6LQMJNwKADEv4f.png)
+![image-20210530131053540](https://gitee.com/MyHexo/blog-image/raw/master/X6LQMJNwKADEv4f.png)
 
 ### window 开启虚拟化
 
-![image-20210530162435983](https://gitee.com/xlzf/blog-image/raw/master/image-20210530162435983.png)
+![image-20210530162435983](https://gitee.com/MyHexo/blog-image/raw/master/image-20210530162435983.png)
 
 ### 新建.net core web app
 
 ####  新建程序
 
-<img src="https://gitee.com/xlzf/blog-image/raw/master/image-20210530151814645.png" alt="image-20210530151814645" style="zoom:80%;" />
+<img src="https://gitee.com/MyHexo/blog-image/raw/master/image-20210530151814645.png" alt="image-20210530151814645" style="zoom:80%;" />
 
 #### 设置参数
 
-<img src="https://gitee.com/xlzf/blog-image/raw/master/image-20210530151929348.png" alt="image-20210530151929348" style="zoom:80%;" />
+<img src="https://gitee.com/MyHexo/blog-image/raw/master/image-20210530151929348.png" alt="image-20210530151929348" style="zoom:80%;" />
 
 #### 运行程序
 
 > 默认运行是Docker ,这里先选择 helloworldapp 运行
 
-<img src="https://gitee.com/xlzf/blog-image/raw/master/image-20210530152509982.png" alt="image-20210530152509982" style="zoom:80%;" />
+<img src="https://gitee.com/MyHexo/blog-image/raw/master/image-20210530152509982.png" alt="image-20210530152509982" style="zoom:80%;" />
 
 1. 运行项目没有问题
 
-   <img src="https://gitee.com/xlzf/blog-image/raw/master/image-20210530152231219.png" alt="image-20210530152231219" style="zoom:80%;" />
+   <img src="https://gitee.com/MyHexo/blog-image/raw/master/image-20210530152231219.png" alt="image-20210530152231219" style="zoom:80%;" />
 
 
 
 4. 需要注意此文件
 
-   <img src="https://gitee.com/xlzf/blog-image/raw/master/image-20210530152604550.png" alt="image-20210530152604550" style="zoom:80%;" />
+   <img src="https://gitee.com/MyHexo/blog-image/raw/master/image-20210530152604550.png" alt="image-20210530152604550" style="zoom:80%;" />
 
 #### Dockerfile
 
 > 把Dockerfile 从当前文件夹放到上一级中。
 
-![image-20210530153921848](https://gitee.com/xlzf/blog-image/raw/master/image-20210530153921848.png)
+![image-20210530153921848](https://gitee.com/MyHexo/blog-image/raw/master/image-20210530153921848.png)
 
-![image-20210530153951697](https://gitee.com/xlzf/blog-image/raw/master/image-20210530153951697.png)
+![image-20210530153951697](https://gitee.com/MyHexo/blog-image/raw/master/image-20210530153951697.png)
 
 至此，环境需要运行的程序准备完毕。
 
@@ -63,11 +63,11 @@ index_img: https://gitee.com/xlzf/blog-image/raw/master/docker.jpeg
 
 下一步，打开 powershell 程序。
 
-![image-20210530154105810](https://gitee.com/xlzf/blog-image/raw/master/image-20210530154105810.png)
+![image-20210530154105810](https://gitee.com/MyHexo/blog-image/raw/master/image-20210530154105810.png)
 
 cd 到指定工程目录 `E:\Code\testDocker\helloworldapp`
 
-![image-20210530154622261](https://gitee.com/xlzf/blog-image/raw/master/image-20210530154622261.png)
+![image-20210530154622261](https://gitee.com/MyHexo/blog-image/raw/master/image-20210530154622261.png)
 
 #### 命令
 
@@ -83,15 +83,15 @@ cd 到指定工程目录 `E:\Code\testDocker\helloworldapp`
 
 `docker run --name=myapp -p 7778:80 -d myapp:v1.0`
 
-![image-20210530161559489](https://gitee.com/xlzf/blog-image/raw/master/image-20210530161559489.png)
+![image-20210530161559489](https://gitee.com/MyHexo/blog-image/raw/master/image-20210530161559489.png)
 
 出现一串字符串的时候，说明容器启动成功了，这个时候再执行`docker ps`,就会出现如下列表：
 
-![image-20210530161653125](https://gitee.com/xlzf/blog-image/raw/master/image-20210530161653125.png)
+![image-20210530161653125](https://gitee.com/MyHexo/blog-image/raw/master/image-20210530161653125.png)
 
 此时如果访问本地端口，如下图
 
-![image-20210530161829323](https://gitee.com/xlzf/blog-image/raw/master/image-20210530161829323.png)
+![image-20210530161829323](https://gitee.com/MyHexo/blog-image/raw/master/image-20210530161829323.png)
 
 #### Docker for Desktop
 
@@ -99,15 +99,15 @@ cd 到指定工程目录 `E:\Code\testDocker\helloworldapp`
 
 image 
 
-![image-20210530161957344](https://gitee.com/xlzf/blog-image/raw/master/image-20210530161957344.png)
+![image-20210530161957344](https://gitee.com/MyHexo/blog-image/raw/master/image-20210530161957344.png)
 
 docker 
 
-![image-20210530162042171](https://gitee.com/xlzf/blog-image/raw/master/image-20210530162042171.png)
+![image-20210530162042171](https://gitee.com/MyHexo/blog-image/raw/master/image-20210530162042171.png)
 
 与此同时，也可以通过 软件 进行 docker 程序的访问
 
-![image-20210530162219487](https://gitee.com/xlzf/blog-image/raw/master/image-20210530162219487.png)
+![image-20210530162219487](https://gitee.com/MyHexo/blog-image/raw/master/image-20210530162219487.png)
 
 ## 常用命令
 

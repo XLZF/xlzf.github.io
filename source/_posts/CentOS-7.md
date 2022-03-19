@@ -4,75 +4,75 @@ date: 2021-10-30 17:23:05
 tags: [Linux, CentOS7, Docker, Xshell]
 excerpt: 一直玩Windows,尝试一下CentOs7解解渴。
 categories: Linux
-index_img: https://gitee.com/xlzf/blog-image/raw/master/CentOS_VM.jpeg
-banner_img: https://gitee.com/xlzf/blog-image/raw/master/3.jpg
+index_img: https://gitee.com/MyHexo/blog-image/raw/master/CentOS_VM.jpeg
+banner_img: https://gitee.com/MyHexo/blog-image/raw/master/3.jpg
 ---
 
 # CentOS7
 
 ## 安装
 
-![image-20210813222017245](https://gitee.com/xlzf/blog-image/raw/master/image-20210813222017245.png)
+![image-20210813222017245](https://gitee.com/MyHexo/blog-image/raw/master/image-20210813222017245.png)
 
-![image-20210813222157401](https://gitee.com/xlzf/blog-image/raw/master/image-20210813222157401.png)
+![image-20210813222157401](https://gitee.com/MyHexo/blog-image/raw/master/image-20210813222157401.png)
 
-![image-20210813222256945](https://gitee.com/xlzf/blog-image/raw/master/image-20210813222256945.png)
+![image-20210813222256945](https://gitee.com/MyHexo/blog-image/raw/master/image-20210813222256945.png)
 
-![image-20210813222533941](https://gitee.com/xlzf/blog-image/raw/master/image-20210813222533941.png)
+![image-20210813222533941](https://gitee.com/MyHexo/blog-image/raw/master/image-20210813222533941.png)
 
-![image-20210813222637764](https://gitee.com/xlzf/blog-image/raw/master/image-20210813222637764.png)
+![image-20210813222637764](https://gitee.com/MyHexo/blog-image/raw/master/image-20210813222637764.png)
 
-![image-20210813222707926](https://gitee.com/xlzf/blog-image/raw/master/image-20210813222707926.png)
+![image-20210813222707926](https://gitee.com/MyHexo/blog-image/raw/master/image-20210813222707926.png)
 
-![image-20210813222736374](https://gitee.com/xlzf/blog-image/raw/master/image-20210813222736374.png)
+![image-20210813222736374](https://gitee.com/MyHexo/blog-image/raw/master/image-20210813222736374.png)
 
-![image-20210813222759917](https://gitee.com/xlzf/blog-image/raw/master/image-20210813222759917.png)
+![image-20210813222759917](https://gitee.com/MyHexo/blog-image/raw/master/image-20210813222759917.png)
 
-![image-20210813222820140](https://gitee.com/xlzf/blog-image/raw/master/image-20210813222820140.png)
+![image-20210813222820140](https://gitee.com/MyHexo/blog-image/raw/master/image-20210813222820140.png)
 
-![image-20210813222948110](https://gitee.com/xlzf/blog-image/raw/master/image-20210813222948110.png)
+![image-20210813222948110](https://gitee.com/MyHexo/blog-image/raw/master/image-20210813222948110.png)
 
-![image-20210813222921036](https://gitee.com/xlzf/blog-image/raw/master/image-20210813222921036.png)
+![image-20210813222921036](https://gitee.com/MyHexo/blog-image/raw/master/image-20210813222921036.png)
 
-![image-20210813223019158](https://gitee.com/xlzf/blog-image/raw/master/image-20210813223019158.png)
+![image-20210813223019158](https://gitee.com/MyHexo/blog-image/raw/master/image-20210813223019158.png)
 
-![image-20210813223036473](https://gitee.com/xlzf/blog-image/raw/master/image-20210813223036473.png)
+![image-20210813223036473](https://gitee.com/MyHexo/blog-image/raw/master/image-20210813223036473.png)
 
-![image-20210813223055113](https://gitee.com/xlzf/blog-image/raw/master/image-20210813223055113.png)
+![image-20210813223055113](https://gitee.com/MyHexo/blog-image/raw/master/image-20210813223055113.png)
 
-![image-20210813223122945](https://gitee.com/xlzf/blog-image/raw/master/image-20210813223122945.png)
+![image-20210813223122945](https://gitee.com/MyHexo/blog-image/raw/master/image-20210813223122945.png)
 
-![image-20210813223141978](https://gitee.com/xlzf/blog-image/raw/master/image-20210813223141978.png)
+![image-20210813223141978](https://gitee.com/MyHexo/blog-image/raw/master/image-20210813223141978.png)
 
-![image-20210813224259862](https://gitee.com/xlzf/blog-image/raw/master/image-20210813224259862.png)
+![image-20210813224259862](https://gitee.com/MyHexo/blog-image/raw/master/image-20210813224259862.png)
 
-![image-20210813224432142](https://gitee.com/xlzf/blog-image/raw/master/image-20210813224432142.png)
+![image-20210813224432142](https://gitee.com/MyHexo/blog-image/raw/master/image-20210813224432142.png)
 
-![image-20210813224506500](https://gitee.com/xlzf/blog-image/raw/master/image-20210813224506500.png)
+![image-20210813224506500](https://gitee.com/MyHexo/blog-image/raw/master/image-20210813224506500.png)
 
-![image-20210813224537039](https://gitee.com/xlzf/blog-image/raw/master/image-20210813224537039.png)
+![image-20210813224537039](https://gitee.com/MyHexo/blog-image/raw/master/image-20210813224537039.png)
 
-![image-20210813224615048](https://gitee.com/xlzf/blog-image/raw/master/image-20210813224615048.png)
+![image-20210813224615048](https://gitee.com/MyHexo/blog-image/raw/master/image-20210813224615048.png)
 
-![image-20210813224632445](https://gitee.com/xlzf/blog-image/raw/master/image-20210813224632445.png)
+![image-20210813224632445](https://gitee.com/MyHexo/blog-image/raw/master/image-20210813224632445.png)
 
-![image-20210813224713441](https://gitee.com/xlzf/blog-image/raw/master/image-20210813224713441.png)
+![image-20210813224713441](https://gitee.com/MyHexo/blog-image/raw/master/image-20210813224713441.png)
 
-![image-20210813224757244](https://gitee.com/xlzf/blog-image/raw/master/image-20210813224757244.png)
+![image-20210813224757244](https://gitee.com/MyHexo/blog-image/raw/master/image-20210813224757244.png)
 
-![](https://gitee.com/xlzf/blog-image/raw/master/image-20210813224815295.png)
+![](https://gitee.com/MyHexo/blog-image/raw/master/image-20210813224815295.png)
 
-![image-20210813224845477](https://gitee.com/xlzf/blog-image/raw/master/image-20210813224845477.png)
+![image-20210813224845477](https://gitee.com/MyHexo/blog-image/raw/master/image-20210813224845477.png)
 
-![image-20210813224907724](https://gitee.com/xlzf/blog-image/raw/master/image-20210813224907724.png)
+![image-20210813224907724](https://gitee.com/MyHexo/blog-image/raw/master/image-20210813224907724.png)
 
-![image-20210813224930022](https://gitee.com/xlzf/blog-image/raw/master/image-20210813224930022.png)
+![image-20210813224930022](https://gitee.com/MyHexo/blog-image/raw/master/image-20210813224930022.png)
 
-![image-20210813224948885](https://gitee.com/xlzf/blog-image/raw/master/image-20210813224948885.png)
+![image-20210813224948885](https://gitee.com/MyHexo/blog-image/raw/master/image-20210813224948885.png)
 
-![image-20210813225019577](https://gitee.com/xlzf/blog-image/raw/master/image-20210813225019577.png)
+![image-20210813225019577](https://gitee.com/MyHexo/blog-image/raw/master/image-20210813225019577.png)
 
-<img src="https://gitee.com/xlzf/blog-image/raw/master/image-20210813225122432.png" alt="image-20210813225122432" style="zoom:80%;" />
+<img src="https://gitee.com/MyHexo/blog-image/raw/master/image-20210813225122432.png" alt="image-20210813225122432" style="zoom:80%;" />
 
 ## XShell 连接
 
@@ -80,17 +80,17 @@ banner_img: https://gitee.com/xlzf/blog-image/raw/master/3.jpg
 
 `ifconfig`
 
-![image-20210814151123899](https://gitee.com/xlzf/blog-image/raw/master/image-20210814151123899.png)
+![image-20210814151123899](https://gitee.com/MyHexo/blog-image/raw/master/image-20210814151123899.png)
 
 ### xshell 新建连接
 
-![image-20210814151253098](https://gitee.com/xlzf/blog-image/raw/master/image-20210814151253098.png)
+![image-20210814151253098](https://gitee.com/MyHexo/blog-image/raw/master/image-20210814151253098.png)
 
-![image-20210814151518393](https://gitee.com/xlzf/blog-image/raw/master/image-20210814151518393.png)
+![image-20210814151518393](https://gitee.com/MyHexo/blog-image/raw/master/image-20210814151518393.png)
 
-![image-20210814151543205](https://gitee.com/xlzf/blog-image/raw/master/image-20210814151543205.png)
+![image-20210814151543205](https://gitee.com/MyHexo/blog-image/raw/master/image-20210814151543205.png)
 
-![image-20210814151612377](https://gitee.com/xlzf/blog-image/raw/master/image-20210814151612377.png)
+![image-20210814151612377](https://gitee.com/MyHexo/blog-image/raw/master/image-20210814151612377.png)
 
 ## 基础操作
 
@@ -149,21 +149,21 @@ service network restart
 
 重启CentOs,到如下界面，快速按 e 键 进入编辑界面
 
-![image-20210731215547837](https://gitee.com/xlzf/blog-image/raw/master/image-20210731215547837.png)
+![image-20210731215547837](https://gitee.com/MyHexo/blog-image/raw/master/image-20210731215547837.png)
 
-![image-20210731215723728](https://gitee.com/xlzf/blog-image/raw/master/image-20210731215723728.png)
+![image-20210731215723728](https://gitee.com/MyHexo/blog-image/raw/master/image-20210731215723728.png)
 
 #### 编辑
 
 按方向键下键`↓`，找到设置语言的地方，如`LANG=en_US.UTF-8`，在后面追加`rw single init=/bin/bash`,然后按`ctrl+x`重启系统
 
-![image-20210731215809612](https://gitee.com/xlzf/blog-image/raw/master/image-20210731215809612.png)
+![image-20210731215809612](https://gitee.com/MyHexo/blog-image/raw/master/image-20210731215809612.png)
 
 #### 进入bash界面
 
 进入bash界面后，可以输入`passwd`命令重新设置root密码
 
-![image-20210731215953541](https://gitee.com/xlzf/blog-image/raw/master/image-20210731215953541.png)
+![image-20210731215953541](https://gitee.com/MyHexo/blog-image/raw/master/image-20210731215953541.png)
 
 #### 剩下操作
 
@@ -521,11 +521,11 @@ systemctl status vsftpd.service另一种service vsftpd restartservice vsftpd sta
 
 ### 连接
 
-![image-20210814184803023](https://gitee.com/xlzf/blog-image/raw/master/image-20210814184803023.png)
+![image-20210814184803023](https://gitee.com/MyHexo/blog-image/raw/master/image-20210814184803023.png)
 
-![image-20210814190436082](https://gitee.com/xlzf/blog-image/raw/master/image-20210814190436082.png)
+![image-20210814190436082](https://gitee.com/MyHexo/blog-image/raw/master/image-20210814190436082.png)
 
-![image-20210814190456161](https://gitee.com/xlzf/blog-image/raw/master/image-20210814190456161.png)
+![image-20210814190456161](https://gitee.com/MyHexo/blog-image/raw/master/image-20210814190456161.png)
 
 ### 问题
 
@@ -537,11 +537,11 @@ systemctl status vsftpd.service另一种service vsftpd restartservice vsftpd sta
 
    2. 查了一下，应该是共享的文件夹权限的问题，手动设置，有点懒
 
-      ![image-20210814190147729](https://gitee.com/xlzf/blog-image/raw/master/image-20210814190147729.png)
+      ![image-20210814190147729](https://gitee.com/MyHexo/blog-image/raw/master/image-20210814190147729.png)
 
-      ![image-20210814190230363](https://gitee.com/xlzf/blog-image/raw/master/image-20210814190230363.png)
+      ![image-20210814190230363](https://gitee.com/MyHexo/blog-image/raw/master/image-20210814190230363.png)
 
-      ![image-20210814190345335](https://gitee.com/xlzf/blog-image/raw/master/image-20210814190345335.png)
+      ![image-20210814190345335](https://gitee.com/MyHexo/blog-image/raw/master/image-20210814190345335.png)
 
       
 

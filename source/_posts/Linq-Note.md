@@ -4,7 +4,7 @@ date: 2021-11-01 22:05:43
 tags: [Linq]
 excerpt: 之前记录的关于Linq的笔记，花式Linq拓展。
 categories: C#
-index_img: https://gitee.com/xlzf/blog-image/raw/master/Gongsi/Csharp.jpeg
+index_img: https://gitee.com/MyHexo/blog-image/raw/master/Gongsi/Csharp.jpeg
 ---
 
 ## 前言
@@ -138,7 +138,7 @@ public class ParameterRebinder : ExpressionVisitor
 }
 ```
 
-![img](https://gitee.com/xlzf/blog-image/raw/master/521993-20181005160328572-1728196450.png)
+![img](https://gitee.com/MyHexo/blog-image/raw/master/521993-20181005160328572-1728196450.png)
 
 ## 第二种方法
 
@@ -577,8 +577,8 @@ public class Utils
 }
 ```
 
-![img](https://gitee.com/xlzf/blog-image/raw/master/521993-20181005154806206-690330382.png)
+![img](https://gitee.com/MyHexo/blog-image/raw/master/521993-20181005154806206-690330382.png)
 
-![img](https://gitee.com/xlzf/blog-image/raw/master/521993-20181005154841037-1651076712.png)
+![img](https://gitee.com/MyHexo/blog-image/raw/master/521993-20181005154841037-1651076712.png)
 
-![img](https://gitee.com/xlzf/blog-image/raw/master/521993-20181006205821996-188650883.png)
+![img](https://gitee.com/MyHexo/blog-image/raw/master/521993-20181006205821996-188650883.png)
