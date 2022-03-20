@@ -4,12 +4,12 @@ date: 2021-11-01 21:38:50
 tags: [winform, DevExpress]
 excerpt: DevGridControl中，两SeachlookUpEdit联动.
 categories: C#
-index_img: https://gitee.com/MyHexo/blog-image/raw/master/DevExpress.jpeg
+index_img: https://gitee.com/xlzf/blog-image/raw/master/DevExpress.jpeg
 ---
 
 为了实现在DevGridControl控件中，两列都用seachlookUpEdit 编辑，并且这两列需要联动,实现效果如下
 
-https://gitee.com/MyHexo/blog-image/raw/master/521993-20210818221241151-2085448174.gif
+https://gitee.com/xlzf/blog-image/raw/master/521993-20210818221241151-2085448174.gif
 
 *由于图放在Gitee，超过1M的就不能及时显示了*
 

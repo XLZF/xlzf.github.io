@@ -4,7 +4,7 @@ date: 2021-11-01 21:15:40
 tags: [Oracle]
 excerpt: 把工作中的关于Oralce的知识点记录到这。
 categories: Oracle
-index_img: https://gitee.com/MyHexo/blog-image/raw/master/Oracle.jpeg
+index_img: https://gitee.com/xlzf/blog-image/raw/master/Oracle.jpeg
 ---
 
 ## Oralce 锁表

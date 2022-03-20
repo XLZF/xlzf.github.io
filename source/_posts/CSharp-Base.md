@@ -4,7 +4,7 @@ date: 2021-10-30 18:16:33
 tags: [Base]
 excerpt: 温故而知新，可以为师矣。
 categories: C#
-index_img: https://gitee.com/MyHexo/blog-image/raw/master/Gongsi/Csharp.jpeg
+index_img: https://gitee.com/xlzf/blog-image/raw/master/Gongsi/Csharp.jpeg
 ---
 
 ## 面向对象编程

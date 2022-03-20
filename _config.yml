@@ -107,6 +107,6 @@ deploy:
   branch: master
 # deploy:
   # type: git
-  # repository: git@gitee.com:MyHexo/MyHexo.git
+  # repository: git@gitee.com:xlzf/xlzf.git
   # branch: master
   

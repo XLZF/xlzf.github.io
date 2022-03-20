@@ -5,7 +5,7 @@ date: 2021-11-28 22:16:52
 tags: [Docker, Oracle]
 excerpt: windows docker 安装 Oracle XE 11g
 categories: Oracle
-index_img: https://gitee.com/MyHexo/blog-image/raw/master/Oracle.jpeg
+index_img: https://gitee.com/xlzf/blog-image/raw/master/Oracle.jpeg
 ---
 
 # Docker下安装oracle-xe-11g

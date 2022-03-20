@@ -4,12 +4,12 @@ date: 2022-03-19 20:00:52
 tags: [Docke]
 excerpt: Docker 安装 RabbitMQ
 categories: RabbitMq
-index_img: https://gitee.com/MyHexo/blog-image/raw/master/Home/a5d19d60e8798247f2a9b360ef003e20.jpeg
+index_img: https://gitee.com/xlzf/blog-image/raw/master/Home/a5d19d60e8798247f2a9b360ef003e20.jpeg
 ---
 
 # Docker for RabbitMQ
 
-![](https://gitee.com/MyHexo/blog-image/raw/master/Home/a5d19d60e8798247f2a9b360ef003e20.jpeg)
+![](https://gitee.com/xlzf/blog-image/raw/master/Home/a5d19d60e8798247f2a9b360ef003e20.jpeg)
 
 ## run
 

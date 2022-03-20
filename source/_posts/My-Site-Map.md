@@ -4,8 +4,8 @@ date: 2021-10-29 11:31:38
 tags: [URL]
 excerpt: 本文主要是收纳我平时用到的几个站点，以备不时只需。
 categories: StorageBox
-index_img: https://gitee.com/MyHexo/blog-image/raw/master/2.jpg
-banner_img: https://gitee.com/MyHexo/blog-image/raw/master/2.jpg
+index_img: https://gitee.com/xlzf/blog-image/raw/master/2.jpg
+banner_img: https://gitee.com/xlzf/blog-image/raw/master/2.jpg
 ---
 
 ## 我告诉你

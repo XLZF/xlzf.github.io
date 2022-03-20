@@ -4,12 +4,12 @@ date: 2022-02-12 17:25:29
 tags: [Interview]
 excerpt: DotNet & DotNet Core 区别
 categories: C#
-index_img: https://gitee.com/MyHexo/blog-image/raw/master/Gongsi/Csharp.jpeg
+index_img: https://gitee.com/xlzf/blog-image/raw/master/Gongsi/Csharp.jpeg
 ---
 
 # DotNet 与 DotNet Core 的区别
 
-![image-20220212182101257](https://gitee.com/MyHexo/blog-image/raw/master/Home/image-20220212182101257.png)
+![image-20220212182101257](https://gitee.com/xlzf/blog-image/raw/master/Home/image-20220212182101257.png)
 
 **DotNet 包含 DotNet Core** 
 
@@ -34,7 +34,7 @@ index_img: https://gitee.com/MyHexo/blog-image/raw/master/Gongsi/Csharp.jpeg
 
 再结合下图
 
-![族谱](https://gitee.com/MyHexo/blog-image/raw/master/Home/image-20220212182623858.png)
+![族谱](https://gitee.com/xlzf/blog-image/raw/master/Home/image-20220212182623858.png)
 
 
 

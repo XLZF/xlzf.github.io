@@ -5,19 +5,19 @@ tags: [Program]
 keywords: 工具
 excerpt: Typora 自动添加序号
 categories: StorageBox
-index_img: https://gitee.com/MyHexo/blog-image/raw/master/Typora.jpeg
+index_img: https://gitee.com/xlzf/blog-image/raw/master/Typora.jpeg
 ---
 
 ## Typora 自动添加序号
 
 到 `typora` 偏好设置 `ctrl + .` 外观，打开主题文件夹
 
-![](https://gitee.com/MyHexo/blog-image/raw/master/521993-20210607110848770-1526666350.webp)
+![](https://gitee.com/xlzf/blog-image/raw/master/521993-20210607110848770-1526666350.webp)
 
 
 新建 文件 `base.user.css`
 
-![](https://gitee.com/MyHexo/blog-image/raw/master/521993-20210607110853002-175857938.webp)
+![](https://gitee.com/xlzf/blog-image/raw/master/521993-20210607110853002-175857938.webp)
 
 
 ```css
