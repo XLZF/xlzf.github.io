@@ -444,7 +444,7 @@ footer:
 index:
   # 首页 Banner 头图，可以是相对路径或绝对路径，以下相同
   # Path of Banner image, can be a relative path or an absolute path, the same on other pages
-  banner_img: https://gitee.com/xlzf/blog-image/raw/master/Gongsi/b9e4cec47a5981199a86ee40580860f8.jpeg #https://gitee.com/xlzf/blog-image/raw/master/3.png
+  banner_img: https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/b9e4cec47a5981199a86ee40580860f8.jpeg #https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/3.png
 
   # 头图高度，屏幕百分比
   # Height ratio of banner image
@@ -516,7 +516,7 @@ index:
 # Post Page
 #---------------------------
 post:
-  banner_img: https://gitee.com/xlzf/blog-image/raw/master/4.png
+  banner_img: https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/4.png
   banner_img_height: 60
   banner_mask_alpha: 0.3
 
@@ -610,7 +610,7 @@ post:
   # Custom content at the bottom of the post page (located above the footer)
   custom:
     enable: true
-    content: '<img src="https://gitee.com/xlzf/blog-image/raw/master/Gongsi/gongzhonghao2.jpg" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">'
+    content: '<img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/gongzhonghao2.jpg" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">'
 
   # 文章图片可点击放大
   # Zoom feature of images
@@ -810,7 +810,7 @@ cusdis:
 # Archive Page
 #---------------------------
 archive:
-  banner_img: https://gitee.com/xlzf/blog-image/raw/master/5.png
+  banner_img: https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/5.png
   banner_img_height: 60
   banner_mask_alpha: 0.3
   subtitle:
@@ -822,7 +822,7 @@ archive:
 #---------------------------
 category:
   enable: true
-  banner_img: https://gitee.com/xlzf/blog-image/raw/master/7.png
+  banner_img: https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/7.png
   banner_img_height: 60
   banner_mask_alpha: 0.3
   subtitle:
@@ -852,7 +852,7 @@ category:
 #---------------------------
 tag:
   enable: true
-  banner_img: https://gitee.com/xlzf/blog-image/raw/master/4.png
+  banner_img: https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/4.png
   banner_img_height: 60
   banner_mask_alpha: 0.3
   subtitle:
@@ -870,7 +870,7 @@ tag:
 #---------------------------
 about:
   enable: true
-  banner_img: https://gitee.com/xlzf/blog-image/raw/master/7.png
+  banner_img: https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/7.png
   banner_img_height: 60
   banner_mask_alpha: 0.3
   subtitle:
@@ -893,7 +893,7 @@ about:
 # Custom Page through `hexo new page`
 #---------------------------
 page:
-  banner_img: https://gitee.com/xlzf/blog-image/raw/master/6.png
+  banner_img: https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/6.png
   banner_img_height: 60
   banner_mask_alpha: 0.3
 
@@ -904,7 +904,7 @@ page:
 #---------------------------
 page404:
   enable: true
-  banner_img: https://gitee.com/xlzf/blog-image/raw/master/7.png
+  banner_img: https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/7.png
   banner_img_height: 85
   banner_mask_alpha: 0.3
   subtitle: "Page not found"
@@ -916,7 +916,7 @@ page404:
 #---------------------------
 links:
   enable: true
-  banner_img: https://gitee.com/xlzf/blog-image/raw/master/7.png
+  banner_img: https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/7.png
   banner_img_height: 60
   banner_mask_alpha: 0.3
   subtitle:
