@@ -4,7 +4,7 @@ date: 2021-11-01 21:25:09
 tags: [winform, DevExpress]
 excerpt: Winform 动态设置控件属性
 categories: C#
-index_img: https://gitee.com/xlzf/blog-image/raw/master/Gongsi/Csharp.jpeg
+index_img: https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/Csharp.jpeg
 ---
 
 ## Winform 动态设置控件属性
@@ -15,7 +15,7 @@ index_img: https://gitee.com/xlzf/blog-image/raw/master/Gongsi/Csharp.jpeg
 
 * 放点控件
 
-![](https://gitee.com/xlzf/blog-image/raw/master/521993-20210830135410324-1392804038.png)
+![](https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/521993-20210830135410324-1392804038.png)
 
 * 先准备用到的实体
 

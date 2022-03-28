@@ -4,7 +4,7 @@ date: 2022-01-19 14:23:15
 tags: [Nginx, .net core, Docker]
 excerpt: 在Docker中通过Nginx反向代理访问.Net Core web 应用
 categories: Nginx
-index_img: https://gitee.com/xlzf/blog-image/raw/master/Gongsi/image-20220119165020105.png
+index_img: https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220119165020105.png
 ---
 
 # .NetCore Docker Nginx
@@ -13,21 +13,21 @@ index_img: https://gitee.com/xlzf/blog-image/raw/master/Gongsi/image-20220119165
 
 ### 新建 .net core web应用
 
-![新建应用](https://gitee.com/xlzf/blog-image/raw/master/Gongsi/image-20220119135939441.png)
+![新建应用](https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220119135939441.png)
 
 ### 添加Docker 支持-linux
 
-![docker支持](https://gitee.com/xlzf/blog-image/raw/master/Gongsi/image-20220119140022112.png)
+![docker支持](https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220119140022112.png)
 
 ### 发布
 
-![发布设置](https://gitee.com/xlzf/blog-image/raw/master/Gongsi/image-20220119140104644.png)
+![发布设置](https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220119140104644.png)
 
 ### 修改发布后的DockerFile
 
-![发布后的文件](https://gitee.com/xlzf/blog-image/raw/master/Gongsi/image-20220119140144967.png)
+![发布后的文件](https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220119140144967.png)
 
-![修改DockerFile](https://gitee.com/xlzf/blog-image/raw/master/Gongsi/image-20220119140208877.png)
+![修改DockerFile](https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220119140208877.png)
 
 ```shell
 #See https://aka.ms/containerfastmode to understand how Visual Studio uses 
@@ -42,13 +42,13 @@ ENTRYPOINT ["dotnet", "WebDemo.dll"]
 
 ### 上传到服务器
 
-![xftp](https://gitee.com/xlzf/blog-image/raw/master/Gongsi/image-20220119140355752.png)
+![xftp](https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220119140355752.png)
 
 ## Docker image
 
 ### build test program
 
-![testProgramBuild](https://gitee.com/xlzf/blog-image/raw/master/Gongsi/image-20220119140542103.png)
+![testProgramBuild](https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220119140542103.png)
 
 ### pull nginx
 
@@ -92,11 +92,11 @@ docker run -d -p 8080:80 -v /root/nginx/my_nginx.conf:/etc/nginx/conf.d/default.
 
 本篇主要是将.Net core web应用放到Linux服务器中，使用Nginx反向代理，进行访问。
 
-![docker容器列表](https://gitee.com/xlzf/blog-image/raw/master/Gongsi/image-20220119142358772.png)
+![docker容器列表](https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220119142358772.png)
 
-![web应用服务](https://gitee.com/xlzf/blog-image/raw/master/Gongsi/image-20220119142220882.png)
+![web应用服务](https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220119142220882.png)
 
-![ngixn代理端口](https://gitee.com/xlzf/blog-image/raw/master/Gongsi/image-20220119142258548.png)
+![ngixn代理端口](https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220119142258548.png)
 
 
 

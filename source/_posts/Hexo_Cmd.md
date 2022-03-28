@@ -4,7 +4,7 @@ date: 2021-11-19 14:25:09
 tags: [Hexo]
 excerpt: 本文章用来记录在github page部署Hexo的经过
 categories: StorageBox
-index_img: https://gitee.com/xlzf/blog-image/raw/master/Gongsi/Hexo_GitHub.jpeg
+index_img: https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/Hexo_GitHub.jpeg
 ---
 
 [文档 | Hexo](https://hexo.io/zh-cn/docs/)

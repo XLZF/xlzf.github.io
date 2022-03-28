@@ -4,7 +4,7 @@ date: 2021-11-01 22:24:43
 tags: [Linq]
 excerpt: 几年前看大神文章留的笔记。
 categories: C#
-index_img: https://gitee.com/xlzf/blog-image/raw/master/Gongsi/Csharp.jpeg
+index_img: https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/Csharp.jpeg
 ---
 
 ## [SqlSugar 学习](http://www.codeisbug.com/Doc/8/1166)

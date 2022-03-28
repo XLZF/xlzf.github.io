@@ -4,7 +4,7 @@ date: 2021-11-06 20:10:57
 tags: [Helper]
 excerpt: DataTable & 泛型集合之间的转换帮助类
 categories: C#
-index_img: https://gitee.com/xlzf/blog-image/raw/master/Gongsi/Csharp.jpeg
+index_img: https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/Csharp.jpeg
 ---
 
 # DataTable&泛型集合之间的转换帮助类

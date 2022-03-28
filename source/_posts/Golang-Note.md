@@ -4,7 +4,7 @@ date: 2021-10-31 19:47:01
 tags: [Go]
 excerpt: 本文记录Golang环境配置和一点基础知识。
 categories: Golang
-index_img: https://gitee.com/xlzf/blog-image/raw/master/Go.jpeg
+index_img: https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/Go.jpeg
 ---
 
 ## 环境部署
@@ -19,7 +19,7 @@ index_img: https://gitee.com/xlzf/blog-image/raw/master/Go.jpeg
 
 `C:\Program Files\Go`
 
-![image-20210502222044326](https://gitee.com/xlzf/blog-image/raw/master/img/image-20210502222044326.png)
+![image-20210502222044326](https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210502222044326.png)
 
 ### 其他配置
 
@@ -55,11 +55,11 @@ index_img: https://gitee.com/xlzf/blog-image/raw/master/Go.jpeg
 
   上述俩 GitHub 地址没有通天的手段基本上是整不下来的，这个时候 `码云`可以出来了
 
-  ![image-20210519002803186](https://gitee.com/xlzf/blog-image/raw/master/img/20210519002835.png)
+  ![image-20210519002803186](https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/20210519002835.png)
 
   把上述的那俩git地址都挪到码云里，这个方便本地clone
 
-  ![image-20210519003137754](https://gitee.com/xlzf/blog-image/raw/master/img/20210519003137.png)
+  ![image-20210519003137754](https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/20210519003137.png)
 
 #### Clone 无需多言
 
@@ -216,7 +216,7 @@ func Add(i int ,j int)int {
 
 ### 截图
 
-![image-20210505225640086](https://gitee.com/xlzf/blog-image/raw/master/img/image-20210505225640086.png)
+![image-20210505225640086](https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210505225640086.png)
 
 ## 基础知识
 
@@ -440,7 +440,7 @@ func Add(i int ,j int)int {
 
 ### 数据类型
 
-![image-20210515232851239](https://gitee.com/xlzf/blog-image/raw/master/img/20210515232851.png)
+![image-20210515232851239](https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/20210515232851.png)
 
 * 空指针值 nil，⽽⾮ C/C++ NULL。
 
@@ -468,11 +468,11 @@ func SliceTest1()  {
 
 输出结果：
 
-![image-20210514230715956](https://gitee.com/xlzf/blog-image/raw/master/img/image-20210514230715956.png)
+![image-20210514230715956](https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210514230715956.png)
 
 ##### channel 通道
 
-![image-20210519220142304](https://gitee.com/xlzf/blog-image/raw/master/img/20210519220142.png)
+![image-20210519220142304](https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/20210519220142.png)
 
 ### 表达式
 
@@ -558,7 +558,7 @@ func ExpressionTest()  {
 
 执行结果：
 
-![image-20210514224453702](https://gitee.com/xlzf/blog-image/raw/master/img/image-20210514224453702.png)
+![image-20210514224453702](https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210514224453702.png)
 
 #### 标签
 
@@ -579,7 +579,7 @@ f1:for i:=0;i<4;i++{ //f1 标签
 
 输出结果：
 
-![image-20210515165154495](https://gitee.com/xlzf/blog-image/raw/master/img/20210515195143.png)
+![image-20210515165154495](https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/20210515195143.png)
 
 #### `goto` 跳跃
 
@@ -609,7 +609,7 @@ SVIP:
 }
 ```
 
-![image-20210517214916383](https://gitee.com/xlzf/blog-image/raw/master/img/20210517214916.png)![image-20210517214945026](https://gitee.com/xlzf/blog-image/raw/master/img/20210517214945.png)![image-20210517215011356](https://gitee.com/xlzf/blog-image/raw/master/img/20210517215011.png)
+![image-20210517214916383](https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/20210517214916.png)![image-20210517214945026](https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/20210517214945.png)![image-20210517215011356](https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/20210517215011.png)
 
 #### 字符串格式化
 
@@ -641,7 +641,7 @@ func StringFormatMenthod()  {
 
 输出：
 
-![image-20210517220631093](https://gitee.com/xlzf/blog-image/raw/master/img/20210517220631.png)
+![image-20210517220631093](https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/20210517220631.png)
 
 ### 运算符
 
@@ -686,7 +686,7 @@ r5 := 5 >> 1
 所以：101 右移之后 10 右移1位，后面咬去1位， -> 10 -> 2*1 = 2
 ```
 
-![image-20210517230842863](https://gitee.com/xlzf/blog-image/raw/master/img/20210517230842.png)
+![image-20210517230842863](https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/20210517230842.png)
 
 补充：
 
@@ -777,7 +777,7 @@ commlib.FunctionTest6()
 
 执行结果：
 
-![image-20210514224544469](https://gitee.com/xlzf/blog-image/raw/master/img/image-20210514224544469.png)
+![image-20210514224544469](https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210514224544469.png)
 
 ## 常见问题
 

@@ -4,8 +4,8 @@ date: 2021-10-30 17:46:10
 tags: [Linux, Ubuntu, Docker]
 excerpt: 在Window10上通过Microsoft Store安装Ubuntu. 
 categories: Linux 
-index_img: https://gitee.com/xlzf/blog-image/raw/master/Ubuntu.jpeg 
-banner_img: https://gitee.com/xlzf/blog-image/raw/master/4.jpg 
+index_img: https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/Ubuntu.jpeg 
+banner_img: https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/4.jpg 
 ---
 
 # window10 Install Linux 
@@ -14,29 +14,29 @@ banner_img: https://gitee.com/xlzf/blog-image/raw/master/4.jpg
 
 ### 启动开发人员模式
 
-![image-20210724160839938](https://gitee.com/xlzf/blog-image/raw/master/image-20210724160839938.png)
+![image-20210724160839938](https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210724160839938.png)
 
 ### 打开Linux子系统
 
-![image-20210724161025846](https://gitee.com/xlzf/blog-image/raw/master/image-20210724161025846.png)
+![image-20210724161025846](https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210724161025846.png)
 
 ### Micrsoft Store 
 
-![image-20210724160633196](https://gitee.com/xlzf/blog-image/raw/master/image-20210724160633196.png)
+![image-20210724160633196](https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210724160633196.png)
 
 我自己使用的是 `Ubuntu 18.04 LTS`
 
-![image-20210724161700603](https://gitee.com/xlzf/blog-image/raw/master/image-20210724161700603.png)
+![image-20210724161700603](https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210724161700603.png)
 
 ###  Ubuntu
 
-![image-20210724163204041](https://gitee.com/xlzf/blog-image/raw/master/image-20210724163204041.png)
+![image-20210724163204041](https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210724163204041.png)
 
-![image-20210724163230357](https://gitee.com/xlzf/blog-image/raw/master/image-20210724163230357.png)
+![image-20210724163230357](https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210724163230357.png)
 
 设置好用户名和密码之后
 
-![image-20210724163311586](https://gitee.com/xlzf/blog-image/raw/master/image-20210724163311586.png)
+![image-20210724163311586](https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210724163311586.png)
 
 ## 设置源
 
@@ -44,7 +44,7 @@ banner_img: https://gitee.com/xlzf/blog-image/raw/master/4.jpg
 
 `sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak`
 
-![image-20210724163701348](https://gitee.com/xlzf/blog-image/raw/master/image-20210724163701348.png)
+![image-20210724163701348](https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210724163701348.png)
 
 本地路径：
 
@@ -90,7 +90,7 @@ deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-security main restricted
 
 ### 本文使用阿里云源
 
-![image-20210724164013532](https://gitee.com/xlzf/blog-image/raw/master/image-20210724164013532.png)
+![image-20210724164013532](https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210724164013532.png)
 
 ## 初始化
 
@@ -132,7 +132,7 @@ deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-security main restricted
 
 `sudo service xrdp restart`
 
-![image-20210724170258123](https://gitee.com/xlzf/blog-image/raw/master/image-20210724170258123.png)
+![image-20210724170258123](https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210724170258123.png)
 
 上述命令执行完毕之后，通过本地IP+端口 ，例如: `192.168.31.64:3390` 去 `mstsc`  远程服务器，即可远程打开此`Ubuntu`。
 
@@ -219,13 +219,13 @@ sudo add-apt-repository \
 
 `sudo chmod +x /usr/local/bin/docker-compose`
 
-![image-20210724175726176](https://gitee.com/xlzf/blog-image/raw/master/image-20210724175726176.png)
+![image-20210724175726176](https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210724175726176.png)
 
 #### 查看版本信息
 
 `docker-compose --version`
 
-![image-20210724175854252](https://gitee.com/xlzf/blog-image/raw/master/image-20210724175854252.png)
+![image-20210724175854252](https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210724175854252.png)
 
 ### docker-machine安装
 
@@ -245,7 +245,7 @@ sudo cp /tmp/docker-machine /usr/local/bin/docker-machine
 
 `docker-machine version`
 
-![image-20210724180727779](https://gitee.com/xlzf/blog-image/raw/master/image-20210724180727779.png)
+![image-20210724180727779](https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210724180727779.png)
 
 #### 启动docker
 

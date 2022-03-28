@@ -4,7 +4,7 @@ date: 2021-11-06 16:37:42
 tags: [Helper]
 excerpt: 这段时间在做外部接口，踩了点坑，记录一下.
 categories: C#
-index_img: https://gitee.com/xlzf/blog-image/raw/master/Gongsi/Csharp.jpeg
+index_img: https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/Csharp.jpeg
 ---
 
 ## 前言

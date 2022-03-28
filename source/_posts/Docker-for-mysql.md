@@ -4,7 +4,7 @@ date: 2021-11-15 10:47:01
 tags: [Docker, Mysql]
 excerpt: windows docker 安装Mysql
 categories: Mysql
-index_img: https://gitee.com/xlzf/blog-image/raw/master/Gongsi/mysql.jpeg
+index_img: https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/mysql.jpeg
 ---
 
 # Docker 安装 Mysql
@@ -19,11 +19,11 @@ index_img: https://gitee.com/xlzf/blog-image/raw/master/Gongsi/mysql.jpeg
 
    提前做好路径：`D:\docker\mysql\conf`
 
-   ![image-20211114161159024](https://gitee.com/xlzf/blog-image/raw/master/Home/20211114161203.png)
+   ![image-20211114161159024](https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/20211114161203.png)
 
    `docker cp mysql:/etc/mysql/my.cnf D:/docker/mysql/conf/`
 
-   ![image-20211114161305796](https://gitee.com/xlzf/blog-image/raw/master/Home/20211114161307.png)
+   ![image-20211114161305796](https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/20211114161307.png)
 
 4. 停止 `docker stop mysql`
 
@@ -57,4 +57,4 @@ index_img: https://gitee.com/xlzf/blog-image/raw/master/Gongsi/mysql.jpeg
    4. 用户名 root
    5. 密码 Aa111111
    
-   ![image-20211114162007559](https://gitee.com/xlzf/blog-image/raw/master/Home/20211114162009.png)
+   ![image-20211114162007559](https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/20211114162009.png)
