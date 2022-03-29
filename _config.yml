@@ -105,16 +105,16 @@ theme: fluid # butterfly
   # type: git
   # repository: git@github.com:XLZF/xlzf.github.io.git
   # branch: master
-# deploy:
-  # type: git
-  # repository: git@gitee.com:xlzf/xlzf.git
-  # branch: master
- 
 deploy:
   type: git
-  repo: 
-    github: git@github.com:XLZF/xlzf.github.io.git
-    gitee: git@gitee.com:xlzf/xlzf.git
+  repository: git@gitee.com:xlzf/xlzf.git
   branch: master
+ 
+# deploy:
+  # type: git
+  # repo: 
+    # github: git@github.com:XLZF/xlzf.github.io.git
+    # gitee: git@gitee.com:xlzf/xlzf.git
+  # branch: master
  
   
