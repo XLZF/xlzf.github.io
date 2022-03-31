@@ -1,0 +1,803 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.png">
+  <link rel="icon" href="/img/avatar.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="一直玩Windows,尝试一下CentOs7解解渴。">
+  <meta name="author" content="Harris">
+  <meta name="keywords" content="">
+  <meta name="description" content="一直玩Windows,尝试一下CentOs7解解渴。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CentOS 7">
+<meta property="og:url" content="http://example.com/2021/10/30/CentOS-7/index.html">
+<meta property="og:site_name" content="Harris Blog">
+<meta property="og:description" content="一直玩Windows,尝试一下CentOs7解解渴。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813222017245.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813222157401.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813222256945.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813222533941.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813222637764.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813222707926.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813222736374.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813222759917.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813222820140.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813222948110.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813222921036.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813223019158.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813223036473.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813223055113.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813223122945.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813223141978.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813224259862.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813224432142.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813224506500.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813224537039.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813224615048.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813224632445.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813224713441.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813224757244.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813224815295.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813224845477.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813224907724.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813224930022.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813224948885.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813225019577.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813225122432.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210814151123899.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210814151253098.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210814151518393.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210814151543205.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210814151612377.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210731215547837.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210731215723728.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210731215809612.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210731215953541.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210814184803023.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210814190436082.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210814190456161.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210814190147729.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210814190230363.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210814190345335.png">
+<meta property="article:published_time" content="2021-10-30T09:23:05.000Z">
+<meta property="article:modified_time" content="2022-03-31T01:47:44.869Z">
+<meta property="article:author" content="Harris">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="CentOS7">
+<meta property="article:tag" content="Docker">
+<meta property="article:tag" content="Xshell">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813222017245.png">
+  
+  <title>CentOS 7 - Harris Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/shubiao.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/gundongtiao.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/toubudaziji.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 6.1.0"><link rel="alternate" href="/atom.xml" title="Harris Blog" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 60vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>道吾</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                主页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                类别
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-books"></i>
+                文档
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/">
+                    
+                    主题博客
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/guide/">
+                    
+                    配置指南
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/icon/">
+                    
+                    图标用法
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/3.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="CentOS 7">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      Harris
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-10-30 17:23" pubdate>
+        October 30, 2021 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      19k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      60 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">CentOS 7</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：21 minutes ago
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h1 id="CentOS7"><a href="#CentOS7" class="headerlink" title="CentOS7"></a>CentOS7</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813222017245.png" srcset="/img/loading.gif" lazyload alt="image-20210813222017245"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813222157401.png" srcset="/img/loading.gif" lazyload alt="image-20210813222157401"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813222256945.png" srcset="/img/loading.gif" lazyload alt="image-20210813222256945"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813222533941.png" srcset="/img/loading.gif" lazyload alt="image-20210813222533941"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813222637764.png" srcset="/img/loading.gif" lazyload alt="image-20210813222637764"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813222707926.png" srcset="/img/loading.gif" lazyload alt="image-20210813222707926"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813222736374.png" srcset="/img/loading.gif" lazyload alt="image-20210813222736374"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813222759917.png" srcset="/img/loading.gif" lazyload alt="image-20210813222759917"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813222820140.png" srcset="/img/loading.gif" lazyload alt="image-20210813222820140"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813222948110.png" srcset="/img/loading.gif" lazyload alt="image-20210813222948110"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813222921036.png" srcset="/img/loading.gif" lazyload alt="image-20210813222921036"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813223019158.png" srcset="/img/loading.gif" lazyload alt="image-20210813223019158"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813223036473.png" srcset="/img/loading.gif" lazyload alt="image-20210813223036473"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813223055113.png" srcset="/img/loading.gif" lazyload alt="image-20210813223055113"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813223122945.png" srcset="/img/loading.gif" lazyload alt="image-20210813223122945"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813223141978.png" srcset="/img/loading.gif" lazyload alt="image-20210813223141978"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813224259862.png" srcset="/img/loading.gif" lazyload alt="image-20210813224259862"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813224432142.png" srcset="/img/loading.gif" lazyload alt="image-20210813224432142"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813224506500.png" srcset="/img/loading.gif" lazyload alt="image-20210813224506500"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813224537039.png" srcset="/img/loading.gif" lazyload alt="image-20210813224537039"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813224615048.png" srcset="/img/loading.gif" lazyload alt="image-20210813224615048"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813224632445.png" srcset="/img/loading.gif" lazyload alt="image-20210813224632445"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813224713441.png" srcset="/img/loading.gif" lazyload alt="image-20210813224713441"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813224757244.png" srcset="/img/loading.gif" lazyload alt="image-20210813224757244"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813224815295.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813224845477.png" srcset="/img/loading.gif" lazyload alt="image-20210813224845477"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813224907724.png" srcset="/img/loading.gif" lazyload alt="image-20210813224907724"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813224930022.png" srcset="/img/loading.gif" lazyload alt="image-20210813224930022"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813224948885.png" srcset="/img/loading.gif" lazyload alt="image-20210813224948885"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813225019577.png" srcset="/img/loading.gif" lazyload alt="image-20210813225019577"></p>
+<img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210813225122432.png" srcset="/img/loading.gif" lazyload alt="image-20210813225122432" style="zoom:80%;" />
+
+<h2 id="XShell-连接"><a href="#XShell-连接" class="headerlink" title="XShell 连接"></a>XShell 连接</h2><h3 id="先在虚拟机中查看IP"><a href="#先在虚拟机中查看IP" class="headerlink" title="先在虚拟机中查看IP"></a>先在虚拟机中查看IP</h3><p><code>ifconfig</code></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210814151123899.png" srcset="/img/loading.gif" lazyload alt="image-20210814151123899"></p>
+<h3 id="xshell-新建连接"><a href="#xshell-新建连接" class="headerlink" title="xshell 新建连接"></a>xshell 新建连接</h3><p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210814151253098.png" srcset="/img/loading.gif" lazyload alt="image-20210814151253098"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210814151518393.png" srcset="/img/loading.gif" lazyload alt="image-20210814151518393"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210814151543205.png" srcset="/img/loading.gif" lazyload alt="image-20210814151543205"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210814151612377.png" srcset="/img/loading.gif" lazyload alt="image-20210814151612377"></p>
+<h2 id="基础操作"><a href="#基础操作" class="headerlink" title="基础操作"></a>基础操作</h2><h3 id="配置IP"><a href="#配置IP" class="headerlink" title="配置IP"></a>配置IP</h3><p><code>vi /etc/sysconfig/network-scripts/ifcfg-ens33</code></p>
+<p>灵活配置</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs shell">TYPE=&quot;Ethernet&quot;   # 网络类型为以太网<br>BOOTPROTO=&quot;static&quot;  # 手动分配ip<br>NAME=&quot;ens33&quot;  # 网卡设备名，设备名一定要跟文件名一致<br>DEVICE=&quot;ens33&quot;  # 网卡设备名，设备名一定要跟文件名一致<br>ONBOOT=&quot;yes&quot;  # 该网卡是否随网络服务启动<br>IPADDR=&quot;192.168.220.101&quot;  # 该网卡ip地址就是你要配置的固定IP，如果你要用xshell等工具连接，220这个网段最好和你自己的电脑网段一致，否则有可能用xshell连接失败<br>GATEWAY=&quot;192.168.220.2&quot;   # 网关<br>NETMASK=&quot;255.255.255.0&quot;   # 子网掩码<br>DNS1=&quot;8.8.8.8&quot;    # DNS，8.8.8.8为Google提供的免费DNS服务器的IP地址<br></code></pre></td></tr></table></figure>
+
+<h3 id="配置网络工作"><a href="#配置网络工作" class="headerlink" title="配置网络工作"></a>配置网络工作</h3><p><code>vi /etc/sysconfig/network</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">NETWORKING=yes # 网络是否工作，此处一定不能为no<br></code></pre></td></tr></table></figure>
+
+<h3 id="配置公共DNS服务-可选"><a href="#配置公共DNS服务-可选" class="headerlink" title="配置公共DNS服务(可选)"></a>配置公共DNS服务(可选)</h3><p><code>vi /etc/resolv.conf</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">nameserver 8.8.8.8<br></code></pre></td></tr></table></figure>
+
+<h3 id="关闭防火墙"><a href="#关闭防火墙" class="headerlink" title="关闭防火墙"></a>关闭防火墙</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">systemctl stop firewalld # 临时关闭防火墙<br>systemctl disable firewalld # 禁止开机启动<br></code></pre></td></tr></table></figure>
+
+<h3 id="重启网络服务"><a href="#重启网络服务" class="headerlink" title="重启网络服务"></a>重启网络服务</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">service network restart<br></code></pre></td></tr></table></figure>
+
+<h3 id="重置root-密码"><a href="#重置root-密码" class="headerlink" title="重置root 密码"></a>重置root 密码</h3><p>安装完CentOs7之后有的时候会获取不到root的权限，需要su root ，这个时候忘记密码，需要重置密码，需要以下步骤。</p>
+<h4 id="进入编辑界面"><a href="#进入编辑界面" class="headerlink" title="进入编辑界面"></a>进入编辑界面</h4><p>重启CentOs,到如下界面，快速按 e 键 进入编辑界面</p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210731215547837.png" srcset="/img/loading.gif" lazyload alt="image-20210731215547837"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210731215723728.png" srcset="/img/loading.gif" lazyload alt="image-20210731215723728"></p>
+<h4 id="编辑"><a href="#编辑" class="headerlink" title="编辑"></a>编辑</h4><p>按方向键下键<code>↓</code>，找到设置语言的地方，如<code>LANG=en_US.UTF-8</code>，在后面追加<code>rw single init=/bin/bash</code>,然后按<code>ctrl+x</code>重启系统</p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210731215809612.png" srcset="/img/loading.gif" lazyload alt="image-20210731215809612"></p>
+<h4 id="进入bash界面"><a href="#进入bash界面" class="headerlink" title="进入bash界面"></a>进入bash界面</h4><p>进入bash界面后，可以输入<code>passwd</code>命令重新设置root密码</p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210731215953541.png" srcset="/img/loading.gif" lazyload alt="image-20210731215953541"></p>
+<h4 id="剩下操作"><a href="#剩下操作" class="headerlink" title="剩下操作"></a>剩下操作</h4><ul>
+<li>如果开启了SELinux，执行命令<code>touch /.autorelabel</code>命令</li>
+<li>输入<code>exec /sbin/init</code>命令重启系统</li>
+</ul>
+<h2 id="安裝FTP"><a href="#安裝FTP" class="headerlink" title="安裝FTP"></a>安裝FTP</h2><h3 id="查看是否安装ftp"><a href="#查看是否安装ftp" class="headerlink" title="查看是否安装ftp"></a>查看是否安装ftp</h3><p><code>rpm -qa | grep vsftpd</code></p>
+<h3 id="如果现实ftp，则进行下面命令卸载"><a href="#如果现实ftp，则进行下面命令卸载" class="headerlink" title="如果现实ftp，则进行下面命令卸载"></a>如果现实ftp，则进行下面命令卸载</h3><p><code>rpm -e  vsftpd-*</code></p>
+<h3 id="使用以下命令安装Ftp-在线"><a href="#使用以下命令安装Ftp-在线" class="headerlink" title="使用以下命令安装Ftp(在线)"></a>使用以下命令安装Ftp(在线)</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">#</span><span class="language-bash">安装</span><br>yum install -y vsftpd<br></code></pre></td></tr></table></figure>
+
+<h3 id="配置FTP"><a href="#配置FTP" class="headerlink" title="配置FTP"></a>配置FTP</h3><p>默认安装配置文件流路径为：/etc/vsftpd/vsftpd.conf</p>
+<p>然后我们打开该配置文件 vi vsftpd.conf</p>
+<p>修改内容如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">第一处 12行左右</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">Allow anonymous FTP? (Beware - allowed by default <span class="hljs-keyword">if</span> you comment this out).--是否允许匿名访问</span><br>anonymous_enable=NO<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash">第二处  33行左右</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">Uncomment this <span class="hljs-keyword">if</span> you want the anonymous FTP user to be able to create</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">new directories.  -- 匿名用户登录否创建新目录。</span><br>anon_mkdir_write_enable=YES<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash">第三处  48行左右</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">If you want, you can arrange <span class="hljs-keyword">for</span> uploaded anonymous files to be owned by</span><br>chown_uploads=YES<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash">第四处 修改72行   异步中断启用？？</span><br>async_abor_enable=YES<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash">第五处 修改83行</span><br>ascii_upload_enable=YES<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash">第六处 修改84行</span><br>ascii_download_enable=YES<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash">第七处 修改87行</span><br>ftpd_banner=Welcome to blah FTP service.<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash">第八处 修改101行   --是否将所有用户限制在主目录,YES为启用 NO禁用.</span><br>hroot_local_user=YES<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">然后再文件的最后添加如下配置：</span><br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">使用本地时间</span><br>use_localtime=YES<br><span class="hljs-meta prompt_"># </span><span class="language-bash">监听端口</span><br>listen_port=21<br><span class="hljs-meta prompt_"># </span><span class="language-bash">空闲回话超时时间 单位秒</span><br>idle_session_timeout=300<br><span class="hljs-meta prompt_"># </span><span class="language-bash">来宾启用</span> <br>guest_enable=YES<br><span class="hljs-meta prompt_"># </span><span class="language-bash">来宾用户名称</span><br>guest_username=vsftpd<br><span class="hljs-meta prompt_"># </span><span class="language-bash">用户配置文件</span><br>user_config_dir=/etc/vsftpd/uconf<br><span class="hljs-meta prompt_"># </span><span class="language-bash">连接超时时间  单位秒</span><br>data_connection_timeout=100<br><span class="hljs-meta prompt_"># </span><span class="language-bash">？？？</span><br>virtual_use_local_privs=YES<br><span class="hljs-meta prompt_"># </span><span class="language-bash">pasv模式下指定端口范围 最小和最大</span><br>pasv_min_port=40000<br>pasv_max_port=40010<br><span class="hljs-meta prompt_"># </span><span class="language-bash">接受超时 次数？</span><br>accept_timeout=5<br><span class="hljs-meta prompt_"># </span><span class="language-bash">连接超时 单位秒</span><br>connect_timeout=100<br><span class="hljs-meta prompt_"># </span><span class="language-bash">允许写入根目录</span><br>allow_writeable_chroot=YES<br></code></pre></td></tr></table></figure>
+
+<p>先按照上述配置</p>
+<p>配置完成品如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">Example config file /etc/vsftpd/vsftpd.conf</span><br><span class="hljs-meta prompt_">#</span><span class="language-bash"></span><br><span class="language-bash"><span class="hljs-comment"># The default compiled in settings are fairly paranoid. This sample file</span></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">loosens things up a bit, to make the ftp daemon more usable.</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">Please see vsftpd.conf.5 <span class="hljs-keyword">for</span> all compiled <span class="hljs-keyword">in</span> defaults.</span><br><span class="hljs-meta prompt_">#</span><span class="language-bash"></span><br><span class="language-bash"><span class="hljs-comment"># READ THIS: This example file is NOT an exhaustive list of vsftpd options.</span></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">Please <span class="hljs-built_in">read</span> the vsftpd.conf.5 manual page to get a full idea of vsftpd<span class="hljs-string">&#x27;s</span></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-string">capabilities.</span></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-string"></span></span><br><span class="hljs-string"><span class="language-bash"># Allow anonymous FTP? (Beware - allowed by default if you comment this out).</span></span><br>anonymous_enable=NO<br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-string"></span></span><br><span class="hljs-string"><span class="language-bash"># Uncomment this to allow local users to log in.</span></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-string">When SELinux is enforcing check for SE bool ftp_home_dir</span></span><br>local_enable=YES<br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-string"></span></span><br><span class="hljs-string"><span class="language-bash"># Uncomment this to enable any form of FTP write command.</span></span><br>write_enable=YES<br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-string"></span></span><br><span class="hljs-string"><span class="language-bash"># Default umask for local users is 077. You may wish to change this to 022,</span></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-string">if your users expect that (022 is used by most other ftpd&#x27;</span>s)</span><br>local_umask=022<br><span class="hljs-meta prompt_">#</span><span class="language-bash"></span><br><span class="language-bash"><span class="hljs-comment"># Uncomment this to allow the anonymous FTP user to upload files. This only</span></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">has an effect <span class="hljs-keyword">if</span> the above global write <span class="hljs-built_in">enable</span> is activated. Also, you will</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">obviously need to create a directory writable by the FTP user.</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">When SELinux is enforcing check <span class="hljs-keyword">for</span> SE bool allow_ftpd_anon_write, allow_ftpd_full_access</span><br><span class="hljs-meta prompt_">#</span><span class="language-bash">anon_upload_enable=YES</span><br><span class="hljs-meta prompt_">#</span><span class="language-bash"></span><br><span class="language-bash"><span class="hljs-comment"># Uncomment this if you want the anonymous FTP user to be able to create</span></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">new directories.</span><br>anon_mkdir_write_enable=YES<br><span class="hljs-meta prompt_">#</span><span class="language-bash"></span><br><span class="language-bash"><span class="hljs-comment"># Activate directory messages - messages given to remote users when they</span></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">go into a certain directory.</span><br>dirmessage_enable=YES<br><span class="hljs-meta prompt_">#</span><span class="language-bash"></span><br><span class="language-bash"><span class="hljs-comment"># Activate logging of uploads/downloads.</span></span><br>xferlog_enable=YES<br><span class="hljs-meta prompt_">#</span><span class="language-bash"></span><br><span class="language-bash"><span class="hljs-comment"># Make sure PORT transfer connections originate from port 20 (ftp-data).</span></span><br>connect_from_port_20=YES<br><span class="hljs-meta prompt_">#</span><span class="language-bash"></span><br><span class="language-bash"><span class="hljs-comment"># If you want, you can arrange for uploaded anonymous files to be owned by</span></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">a different user. Note! Using <span class="hljs-string">&quot;root&quot;</span> <span class="hljs-keyword">for</span> uploaded files is not</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">recommended!</span><br>chown_uploads=YES<br><span class="hljs-meta prompt_">#</span><span class="language-bash">chown_username=whoever</span><br><span class="hljs-meta prompt_">#</span><span class="language-bash"></span><br><span class="language-bash"><span class="hljs-comment"># You may override where the log file goes if you like. The default is shown</span></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">below.</span><br><span class="hljs-meta prompt_">#</span><span class="language-bash">xferlog_file=/var/log/xferlog</span><br><span class="hljs-meta prompt_">#</span><span class="language-bash"></span><br><span class="language-bash"><span class="hljs-comment"># If you want, you can have your log file in standard ftpd xferlog format.</span></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">Note that the default <span class="hljs-built_in">log</span> file location is /var/log/xferlog <span class="hljs-keyword">in</span> this <span class="hljs-keyword">case</span>.</span><br>xferlog_std_format=YES<br><span class="hljs-meta prompt_">#</span><span class="language-bash"></span><br><span class="language-bash"><span class="hljs-comment"># You may change the default value for timing out an idle session.</span></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash">idle_session_timeout=600</span><br><span class="hljs-meta prompt_">#</span><span class="language-bash"></span><br><span class="language-bash"><span class="hljs-comment"># You may change the default value for timing out a data connection.</span></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash">data_connection_timeout=120</span><br><span class="hljs-meta prompt_">#</span><span class="language-bash"></span><br><span class="language-bash"><span class="hljs-comment"># It is recommended that you define on your system a unique user which the</span></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">ftp server can use as a totally isolated and unprivileged user.</span><br><span class="hljs-meta prompt_">#</span><span class="language-bash">nopriv_user=ftpsecure</span><br><span class="hljs-meta prompt_">#</span><span class="language-bash"></span><br><span class="language-bash"><span class="hljs-comment"># Enable this and the server will recognise asynchronous ABOR requests. Not</span></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">recommended <span class="hljs-keyword">for</span> security (the code is non-trivial). Not enabling it,</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">however, may confuse older FTP clients.</span><br>async_abor_enable=YES<br><span class="hljs-meta prompt_">#</span><span class="language-bash"></span><br><span class="language-bash"><span class="hljs-comment"># By default the server will pretend to allow ASCII mode but in fact ignore</span></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">the request. Turn on the below options to have the server actually <span class="hljs-keyword">do</span> ASCII</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">mangling on files when <span class="hljs-keyword">in</span> ASCII mode. The vsftpd.conf(5) man page explains</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">the behaviour when these options are disabled.</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">Beware that on some FTP servers, ASCII support allows a denial of service</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">attack (DoS) via the <span class="hljs-built_in">command</span> <span class="hljs-string">&quot;SIZE /big/file&quot;</span> <span class="hljs-keyword">in</span> ASCII mode. vsftpd</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">predicted this attack and has always been safe, reporting the size of the</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">raw file.</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">ASCII mangling is a horrible feature of the protocol.</span><br>ascii_upload_enable=YES<br>ascii_download_enable=YES<br><span class="hljs-meta prompt_">#</span><span class="language-bash"></span><br><span class="language-bash"><span class="hljs-comment"># You may fully customise the login banner string:</span></span><br>ftpd_banner=Welcome to blah FTP service.<br><span class="hljs-meta prompt_">#</span><span class="language-bash"></span><br><span class="language-bash"><span class="hljs-comment"># You may specify a file of disallowed anonymous e-mail addresses. Apparently</span></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">useful <span class="hljs-keyword">for</span> combatting certain DoS attacks.</span><br><span class="hljs-meta prompt_">#</span><span class="language-bash">deny_email_enable=YES</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">(default follows)</span><br><span class="hljs-meta prompt_">#</span><span class="language-bash">banned_email_file=/etc/vsftpd/banned_emails</span><br><span class="hljs-meta prompt_">#</span><span class="language-bash"></span><br><span class="language-bash"><span class="hljs-comment"># You may specify an explicit list of local users to chroot() to their home</span></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">directory. If chroot_local_user is YES, <span class="hljs-keyword">then</span> this list becomes a list of</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-built_in">users</span> to NOT <span class="hljs-built_in">chroot</span>().</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">(Warning! <span class="hljs-built_in">chroot</span><span class="hljs-string">&#x27;ing can be very dangerous. If using chroot, make sure that</span></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-string">the user does not have write access to the top level directory within the</span></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-string">chroot)</span></span><br>chroot_local_user=YES<br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-string">chroot_list_enable=YES</span></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-string">(default follows)</span></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-string">chroot_list_file=/etc/vsftpd/chroot_list</span></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-string"></span></span><br><span class="hljs-string"><span class="language-bash"># You may activate the &quot;-R&quot; option to the builtin ls. This is disabled by</span></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-string">default to avoid remote users being able to cause excessive I/O on large</span></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-string">sites. However, some broken FTP clients such as &quot;ncftp&quot; and &quot;mirror&quot; assume</span></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-string">the presence of the &quot;-R&quot; option, so there is a strong case for enabling it.</span></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-string">ls_recurse_enable=YES</span></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-string"></span></span><br><span class="hljs-string"><span class="language-bash"># When &quot;listen&quot; directive is enabled, vsftpd runs in standalone mode and</span></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-string">listens on IPv4 sockets. This directive cannot be used in conjunction</span></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-string">with the listen_ipv6 directive.</span></span><br>listen=NO<br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-string"></span></span><br><span class="hljs-string"><span class="language-bash"># This directive enables listening on IPv6 sockets. By default, listening</span></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-string">on the IPv6 &quot;any&quot; address (::) will accept connections from both IPv6</span></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-string">and IPv4 clients. It is not necessary to listen on *both* IPv4 and IPv6</span></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-string">sockets. If you want that (perhaps because you want to listen on specific</span></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-string">addresses) then you must run two copies of vsftpd with two configuration</span></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-string">files.</span></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-string">Make sure, that one of the listen options is commented !!</span></span><br>listen_ipv6=YES<br><br>pam_service_name=vsftpd<br>userlist_enable=YES<br>tcp_wrappers=YES<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-string">使用本地时间</span></span><br>use_localtime=YES<br><span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-string">监听端口</span></span><br>listen_port=21<br><span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-string">空闲回话超时时间 单位秒</span></span><br>idle_session_timeout=300<br><span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-string">来宾启用</span></span> <br>guest_enable=YES<br><span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-string">来宾用户名称</span></span><br>guest_username=vsftpd<br><span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-string">用户配置文件</span></span><br>user_config_dir=/etc/vsftpd/uconf<br><span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-string">连接超时时间  单位秒</span></span><br>data_connection_timeout=100<br><span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-string">？？？</span></span><br>virtual_use_local_privs=YES<br><span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-string">pasv模式下指定端口范围 最小和最大</span></span><br>pasv_min_port=40000<br>pasv_max_port=40010<br><span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-string">接受超时 次数？</span></span><br>accept_timeout=5<br><span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-string">连接超时 单位秒</span></span><br>connect_timeout=100<br><span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-string">允许写入根目录</span></span><br>allow_writeable_chroot=YES<br></code></pre></td></tr></table></figure>
+
+<h3 id="建立用户文件并生成-并-生成用户数据文件"><a href="#建立用户文件并生成-并-生成用户数据文件" class="headerlink" title="建立用户文件并生成 并 生成用户数据文件"></a>建立用户文件并生成 并 生成用户数据文件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">#</span><span class="language-bash">创建编辑用户文件</span><br>vim /etc/vsftpd/ftpuser<br><span class="hljs-meta prompt_">#</span><span class="language-bash">第一行为用户名，第二行为密码。不能使用root作为用户名</span> <br><br>houshuai<br>houshuai<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell">db_load -T -t hash -f /etc/vsftpd/ftpuser /etc/vsftpd/ftpuser.db<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash">设定PAM验证文件，并指定对虚拟用户数据库文件进行读取</span><br><br>chmod 600 /etc/vsftpd/ftpuser.db <br></code></pre></td></tr></table></figure>
+
+<h3 id="修改-etc-pam-d-vsftpd-文件"><a href="#修改-etc-pam-d-vsftpd-文件" class="headerlink" title="修改 /etc/pam.d/vsftpd 文件"></a>修改 /etc/pam.d/vsftpd 文件</h3><p>这里没有整明白是啥事，没有跟风，后续有机会再研究</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">修改前先备份</span> <br><br>cp /etc/pam.d/vsftpd /etc/pam.d/vsftpd.bak<br><br>vi /etc/pam.d/vsftpd<br><span class="hljs-meta prompt_">#</span><span class="language-bash">先将配置文件中原有的 auth 及 account 的所有配置行均注释掉</span><br>auth sufficient /lib64/security/pam_userdb.so db=/etc/vsftpd/ftpuser<br>account sufficient /lib64/security/pam_userdb.so db=/etc/vsftpd/ftpuser<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">如果系统为32位，上面改为lib</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="新建系统用户vsftpd，用户目录为-home-vsftpd"><a href="#新建系统用户vsftpd，用户目录为-home-vsftpd" class="headerlink" title="新建系统用户vsftpd，用户目录为/home/vsftpd"></a>新建系统用户vsftpd，用户目录为/home/vsftpd</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">#</span><span class="language-bash">用户登录终端设为/bin/false(即：使之不能登录系统)</span><br>useradd vsftpd -d /home/vsftpd -s /bin/false<br>chown -R vsftpd:vsftpd /home/vsftpd<br></code></pre></td></tr></table></figure>
+
+<h3 id="建立虚拟用户个人配置文件"><a href="#建立虚拟用户个人配置文件" class="headerlink" title="建立虚拟用户个人配置文件"></a>建立虚拟用户个人配置文件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs shell">mkdir /etc/vsftpd/uconf<br>cd /etc/vsftpd/uconf<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash">这里建立虚拟用户wanghao配置文件</span><br>touch houshuai<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash">编辑wanghao用户配置文件，内容如下，其他用户类似</span><br>vi houshuai<br><br>local_root=/home/vsftpd/houshuai/<br>write_enable=YES<br>anon_world_readable_only=NO<br>anon_upload_enable=YES<br>anon_mkdir_write_enable=YES<br>anon_other_write_enable=YES<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash">建立wanghao用户根目录</span><br>mkdir -p /home/vsftpd/houshuai/<br></code></pre></td></tr></table></figure>
+
+<p>然后我们在/home/vsftpd/houshuai 下面创建一个index.html 测试文件</p>
+<h3 id="防火墙设置"><a href="#防火墙设置" class="headerlink" title="防火墙设置"></a>防火墙设置</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">IPtables 的设置方式：</span><br>vi /etc/sysconfig/iptables<br><span class="hljs-meta prompt_">#</span><span class="language-bash">编辑iptables文件，添加如下内容，开启21端口</span><br>-A INPUT -m state --state NEW -m tcp -p tcp --dport 21 -j ACCEPT<br>-A INPUT -m state --state NEW -m tcp -p tcp --dport 40000:40010 -j ACCEPT<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">firewall 的设置方式：</span><br>firewall-cmd --zone=public --add-service=ftp --permanent<br><br>firewall-cmd --zone=public --add-port=21/tcp --permanent<br>firewall-cmd --zone=public --add-port=40000-40010/tcp --permanent<br></code></pre></td></tr></table></figure>
+
+<h3 id="启动ftp服务器"><a href="#启动ftp服务器" class="headerlink" title="启动ftp服务器"></a>启动ftp服务器</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">#</span><span class="language-bash">设置开机启动</span><br>systemctl enable vsftpd.service<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash">启动</span><br>systemctl start vsftpd.service<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash">停止</span><br>systemctl stop vsftpd.service<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash">重启</span><br>systemctl restart vsftpd.service<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash">查看状态</span><br>systemctl status vsftpd.service另一种service vsftpd restartservice vsftpd status<br></code></pre></td></tr></table></figure>
+
+<h3 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h3><p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210814184803023.png" srcset="/img/loading.gif" lazyload alt="image-20210814184803023"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210814190436082.png" srcset="/img/loading.gif" lazyload alt="image-20210814190436082"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210814190456161.png" srcset="/img/loading.gif" lazyload alt="image-20210814190456161"></p>
+<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><ol>
+<li><p>此间会遇到一些问题，诸如：503 等等，就是防火墙关了就行 <code>systemctl stop firewalld</code>，具体为什么，防火墙端口的活。</p>
+</li>
+<li><p><code>553 Could not create file</code> 问题，网友们说的有点纷杂，整理一下</p>
+<ol>
+<li><p>SeLinux 需要关闭 <code>vim /etc/selinux/config</code> 设置 <code>SELINUX=disabled</code>   设置完还是没有解决，可能是没有重启的原因。</p>
+</li>
+<li><p>查了一下，应该是共享的文件夹权限的问题，手动设置，有点懒</p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210814190147729.png" srcset="/img/loading.gif" lazyload alt="image-20210814190147729"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210814190230363.png" srcset="/img/loading.gif" lazyload alt="image-20210814190230363"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210814190345335.png" srcset="/img/loading.gif" lazyload alt="image-20210814190345335"></p>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="安装Docker"><a href="#安装Docker" class="headerlink" title="安装Docker"></a>安装Docker</h2><h3 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br></pre></td><td class="code"><pre><code class="hljs shell">[root@centOs7 ~]# uname -a<br>Linux centOs7 3.10.0-1160.el7.x86_64 #1 SMP Mon Oct 19 16:18:59 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux<br>[root@centOs7 ~]# yum update<br>已加载插件：fastestmirror, langpacks<br>Loading mirror speeds from cached hostfile<br> * base: mirrors.bfsu.edu.cn<br> * extras: mirrors.huaweicloud.com<br> * updates: mirrors.huaweicloud.com<br>base                                                     | 3.6 kB     00:00     <br>extras                                                   | 2.9 kB     00:00     <br>updates                                                  | 2.9 kB     00:00     <br>(1/4): base/7/x86_64/group_gz                              | 153 kB   00:00     <br>(2/4): extras/7/x86_64/primary_db                          | 242 kB   00:00     <br>(3/4): updates/7/x86_64/primary_db                         | 9.5 MB   00:00     <br>(4/4): base/7/x86_64/primary_db                            | 6.1 MB   00:02     <br>正在解决依赖关系<br><span class="hljs-meta prompt_">--&gt; </span><span class="language-bash">正在检查事务</span><br><span class="hljs-meta prompt_">---&gt; </span><span class="language-bash">软件包 NetworkManager.x86_64.1.1.18.8-1.el7 将被 升级</span><br><span class="hljs-meta prompt_">---&gt; </span><span class="language-bash">软件包 NetworkManager.x86_64.1.1.18.8-2.el7_9 将被 更新</span><br><span class="hljs-meta prompt_">---&gt; </span><span class="language-bash">软件包 NetworkManager-adsl.x86_64.1.1.18.8-1.el7 将被 升级</span><br>...<br><span class="hljs-meta prompt_">---&gt; </span><span class="language-bash">软件包 zlib.x86_64.0.1.2.7-19.el7_9 将被 更新</span><br>updates/7/x86_64/filelists_db                            | 5.5 MB     00:00     <br><span class="hljs-meta prompt_">--&gt; </span><span class="language-bash">解决依赖关系完成</span><br><br>依赖关系解决<br><br>================================================================================<br> Package                          架构   版本                     源       大小<br>================================================================================<br>正在安装:<br> kernel                           x86_64 3.10.0-1160.36.2.el7     updates  50 M<br>正在更新:<br> NetworkManager                   x86_64 1:1.18.8-2.el7_9         updates 1.9 M<br> NetworkManager-adsl              x86_64 1:1.18.8-2.el7_9         updates 163 k<br> NetworkManager-glib              x86_64 1:1.18.8-2.el7_9         updates 1.5 M<br> NetworkManager-libnm             x86_64 1:1.18.8-2.el7_9         updates 1.7 M<br> ...<br> xorg-x11-server-common           x86_64 1.20.4-16.el7_9          updates  56 k<br> zlib                             x86_64 1.2.7-19.el7_9           updates  90 k<br><br>事务概要<br>================================================================================<br>安装    1 软件包<br>升级  236 软件包<br><br>总下载量：487 M<br>Is this ok [y/d/N]: y<br>Downloading packages:<br>No Presto metadata available for updates<br>警告：/var/cache/yum/x86_64/7/updates/packages/NetworkManager-adsl-1.18.8-2.el7_9.x86_64.rpm: 头V3 RSA/SHA256 Signature, 密钥 ID f4a80eb5: NOKEY<br>NetworkManager-adsl-1.18.8-2.el7_9.x86_64.rpm 的公钥尚未安装<br>(1/237): NetworkManager-adsl-1.18.8-2.el7_9.x86_64.rpm     | 163 kB   00:00     <br>(2/237): NetworkManager-1.18.8-2.el7_9.x86_64.rpm          | 1.9 MB   00:00     <br>(3/237): NetworkManager-libnm-1.18.8-2.el7_9.x86_64.rpm    | 1.7 MB   00:00     <br>...<br>(237/237): xorg-x11-server-Xorg-1.20.4-16.el7_9.x86_64.rpm | 1.5 MB   00:00     <br>--------------------------------------------------------------------------------<br>总计                                                21 MB/s | 487 MB  00:23     <br>从 file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7 检索密钥<br>导入 GPG key 0xF4A80EB5:<br> 用户ID     : &quot;CentOS-7 Key (CentOS 7 Official Signing Key) &lt;security@centos.org&gt;&quot;<br> 指纹       : 6341 ab27 53d7 8a78 a7c2 7bb1 24c6 a8a7 f4a8 0eb5<br> 软件包     : centos-release-7-9.2009.0.el7.centos.x86_64 (@anaconda)<br> 来自       : /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7<br>是否继续？[y/N]：y<br>Running transaction check<br>Running transaction test<br>Transaction test succeeded<br>Running transaction<br>  正在更新    : 1:grub2-common-2.02-0.87.el7.centos.6.noarch              1/473 <br>  正在更新    : centos-release-7-9.2009.1.el7.centos.x86_64               2/473 <br>  ...<br>  正在更新    : iwl4965-firmware-228.61.2.24-80.el7_9.noarch            237/473 <br>  清理        : firefox-68.10.0-1.el7.centos.x86_64                     238/473 <br>  清理        : 12:dhclient-4.2.5-82.el7.centos.x86_64                  239/473 <br>  ...<br>  清理        : tzdata-2020a-1.el7.noarch                               473/473 <br>  验证中      : 7:device-mapper-event-1.02.170-6.el7_9.5.x86_64           1/473 <br>  验证中      : kernel-tools-libs-3.10.0-1160.36.2.el7.x86_64             2/473 <br>  ...<br>  验证中      : pulseaudio-module-bluetooth-10.0-5.el7.x86_64           472/473 <br>  验证中      : libsmartcols-2.23.2-65.el7.x86_64                       473/473 <br><br>已安装:<br>  kernel.x86_64 0:3.10.0-1160.36.2.el7        <br>更新完毕:<br>  NetworkManager.x86_64 1:1.18.8-2.el7_9                                        <br>  NetworkManager-adsl.x86_64 1:1.18.8-2.el7_9    <br>  ...<br>  xorg-x11-server-Xorg.x86_64 0:1.20.4-16.el7_9                                 <br>  xorg-x11-server-common.x86_64 0:1.20.4-16.el7_9                               <br>  zlib.x86_64 0:1.2.7-19.el7_9                                                  <br><br>完毕！<br>[root@centOs7 ~]# yum install -y yum-utils device-mapper-persistent-data lvm2<br>已加载插件：fastestmirror, langpacks<br>Loading mirror speeds from cached hostfile<br> * base: mirrors.bfsu.edu.cn<br> * extras: mirrors.bfsu.edu.cn<br> * updates: mirrors.huaweicloud.com<br>软件包 yum-utils-1.1.31-54.el7_8.noarch 已安装并且是最新版本<br>软件包 device-mapper-persistent-data-0.8.5-3.el7_9.2.x86_64 已安装并且是最新版本<br>软件包 7:lvm2-2.02.187-6.el7_9.5.x86_64 已安装并且是最新版本<br>无须任何处理<br>[root@centOs7 ~]# yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo<br>已加载插件：fastestmirror, langpacks<br>adding repo from: https://download.docker.com/linux/centos/docker-ce.repo<br>grabbing file https://download.docker.com/linux/centos/docker-ce.repo to /etc/yum.repos.d/docker-ce.repo<br>repo saved to /etc/yum.repos.d/docker-ce.repo<br>[root@centOs7 ~]# yum list docker-ce --showduplicates | sort -r<br>已加载插件：fastestmirror, langpacks<br>可安装的软件包<br> * updates: mirrors.huaweicloud.com<br>Loading mirror speeds from cached hostfile<br> * extras: mirrors.huaweicloud.com<br>docker-ce.x86_64            3:20.10.7-3.el7                     docker-ce-stable<br>docker-ce.x86_64            3:20.10.6-3.el7                     docker-ce-stable<br>...<br>docker-ce.x86_64            17.03.0.ce-1.el7.centos             docker-ce-stable<br> * base: mirrors.bfsu.edu.cn<br>[root@centOs7 ~]# yum install docker-ce-17.12.1.ce<br>已加载插件：fastestmirror, langpacks<br>Loading mirror speeds from cached hostfile<br> * base: mirrors.bfsu.edu.cn<br> * extras: mirrors.tuna.tsinghua.edu.cn<br> * updates: mirrors.tuna.tsinghua.edu.cn<br>正在解决依赖关系<br><span class="hljs-meta prompt_">--&gt; </span><span class="language-bash">正在检查事务</span><br><span class="hljs-meta prompt_">---&gt; </span><span class="language-bash">软件包 docker-ce.x86_64.0.17.12.1.ce-1.el7.centos 将被 安装</span><br><span class="hljs-meta prompt_">--&gt; </span><span class="language-bash">正在处理依赖关系 container-selinux &gt;= 2.9，它被软件包 docker-ce-17.12.1.ce-1.el7.centos.x86_64 需要</span><br><span class="hljs-meta prompt_">--&gt; </span><span class="language-bash">正在检查事务</span><br><span class="hljs-meta prompt_">---&gt; </span><span class="language-bash">软件包 container-selinux.noarch.2.2.119.2-1.911c772.el7_8 将被 安装</span><br><span class="hljs-meta prompt_">--&gt; </span><span class="language-bash">解决依赖关系完成</span><br><br>依赖关系解决<br><br>================================================================================<br> Package            架构    版本                        源                 大小<br>================================================================================<br>正在安装:<br> docker-ce          x86_64  17.12.1.ce-1.el7.centos     docker-ce-stable   30 M<br>为依赖而安装:<br> container-selinux  noarch  2:2.119.2-1.911c772.el7_8   extras             40 k<br><br>事务概要<br>================================================================================<br>安装  1 软件包 (+1 依赖软件包)<br><br>总下载量：30 M<br>安装大小：30 M<br>Is this ok [y/d/N]: y<br>Downloading packages:<br>(1/2): container-selinux-2.119.2-1.911c772.el7_8.noarch.rp |  40 kB   00:00     <br>warning: /var/cache/yum/x86_64/7/docker-ce-stable/packages/docker-ce-17.12.1.ce-1.el7.centos.x86_64.rpm: Header V4 RSA/SHA512 Signature, key ID 621e9f35: NOKEY<br>docker-ce-17.12.1.ce-1.el7.centos.x86_64.rpm 的公钥尚未安装<br>(2/2): docker-ce-17.12.1.ce-1.el7.centos.x86_64.rpm        |  30 MB   06:51     <br>--------------------------------------------------------------------------------<br>总计                                                76 kB/s |  30 MB  06:52     <br>从 https://download.docker.com/linux/centos/gpg 检索密钥<br>导入 GPG key 0x621E9F35:<br> 用户ID     : &quot;Docker Release (CE rpm) &lt;docker@docker.com&gt;&quot;<br> 指纹       : 060a 61c5 1b55 8a7f 742b 77aa c52f eb6b 621e 9f35<br> 来自       : https://download.docker.com/linux/centos/gpg<br>是否继续？[y/N]：y<br>Running transaction check<br>Running transaction test<br>Transaction test succeeded<br>Running transaction<br>  正在安装    : 2:container-selinux-2.119.2-1.911c772.el7_8.noarch          1/2 <br>  正在安装    : docker-ce-17.12.1.ce-1.el7.centos.x86_64                    2/2 <br>  验证中      : docker-ce-17.12.1.ce-1.el7.centos.x86_64                    1/2 <br>  验证中      : 2:container-selinux-2.119.2-1.911c772.el7_8.noarch          2/2 <br><br>已安装:<br>  docker-ce.x86_64 0:17.12.1.ce-1.el7.centos                                    <br><br>作为依赖被安装:<br>  container-selinux.noarch 2:2.119.2-1.911c772.el7_8                            <br><br>完毕！<br>[root@centOs7 ~]# systemctl start docker<br>[root@centOs7 ~]# systemctl enable docker<br>Created symlink from /etc/systemd/system/multi-user.target.wants/docker.service to /usr/lib/systemd/system/docker.service.<br>[root@centOs7 ~]# docker version<br>Client:<br> Version:	17.12.1-ce<br> API version:	1.35<br> Go version:	go1.9.4<br> Git commit:	7390fc6<br> Built:	Tue Feb 27 22:15:20 2018<br> OS/Arch:	linux/amd64<br><br>Server:<br> Engine:<br>  Version:	17.12.1-ce<br>  API version:	1.35 (minimum version 1.12)<br>  Go version:	go1.9.4<br>  Git commit:	7390fc6<br>  Built:	Tue Feb 27 22:17:54 2018<br>  OS/Arch:	linux/amd64<br>  Experimental:	false<br>[root@centOs7 ~]# docker ps<br>CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES<br>[root@centOs7 ~]# docker run hello-world<br>Unable to find image &#x27;hello-world:latest&#x27; locally<br>latest: Pulling from library/hello-world<br>b8dfde127a29: Pull complete <br>Digest: sha256:df5f5184104426b65967e016ff2ac0bfcd44ad7899ca3bbcf8e44e4461491a9e<br>Status: Downloaded newer image for hello-world:latest<br><br>Hello from Docker!<br>This message shows that your installation appears to be working correctly.<br><br>To generate this message, Docker took the following steps:<br> 1. The Docker client contacted the Docker daemon.<br> 2. The Docker daemon pulled the &quot;hello-world&quot; image from the Docker Hub.<br>    (amd64)<br> 3. The Docker daemon created a new container from that image which runs the<br>    executable that produces the output you are currently reading.<br> 4. The Docker daemon streamed that output to the Docker client, which sent it<br>    to your terminal.<br><br>To try something more ambitious, you can run an Ubuntu container with:<br><span class="hljs-meta prompt_"> $ </span><span class="language-bash">docker run -it ubuntu bash</span><br><br>Share images, automate workflows, and more with a free Docker ID:<br> https://hub.docker.com/<br><br>For more examples and ideas, visit:<br> https://docs.docker.com/get-started/<br><br>[root@centOs7 ~]# docker ps<br>CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES<br>[root@centOs7 ~]# docker images<br>REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE<br>hello-world         latest              d1165f221234        4 months ago        13.3kB<br>[root@centOs7 ~]# abrt-cli list --since 1627769906<br></code></pre></td></tr></table></figure>
+
+<h3 id="日志中关键命令"><a href="#日志中关键命令" class="headerlink" title="日志中关键命令"></a>日志中关键命令</h3><ul>
+<li><p>root账户登录，查看内核版本如下:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">[root@localhost ~]# uname -a<br></code></pre></td></tr></table></figure></li>
+<li><p>（可选）把yum包更新到最新</p>
+<p>  <strong>(生产环境慎重！yum update会对软件包和内核升级，此处只是为了排除系统环境的影响，来自笔者的备注—2019年10月30日</strong>)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">[root@localhost ~]# yum update<br></code></pre></td></tr></table></figure></li>
+<li><p>安装需要的软件包， yum-util 提供yum-config-manager功能，另外两个是devicemapper驱动依赖的</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">[root@localhost ~]# yum install -y yum-utils device-mapper-persistent-data lvm2<br></code></pre></td></tr></table></figure></li>
+<li><p>设置yum源</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">[root@localhost ~]# yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo<br></code></pre></td></tr></table></figure></li>
+<li><p>可以查看所有仓库中所有docker版本，并选择特定版本安装</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">[root@localhost ~]# yum list docker-ce --showduplicates | sort -r<br></code></pre></td></tr></table></figure></li>
+<li><p>安装Docker，命令：yum install docker-ce-版本号，我选的是17.12.1.ce，如下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">[root@localhost ~]# yum install docker-ce-17.12.1.ce<br></code></pre></td></tr></table></figure></li>
+<li><p>启动Docker，命令：systemctl start docker，然后加入开机启动，如下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">[root@localhost ~]# systemctl start docker<br>[root@localhost ~]# systemctl enable docker<br>Created symlink from /etc/systemd/system/multi-user.target.wants/docker.service to /usr/lib/systemd/system/docker.service.<br></code></pre></td></tr></table></figure></li>
+<li><p>验证安装是否成功(有client和service两部分表示docker安装启动都成功了)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">[root@localhost ~]# docker version <br></code></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="Docker-常用命令"><a href="#Docker-常用命令" class="headerlink" title="Docker 常用命令"></a>Docker 常用命令</h3><ul>
+<li><p>docker ps 查看当前正在运行的容器</p>
+</li>
+<li><p>docker ps -a 查看所有容器的状态</p>
+</li>
+<li><p>docker start/stop id/name 启动/停止某个容器</p>
+</li>
+<li><p>docker attach id 进入某个容器(使用exit退出后容器也跟着停止运行)</p>
+</li>
+<li><p>docker exec -ti id 启动一个伪终端以交互式的方式进入某个容器（使用exit退出后容器不停止运行）</p>
+</li>
+<li><p>docker images 查看本地镜像</p>
+</li>
+<li><p>docker rm id/name 删除某个容器</p>
+</li>
+<li><p>docker rmi id/name 删除某个镜像</p>
+</li>
+<li><p>docker run –name test -ti ubuntu /bin/bash </p>
+<p>复制ubuntu容器并且重命名为test且运行，然后以伪终端交互式方式进入容器，运行bash</p>
+</li>
+<li><p>docker build -t soar/centos:7.1 . 通过当前目录下的Dockerfile创建一个名为soar/centos:7.1的镜像</p>
+</li>
+<li><p>docker run -d -p 2222:22 –name test soar/centos:7.1 </p>
+<p>以镜像soar/centos:7.1创建名为test的容器，并以后台模式运行，并做端口映射到宿主机2222端口，P参数重启容器宿主机端口会发生改变</p>
+</li>
+</ul>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Linux/">Linux</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Linux/">Linux</a>
+                    
+                      <a class="hover-with-bg" href="/tags/CentOS7/">CentOS7</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Docker/">Docker</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Xshell/">Xshell</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/10/30/Windows10-Install-Linux/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Windows10 Install Linux</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/10/29/My-Site-Map/">
+                        <span class="hidden-mobile">My Site Map</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"q3pc0gbhQF3puHJQ3XjiByyg-gzGzoHsz","appKey":"yIsNaqJVWRbpKxcC4phLbjXt","path":"window.location.pathname","placeholder":"吐槽","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":true,"serverURLs":"https://q3pc0gbh.lc-cn-n1-shared.com","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          Fluid.plugins.initFancyBox('#valine .vcontent img:not(.vemoji)');
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+  <div class="col-lg-7 mx-auto nopadding-x-md">
+    <div class="container custom post-custom mx-auto">
+      <img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/gongzhonghao2.jpg" srcset="/img/loading.gif" lazyload class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">
+    </div>
+  </div>
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        京ICP证18023705号
+      </a>
+    </span>
+    
+  </div>
+
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/caidai.js"></script>
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/dianjichuzi.js"></script>
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/timeDate.js"></script>
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

@@ -1,0 +1,618 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.png">
+  <link rel="icon" href="/img/avatar.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="之前记录的关于Linq的笔记，花式Linq拓展。">
+  <meta name="author" content="Harris">
+  <meta name="keywords" content="">
+  <meta name="description" content="之前记录的关于Linq的笔记，花式Linq拓展。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linq Note">
+<meta property="og:url" content="http://example.com/2021/11/01/Linq-Note/index.html">
+<meta property="og:site_name" content="Harris Blog">
+<meta property="og:description" content="之前记录的关于Linq的笔记，花式Linq拓展。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/521993-20181005160328572-1728196450.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/521993-20181005154806206-690330382.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/521993-20181005154841037-1651076712.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/521993-20181006205821996-188650883.png">
+<meta property="article:published_time" content="2021-11-01T14:05:43.000Z">
+<meta property="article:modified_time" content="2022-03-31T01:47:44.872Z">
+<meta property="article:author" content="Harris">
+<meta property="article:tag" content="Linq">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/521993-20181005160328572-1728196450.png">
+  
+  <title>Linq Note - Harris Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/shubiao.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/gundongtiao.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/toubudaziji.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 6.1.0"><link rel="alternate" href="/atom.xml" title="Harris Blog" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 60vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>道吾</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                主页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                类别
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-books"></i>
+                文档
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/">
+                    
+                    主题博客
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/guide/">
+                    
+                    配置指南
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/icon/">
+                    
+                    图标用法
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/4.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Linq Note">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      Harris
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-11-01 22:05" pubdate>
+        November 1, 2021 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      17k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      54 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Linq Note</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：21 minutes ago
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>近自己写个小软件，琢磨着不用之前那种拼接SQL的三层方法，DAL层想用一下Linq。总结如下：</p>
+<p>通常都是GET，POST：</p>
+<p>先来一波简版的：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-comment"><span class="hljs-doctag">///</span>查</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;SYS_User&gt; <span class="hljs-title">GetALL</span>()</span><br>&#123;<br>    <span class="hljs-keyword">return</span> entity.SYS_Users.ToList();<br>&#125;<br><span class="hljs-comment"><span class="hljs-doctag">///</span>增</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-built_in">int</span> <span class="hljs-title">Add</span>(<span class="hljs-params">SYS_User f</span>)</span><br>&#123;<br>    entity.SYS_Users.Add(f);<br><br>    <span class="hljs-keyword">return</span> entity.SaveChanges();<br>&#125;<br><span class="hljs-comment"><span class="hljs-doctag">///</span>改</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-built_in">int</span> <span class="hljs-title">Edit</span>(<span class="hljs-params">SYS_User f</span>)</span><br>&#123;<br>    entity.Entry(f).State = EntityState.Modified;<br><br>    <span class="hljs-keyword">return</span> entity.SaveChanges();<br>&#125;<br><span class="hljs-comment"><span class="hljs-doctag">///</span>删</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-built_in">int</span> <span class="hljs-title">Delete</span>(<span class="hljs-params"><span class="hljs-built_in">int</span> id</span>)</span><br>&#123;<br>    SYS_User f = entity.SYS_Users.Find(id);<br><br>    entity.SYS_Users.Remove(f);<br><br>    <span class="hljs-keyword">return</span> entity.SaveChanges();<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>看到这些，会想到在实际应用中，不是这样的，光说<strong>查询</strong>，就会遇到很多花式的查询。</p>
+<p>然后去百度，去看大神的帖子，可能是我百度的姿势不对，找到的资料自己总结了一下。</p>
+<p>但是还是感觉不是很舒服，可能我对<code>Linq</code>的理解太浅薄了。下面记录一下：</p>
+<h2 id="第一种方法"><a href="#第一种方法" class="headerlink" title="第一种方法"></a>第一种方法</h2><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> 第一种linq封装方法查询</span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;param name=&quot;keywords&quot;&gt;</span><span class="hljs-doctag">&lt;/param&gt;</span></span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;returns&gt;</span><span class="hljs-doctag">&lt;/returns&gt;</span></span><br><span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;SYS_User&gt; <span class="hljs-title">Get</span>(<span class="hljs-params"><span class="hljs-keyword">params</span> <span class="hljs-built_in">string</span>[] keywords</span>)</span><br>&#123;<br>    <span class="hljs-keyword">var</span> predicate = PredicateBuilder.True&lt;SYS_User&gt;();<br> <br>    <span class="hljs-keyword">foreach</span> (<span class="hljs-keyword">var</span> keyword <span class="hljs-keyword">in</span> keywords)<br>    &#123;<br>        <span class="hljs-built_in">string</span> temp = keyword;<br> <br>        predicate = predicate.And(s =&gt; s.User_Name.Contains(<span class="hljs-string">&quot;1&quot;</span>));<br>    &#125;<br> <br>    <span class="hljs-comment">//predicate = predicate.And(s =&gt; s.User_Name==&quot;1&quot;);</span><br>    <span class="hljs-comment">//predicate = predicate.Or(s =&gt; s.User_Name==&quot;2&quot;);</span><br> <br>    <span class="hljs-keyword">var</span> result = entity.SYS_Users.Where(predicate).ToList();<br> <br>    <span class="hljs-keyword">return</span> result;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>当然，对应类加个备份吧。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> 动态查询</span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> 参考URL:https://blog.csdn.net/kongwei521/article/details/27197753</span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title">PredicateBuilder</span><br>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-title">Expression</span>&lt;<span class="hljs-title">Func</span>&lt;<span class="hljs-title">T</span>, <span class="hljs-title">bool</span>&gt;&gt; <span class="hljs-title">True</span>&lt;<span class="hljs-title">T</span>&gt;()</span> &#123; <span class="hljs-keyword">return</span> f =&gt; <span class="hljs-literal">true</span>; &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-title">Expression</span>&lt;<span class="hljs-title">Func</span>&lt;<span class="hljs-title">T</span>, <span class="hljs-title">bool</span>&gt;&gt; <span class="hljs-title">False</span>&lt;<span class="hljs-title">T</span>&gt;()</span> &#123; <span class="hljs-keyword">return</span> f =&gt; <span class="hljs-literal">false</span>; &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-title">Expression</span>&lt;<span class="hljs-title">T</span>&gt; <span class="hljs-title">Compose</span>&lt;<span class="hljs-title">T</span>&gt;(<span class="hljs-params"><span class="hljs-keyword">this</span> Expression&lt;T&gt; first, Expression&lt;T&gt; second, Func&lt;Expression, Expression, Expression&gt; merge</span>)</span><br>    &#123;<br>        <span class="hljs-comment">// build parameter map (from parameters of second to parameters of first)</span><br>        <span class="hljs-keyword">var</span> map = first.Parameters.Select((f, i) =&gt; <span class="hljs-keyword">new</span> &#123; f, s = second.Parameters[i] &#125;).ToDictionary(p =&gt; p.s, p =&gt; p.f);<br><br>        <span class="hljs-comment">// replace parameters in the second lambda expression with parameters from the first</span><br>        <span class="hljs-keyword">var</span> secondBody = ParameterRebinder.ReplaceParameters(map, second.Body);<br><br>        <span class="hljs-comment">// apply composition of lambda expression bodies to parameters from the first expression </span><br>        <span class="hljs-keyword">return</span> Expression.Lambda&lt;T&gt;(merge(first.Body, secondBody), first.Parameters);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-title">Expression</span>&lt;<span class="hljs-title">Func</span>&lt;<span class="hljs-title">T</span>, <span class="hljs-title">bool</span>&gt;&gt; <span class="hljs-title">And</span>&lt;<span class="hljs-title">T</span>&gt;(<span class="hljs-params"><span class="hljs-keyword">this</span> Expression&lt;Func&lt;T, <span class="hljs-built_in">bool</span>&gt;&gt; first, Expression&lt;Func&lt;T, <span class="hljs-built_in">bool</span>&gt;&gt; second</span>)</span><br>    &#123;<br>        <span class="hljs-keyword">return</span> first.Compose(second, Expression.And);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-title">Expression</span>&lt;<span class="hljs-title">Func</span>&lt;<span class="hljs-title">T</span>, <span class="hljs-title">bool</span>&gt;&gt; <span class="hljs-title">Or</span>&lt;<span class="hljs-title">T</span>&gt;(<span class="hljs-params"><span class="hljs-keyword">this</span> Expression&lt;Func&lt;T, <span class="hljs-built_in">bool</span>&gt;&gt; first, Expression&lt;Func&lt;T, <span class="hljs-built_in">bool</span>&gt;&gt; second</span>)</span><br>    &#123;<br>        <span class="hljs-keyword">return</span> first.Compose(second, Expression.Or);<br>    &#125;<br><br>&#125;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">ParameterRebinder</span> : <span class="hljs-title">ExpressionVisitor</span><br>&#123;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">readonly</span> Dictionary&lt;ParameterExpression, ParameterExpression&gt; map;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ParameterRebinder</span>(<span class="hljs-params">Dictionary&lt;ParameterExpression, ParameterExpression&gt; map</span>)</span><br>    &#123;<br>        <span class="hljs-keyword">this</span>.map = map ?? <span class="hljs-keyword">new</span> Dictionary&lt;ParameterExpression, ParameterExpression&gt;();<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Expression <span class="hljs-title">ReplaceParameters</span>(<span class="hljs-params">Dictionary&lt;ParameterExpression, ParameterExpression&gt; map, Expression exp</span>)</span><br>    &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> ParameterRebinder(map).Visit(exp);<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">override</span> Expression <span class="hljs-title">VisitParameter</span>(<span class="hljs-params">ParameterExpression p</span>)</span><br>    &#123;<br>        ParameterExpression replacement;<br>        <span class="hljs-keyword">if</span> (map.TryGetValue(p, <span class="hljs-keyword">out</span> replacement))<br>        &#123;<br>            p = replacement;<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">base</span>.VisitParameter(p);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/521993-20181005160328572-1728196450.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h2 id="第二种方法"><a href="#第二种方法" class="headerlink" title="第二种方法"></a>第二种方法</h2><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> 第二种linq封装方法动态查询</span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">GetDong</span>()</span><br>&#123;<br>    <span class="hljs-meta">#<span class="hljs-keyword">region</span> 试水</span><br><br>    <span class="hljs-keyword">var</span> query = SpecificationBuilder.Create&lt;SYS_User&gt;();<br><br>    query = query.Equals(d =&gt; d.User_Name, <span class="hljs-string">&quot;1&quot;</span>);<br><br>    query = query.Equals(d =&gt; d.Phone, <span class="hljs-string">&quot;1&quot;</span>);<br><br>    <span class="hljs-keyword">var</span> result = entity.SYS_Users.Where(query.Predicate).ToList();<br><br>    <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br><br>   <span class="hljs-meta">#<span class="hljs-keyword">region</span> 执行Json动态查询</span><br>    <span class="hljs-comment">//&#123;a =&gt; (((a.User_Name == &quot;1&quot;) And (a.Phone == &quot;1&quot;)) Or (a.Phone == &quot;ccccc&quot;))&#125;</span><br>    <span class="hljs-built_in">string</span> queryJson = <span class="hljs-string">&quot;&#123;\&quot;[EQUAL][And]User_Name\&quot;:\&quot;1\&quot;,\&quot;[EQUAL][And]Phone\&quot;:\&quot;1,ccccc\&quot;&#125;&quot;</span>;<br><br>    <span class="hljs-keyword">if</span> (!<span class="hljs-built_in">string</span>.IsNullOrEmpty(queryJson))<br>    &#123;<br>        <span class="hljs-keyword">var</span> predicate = Utils.GetSerchExtensions&lt;SYS_User&gt;(queryJson);<br><br>        <span class="hljs-keyword">var</span> result1 = entity.SYS_Users.Where(predicate).ToList();<br><br>        <span class="hljs-comment">//query.Predicate = query.Predicate.And(predicate);</span><br>    &#125;<br><br>    <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br><br>    <span class="hljs-meta">#<span class="hljs-keyword">region</span> 组合单个查询条件</span><br><br>    QueryEntity queryEntity = <span class="hljs-keyword">new</span> QueryEntity()<br>    &#123;<br>        LogicOperation = LogicOperation.EQUAL,<br>        PredicateType = PredicateType.AND,<br>        Column = <span class="hljs-string">&quot;User_Name&quot;</span>,<br>        Value = <span class="hljs-string">&quot;1&quot;</span><br>    &#125;;<br><br>    <span class="hljs-keyword">var</span> qqqqq = Utils.GetSerchExtensions&lt;SYS_User&gt;(<span class="hljs-keyword">new</span> List&lt;QueryEntity&gt;() &#123; queryEntity &#125;);<br><br>    <span class="hljs-keyword">var</span> a = entity.SYS_Users.Where(qqqqq).ToList();<br><br>    <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br><br>    <span class="hljs-meta">#<span class="hljs-keyword">region</span> 组合多个查询条件</span><br><br>    List&lt;QueryEntity&gt; queryEntities = <span class="hljs-keyword">new</span> List&lt;QueryEntity&gt;();<br><br>    queryEntities.Add(<span class="hljs-keyword">new</span> QueryEntity<br>                      &#123;<br>                          LogicOperation = LogicOperation.EQUAL,<br>                          PredicateType = PredicateType.AND,<br>                          Column = <span class="hljs-string">&quot;User_Name&quot;</span>,<br>                          Value = <span class="hljs-string">&quot;1&quot;</span><br>                      &#125;);<br><br>    queryEntities.Add(<span class="hljs-keyword">new</span> QueryEntity<br>                      &#123;<br>                          LogicOperation = LogicOperation.EQUAL,<br>                          PredicateType = PredicateType.AND,<br>                          Column = <span class="hljs-string">&quot;Phone&quot;</span>,<br>                          Value = <span class="hljs-string">&quot;1&quot;</span><br>                      &#125;);<br><br>    qqqqq = Utils.GetSerchExtensions&lt;SYS_User&gt;(queryEntities);<br><br>    a = entity.SYS_Users.Where(qqqqq).ToList();<br><br>    <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p> 缺的方法在这：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> 手动去拼接动态表达式</span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;typeparam name=&quot;T&quot;&gt;</span><span class="hljs-doctag">&lt;/typeparam&gt;</span></span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">ExpressionHandle</span>&lt;<span class="hljs-title">T</span>&gt; <span class="hljs-keyword">where</span> <span class="hljs-title">T</span> : <span class="hljs-keyword">class</span><br>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Expression <span class="hljs-title">PrepareConditionLambda</span>(<span class="hljs-params">IList&lt;ParamObject&gt; paramList, ParameterExpression paramExp</span>)</span><br>    &#123;<br>        List&lt;Expression&gt; expList;<br>        <span class="hljs-keyword">if</span> (<span class="hljs-literal">null</span> == paramList)<br>        &#123;<br>            expList = <span class="hljs-keyword">new</span> List&lt;Expression&gt;(<span class="hljs-number">1</span>);<br>            <span class="hljs-keyword">var</span> valueEqual = Expression.Constant(<span class="hljs-number">1</span>);<br>            <span class="hljs-keyword">var</span> expEqual = Expression.Equal(valueEqual, valueEqual);<br>            expList.Add(expEqual);<br>        &#125;<br>        <span class="hljs-keyword">else</span><br>        &#123;<br>            expList = <span class="hljs-keyword">new</span> List&lt;Expression&gt;(paramList.Count);<br>            <span class="hljs-meta">#<span class="hljs-keyword">region</span> 筛选条件</span><br><br>                <span class="hljs-keyword">foreach</span> (<span class="hljs-keyword">var</span> p <span class="hljs-keyword">in</span> paramList)<br>                &#123;<br>                    <span class="hljs-keyword">var</span> exp = Expression.Property(paramExp, p.Name);<br>                    <span class="hljs-keyword">var</span> propertyType = <span class="hljs-keyword">typeof</span>(T).GetProperty(p.Name).PropertyType; <span class="hljs-comment">//得到此字段的数据类型</span><br>                    <span class="hljs-keyword">var</span> <span class="hljs-keyword">value</span> = propertyType == <span class="hljs-keyword">typeof</span>(Guid?) ? <span class="hljs-keyword">new</span> Guid(p.Value.ToString()) : Convert.ChangeType(p.Value, TypeHelper.GetUnNullableType(propertyType));<br>                    <span class="hljs-keyword">switch</span> (p.Operation)<br>                    &#123;<br>                        <span class="hljs-keyword">case</span> LogicOperation.LIKE:<br>                            <span class="hljs-keyword">var</span> containsMethod = <span class="hljs-keyword">typeof</span>(<span class="hljs-built_in">string</span>).GetMethod(<span class="hljs-string">&quot;Contains&quot;</span>);<br>                            <span class="hljs-keyword">var</span> valueLike = Expression.Constant(<span class="hljs-keyword">value</span>, propertyType);<br>                            <span class="hljs-keyword">var</span> expLike = Expression.Call(exp, containsMethod, valueLike);<br>                            expList.Add(expLike);<br>                            <span class="hljs-keyword">break</span>;<br>                        <span class="hljs-keyword">case</span> LogicOperation.EQUAL:<br>                            <span class="hljs-keyword">var</span> valueEqual = Expression.Constant(<span class="hljs-keyword">value</span>, propertyType); <span class="hljs-comment">//值</span><br>                            <span class="hljs-keyword">var</span> expEqual = Expression.Equal(exp, valueEqual); <span class="hljs-comment">//拼接成 t=&gt;t.name=valueEqual</span><br>                            expList.Add(expEqual);<br>                            <span class="hljs-keyword">break</span>;<br>                        <span class="hljs-keyword">case</span> LogicOperation.LT:<br>                            <span class="hljs-keyword">var</span> valueLT = Expression.Constant(<span class="hljs-keyword">value</span>, propertyType); <span class="hljs-comment">//值</span><br>                            <span class="hljs-keyword">var</span> expLT = Expression.LessThan(exp, valueLT); <span class="hljs-comment">//拼接成 t=&gt;t.name&lt;valueEqual</span><br>                            expList.Add(expLT);<br>                            <span class="hljs-keyword">break</span>;<br>                        <span class="hljs-keyword">case</span> LogicOperation.GT:<br>                            <span class="hljs-keyword">var</span> valueGT = Expression.Constant(<span class="hljs-keyword">value</span>, propertyType);<br>                            <span class="hljs-keyword">var</span> expGT = Expression.GreaterThan(exp, valueGT);<br>                            expList.Add(expGT);<br>                            <span class="hljs-keyword">break</span>;<br>                        <span class="hljs-keyword">case</span> LogicOperation.NOTEQUAL:<br>                            <span class="hljs-keyword">var</span> valuent = Expression.Constant(<span class="hljs-keyword">value</span>, propertyType);<br>                            <span class="hljs-keyword">var</span> expnt = Expression.NotEqual(exp, valuent);<br>                            expList.Add(expnt);<br>                            <span class="hljs-keyword">break</span>;<br>                            <span class="hljs-comment">//case LogicOperation.CONTAINS:</span><br>                            <span class="hljs-comment">//     //var valueCT = Expression.Constant(value, propertyType);</span><br>                            <span class="hljs-comment">//    var type = typeof(string);</span><br>                            <span class="hljs-comment">//    var expCT = Expression.Constant(exp, type);</span><br>                            <span class="hljs-comment">//     expList.Add(expCT);</span><br>                            <span class="hljs-comment">//    break;</span><br>                    &#125;<br>                &#125;<br>            <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br>        &#125;<br><br>        <span class="hljs-keyword">return</span> expList.Aggregate&lt;Expression, Expression&gt;(<span class="hljs-literal">null</span>, (current, item) =&gt; current == <span class="hljs-literal">null</span> ? item : Expression.And(current, item));<br>    &#125;<br>&#125;<br><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> </span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">QueryModel</span><br>&#123;<br>    IList&lt;ParamObject&gt; _items = <span class="hljs-keyword">new</span> List&lt;ParamObject&gt;();<br>    <span class="hljs-keyword">public</span> IList&lt;ParamObject&gt; Items<br>    &#123;<br>        <span class="hljs-keyword">get</span><br>        &#123;<br>            <span class="hljs-keyword">return</span> _items;<br>        &#125;<br>        <span class="hljs-keyword">set</span><br>        &#123;<br>            _items = <span class="hljs-keyword">value</span>;<br>        &#125;<br>    &#125;<br>&#125;<br><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> 参数</span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">ParamObject</span><br>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-built_in">string</span> Name &#123; <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; &#125;<br>    <span class="hljs-keyword">public</span> LogicOperation Operation &#123; <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; &#125;<br>    <span class="hljs-keyword">public</span> <span class="hljs-built_in">object</span> Value &#123; <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; &#125;<br>&#125;<br><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> 排序</span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">SortObject</span><br>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-built_in">string</span> OrderBy &#123; <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; &#125;<br>    <span class="hljs-keyword">public</span> SortOperation Sort &#123; <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; &#125;<br>&#125;<br><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> 排序方式</span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br><span class="hljs-keyword">public</span> <span class="hljs-built_in">enum</span> SortOperation<br>&#123;<br>    ASC,<br>    DESC<br>&#125;<br><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> 查询方式</span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br><span class="hljs-keyword">public</span> <span class="hljs-built_in">enum</span> LogicOperation<br>&#123;<br>    LIKE,    <span class="hljs-comment">//包含,模糊查询</span><br>    EQUAL,   <span class="hljs-comment">//等于</span><br>    LT,      <span class="hljs-comment">//小于</span><br>    GT,       <span class="hljs-comment">//大于</span><br>    CONTAINS,       <span class="hljs-comment">//包含，In查询 </span><br>    NOTEQUAL       <span class="hljs-comment">//不等于 </span><br>&#125;<br><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> </span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title">TypeHelper</span><br>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Type <span class="hljs-title">GetUnNullableType</span>(<span class="hljs-params">Type conversionType</span>)</span><br>    &#123;<br>        <span class="hljs-keyword">if</span> (conversionType.IsGenericType &amp;&amp; conversionType.GetGenericTypeDefinition() == <span class="hljs-keyword">typeof</span>(Nullable&lt;&gt;))<br>        &#123;<br>            <span class="hljs-comment">//如果是泛型方法，且泛型类型为Nullable&lt;&gt;则视为可空类型</span><br>            <span class="hljs-comment">//并使用NullableConverter转换器进行转换</span><br>            <span class="hljs-keyword">var</span> nullableConverter = <span class="hljs-keyword">new</span> System.ComponentModel.NullableConverter(conversionType);<br>            conversionType = nullableConverter.UnderlyingType;<br>        &#125;<br>        <span class="hljs-keyword">return</span> conversionType;<br>    &#125;<br>&#125;<br><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> 连接方式</span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br><span class="hljs-keyword">public</span> <span class="hljs-built_in">enum</span> PredicateType<br>&#123;<br>    AND, OR<br>&#125;<br><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> 查询方式</span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br><span class="hljs-keyword">public</span> <span class="hljs-built_in">enum</span> SearchType<br>&#123;<br>    Between, Like, Equals<br>&#125;<br><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> 查询实体</span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">QueryEntity</span><br>&#123;<br>    <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br>    <span class="hljs-comment"><span class="hljs-doctag">///</span> 查询方式</span><br>    <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br>    <span class="hljs-keyword">public</span> LogicOperation LogicOperation &#123; <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; &#125;<br><br>    <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br>    <span class="hljs-comment"><span class="hljs-doctag">///</span> 连接方式</span><br>    <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br>    <span class="hljs-keyword">public</span> PredicateType PredicateType &#123; <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; &#125;<br><br>    <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br>    <span class="hljs-comment"><span class="hljs-doctag">///</span> 列名</span><br>    <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br>    <span class="hljs-keyword">public</span> <span class="hljs-built_in">string</span> Column &#123; <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; &#125;<br><br>    <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br>    <span class="hljs-comment"><span class="hljs-doctag">///</span> 列值</span><br>    <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br>    <span class="hljs-keyword">public</span> <span class="hljs-built_in">object</span> Value &#123; <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; &#125;<br>&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Utils</span><br>&#123;<br>    <span class="hljs-meta">#<span class="hljs-keyword">region</span> 把查询条件拼接为Extensions</span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> 把查询条件拼接为Extensions</span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;typeparam name=&quot;TEntity&quot;&gt;</span>查询实体<span class="hljs-doctag">&lt;/typeparam&gt;</span></span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;param name=&quot;searchJson&quot;&gt;</span>查询条件，例如：[like][or]name:123<span class="hljs-doctag">&lt;/param&gt;</span></span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;returns&gt;</span><span class="hljs-doctag">&lt;/returns&gt;</span></span><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-title">Expression</span>&lt;<span class="hljs-title">Func</span>&lt;<span class="hljs-title">TEntity</span>, <span class="hljs-title">bool</span>&gt;&gt; <span class="hljs-title">GetSerchExtensions</span>&lt;<span class="hljs-title">TEntity</span>&gt;(<span class="hljs-params">String searchJson</span>) <span class="hljs-keyword">where</span> TEntity : <span class="hljs-keyword">class</span>, <span class="hljs-keyword">new</span>()</span><br>    &#123;<br>        <span class="hljs-keyword">try</span><br>        &#123;<br>            <span class="hljs-keyword">var</span> ja = (JArray)JsonConvert.DeserializeObject(<span class="hljs-string">&quot;[&quot;</span> + searchJson + <span class="hljs-string">&quot;]&quot;</span>);                     <span class="hljs-comment">//把查询条件转换为Json格式</span><br>            <span class="hljs-keyword">var</span> enumerableQuery = <span class="hljs-keyword">new</span> EnumerableQuery&lt;KeyValuePair&lt;<span class="hljs-built_in">string</span>, JToken&gt;&gt;(ja[<span class="hljs-number">0</span>] <span class="hljs-keyword">as</span> JObject);<br>            <span class="hljs-keyword">return</span> GetSerchExtensions&lt;TEntity&gt;(enumerableQuery);    <span class="hljs-comment">//把查询条件拼接为Extensions</span><br>        &#125;<br>        <span class="hljs-keyword">catch</span> (Exception)<br>        &#123;<br>            <span class="hljs-keyword">throw</span>;<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br>    <span class="hljs-comment"><span class="hljs-doctag">///</span> 把查询条件拼接为Extensions</span><br>    <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br>    <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;typeparam name=&quot;TEntity&quot;&gt;</span>查询实体<span class="hljs-doctag">&lt;/typeparam&gt;</span></span><br>    <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;param name=&quot;enumerableQuery&quot;&gt;</span>查询条件<span class="hljs-doctag">&lt;/param&gt;</span></span><br>    <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;returns&gt;</span><span class="hljs-doctag">&lt;/returns&gt;</span></span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-title">Expression</span>&lt;<span class="hljs-title">Func</span>&lt;<span class="hljs-title">TEntity</span>, <span class="hljs-title">bool</span>&gt;&gt; <span class="hljs-title">GetSerchExtensions</span>&lt;<span class="hljs-title">TEntity</span>&gt;(<span class="hljs-params">EnumerableQuery&lt;KeyValuePair&lt;<span class="hljs-built_in">string</span>, JToken&gt;&gt; enumerableQuery</span>) <span class="hljs-keyword">where</span> TEntity : <span class="hljs-keyword">class</span>, <span class="hljs-keyword">new</span>()</span><br>    &#123;<br>        <span class="hljs-keyword">var</span> paramExp = Expression.Parameter(<span class="hljs-keyword">typeof</span>(TEntity), <span class="hljs-string">&quot;a&quot;</span>);<br>        <span class="hljs-keyword">if</span> (<span class="hljs-literal">null</span> == enumerableQuery || !enumerableQuery.Any())<br>        &#123;<br>            <span class="hljs-keyword">var</span> valueEqual = Expression.Constant(<span class="hljs-number">1</span>);<br>            <span class="hljs-keyword">var</span> expEqual = Expression.Equal(valueEqual, valueEqual);<br>            <span class="hljs-keyword">return</span> Expression.Lambda&lt;Func&lt;TEntity, <span class="hljs-built_in">bool</span>&gt;&gt;(expEqual, paramExp);  <span class="hljs-comment">//如果参数为空，返回一个a=&gt;1=1 的值</span><br><br>        &#125;<br>        <span class="hljs-keyword">var</span> modeltypt = <span class="hljs-keyword">typeof</span>(TEntity);  <span class="hljs-comment">//实体类型</span><br>        <span class="hljs-keyword">var</span> keyList = enumerableQuery.Select(e =&gt; e.Key).ToList();      <span class="hljs-comment">//取出Json 的每个字符串</span><br><br>        Expression whereExp = <span class="hljs-literal">null</span>;<br>        keyList.ForEach(s =&gt;<br>                        &#123;<br>                            <span class="hljs-keyword">var</span> searchTypeStr = s.Substring(<span class="hljs-number">1</span>, s.LastIndexOf(<span class="hljs-string">&quot;][&quot;</span>, StringComparison.Ordinal) - <span class="hljs-number">1</span>);   <span class="hljs-comment">//查询方式   Like</span><br>                            <span class="hljs-keyword">var</span> ab = s.Substring(s.LastIndexOf(<span class="hljs-string">&quot;][&quot;</span>, StringComparison.Ordinal) + <span class="hljs-number">2</span>);<br>                            <span class="hljs-keyword">var</span> joinTypeStr = ab.Remove(ab.LastIndexOf(<span class="hljs-string">&quot;]&quot;</span>, StringComparison.Ordinal));              <span class="hljs-comment">//连接方式   or</span><br>                            <span class="hljs-keyword">var</span> searchField = s.Substring(s.LastIndexOf(<span class="hljs-string">&quot;]&quot;</span>, StringComparison.Ordinal) + <span class="hljs-number">1</span>);         <span class="hljs-comment">//查询的列名 name </span><br>                            <span class="hljs-keyword">var</span> <span class="hljs-keyword">value</span> = enumerableQuery.FirstOrDefault(v =&gt; v.Key == s).Value.ToString();            <span class="hljs-comment">//值         123</span><br><br>                            LogicOperation searchType;       <span class="hljs-comment">//查询方式</span><br>                            PredicateType joinType;           <span class="hljs-comment">//连接方式</span><br><br>                            <span class="hljs-keyword">if</span> (Enum.TryParse(searchTypeStr.ToUpper(), <span class="hljs-keyword">out</span> searchType) &amp;&amp; Enum.TryParse(joinTypeStr.ToUpper(), <span class="hljs-keyword">out</span> joinType) &amp;&amp; modeltypt.GetProperties().Any(p =&gt; String.Equals(p.Name, searchField, StringComparison.CurrentCultureIgnoreCase)))  <span class="hljs-comment">//这个实体有这个列名</span><br>                            &#123;<br>                                <span class="hljs-keyword">var</span> firstOrDefault = modeltypt.GetProperties().FirstOrDefault(p =&gt; String.Equals(p.Name, searchField, StringComparison.CurrentCultureIgnoreCase));<br>                                <span class="hljs-keyword">if</span> (firstOrDefault == <span class="hljs-literal">null</span>) <span class="hljs-keyword">return</span>;<br>                                <span class="hljs-keyword">var</span> selCol = firstOrDefault.Name;  <span class="hljs-comment">//查询的列名</span><br>                                <span class="hljs-keyword">var</span> splitList = <span class="hljs-keyword">value</span>.Split(<span class="hljs-string">&#x27;,&#x27;</span>).ToList();   <span class="hljs-comment">//这个位置是的处理是默认认为当查询值中包含,的视为或者的查询：例如 A=&#x27;abc,def&#x27; 处理成 (A=&#x27;def&#x27; OR  A=&#x27;abc&#x27;),但是时间上这块无法满足就要查询包含,的数据的求</span><br>                                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; splitList.Count; i++)<br>                                &#123;<br>                                    <span class="hljs-keyword">var</span> val = splitList[i];<br><br>                                    <span class="hljs-keyword">if</span> (val == <span class="hljs-literal">null</span> || <span class="hljs-built_in">string</span>.IsNullOrWhiteSpace(val)) <span class="hljs-keyword">continue</span>;<br>                                    <span class="hljs-keyword">var</span> expressionFuncEquals = PrepareConditionLambda&lt;TEntity&gt;(selCol, val, paramExp, searchType); <span class="hljs-comment">//得到这个查询的表达式</span><br>                                    whereExp = i != <span class="hljs-number">0</span> ? (whereExp == <span class="hljs-literal">null</span> ? expressionFuncEquals : Expression.Or(whereExp, expressionFuncEquals)) : (joinType == PredicateType.OR ? (whereExp == <span class="hljs-literal">null</span> ? expressionFuncEquals : Expression.Or(whereExp, expressionFuncEquals))<br>                                                                                                                                                     : (whereExp == <span class="hljs-literal">null</span> ? expressionFuncEquals : Expression.And(whereExp, expressionFuncEquals)));<br>                                &#125;<br>                            &#125;<br>                        &#125;);<br>        <span class="hljs-keyword">return</span> Expression.Lambda&lt;Func&lt;TEntity, <span class="hljs-built_in">bool</span>&gt;&gt;(whereExp, paramExp); ;<br>    &#125;<br><br>    <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br>    <span class="hljs-comment"><span class="hljs-doctag">///</span> 把查询条件拼接为Extensions</span><br>    <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br>    <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;typeparam name=&quot;TEntity&quot;&gt;</span>实体类<span class="hljs-doctag">&lt;/typeparam&gt;</span></span><br>    <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;param name=&quot;queryEntitys&quot;&gt;</span>查询实体<span class="hljs-doctag">&lt;/param&gt;</span></span><br>    <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;returns&gt;</span><span class="hljs-doctag">&lt;/returns&gt;</span></span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-title">Expression</span>&lt;<span class="hljs-title">Func</span>&lt;<span class="hljs-title">TEntity</span>, <span class="hljs-title">bool</span>&gt;&gt; <span class="hljs-title">GetSerchExtensions</span>&lt;<span class="hljs-title">TEntity</span>&gt;(<span class="hljs-params">List&lt;QueryEntity&gt; queryEntitys</span>) <span class="hljs-keyword">where</span> TEntity : <span class="hljs-keyword">class</span>, <span class="hljs-keyword">new</span>()</span><br>    &#123;<br>        <span class="hljs-keyword">var</span> paramExp = Expression.Parameter(<span class="hljs-keyword">typeof</span>(TEntity), <span class="hljs-string">&quot;a&quot;</span>);<br>        <span class="hljs-keyword">if</span> (<span class="hljs-literal">null</span> == queryEntitys || !queryEntitys.Any())<br>        &#123;<br>            <span class="hljs-keyword">var</span> valueEqual = Expression.Constant(<span class="hljs-number">1</span>);<br>            <span class="hljs-keyword">var</span> expEqual = Expression.Equal(valueEqual, valueEqual);<br>            <span class="hljs-keyword">return</span> Expression.Lambda&lt;Func&lt;TEntity, <span class="hljs-built_in">bool</span>&gt;&gt;(expEqual, paramExp);  <span class="hljs-comment">//如果参数为空，返回一个a=&gt;1=1 的值</span><br><br>        &#125;<br>        <span class="hljs-keyword">var</span> modeltypt = <span class="hljs-keyword">typeof</span>(TEntity);  <span class="hljs-comment">//实体类型</span><br>        Expression whereExp = <span class="hljs-literal">null</span>;<br><br>        queryEntitys.ForEach(q =&gt;<br>                             &#123;<br>                                 LogicOperation searchType = q.LogicOperation;       <span class="hljs-comment">//查询方式</span><br>                                 PredicateType joinType = q.PredicateType;           <span class="hljs-comment">//连接方式</span><br>                                 <span class="hljs-keyword">var</span> searchField = q.Column;         <span class="hljs-comment">//查询的列名 name </span><br>                                 <span class="hljs-keyword">var</span> <span class="hljs-keyword">value</span> = q.Value;            <span class="hljs-comment">//值         123</span><br>                                 <span class="hljs-keyword">if</span> (modeltypt.GetProperties().Any(p =&gt; String.Equals(p.Name, searchField, StringComparison.CurrentCultureIgnoreCase)))  <span class="hljs-comment">//这个实体有这个列名</span><br>                                 &#123;<br>                                     <span class="hljs-keyword">var</span> firstOrDefault = modeltypt.GetProperties().FirstOrDefault(p =&gt; String.Equals(p.Name, searchField, StringComparison.CurrentCultureIgnoreCase));<br>                                     <span class="hljs-keyword">if</span> (firstOrDefault == <span class="hljs-literal">null</span>) <span class="hljs-keyword">return</span>;<br>                                     <span class="hljs-keyword">var</span> selCol = firstOrDefault.Name;  <span class="hljs-comment">//查询的列名</span><br>                                     <span class="hljs-keyword">var</span> splitList = <span class="hljs-keyword">value</span>.ToString().Split(<span class="hljs-string">&#x27;,&#x27;</span>).ToList();   <span class="hljs-comment">//这个位置是的处理是默认认为当查询值中包含,的视为或者的查询：例如 A=&#x27;abc,def&#x27; 处理成 (A=&#x27;def&#x27; OR  A=&#x27;abc&#x27;),但是时间上这块无法满足就要查询包含,的数据的求</span><br>                                     <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; splitList.Count; i++)<br>                                     &#123;<br>                                         <span class="hljs-keyword">if</span> (splitList[i] == <span class="hljs-literal">null</span> || <span class="hljs-built_in">string</span>.IsNullOrWhiteSpace(splitList[i])) <span class="hljs-keyword">continue</span>;<br>                                         <span class="hljs-keyword">var</span> expressionFuncEquals = PrepareConditionLambda&lt;TEntity&gt;(selCol, splitList[i], paramExp, searchType); <span class="hljs-comment">//得到这个查询的表达式</span><br>                                         whereExp = i != <span class="hljs-number">0</span><br>                                             ? (whereExp == <span class="hljs-literal">null</span> ? expressionFuncEquals : Expression.Or(whereExp, expressionFuncEquals))<br>                                             : (joinType == PredicateType.OR ? (whereExp == <span class="hljs-literal">null</span> ? expressionFuncEquals : Expression.Or(whereExp, expressionFuncEquals))<br>                                                : (whereExp == <span class="hljs-literal">null</span> ? expressionFuncEquals : Expression.And(whereExp, expressionFuncEquals)));<br>                                     &#125;<br>                                 &#125;<br>                             &#125;);<br>        <span class="hljs-keyword">return</span> Expression.Lambda&lt;Func&lt;TEntity, <span class="hljs-built_in">bool</span>&gt;&gt;(whereExp, paramExp); <br>    &#125;<br><br><br>    <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br>    <span class="hljs-comment"><span class="hljs-doctag">///</span> 得到字段查询的表达式</span><br>    <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br>    <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;typeparam name=&quot;TEntity&quot;&gt;</span>实体<span class="hljs-doctag">&lt;/typeparam&gt;</span></span><br>    <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;param name=&quot;name&quot;&gt;</span>查询列名<span class="hljs-doctag">&lt;/param&gt;</span></span><br>    <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;param name=&quot;dateValue&quot;&gt;</span>数据值<span class="hljs-doctag">&lt;/param&gt;</span></span><br>    <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;param name=&quot;paramExp&quot;&gt;</span>参数<span class="hljs-doctag">&lt;/param&gt;</span></span><br>    <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;param name=&quot;searchType&quot;&gt;</span>查询方式(默认是等于查询)<span class="hljs-doctag">&lt;/param&gt;</span></span><br>    <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;returns&gt;</span><span class="hljs-doctag">&lt;/returns&gt;</span></span><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> Expression <span class="hljs-title">PrepareConditionLambda</span>&lt;<span class="hljs-title">TEntity</span>&gt;(<span class="hljs-params"><span class="hljs-built_in">string</span> name, <span class="hljs-built_in">object</span> dateValue, ParameterExpression paramExp, LogicOperation searchType = LogicOperation.EQUAL</span>)</span><br>    &#123;<br>        <span class="hljs-keyword">if</span> (dateValue == <span class="hljs-literal">null</span>) <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> ArgumentNullException(<span class="hljs-string">&quot;dateValue&quot;</span>);<br>        <span class="hljs-keyword">if</span> (paramExp == <span class="hljs-literal">null</span>) <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> ArgumentNullException(<span class="hljs-string">&quot;paramExp&quot;</span>);<br>        <span class="hljs-keyword">var</span> exp = Expression.Property(paramExp, name);<br>        <span class="hljs-keyword">var</span> propertyType = <span class="hljs-keyword">typeof</span>(TEntity).GetProperty(name).PropertyType; <span class="hljs-comment">//得到此字段的数据类型</span><br>        <span class="hljs-built_in">object</span> <span class="hljs-keyword">value</span>; <span class="hljs-comment">//propertyType == typeof(Guid?) ? new Guid(dateValue.ToString()) : Convert.ChangeType(dateValue, TypeHelper.GetUnNullableType(propertyType));</span><br>        <span class="hljs-keyword">if</span> (propertyType == <span class="hljs-keyword">typeof</span>(Guid?) || propertyType == <span class="hljs-keyword">typeof</span>(Guid))<br>        &#123;<br>            <span class="hljs-keyword">value</span> = <span class="hljs-keyword">new</span> Guid(dateValue.ToString());<br>        &#125;<br>        <span class="hljs-keyword">else</span><br>        &#123;<br>            <span class="hljs-keyword">value</span> = Convert.ChangeType(dateValue, TypeHelper.GetUnNullableType(propertyType));<br>        &#125;<br>        Expression expEqual = <span class="hljs-literal">null</span>;<br>        <span class="hljs-keyword">switch</span> (searchType)<br>        &#123;<br>            <span class="hljs-keyword">case</span> LogicOperation.EQUAL:   <span class="hljs-comment">//等于查询</span><br>                <span class="hljs-keyword">var</span> valueEqual = Expression.Constant(<span class="hljs-keyword">value</span>, propertyType); <span class="hljs-comment">//值</span><br>                expEqual = Expression.Equal(exp, valueEqual); <span class="hljs-comment">//拼接成 t=&gt;t.name=valueEqual</span><br>                <span class="hljs-keyword">break</span>;<br>            <span class="hljs-keyword">case</span> LogicOperation.LIKE:   <span class="hljs-comment">//模糊查询</span><br>                <span class="hljs-keyword">var</span> containsMethod = <span class="hljs-keyword">typeof</span>(<span class="hljs-built_in">string</span>).GetMethod(<span class="hljs-string">&quot;Contains&quot;</span>);<br>                <span class="hljs-keyword">var</span> valueLike = Expression.Constant(<span class="hljs-keyword">value</span>, propertyType);<br>                expEqual = Expression.Call(exp, containsMethod, valueLike);<br>                <span class="hljs-keyword">break</span>;<br>        &#125;<br>        <span class="hljs-keyword">return</span> expEqual;<br>    &#125;<br>    <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/521993-20181005154806206-690330382.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/521993-20181005154841037-1651076712.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/521993-20181006205821996-188650883.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/C/">C#</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Linq/">Linq</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/11/01/SQL-Sugar/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">SQL Sugar</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/11/01/Dev-GridControl-VS-SeachLookUpEdit/">
+                        <span class="hidden-mobile">Dev GridControl VS SeachLookUpEdit</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"q3pc0gbhQF3puHJQ3XjiByyg-gzGzoHsz","appKey":"yIsNaqJVWRbpKxcC4phLbjXt","path":"window.location.pathname","placeholder":"吐槽","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":true,"serverURLs":"https://q3pc0gbh.lc-cn-n1-shared.com","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          Fluid.plugins.initFancyBox('#valine .vcontent img:not(.vemoji)');
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+  <div class="col-lg-7 mx-auto nopadding-x-md">
+    <div class="container custom post-custom mx-auto">
+      <img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/gongzhonghao2.jpg" srcset="/img/loading.gif" lazyload class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">
+    </div>
+  </div>
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        京ICP证18023705号
+      </a>
+    </span>
+    
+  </div>
+
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/caidai.js"></script>
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/dianjichuzi.js"></script>
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/timeDate.js"></script>
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

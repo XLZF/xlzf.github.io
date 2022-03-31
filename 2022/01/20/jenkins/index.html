@@ -1,0 +1,750 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.png">
+  <link rel="icon" href="/img/avatar.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="Docker+GitLab+Jenkins 自动部署 DotNet Core Application">
+  <meta name="author" content="Harris">
+  <meta name="keywords" content="">
+  <meta name="description" content="Docker+GitLab+Jenkins 自动部署 DotNet Core Application">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker+GitLab+Jenkins">
+<meta property="og:url" content="http://example.com/2022/01/20/jenkins/index.html">
+<meta property="og:site_name" content="Harris Blog">
+<meta property="og:description" content="Docker+GitLab+Jenkins 自动部署 DotNet Core Application">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220120211456716.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220120212431735.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/cd796745db80288a131fb24d57d12880.jpeg">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220120225149050.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220125134818266.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220125134838645.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220125135007369.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220125135030637.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220125135345995.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220125135452362.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220125135709149.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220125135728614.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220127143255440.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220126205651174.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220126214929695.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220203204439495.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220203204544944.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220203204632628.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220203204732348.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220203211820516.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220203211538155.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220203205927175.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220203210045375.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220203210232801.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220203210446489.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220203212831776.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220203204909533.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220203211043489.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220203213909943.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220203230849200.png">
+<meta property="article:published_time" content="2022-01-20T14:47:51.000Z">
+<meta property="article:modified_time" content="2022-03-31T01:47:44.877Z">
+<meta property="article:author" content="Harris">
+<meta property="article:tag" content="Docker">
+<meta property="article:tag" content=".net core">
+<meta property="article:tag" content="jenkins">
+<meta property="article:tag" content="GitLab">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220120211456716.png">
+  
+  <title>Docker+GitLab+Jenkins - Harris Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/shubiao.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/gundongtiao.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/toubudaziji.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 6.1.0"><link rel="alternate" href="/atom.xml" title="Harris Blog" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 60vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>道吾</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                主页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                类别
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-books"></i>
+                文档
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/">
+                    
+                    主题博客
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/guide/">
+                    
+                    配置指南
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/icon/">
+                    
+                    图标用法
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/4.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Docker+GitLab+Jenkins">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      Harris
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-01-20 22:47" pubdate>
+        January 20, 2022 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      6k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      19 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Docker+GitLab+Jenkins</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：21 minutes ago
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>大概意图：<code>Docker</code>+<code>GitLab</code>+<code>Jenkins</code> 自动部署 <code>Dot Net Core Web Application</code></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220120211456716.png" srcset="/img/loading.gif" lazyload alt="大概意图"></p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220120212431735.png" srcset="/img/loading.gif" lazyload alt="主要容器"></p>
+<h2 id="GitLab"><a href="#GitLab" class="headerlink" title="GitLab"></a>GitLab</h2><p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/cd796745db80288a131fb24d57d12880.jpeg" srcset="/img/loading.gif" lazyload alt="Gitlab"></p>
+<h3 id="镜像下载"><a href="#镜像下载" class="headerlink" title="镜像下载"></a>镜像下载</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker pull gitlab/gitlab-ce<br></code></pre></td></tr></table></figure>
+
+<p>或者 导入本地镜像</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker load &lt; /root/dockerimage/xxxx.tar<br></code></pre></td></tr></table></figure>
+
+<h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker run -d  -p 443:443 -p 8888:80 -p 222:22 --name gitlab --restart always \<br>-v /root/gitlab/config:/etc/gitlab \<br>-v /root/gitlab/logs:/var/log/gitlab \<br>-v /root/gitlab/data:/var/opt/gitlab gitlab/gitlab-ce<br></code></pre></td></tr></table></figure>
+
+<h3 id="添加秘钥"><a href="#添加秘钥" class="headerlink" title="添加秘钥"></a>添加秘钥</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ssh-keygen -t rsa -C &#x27;xxx@xxx.com&#x27;<br></code></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="Jenkins"><a href="#Jenkins" class="headerlink" title="Jenkins"></a>Jenkins</h2><p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220120225149050.png" srcset="/img/loading.gif" lazyload alt="Jenkins"></p>
+<h3 id="Windows-安装"><a href="#Windows-安装" class="headerlink" title="Windows 安装"></a>Windows 安装</h3><h4 id="JDK"><a href="#JDK" class="headerlink" title="JDK"></a>JDK</h4><p>安装 JDK 1.8 <code>jdk-8u321-windows-x64.exe</code> </p>
+<p>安装完成之后设置环境变量</p>
+<h4 id="系统变量"><a href="#系统变量" class="headerlink" title="系统变量"></a>系统变量</h4><p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220125134818266.png" srcset="/img/loading.gif" lazyload alt="image-20220125134818266"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220125134838645.png" srcset="/img/loading.gif" lazyload alt="image-20220125134838645"></p>
+<figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs mel">JAVA_HOME<br>C:\Program Files\Java\jdk1<span class="hljs-number">.8</span><span class="hljs-number">.0</span>_321<br><br>CLASSPATH<br>%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;<br></code></pre></td></tr></table></figure>
+
+<h4 id="用户变量"><a href="#用户变量" class="headerlink" title="用户变量"></a>用户变量</h4><p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220125135007369.png" srcset="/img/loading.gif" lazyload alt="image-20220125135007369"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220125135030637.png" srcset="/img/loading.gif" lazyload alt="image-20220125135030637"></p>
+<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs haml">Path<br><span class="hljs-tag">%<span class="hljs-selector-tag">JAVA_HOME</span></span>%\bin\<br><span class="hljs-tag">%<span class="hljs-selector-tag">JAVA_HOME</span></span>%\jre\bin\<br></code></pre></td></tr></table></figure>
+
+<h4 id="下载-war"><a href="#下载-war" class="headerlink" title="下载 war"></a>下载 war</h4><p><code>jenkins.war</code>:下载 <a target="_blank" rel="noopener" href="https://mirrors.huaweicloud.com/jenkins/war/2.269/">https://mirrors.huaweicloud.com/jenkins/war/2.269/</a> </p>
+<h4 id="运行-1"><a href="#运行-1" class="headerlink" title="运行"></a>运行</h4><p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220125135345995.png" srcset="/img/loading.gif" lazyload alt="image-20220125135345995"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> D:\jenkins<br>java -jar jenkins.war<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220125135452362.png" srcset="/img/loading.gif" lazyload alt="image-20220125135452362"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220125135709149.png" srcset="/img/loading.gif" lazyload alt="image-20220125135709149"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220125135728614.png" srcset="/img/loading.gif" lazyload alt="image-20220125135728614"></p>
+<h3 id="Linux-安装"><a href="#Linux-安装" class="headerlink" title="Linux 安装"></a>Linux 安装</h3><h4 id="镜像下载-1"><a href="#镜像下载-1" class="headerlink" title="镜像下载"></a>镜像下载</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker pull jenkins/jenkins<br></code></pre></td></tr></table></figure>
+
+<h4 id="运行镜像"><a href="#运行镜像" class="headerlink" title="运行镜像"></a>运行镜像</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker run -u root -d -p 8080:8080 -p 50000:50000 -v /root/jenkins_data/DockerData:/var/jenkins_home -v /root/jenkins_data/docker.sock:/var/run/docker.sock jenkins/jenkins --restart always<br></code></pre></td></tr></table></figure>
+
+<h4 id="问题1"><a href="#问题1" class="headerlink" title="问题1"></a>问题1</h4><blockquote>
+<p> Please wait while Jenkins is getting ready to work …</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">打开</span><br>hudson.model.UpdateCenter.xml   #这个就是挂载的root/jenkins_data/Dockerdata里<br><span class="hljs-meta prompt_"># </span><span class="language-bash">把</span><br>http://updates.jenkins-io/update-center.json<br><span class="hljs-meta prompt_"># </span><span class="language-bash">改成 清华大学镜像地址</span><br>http://mirror.xmission.com/jenkins/updates/update-center.json<br></code></pre></td></tr></table></figure>
+
+<h4 id="问题2"><a href="#问题2" class="headerlink" title="问题2"></a>问题2</h4><blockquote>
+<p>容器内执行<code>apt-get update</code> 总超时，需要添加源</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">将容器内的配置文件导出来</span><br>docker cp elegant_neumann:&quot;/etc/apt/sources.list&quot; /root/jenkins_config/<br><span class="hljs-meta prompt_"># </span><span class="language-bash">将修改好的配置文件覆盖到容器中</span><br>docker cp &quot;/root/jenkins_config/sources.list&quot; elegant_neumann:&quot;/etc/apt/sources.list&quot;<br></code></pre></td></tr></table></figure>
+
+<h4 id="问题3"><a href="#问题3" class="headerlink" title="问题3"></a>问题3</h4><blockquote>
+<p>更新源后会报错：<code>NO_PUBKEY 40976EAF437D05B5 NO_PUBKEY 3B4FE6ACC0B21F32</code></p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 40976EAF437D05B5 3B4FE6ACC0B21F32<br></code></pre></td></tr></table></figure>
+
+<p>然后添加ping <code>apt install iputils-ping</code></p>
+<h4 id="问题4"><a href="#问题4" class="headerlink" title="问题4"></a>问题4</h4><blockquote>
+<p>因为要在<code>Jenkins</code>中运行 <code>DotNet 5.0 Web</code>，所以需要在<code>Jenkins</code>容器内有 <code>dotnet 5.0 SDK</code>,这个问题会体现在构建的时候。</p>
+<p>这涉及到通过<code>Dockerfile</code> 创建镜像，这里需要创建一个携带<code>dotnet5.0 SDK</code>的<code>jenkins</code>镜像</p>
+</blockquote>
+<p>参考地址：<a target="_blank" rel="noopener" href="https://blog.csdn.net/feng005211/article/details/114818504">.NET 5 + Docker Jenkins，做自动化部署，全Docker环境</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">封装Jenkins镜像（带有dotnet环境的） sdk=5.1</span><br>FROM jenkins/jenkins:lts<br>USER root<br>WORKDIR /dotnet<br>RUN wget -O dotnet.tar.gz https://download.visualstudio.microsoft.com/download/pr/820db713-c9a5-466e-b72a-16f2f5ed00e2/628aa2a75f6aa270e77f4a83b3742fb8/dotnet-sdk-5.0.100-linux-x64.tar.gz<br>RUN tar zxf dotnet.tar.gz -C ./<br>RUN rm -rf dotnet.tar.gz<br>ENV PATH=&quot;$&#123;PATH&#125;:/dotnet:/var/jenkins_home/.dotnet/tools&quot;<br>ENV DOTNET_ROOT=&quot;/dotnet&quot;<br>RUN apt update -y<br>RUN apt install icu-devtools vim zip unzip -y<br>RUN usermod -a -G root jenkins<br>USER jenkins<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs haskell">命令解释<br><span class="hljs-number">1</span>.这个<span class="hljs-type">Docker</span>镜像基于jenkins<br><span class="hljs-number">2</span>.设置当前用户为root，因为后面安装需要使用root<br><span class="hljs-number">3</span>.设置当前工作目录为<span class="hljs-keyword">dotnet</span><br><span class="hljs-number">4</span>.下载<span class="hljs-keyword">dotnet</span> <span class="hljs-type">SDK</span>包，保存为<span class="hljs-keyword">dotnet</span>.tar.gz。这里要注意下载正确版本的<span class="hljs-type">SDK</span>，可前往微软官方网站获取下载链接：https://<span class="hljs-keyword">dotnet</span>.microsoft.com/download<br><span class="hljs-number">5</span>.解压<span class="hljs-keyword">dotnet</span> <span class="hljs-type">SDK</span>到当前目录，即/<span class="hljs-keyword">dotnet</span>目录<br><span class="hljs-number">6</span>.删除<span class="hljs-keyword">dotnet</span> <span class="hljs-type">SDK</span>包<br><span class="hljs-number">7</span>.把<span class="hljs-keyword">dotnet</span>目录和<span class="hljs-keyword">dotnet</span> tools目录添加到环境变量<span class="hljs-type">PATH</span>，这样就可以使用<span class="hljs-keyword">dotnet</span>命令了<br><span class="hljs-number">8</span>.设置<span class="hljs-type">DOTNET_ROOT</span>变量<br><span class="hljs-number">9</span>.更新源<br><span class="hljs-number">10</span>.安装一些必需的，常用的工具包，其中icu-devtools是运行<span class="hljs-keyword">dotnet</span>需要的<br><span class="hljs-number">11</span>.修改jenkins用户到root附加组<br><span class="hljs-number">12</span>.设置当前用户为jenkins<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs haskell">构建镜像 name=jenkins:<span class="hljs-keyword">dotnet</span><br><span class="hljs-title">docker</span> build -t jenkins:<span class="hljs-keyword">dotnet</span> .<br>很简单的将包含<span class="hljs-keyword">dotnet</span>环境的jenkins安装好了<br></code></pre></td></tr></table></figure>
+
+<h4 id="问题5"><a href="#问题5" class="headerlink" title="问题5"></a>问题5</h4><blockquote>
+<p>容器内想安装别的就会用到 wget</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">apt-get update  <br>apt-get install wget  <br>wget --version  <br></code></pre></td></tr></table></figure>
+
+<h4 id="问题6"><a href="#问题6" class="headerlink" title="问题6"></a>问题6</h4><blockquote>
+<p>构建携带dotnet 5环境的Jenkins镜像</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">封装Jenkins镜像（带有dotnet环境的） sdk=5.1</span><br>FROM jenkins/jenkins:latest<br>USER root<br>WORKDIR /dotnet<br>RUN echo &quot;deb http://mirrors.aliyun.com/debian/ buster main non-free contrib\n\<br>deb http://mirrors.aliyun.com/debian-security buster/updates main\n\<br>deb http://mirrors.aliyun.com/debian/ buster-updates main non-free contrib\n\<br>deb http://mirrors.aliyun.com/debian/ buster-backports main non-free contrib\n\<br>deb-src http://mirrors.aliyun.com/debian-security buster/updates main\n\<br>deb-src http://mirrors.aliyun.com/debian/ buster main non-free contrib\n\<br>deb-src http://mirrors.aliyun.com/debian/ buster-updates main non-free contrib\n\<br>deb-src http://mirrors.aliyun.com/debian/ buster-backports main non-free contrib&quot; &gt; /etc/apt/sources.list<br>RUN apt-get update --fix-missing &amp;&amp; apt-get install -y wget --fix-missing<br>RUN wget -O dotnet.tar.gz https://download.visualstudio.microsoft.com/download/pr/820db713-c9a5-466e-b72a-16f2f5ed00e2/628aa2a75f6aa270e77f4a83b3742fb8/dotnet-sdk-5.0.100-linux-x64.tar.gz<br>RUN tar zxf dotnet.tar.gz -C ./<br>RUN rm -rf dotnet.tar.gz<br>ENV PATH=&quot;$&#123;PATH&#125;:/dotnet:/var/jenkins_home/.dotnet/tools&quot;<br>ENV DOTNET_ROOT=&quot;/dotnet&quot;<br>RUN apt update -y<br>RUN apt install icu-devtools vim zip unzip -y<br>RUN usermod -a -G root jenkins<br>USER jenkins<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker run --name dotnetjenkins  --restart always -u root -d -p 8080:8080 -p 50000:50000 -v /root/jenkins_data/DockerData:/var/jenkins_home -v /root/jenkins_data/docker.sock:/var/run/docker.sock jenkins:dotnet<br></code></pre></td></tr></table></figure>
+
+<h2 id="Registry"><a href="#Registry" class="headerlink" title="Registry"></a>Registry</h2><p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220127143255440.png" srcset="/img/loading.gif" lazyload alt="image-20220127143255440"></p>
+<p>私有仓库服务</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker pull registry:2.7.1<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker run -d \<br>   -p 5001:5000 \<br>   --restart=always \<br>   --name registry \<br>   -v /root/data/docker-registry:/var/lib/registry \<br>   registry:2.7.1<br></code></pre></td></tr></table></figure>
+
+<p>访问： <a target="_blank" rel="noopener" href="http://192.168.137.5:5001/v2/">http://192.168.137.5:5001/v2/</a></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220126205651174.png" srcset="/img/loading.gif" lazyload alt="image-20220126205651174"></p>
+<h3 id="Push"><a href="#Push" class="headerlink" title="Push"></a>Push</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">将hello-world 重新复制命名为 192.168.137.5:5001/hello-world</span><br>docker tag hello-world 192.168.137.5:5001/hello-world<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">执行 docker push 192.168.137.5:5001/hello-world 就会提交到私有仓库</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="问题1-1"><a href="#问题1-1" class="headerlink" title="问题1"></a>问题1</h3><blockquote>
+<p><code>Get &quot;https://192.168.137.5:5001/v2/&quot;: http: server gave HTTP response to HTTPS client</code></p>
+</blockquote>
+<p>此问题的原因是由于 Docker自从<code>1.3.X</code>之后docker registry交互默认使用的是<code>HTTPS</code>，但是搭建私有镜像默认使用的是<code>HTTP</code>服务，所以与私有镜像交时出现以上错误。</p>
+<p>想要解决此问题，执行了两个方案，执行到第二种方才好使</p>
+<p>第一种：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs shell">vim /etc/docker/daemon.json<br><span class="hljs-meta prompt_"># </span><span class="language-bash">添加 <span class="hljs-string">&quot;insecure-registries&quot;</span>: [<span class="hljs-string">&quot;192.168.137.5:5001&quot;</span>]</span><br>&#123;<br>  &quot;insecure-registries&quot;: [&quot;192.168.137.5:5001&quot;],&quot;registry-mirrors&quot;: [&quot;https://i6*****.mirror.aliyuncs.com&quot;]<br>&#125;<br><span class="hljs-meta prompt_"># </span><span class="language-bash">重启 daemom</span><br>systemctl daemon-reload<br><span class="hljs-meta prompt_"># </span><span class="language-bash">重启docker服务</span><br>systemctl restart docker<br><span class="hljs-meta prompt_"># </span><span class="language-bash">重启容器</span><br>docker start $(docker ps -aq)<br></code></pre></td></tr></table></figure>
+
+<p>第二种：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">vim /usr/lib/systemd/system/docker.service<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220126214929695.png" srcset="/img/loading.gif" lazyload alt="image-20220126214929695"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">在ExecStart 这行后面添加 --insecure-registry 192.168.137.5:5001  也就是在Docker启动的时候添加参数</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">重启 daemom</span><br>systemctl daemon-reload<br><span class="hljs-meta prompt_"># </span><span class="language-bash">重启docker服务</span><br>systemctl restart docker<br><span class="hljs-meta prompt_"># </span><span class="language-bash">重启容器</span><br>docker start $(docker ps -aq)<br></code></pre></td></tr></table></figure>
+
+<p>问题解决</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs shell">root@microservicevm:~# curl -XGET http://192.168.137.5:5001/v2/_catalog<br>&#123;&quot;repositories&quot;:[]&#125;<br><br>root@microservicevm:/# docker push 192.168.137.5:5001/hello-world<br>Using default tag: latest<br>The push refers to repository [192.168.137.5:5001/hello-world]<br>e07ee1baac5f: Pushed <br>latest: digest: sha256:f54a58bc1aac5ea1a25d796ae155dc228b3f0e11d046ae276b39c4bf2f13d8c4 size: 525<br><br>root@microservicevm:/# curl -XGET http://192.168.137.5:5001/v2/_catalog<br>&#123;&quot;repositories&quot;:[&quot;hello-world&quot;]&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="Harbor"><a href="#Harbor" class="headerlink" title="Harbor"></a>Harbor</h2><h2 id="Net-5-GitLab-Jenkins"><a href="#Net-5-GitLab-Jenkins" class="headerlink" title="Net 5 + GitLab + Jenkins"></a>Net 5 + GitLab + Jenkins</h2><h3 id="Net-5"><a href="#Net-5" class="headerlink" title="Net 5"></a>Net 5</h3><p>根据此处的<a href="#%E9%97%AE%E9%A2%986">Dockerfile</a>，创建携带.net 5.0 环境的<code>Jenkins</code>容器</p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220203204439495.png" srcset="/img/loading.gif" lazyload alt="创建"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220203204544944.png" srcset="/img/loading.gif" lazyload alt="配置"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220203204632628.png" srcset="/img/loading.gif" lazyload alt="net5.0"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220203204732348.png" srcset="/img/loading.gif" lazyload alt="测试代码"></p>
+<h3 id="Jenkins-1"><a href="#Jenkins-1" class="headerlink" title="Jenkins"></a>Jenkins</h3><p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220203211820516.png" srcset="/img/loading.gif" lazyload alt="系统管理-系统配置"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220203211538155.png" srcset="/img/loading.gif" lazyload alt="配置GitLab账号信息"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220203205927175.png" srcset="/img/loading.gif" lazyload alt="源码管理"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220203210045375.png" srcset="/img/loading.gif" lazyload alt="构建触发器"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220203210232801.png" srcset="/img/loading.gif" lazyload alt="点击高级获取Secret token"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220203210446489.png" srcset="/img/loading.gif" lazyload alt="构建"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220203212831776.png" srcset="/img/loading.gif" lazyload alt="设置凭证"></p>
+<h3 id="GitLab-1"><a href="#GitLab-1" class="headerlink" title="GitLab"></a>GitLab</h3><p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220203204909533.png" srcset="/img/loading.gif" lazyload alt="将测试代码上传到Gitlab"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220203211043489.png" srcset="/img/loading.gif" lazyload alt="webhooks 设置网址和令牌"></p>
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220203213909943.png" srcset="/img/loading.gif" lazyload alt="GitPush-构建"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220203230849200.png" srcset="/img/loading.gif" lazyload alt="控制台信息"></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/MicroService/">MicroService</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Docker/">Docker</a>
+                    
+                      <a class="hover-with-bg" href="/tags/net-core/">.net core</a>
+                    
+                      <a class="hover-with-bg" href="/tags/jenkins/">jenkins</a>
+                    
+                      <a class="hover-with-bg" href="/tags/GitLab/">GitLab</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/02/12/dotnet-dotnetcore%E5%8C%BA%E5%88%AB/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">DotNet & DotNet Core 区别</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/01/19/DockerCompose/">
+                        <span class="hidden-mobile">Docker Compose</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"q3pc0gbhQF3puHJQ3XjiByyg-gzGzoHsz","appKey":"yIsNaqJVWRbpKxcC4phLbjXt","path":"window.location.pathname","placeholder":"吐槽","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":true,"serverURLs":"https://q3pc0gbh.lc-cn-n1-shared.com","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          Fluid.plugins.initFancyBox('#valine .vcontent img:not(.vemoji)');
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+  <div class="col-lg-7 mx-auto nopadding-x-md">
+    <div class="container custom post-custom mx-auto">
+      <img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/gongzhonghao2.jpg" srcset="/img/loading.gif" lazyload class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">
+    </div>
+  </div>
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        京ICP证18023705号
+      </a>
+    </span>
+    
+  </div>
+
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/caidai.js"></script>
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/dianjichuzi.js"></script>
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/timeDate.js"></script>
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

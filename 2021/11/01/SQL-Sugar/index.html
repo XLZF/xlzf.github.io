@@ -1,0 +1,611 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.png">
+  <link rel="icon" href="/img/avatar.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="几年前看大神文章留的笔记。">
+  <meta name="author" content="Harris">
+  <meta name="keywords" content="">
+  <meta name="description" content="几年前看大神文章留的笔记。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SQL Sugar">
+<meta property="og:url" content="http://example.com/2021/11/01/SQL-Sugar/index.html">
+<meta property="og:site_name" content="Harris Blog">
+<meta property="og:description" content="几年前看大神文章留的笔记。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-11-01T14:24:43.000Z">
+<meta property="article:modified_time" content="2022-03-31T01:47:44.874Z">
+<meta property="article:author" content="Harris">
+<meta property="article:tag" content="Linq">
+<meta name="twitter:card" content="summary_large_image">
+  
+  <title>SQL Sugar - Harris Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/shubiao.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/gundongtiao.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/toubudaziji.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 6.1.0"><link rel="alternate" href="/atom.xml" title="Harris Blog" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 60vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>道吾</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                主页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                类别
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-books"></i>
+                文档
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/">
+                    
+                    主题博客
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/guide/">
+                    
+                    配置指南
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/icon/">
+                    
+                    图标用法
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/4.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="SQL Sugar">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      Harris
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-11-01 22:24" pubdate>
+        November 1, 2021 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      7.5k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      23 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">SQL Sugar</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：21 minutes ago
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h2 id="SqlSugar-学习"><a href="#SqlSugar-学习" class="headerlink" title="SqlSugar 学习"></a><a target="_blank" rel="noopener" href="http://www.codeisbug.com/Doc/8/1166">SqlSugar 学习</a></h2><h3 id="记录"><a href="#记录" class="headerlink" title="记录"></a>记录</h3><h3 id="1-多表查询"><a href="#1-多表查询" class="headerlink" title="1.  多表查询"></a>1.  多表查询</h3><p>三表查询</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-built_in">int</span> total = <span class="hljs-number">0</span>;<br><span class="hljs-keyword">var</span> list = db.Queryable&lt;SYS_User_UserGroup, SYS_User, SYS_UserGroup&gt;((a, b, c) =&gt; <span class="hljs-keyword">new</span> <span class="hljs-built_in">object</span>[]<br>&#123;<br>    JoinType.Left,a.User_ID == b.User_ID,<br>    JoinType.Left,c.UserGroup_ID == a.UserGroup_ID<br>&#125;)<br>.Select((a, b, c) =&gt; <span class="hljs-keyword">new</span> &#123; a.User_ID, b.User_Name, c.UserGroup_Name &#125;);<br></code></pre></td></tr></table></figure>
+<h3 id="动态where"><a href="#动态where" class="headerlink" title="动态where"></a>动态where</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs csharp">List&lt;IConditionalModel&gt; conModels = <span class="hljs-keyword">new</span> List&lt;IConditionalModel&gt;<br>&#123;<br>    <span class="hljs-keyword">new</span> ConditionalModel() &#123; FieldName = <span class="hljs-string">&quot;&quot;</span>, ConditionalType = ConditionalType.Like, FieldValue = <span class="hljs-string">&quot;&quot;</span> &#125;<br>&#125;;<br><br><span class="hljs-keyword">var</span> student = db.Queryable&lt;SYS_User&gt;().Where(conModels).ToList();<br></code></pre></td></tr></table></figure>
+<h3 id="TOP"><a href="#TOP" class="headerlink" title="TOP"></a>TOP</h3><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c#"><span class="hljs-keyword">var</span> top5 = db.Queryable&lt;SYS_User&gt;().Take(<span class="hljs-number">5</span>).ToList();<br></code></pre></td></tr></table></figure>
+<h3 id="根据主键查询"><a href="#根据主键查询" class="headerlink" title="根据主键查询"></a>根据主键查询</h3><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c#"><span class="hljs-keyword">var</span> getByPrimaryKey = db.Queryable&lt;SYS_User&gt;().InSingle(<span class="hljs-number">2</span>);<br></code></pre></td></tr></table></figure>
+<h3 id="查询单条没有数据返回NULL-Single超过1条会报错，First不会"><a href="#查询单条没有数据返回NULL-Single超过1条会报错，First不会" class="headerlink" title="查询单条没有数据返回NULL, Single超过1条会报错，First不会"></a>查询单条没有数据返回NULL, Single超过1条会报错，First不会</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">var</span> getSingleOrDefault = db.Queryable&lt;SYS_User&gt;().Single();<br><span class="hljs-keyword">var</span> getFirstOrDefault = db.Queryable&lt;SYS_User&gt;().First();<br><span class="hljs-comment">/*</span><br><span class="hljs-comment">生成SQL: 参考Take函数</span><br><span class="hljs-comment">如果使用Single方法返回单条, 实际返回超过1条, 会引发异常, 使用First返回单条不会引发异常, 只返回第一条, 忽略其它的结果.</span><br><span class="hljs-comment">*/</span><br></code></pre></td></tr></table></figure>
+<h3 id="UNION-ALL"><a href="#UNION-ALL" class="headerlink" title="UNION ALL"></a>UNION ALL</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs csharp">db.UnionAll&lt;SYS_User&gt;(db.Queryable&lt;SYS_User&gt;(),db.Queryable&lt;SYS_User&gt;()).ToList();<br><span class="hljs-comment">/*</span><br><span class="hljs-comment">生成SQL:</span><br><span class="hljs-comment">SQL Server:</span><br><span class="hljs-comment">SELECT * FROM  (SELECT [ID],[Name] FROM [Student] UNION ALL SELECT [ID],[Name] FROM [Student] ) unionTable  </span><br><span class="hljs-comment"></span><br><span class="hljs-comment">MySQL:</span><br><span class="hljs-comment">SELECT * FROM  (SELECT `ID`,`Name` FROM `Student`  UNION ALL SELECT `ID`,`Name` FROM `Student`  ) unionTable   </span><br><span class="hljs-comment"></span><br><span class="hljs-comment">Oracle:</span><br><span class="hljs-comment">SELECT * FROM  (SELECT &quot;ID&quot;,&quot;NAME&quot; FROM &quot;STUDENT&quot; UNION ALL SELECT &quot;ID&quot;,&quot;NAME&quot; FROM &quot;STUDENT&quot; ) UNIONTABLE  </span><br><span class="hljs-comment"></span><br><span class="hljs-comment">Sqlite:</span><br><span class="hljs-comment">SELECT * FROM  (SELECT `ID`,`Name` FROM `Student`  UNION ALL SELECT `ID`,`Name` FROM `Student`  ) unionTable   </span><br><span class="hljs-comment">*/</span><br></code></pre></td></tr></table></figure>
+<h3 id="IN查询"><a href="#IN查询" class="headerlink" title="IN查询"></a>IN查询</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-comment">//Id In (1,2,3), 指定列In查询</span><br><span class="hljs-keyword">var</span> in1 = db.Queryable&lt;SYS_User&gt;().In(it=&gt;it.ID,<span class="hljs-keyword">new</span> <span class="hljs-built_in">int</span>[] &#123; <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span> &#125;).ToList();<br><span class="hljs-comment">/*</span><br><span class="hljs-comment">生成SQL:</span><br><span class="hljs-comment">SQL Server:</span><br><span class="hljs-comment">SELECT [ID],[Name] FROM [SYS_User]  WHERE [ID] IN (&#x27;1&#x27;,&#x27;2&#x27;,&#x27;3&#x27;)  </span><br><span class="hljs-comment">其它数据库类似, 就不一一举例了</span><br><span class="hljs-comment">*/</span><br><br><span class="hljs-comment">//主键 In (1,2,3)  不指定列, 默认根据主键In</span><br><span class="hljs-keyword">var</span> in2 = db.Queryable&lt;SYS_User&gt;().In(<span class="hljs-keyword">new</span> <span class="hljs-built_in">int</span>[] &#123; <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span> &#125;).ToList();<br><span class="hljs-comment">/*</span><br><span class="hljs-comment">生成SQL:</span><br><span class="hljs-comment">SQL Server:</span><br><span class="hljs-comment">SELECT [ID],[Name] FROM [SYS_User]  WHERE [ID] IN (&#x27;1&#x27;,&#x27;2&#x27;,&#x27;3&#x27;)  </span><br><span class="hljs-comment">其它数据库类似, 就不一一举例了</span><br><span class="hljs-comment">*/</span><br><br><span class="hljs-comment">//Id In (1,2)  指定列的另外一种写法</span><br><span class="hljs-built_in">int</span>[] array = <span class="hljs-keyword">new</span> <span class="hljs-built_in">int</span>[] &#123; <span class="hljs-number">1</span>, <span class="hljs-number">2</span> &#125;;<br><span class="hljs-keyword">var</span> in3 = db.Queryable&lt;SYS_User&gt;().Where(it=&gt;array.Contains(it.ID)).ToList();<br><span class="hljs-comment">/*</span><br><span class="hljs-comment">生成SQL和上面一样</span><br><span class="hljs-comment">*/</span><br></code></pre></td></tr></table></figure>
+<h3 id="NOT-IN查询"><a href="#NOT-IN查询" class="headerlink" title="NOT IN查询"></a>NOT IN查询</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">var</span> in3 = db.Queryable&lt;SYS_User&gt;().Where(it=&gt;!array.Contains(it.ID)).ToList();<br><span class="hljs-comment">/*</span><br><span class="hljs-comment">生成SQL:</span><br><span class="hljs-comment">SQL Server:</span><br><span class="hljs-comment">SELECT [ID],[Name] FROM [SYS_User]  WHERE NOT ([ID] IN (&#x27;1&#x27;,&#x27;2&#x27;)) </span><br><span class="hljs-comment">其它数据库类似, 就不一一举例了</span><br><span class="hljs-comment">*/</span><br></code></pre></td></tr></table></figure>
+<h3 id="条件查询"><a href="#条件查询" class="headerlink" title="条件查询"></a>条件查询</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">var</span> getByWhere = db.Queryable&lt;SYS_User&gt;().Where(it =&gt; it.Id == <span class="hljs-number">1</span> || it.Name == <span class="hljs-string">&quot;a&quot;</span>).ToList();<br><span class="hljs-comment">/*</span><br><span class="hljs-comment">生成SQL:</span><br><span class="hljs-comment">SQL Server:</span><br><span class="hljs-comment">SELECT [ID],[Name] FROM [SYS_User]  WHERE (( [ID] = @ID0 ) OR ( [Name] = @Name1 ))</span><br><span class="hljs-comment">其中@ID0值为1, @Name1值为a</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">MySQL:</span><br><span class="hljs-comment">SELECT `ID`,`Name` FROM `SYS_User`  WHERE (( `ID` = @ID0 ) OR ( `Name` = @Name1 )) </span><br><span class="hljs-comment">其中@ID0值为1, @Name1值为a</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">Oracle:</span><br><span class="hljs-comment">SELECT &quot;ID&quot;,&quot;NAME&quot; FROM &quot;SYS_User&quot;  WHERE (( &quot;ID&quot; = :ID0 ) OR ( &quot;NAME&quot; = :Name1 ))</span><br><span class="hljs-comment">其中:ID0值为1, :Name1值为a</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">Sqlite:</span><br><span class="hljs-comment">SELECT `ID`,`Name` FROM `SYS_User`  WHERE (( `ID` = @ID0 ) OR ( `Name` = @Name1 )) </span><br><span class="hljs-comment">其中@ID0值为1, @Name1值为a</span><br><span class="hljs-comment">*/</span><br></code></pre></td></tr></table></figure>
+<h3 id="使用函数-SqlFunc类"><a href="#使用函数-SqlFunc类" class="headerlink" title="使用函数 SqlFunc类"></a>使用函数 SqlFunc类</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-comment">//查询Name列不为空的结果, SqlFunc提供的功能远不止这一个, 在查询函数里面有详解</span><br><span class="hljs-keyword">var</span> getByFuns = db.Queryable&lt;SYS_User&gt;().Where(it =&gt; SqlFunc.IsNullOrEmpty(it.Name)).ToList();<br><span class="hljs-comment">/*</span><br><span class="hljs-comment">生成SQL:</span><br><span class="hljs-comment">SQL Server:</span><br><span class="hljs-comment">SELECT [ID],[Name] FROM [SYS_User]  WHERE ( [Name]=&#x27;&#x27; OR [Name] IS NULL )</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">MySQL:</span><br><span class="hljs-comment">SELECT `ID`,`Name` FROM `SYS_User`  WHERE ( `Name`=&#x27;&#x27; OR `Name` IS NULL ) </span><br><span class="hljs-comment"></span><br><span class="hljs-comment">Oracle:</span><br><span class="hljs-comment">SELECT &quot;ID&quot;,&quot;NAME&quot; FROM &quot;SYS_User&quot;  WHERE ( &quot;NAME&quot;=&#x27;&#x27; OR &quot;NAME&quot; IS NULL )</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">Sqlite:</span><br><span class="hljs-comment">SELECT `ID`,`Name` FROM `SYS_User`  WHERE ( `Name`=&#x27;&#x27; OR `Name` IS NULL ) </span><br><span class="hljs-comment">*/</span><br></code></pre></td></tr></table></figure>
+<h3 id="可以使用-SUM-MAX-MIN-AVG查询单个字段"><a href="#可以使用-SUM-MAX-MIN-AVG查询单个字段" class="headerlink" title="可以使用 SUM MAX MIN AVG查询单个字段"></a>可以使用 SUM MAX MIN AVG查询单个字段</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">var</span> sum = db.Queryable&lt;SYS_User&gt;().Sum(it =&gt; it.ID);<br><span class="hljs-comment">/*</span><br><span class="hljs-comment">生成SQL:</span><br><span class="hljs-comment">SQL Server:</span><br><span class="hljs-comment">SELECT SUM([ID]) FROM [SYS_User]</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">其它数据库类型, 不一一列举</span><br><span class="hljs-comment">*/</span><br></code></pre></td></tr></table></figure>
+<h3 id="Between-1-and-20"><a href="#Between-1-and-20" class="headerlink" title="Between 1 and 20"></a>Between 1 and 20</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">var</span> between = db.Queryable&lt;SYS_User&gt;().Where(it =&gt; SqlFunc.Between(it.ID, <span class="hljs-number">1</span>, <span class="hljs-number">20</span>)).ToList();<br><span class="hljs-comment">/*</span><br><span class="hljs-comment">生成SQL:</span><br><span class="hljs-comment">SQL Server:</span><br><span class="hljs-comment">SELECT [ID],[Name] FROM [SYS_User]  WHERE  ([ID] BETWEEN @MethodConst0 AND @MethodConst1) </span><br><span class="hljs-comment">其中@MethodConst0值为1, @MethodConst1值为20</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">MySQL:</span><br><span class="hljs-comment">SELECT `ID`,`Name` FROM `SYS_User`  WHERE  (`ID` BETWEEN @MethodConst0 AND @MethodConst1)  </span><br><span class="hljs-comment">其中@MethodConst0值为1, @MethodConst1值为20</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">Oracle:</span><br><span class="hljs-comment">SELECT &quot;ID&quot;,&quot;NAME&quot; FROM &quot;SYS_User&quot;  WHERE  (&quot;ID&quot; BETWEEN :MethodConst0 AND :MethodConst1) </span><br><span class="hljs-comment">其中:MethodConst0值为1, :MethodConst1值为20</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">Sqlite:</span><br><span class="hljs-comment">SELECT `ID`,`Name` FROM `SYS_User`  WHERE  (`ID` BETWEEN @MethodConst0 AND @MethodConst1)  </span><br><span class="hljs-comment">其中@MethodConst0值为1, @MethodConst1值为20</span><br><span class="hljs-comment">*/</span><br></code></pre></td></tr></table></figure>
+<h3 id="使用-AS-取新的表名"><a href="#使用-AS-取新的表名" class="headerlink" title="使用 AS 取新的表名"></a>使用 AS 取新的表名</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">var</span> getListByRename = db.Queryable&lt;School&gt;().AS(<span class="hljs-string">&quot;Student&quot;</span>).ToList();<br><span class="hljs-comment">/*</span><br><span class="hljs-comment">生成SQL:</span><br><span class="hljs-comment">SQL Server:</span><br><span class="hljs-comment">SELECT [ID],[Name] FROM [Student] </span><br><span class="hljs-comment">*/</span><br></code></pre></td></tr></table></figure>
+<h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">var</span> getAllOrder = db.Queryable&lt;SYS_User&gt;().OrderBy(it =&gt; it.ID).ToList(); <span class="hljs-comment">//默认为ASC排序</span><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">生成SQL:</span><br><span class="hljs-comment">SQL Server:</span><br><span class="hljs-comment">SELECT [ID],[Name] FROM [SYS_User] ORDER BY [ID] ASC</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">其它数据库类似</span><br><span class="hljs-comment">*/</span><br><br><span class="hljs-keyword">var</span> getAllOrder = db.Queryable&lt;SYS_User&gt;().OrderBy(it =&gt; it.ID, OrderByType.Desc).ToList(); <span class="hljs-comment">//收到设置为DESC排序</span><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">生成SQL:</span><br><span class="hljs-comment">SQL Server:</span><br><span class="hljs-comment">SELECT [ID],[Name] FROM [SYS_User] ORDER BY [ID] DESC</span><br><span class="hljs-comment">*/</span><br></code></pre></td></tr></table></figure>
+<h3 id="多个字段排序"><a href="#多个字段排序" class="headerlink" title="多个字段排序"></a>多个字段排序</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">var</span> data = db.Queryable&lt;SYS_User&gt;()<br>    .OrderBy(it =&gt; it.ID, OrderByType.Desc)<br>    .OrderBy(it =&gt; it.Name, OrderByType.Asc)<br>    .ToList();<br><span class="hljs-comment">/*</span><br><span class="hljs-comment">生成SQL:</span><br><span class="hljs-comment">SQL Server:</span><br><span class="hljs-comment">SELECT [ID],[Name] FROM [SYS_User] ORDER BY [ID] DESC,[Name] ASC</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">其它数据库类似</span><br><span class="hljs-comment">*/</span><br></code></pre></td></tr></table></figure>
+<h3 id="是否存在这条记录"><a href="#是否存在这条记录" class="headerlink" title="是否存在这条记录"></a>是否存在这条记录</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">var</span> isAny = db.Queryable&lt;SYS_User&gt;().Where(it =&gt; it.Id == <span class="hljs-number">-1</span>).Any();<br><span class="hljs-keyword">var</span> isAny2 = db.Queryable&lt;SYS_User&gt;().Any(it =&gt; it.Id == <span class="hljs-number">-1</span>);<br></code></pre></td></tr></table></figure>
+<h3 id="获取同一天的记录"><a href="#获取同一天的记录" class="headerlink" title="获取同一天的记录"></a>获取同一天的记录</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">var</span> getTodayList = db.Queryable&lt;SYS_User&gt;().Where(it =&gt; SqlFunc.DateIsSame(it.CreateTime, DateTime.Now)).ToList();<br><span class="hljs-comment">/*</span><br><span class="hljs-comment">生成SQL:</span><br><span class="hljs-comment">SQL Server:</span><br><span class="hljs-comment">SELECT [ID],[Name],[CreateTime] FROM [Student]  WHERE  (DATEDIFF(day,[CreateTime],@MethodConst0)=0) </span><br><span class="hljs-comment">其中@MethodConst0值为当前时间</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">MySQL:</span><br><span class="hljs-comment">SELECT `ID`,`Name`,`CreateTime` FROM `Student`  WHERE  (TIMESTAMPDIFF(day,`CreateTime`,@MethodConst0)=0)  </span><br><span class="hljs-comment">其中@MethodConst0值为当前时间</span><br><span class="hljs-comment">*/</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="whereType"><a href="#whereType" class="headerlink" title="whereType"></a>whereType</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-comment">// and id=100 and (id=1 or id=2 and id=1) </span><br>List&lt;IConditionalModel&gt; conModels = <span class="hljs-keyword">new</span> List&lt;IConditionalModel&gt;();<br>conModels.Add(<span class="hljs-keyword">new</span> ConditionalModel() &#123; FieldName = <span class="hljs-string">&quot;id&quot;</span>, ConditionalType = ConditionalType.Equal, FieldValue = <span class="hljs-string">&quot;100&quot;</span> &#125;);<br>conModels.Add(<span class="hljs-keyword">new</span> ConditionalCollections()<br>&#123;<br>    ConditionalList =<br>    <span class="hljs-keyword">new</span> List&lt;KeyValuePair&lt;WhereType, ConditionalModel&gt;&gt;()<br>    &#123;<br>        <span class="hljs-keyword">new</span>  KeyValuePair&lt;WhereType, ConditionalModel&gt;( WhereType.And ,<span class="hljs-keyword">new</span> ConditionalModel() &#123; FieldName = <span class="hljs-string">&quot;id&quot;</span>, ConditionalType = ConditionalType.Equal, FieldValue = <span class="hljs-string">&quot;1&quot;</span> &#125;),<br>        <span class="hljs-keyword">new</span>  KeyValuePair&lt;WhereType, ConditionalModel&gt;( WhereType.Or, <span class="hljs-keyword">new</span> ConditionalModel() &#123; FieldName = <span class="hljs-string">&quot;id&quot;</span>, ConditionalType = ConditionalType.Equal, FieldValue = <span class="hljs-string">&quot;2&quot;</span> &#125;),<br>        <span class="hljs-keyword">new</span>  KeyValuePair&lt;WhereType, ConditionalModel&gt;( WhereType.And,<span class="hljs-keyword">new</span> ConditionalModel() &#123; FieldName = <span class="hljs-string">&quot;id&quot;</span>, ConditionalType = ConditionalType.Equal, FieldValue = <span class="hljs-string">&quot;2&quot;</span> &#125;)<br>    &#125;<br>&#125;);<br><span class="hljs-keyword">var</span> student = Db.Queryable&lt;SYS_User&gt;().Where(conModels).ToList();<br></code></pre></td></tr></table></figure>
+
+<h3 id="子查询加动态拼接"><a href="#子查询加动态拼接" class="headerlink" title="子查询加动态拼接"></a>子查询加动态拼接</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;Student&gt; <span class="hljs-title">GetStudent</span>(<span class="hljs-params"><span class="hljs-built_in">int</span> id, <span class="hljs-built_in">string</span> name</span>)</span><br>&#123;<br>    <span class="hljs-built_in">int</span> pageCount = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">using</span> (<span class="hljs-keyword">var</span> db = SugarDao.GetInstance())<br>    &#123;<br>        <span class="hljs-comment">//Form(&quot;Student&quot;,&quot;s&quot;)语法优化成 Form&lt;Student&gt;(&quot;s&quot;)</span><br>        <span class="hljs-keyword">var</span> sable = db.Sqlable().Form&lt;Student&gt;(<span class="hljs-string">&quot;s&quot;</span>).Join&lt;School&gt;(<span class="hljs-string">&quot;l&quot;</span>, <span class="hljs-string">&quot;s.sch_id&quot;</span>, <span class="hljs-string">&quot;l.id&quot;</span>, JoinType.INNER);<br>        <span class="hljs-keyword">if</span> (!<span class="hljs-built_in">string</span>.IsNullOrEmpty(name))<br>        &#123;<br>            sable = sable.Where(<span class="hljs-string">&quot;s.name=@name&quot;</span>);<br>        &#125;<br>        <span class="hljs-keyword">if</span> (!<span class="hljs-built_in">string</span>.IsNullOrEmpty(name))<br>        &#123;<br>            sable = sable.Where(<span class="hljs-string">&quot;s.id=@id or s.id=100&quot;</span>);<br>        &#125;<br>        <span class="hljs-keyword">if</span> (id &gt; <span class="hljs-number">0</span>) &#123;<br>            sable = sable.Where(<span class="hljs-string">&quot;l.id in (select top 10 id from school)&quot;</span>);<span class="hljs-comment">//where加子查询</span><br>        &#125;<br>        <span class="hljs-comment">//参数</span><br>        <span class="hljs-keyword">var</span> pars = <span class="hljs-keyword">new</span> &#123; id = id, name = name &#125;;<br>        pageCount = sable.Count(pars);<br>        <span class="hljs-keyword">return</span> sable.SelectToList&lt;Student&gt;(<span class="hljs-string">&quot;s.*&quot;</span>, pars);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/C/">C#</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Linq/">Linq</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/11/02/Typora%E8%87%AA%E5%8A%A8%E6%B7%BB%E5%8A%A0%E5%BA%8F%E5%8F%B7/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Typora 自动添加序号</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/11/01/Linq-Note/">
+                        <span class="hidden-mobile">Linq Note</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"q3pc0gbhQF3puHJQ3XjiByyg-gzGzoHsz","appKey":"yIsNaqJVWRbpKxcC4phLbjXt","path":"window.location.pathname","placeholder":"吐槽","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":true,"serverURLs":"https://q3pc0gbh.lc-cn-n1-shared.com","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          Fluid.plugins.initFancyBox('#valine .vcontent img:not(.vemoji)');
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+  <div class="col-lg-7 mx-auto nopadding-x-md">
+    <div class="container custom post-custom mx-auto">
+      <img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/gongzhonghao2.jpg" srcset="/img/loading.gif" lazyload class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">
+    </div>
+  </div>
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        京ICP证18023705号
+      </a>
+    </span>
+    
+  </div>
+
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/caidai.js"></script>
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/dianjichuzi.js"></script>
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/timeDate.js"></script>
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

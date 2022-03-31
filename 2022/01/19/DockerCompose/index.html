@@ -1,0 +1,665 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.png">
+  <link rel="icon" href="/img/avatar.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="通过Docker Compose 启动.net core web 应用程序并且使用Nginx反向代理">
+  <meta name="author" content="Harris">
+  <meta name="keywords" content="">
+  <meta name="description" content="通过Docker Compose 启动.net core web 应用程序并且使用Nginx反向代理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker Compose">
+<meta property="og:url" content="http://example.com/2022/01/19/DockerCompose/index.html">
+<meta property="og:site_name" content="Harris Blog">
+<meta property="og:description" content="通过Docker Compose 启动.net core web 应用程序并且使用Nginx反向代理">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220119155234027.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220119161032986.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220119161132040.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220119161212330.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220119162936354.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220119163032471.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220119163327957.png">
+<meta property="article:published_time" content="2022-01-19T08:46:15.000Z">
+<meta property="article:modified_time" content="2022-03-31T01:47:44.871Z">
+<meta property="article:author" content="Harris">
+<meta property="article:tag" content="Docker">
+<meta property="article:tag" content=".net core">
+<meta property="article:tag" content="Nginx">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220119155234027.png">
+  
+  <title>Docker Compose - Harris Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/shubiao.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/gundongtiao.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/toubudaziji.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 6.1.0"><link rel="alternate" href="/atom.xml" title="Harris Blog" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 60vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>道吾</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                主页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                类别
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-books"></i>
+                文档
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/">
+                    
+                    主题博客
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/guide/">
+                    
+                    配置指南
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/icon/">
+                    
+                    图标用法
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/4.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Docker Compose">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      Harris
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-01-19 16:46" pubdate>
+        January 19, 2022 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      4.7k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      15 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Docker Compose</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：21 minutes ago
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h1 id="Docker-Compose"><a href="#Docker-Compose" class="headerlink" title="Docker Compose"></a>Docker Compose</h1><p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220119155234027.png" srcset="/img/loading.gif" lazyload alt="image-20220119155234027"></p>
+<h2 id="why-docker-compose"><a href="#why-docker-compose" class="headerlink" title="why docker compose"></a>why docker compose</h2><p>​        操作Docker的时候</p>
+<p>​        如果只是操作单例服务的话，用docker命令操作:<code>build</code>、<code>run</code> 等等就能满足。</p>
+<p>​        但是在操作一整套服务的时候，涉及到的容器操作就会巨多，运行多个微服务实例再加多个Consul做集群，然后再加上<code>Oracle</code>、<code>redis</code>、<code>Rabbitmq</code>等等，就会捉襟见肘。</p>
+<p>​        所以需要<code>Docker compose</code>帮助做容器编排。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>Docker for windows 自带此功能</p>
+<p>Linux 下：</p>
+<p>从 Github 上下载它的二进制包来使用</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo curl -L &quot;https://github.com/docker/compose/releases/download/v2.2.2/docker-compose-$(uname -s)-$(uname -m)&quot; -o /usr/local/bin/docker-compose<br></code></pre></td></tr></table></figure>
+
+<p>网速慢,可以用daocloud下载</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo curl -L https://get.daocloud.io/docker/compose/releases/download/1.25.1/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose<br></code></pre></td></tr></table></figure>
+
+<p>创建软链</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose<br></code></pre></td></tr></table></figure>
+
+<p>运行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">root@vm02:~/webdemo# docker-compose --version<br>docker-compose version 1.25.1, build a82fef07<br></code></pre></td></tr></table></figure>
+
+<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">启动项目</span><br>docker-compose up<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">启动（后台运行）</span><br>docker-compose up -d<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">停止项目</span><br>docker-compose down <br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">项目日志</span><br>docker-compose logs<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">查看项目中的容器列表</span><br>docker-compose ps<br></code></pre></td></tr></table></figure>
+
+<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><h3 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h3><p>通过<code>docker-compose</code> 启动 web 应用，同时使用<code>Nginx</code>反向代理。</p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220119161032986.png" srcset="/img/loading.gif" lazyload alt="DockerCompose"></p>
+<h3 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h3><ol>
+<li>将发布好的web应用文件放到服务器上。</li>
+</ol>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220119161132040.png" srcset="/img/loading.gif" lazyload alt="服务器web应用位置"></p>
+<ol start="2">
+<li><p>在服务器应用文件夹位置添加俩文件：<code>docker-compose.yml</code> 和 <code>proxy.conf</code></p>
+<p><code>docker-compose.yml</code> 是 <code>docker-compose</code>的默认配置文件。</p>
+<p><code>proxy.conf</code> 是要给<code>nginx</code>挂载的配置文件，回头可以放别的地方。</p>
+</li>
+</ol>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220119161212330.png" srcset="/img/loading.gif" lazyload alt="添加配置文件"></p>
+<ol start="3">
+<li><p><code>docker-compose.yml</code></p>
+<p><code>Docker-compose 配合文件</code></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">version:</span> <span class="hljs-string">&#x27;2&#x27;</span><br><span class="hljs-attr">services:</span><br>    <span class="hljs-attr">webdemo:</span><br>        <span class="hljs-attr">container_name:</span> <span class="hljs-string">webdemo.compose</span><br>        <span class="hljs-attr">build:</span> <span class="hljs-string">.</span><br>        <span class="hljs-attr">ports:</span> <br>         <span class="hljs-bullet">-</span> <span class="hljs-string">&quot;8081:80&quot;</span><br><br>    <span class="hljs-attr">reverse-proxy:</span><br>        <span class="hljs-attr">container_name:</span> <span class="hljs-string">nginxdemo</span><br>        <span class="hljs-attr">image:</span> <span class="hljs-string">nginx</span><br>        <span class="hljs-attr">ports:</span><br>         <span class="hljs-bullet">-</span> <span class="hljs-string">&quot;8082:80&quot;</span><br>        <span class="hljs-attr">volumes:</span><br>         <span class="hljs-bullet">-</span> <span class="hljs-string">./proxy.conf:/etc/nginx/conf.d/default.conf</span><br></code></pre></td></tr></table></figure>
+
+<p>释义：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs shell">version: &#x27;2&#x27;<br>services:<br>    webdemo:<br>        container_name: webdemo.compose # 容器名称<br>        build: . # build 当前文件夹<br>        ports: <br>         - &quot;8081:80&quot; # 端口映射<br><br>    reverse-proxy:<br>        container_name: nginxdemo # 容器名称<br>        image: nginx # 镜像名称<br>        ports:<br>         - &quot;8082:80&quot; # 端口映射<br>        volumes:<br>         - ./proxy.conf:/etc/nginx/conf.d/default.conf # 文件映射<br></code></pre></td></tr></table></figure></li>
+<li><p><code>proxy.conf</code></p>
+<p><code>Nginx 配置</code></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs c">server &#123;<br>  listen <span class="hljs-number">80</span>;<br><br>  location / &#123;<br>    proxy_pass http:<span class="hljs-comment">//192.168.137.6:8081;</span><br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>释义：</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs c#">server &#123;<br>  listen <span class="hljs-number">80</span>; <span class="hljs-comment">//监听端口</span><br><br>  location / &#123;<br>    proxy_pass http:<span class="hljs-comment">//192.168.137.6:8081; //跳转url</span><br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><h4 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h4><p><code>docker-compose up -d</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">root@vm02:~/webdemo# docker-compose up -d<br>Creating network &quot;webdemo_default&quot; with the default driver<br>Creating webdemo.compose ... done<br>Creating nginxdemo       ... done<br></code></pre></td></tr></table></figure>
+
+<h4 id="启动日志"><a href="#启动日志" class="headerlink" title="启动日志"></a>启动日志</h4><p><code>docker-compose logs</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs shell">root@vm02:~/webdemo# docker-compose logs<br>Attaching to nginxdemo, webdemo.compose<br>nginxdemo        | /docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration<br>nginxdemo        | /docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/<br>nginxdemo        | /docker-entrypoint.sh: Launching /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh<br>nginxdemo        | 10-listen-on-ipv6-by-default.sh: info: Getting the checksum of /etc/nginx/conf.d/default.conf<br>nginxdemo        | 10-listen-on-ipv6-by-default.sh: info: /etc/nginx/conf.d/default.conf differs from the packaged version<br>nginxdemo        | /docker-entrypoint.sh: Launching /docker-entrypoint.d/20-envsubst-on-templates.sh<br>nginxdemo        | /docker-entrypoint.sh: Launching /docker-entrypoint.d/30-tune-worker-processes.sh<br>nginxdemo        | /docker-entrypoint.sh: Configuration complete; ready for start up<br>nginxdemo        | 2022/01/19 08:27:00 [notice] 1#1: using the &quot;epoll&quot; event method<br>nginxdemo        | 2022/01/19 08:27:00 [notice] 1#1: nginx/1.21.5<br>nginxdemo        | 2022/01/19 08:27:00 [notice] 1#1: built by gcc 10.2.1 20210110 (Debian 10.2.1-6) <br>nginxdemo        | 2022/01/19 08:27:00 [notice] 1#1: OS: Linux 5.4.0-94-generic<br>nginxdemo        | 2022/01/19 08:27:00 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576<br>nginxdemo        | 2022/01/19 08:27:00 [notice] 1#1: start worker processes<br>nginxdemo        | 2022/01/19 08:27:00 [notice] 1#1: start worker process 30<br>webdemo.compose  | warn: Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository[60]<br>webdemo.compose  |       Storing keys in a directory &#x27;/root/.aspnet/DataProtection-Keys&#x27; that may not be persisted outside of the container. Protected data will be unavailable when container is destroyed.<br>webdemo.compose  | warn: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager[35]<br>webdemo.compose  |       No XML encryptor configured. Key &#123;887cc5db-dcb2-4d26-886d-0f3aa1c787c9&#125; may be persisted to storage in unencrypted form.<br>webdemo.compose  | info: Microsoft.Hosting.Lifetime[0]<br>webdemo.compose  |       Now listening on: http://[::]:80<br>webdemo.compose  | info: Microsoft.Hosting.Lifetime[0]<br>webdemo.compose  |       Application started. Press Ctrl+C to shut down.<br>webdemo.compose  | info: Microsoft.Hosting.Lifetime[0]<br>webdemo.compose  |       Hosting environment: Production<br>webdemo.compose  | info: Microsoft.Hosting.Lifetime[0]<br>webdemo.compose  |       Content root path: /app<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220119162936354.png" srcset="/img/loading.gif" lazyload alt="执行日志"></p>
+<h4 id="容器列表"><a href="#容器列表" class="headerlink" title="容器列表"></a>容器列表</h4><p><code>docker ps</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">root@vm02:~/webdemo# docker ps<br>CONTAINER ID   IMAGE             COMMAND                  CREATED              STATUS              PORTS                                   NAMES<br>0d4ea2075140   nginx             &quot;/docker-entrypoint.…&quot;   About a minute ago   Up About a minute   0.0.0.0:8082-&gt;80/tcp, :::8082-&gt;80/tcp   nginxdemo<br>686adcb2655a   webdemo_webdemo   &quot;dotnet WebDemo.dll&quot;     About a minute ago   Up About a minute   0.0.0.0:8081-&gt;80/tcp, :::8081-&gt;80/tcp   webdemo.compose<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220119163032471.png" srcset="/img/loading.gif" lazyload alt="容器列表"></p>
+<h4 id="访问"><a href="#访问" class="headerlink" title="访问"></a>访问</h4><p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220119163327957.png" srcset="/img/loading.gif" lazyload alt="运行结果"></p>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>至此，已经完成了通过<code>Docker-compose</code>动态编排容器，实现<code>Nginx</code>反向代理<code>.Net core web 应用程序</code></p>
+<p>随着学习的深入，后续也会渐渐丰满本篇内容。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Nginx/">Nginx</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Docker/">Docker</a>
+                    
+                      <a class="hover-with-bg" href="/tags/net-core/">.net core</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Nginx/">Nginx</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/01/20/jenkins/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Docker+GitLab+Jenkins</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/01/19/NetCore%20Nginx%20%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/">
+                        <span class="hidden-mobile">net core web + Docker + Nginx</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"q3pc0gbhQF3puHJQ3XjiByyg-gzGzoHsz","appKey":"yIsNaqJVWRbpKxcC4phLbjXt","path":"window.location.pathname","placeholder":"吐槽","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":true,"serverURLs":"https://q3pc0gbh.lc-cn-n1-shared.com","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          Fluid.plugins.initFancyBox('#valine .vcontent img:not(.vemoji)');
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+  <div class="col-lg-7 mx-auto nopadding-x-md">
+    <div class="container custom post-custom mx-auto">
+      <img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/gongzhonghao2.jpg" srcset="/img/loading.gif" lazyload class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">
+    </div>
+  </div>
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        京ICP证18023705号
+      </a>
+    </span>
+    
+  </div>
+
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/caidai.js"></script>
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/dianjichuzi.js"></script>
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/timeDate.js"></script>
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
