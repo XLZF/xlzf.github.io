@@ -13,23 +13,38 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="这段时间在做外部接口，踩了点坑，记录一下.">
+  <meta name="description" content="温故而知新，可以为师矣。">
   <meta name="author" content="Harris">
   <meta name="keywords" content="">
-  <meta name="description" content="这段时间在做外部接口，踩了点坑，记录一下.">
+  <meta name="description" content="温故而知新，可以为师矣。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C# HttpHelper">
-<meta property="og:url" content="http://example.com/2021/11/06/HttpHelper/index.html">
+<meta property="og:title" content="微信公众号网站调试">
+<meta property="og:url" content="http://example.com/2022/04/01/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E7%BD%91%E7%AB%99%E8%B0%83%E8%AF%95%E6%96%B9%E6%B3%95/index.html">
 <meta property="og:site_name" content="Harris Blog">
-<meta property="og:description" content="这段时间在做外部接口，踩了点坑，记录一下.">
+<meta property="og:description" content="温故而知新，可以为师矣。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-11-06T08:37:42.000Z">
-<meta property="article:modified_time" content="2022-03-31T01:47:44.872Z">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/202203310915539.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/202203310915421.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/202203310915731.png">
+<meta property="og:image" content="d:/MKPIC/image-20220328152651312.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/202203310915485.png">
+<meta property="og:image" content="d:/MKPIC/image-20220328153026831.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/202203310915419.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/202203310915010.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/202203310915087.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/202203310915884.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/202203310916458.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/202203310916145.png">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/202203310916713.png">
+<meta property="article:published_time" content="2022-04-01T01:50:33.000Z">
+<meta property="article:modified_time" content="2022-04-01T01:51:59.749Z">
 <meta property="article:author" content="Harris">
-<meta property="article:tag" content="Helper">
+<meta property="article:tag" content="公众号">
+<meta property="article:tag" content="内网穿透">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/202203310915539.png">
   
-  <title>C# HttpHelper - Harris Blog</title>
+  <title>微信公众号网站调试 - Harris Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -222,7 +237,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="C# HttpHelper">
+            <span class="h2" id="subtitle" title="微信公众号网站调试">
               
             </span>
 
@@ -237,8 +252,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-11-06 16:37" pubdate>
-        November 6, 2021 pm
+      <time datetime="2022-04-01 09:50" pubdate>
+        April 1, 2022 am
       </time>
     </span>
   
@@ -248,7 +263,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.5k 字
+      951 字
     </span>
   
 
@@ -257,7 +272,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      8 分钟
+      3 分钟
     </span>
   
 
@@ -294,21 +309,71 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">C# HttpHelper</h1>
+            <h1 style="display: none">微信公众号网站调试</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：a day ago
+                  本文最后更新于：a minute ago
                 
               </p>
             
             <div class="markdown-body">
-              <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这段时间在做外部接口，踩了点坑，记录一下</p>
-<p>​        除了前期对外部接口和现有程序逻辑结合过程中的思路梳理。其中，有个坑，在<code>net4.6</code> 上写的demo，接口跑的溜不行，结果把程序放在产品中，嘎，废了。原因是，<code>net 4</code>框架下不支持<code>TLS1.2</code>协议，也就是说，访问<code>http</code> 接口可以，访问<code>https</code>的接口不行，需要把下面<code>reg</code> 文件整理并且双击执行，让<code>net 4</code> 框架支持 <code>TLS1.2</code>协议。</p>
-<h2 id="执行-net4下安装TLS1-2-reg"><a href="#执行-net4下安装TLS1-2-reg" class="headerlink" title="执行 net4下安装TLS1.2.reg"></a>执行 net4下安装TLS1.2.reg</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs shell">Windows Registry Editor Version 5.00<br><br>[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]<br>&quot;SchUseStrongCrypto&quot;=dword:00000001<br><br>[HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\.NETFramework\v4.0.30319]<br>&quot;SchUseStrongCrypto&quot;=dword:00000001<br></code></pre></td></tr></table></figure>
+              <h1 id="微信公众号网站调试"><a href="#微信公众号网站调试" class="headerlink" title="微信公众号网站调试"></a>微信公众号网站调试</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>基于 <code>Microsoft Visual Studio 2019</code> 开发的<code>MVC</code> 作为微信公众号的后台，</p>
+<p>由于微信公众号的限制，需要在后台设置业务域名进行安全验证。</p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/202203310915539.png" srcset="/img/loading.gif" lazyload alt="image-20220328151830858"></p>
+<p>还有就是  <code>Microsoft Visual Studio 2019</code> 在开发的同时，是启用<code>IIS Express</code>  或者 <code>本地IIS</code>。</p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/202203310915421.png" srcset="/img/loading.gif" lazyload alt="image-20220328152024665"></p>
+<p>综述上面两点，导致开发人员在项目调试的时候，没有以往那般丝滑。</p>
+<h2 id="NATAPP"><a href="#NATAPP" class="headerlink" title="NATAPP"></a><code>NATAPP</code></h2><p>经朋友介绍，引入  <a target="_blank" rel="noopener" href="https://natapp.cn/">NATAPP-内网穿透 基于ngrok的国内高速内网映射工具</a></p>
+<p>大概分几步：</p>
+<ol>
+<li><p>注册，认证，这无需多言。</p>
+</li>
+<li><p>购买隧道，这里我买的是免费的，经费充裕尽量买收费的，这样域名不会变来变去。</p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/202203310915731.png" srcset="/img/loading.gif" lazyload alt="image-20220328152411264"></p>
+</li>
+<li><p>下载客户端，我这是 <code>windows 64</code></p>
+<p><img src="D:\MKPIC\image-20220328152651312.png" srcset="/img/loading.gif" lazyload alt="image-20220328152651312"></p>
+</li>
+<li><p>修改<code>config.ini</code></p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs csharp">[<span class="hljs-meta">default</span>]<br>authtoken=***********<br>clienttoken=<br>log=none                        <br>loglevel=ERROR                  <br>http_proxy= <br></code></pre></td></tr></table></figure>
 
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">HttpHelper</span><br>&#123;<br>    <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br>    <span class="hljs-comment"><span class="hljs-doctag">///</span> Post</span><br>    <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br>    <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;param name=&quot;url&quot;&gt;</span><span class="hljs-doctag">&lt;/param&gt;</span></span><br>    <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;param name=&quot;postData&quot;&gt;</span><span class="hljs-doctag">&lt;/param&gt;</span></span><br>    <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;returns&gt;</span><span class="hljs-doctag">&lt;/returns&gt;</span></span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-built_in">string</span> <span class="hljs-title">PostUrl</span>(<span class="hljs-params"><span class="hljs-built_in">string</span> url, <span class="hljs-built_in">string</span> postData</span>)</span><br>    &#123;<br>        HttpWebRequest request = <span class="hljs-literal">null</span>;<br>        <span class="hljs-keyword">if</span> (url.StartsWith(<span class="hljs-string">&quot;https&quot;</span>, StringComparison.OrdinalIgnoreCase))<br>        &#123;<br>            request = WebRequest.Create(url) <span class="hljs-keyword">as</span> HttpWebRequest;<br>            ServicePointManager.ServerCertificateValidationCallback = <span class="hljs-keyword">new</span> RemoteCertificateValidationCallback(CheckValidationResult);<br>            request.ProtocolVersion = HttpVersion.Version11;<br>            <span class="hljs-comment">// 这里设置了协议类型。</span><br>            ServicePointManager.SecurityProtocol = (SecurityProtocolType)<span class="hljs-number">3072</span>;<span class="hljs-comment">// SecurityProtocolType.Tls1.2; </span><br>            request.KeepAlive = <span class="hljs-literal">false</span>;<br>            ServicePointManager.CheckCertificateRevocationList = <span class="hljs-literal">true</span>;<br>            ServicePointManager.DefaultConnectionLimit = <span class="hljs-number">100</span>;<br>            ServicePointManager.Expect100Continue = <span class="hljs-literal">false</span>;<br>        &#125;<br>        <span class="hljs-keyword">else</span><br>        &#123;<br>            request = (HttpWebRequest)WebRequest.Create(url);<br>        &#125;<br><br>        request.Method = <span class="hljs-string">&quot;POST&quot;</span>;    <span class="hljs-comment">//使用get方式发送数据</span><br>        request.ContentType = <span class="hljs-string">&quot;text/plain&quot;</span>; <span class="hljs-comment">//&quot;application/x-www-form-urlencoded&quot;;</span><br>        <span class="hljs-comment">//request.Referer = null;</span><br>        <span class="hljs-comment">//request.AllowAutoRedirect = true;</span><br>        <span class="hljs-comment">//request.UserAgent = &quot;Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.2; .NET CLR 1.1.4322; .NET CLR 2.0.50727)&quot;;</span><br>        request.Accept = <span class="hljs-string">&quot;*/*&quot;</span>;<br><br>        <span class="hljs-built_in">byte</span>[] data = Encoding.UTF8.GetBytes(postData);<br>        Stream newStream = request.GetRequestStream();<br>        newStream.Write(data, <span class="hljs-number">0</span>, data.Length);<br>        newStream.Close();<br><br>        <span class="hljs-comment">//获取网页响应结果</span><br>        HttpWebResponse response = (HttpWebResponse)request.GetResponse();<br>        Stream stream = response.GetResponseStream();<br>        <span class="hljs-comment">//client.Headers.Add(&quot;Content-Type&quot;, &quot;application/x-www-form-urlencoded&quot;);</span><br>        <span class="hljs-built_in">string</span> result = <span class="hljs-built_in">string</span>.Empty;<br>        <span class="hljs-keyword">using</span> (StreamReader sr = <span class="hljs-keyword">new</span> StreamReader(stream))<br>        &#123;<br>            result = sr.ReadToEnd();<br>        &#125;<br><br>        <span class="hljs-keyword">return</span> result;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-built_in">bool</span> <span class="hljs-title">CheckValidationResult</span>(<span class="hljs-params"><span class="hljs-built_in">object</span> sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors errors</span>)</span><br>    &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>; <span class="hljs-comment">//总是接受  </span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
+<p>这里的 <code>authtoken</code> 是购买的隧道中的信息</p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/202203310915485.png" srcset="/img/loading.gif" lazyload alt="image-20220328152850308"></p>
+</li>
+<li><p>双击<code>natapp.exe</code>,前提是本地的<code>IIS</code>或者别的宿主好使。</p>
+<p><img src="D:\MKPIC\image-20220328153026831.png" srcset="/img/loading.gif" lazyload alt="image-20220328153026831"></p>
+</li>
+</ol>
+<p>至此，内外网穿透完事，得到外网域名和内网端口，但是还没有达到能通过VS可以调试的地步，接着整。</p>
+<h2 id="本地发布"><a href="#本地发布" class="headerlink" title="本地发布"></a>本地发布</h2><p>接下来设置本地</p>
+<ol>
+<li><p>先在VS中把网站发布到本地的文件夹里，把上面这个<code>MP_verify_***********.TXT</code>，也放到这个地方，不放不行，不放上一步域名添加不了。</p>
+</li>
+<li><p>在<code>IIS</code>添加站点，我这本地是80端口，那就设置80端口的一个站点，站点的主机头就是：之前到手的那个域名，这个时候，基本上就能通过域名访问本地站点</p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/202203310915419.png" srcset="/img/loading.gif" lazyload alt="image-20220328154224740"></p>
+</li>
+</ol>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/202203310915010.png" srcset="/img/loading.gif" lazyload alt="image-20220328154311358"></p>
+<h2 id="公众号后台设置"><a href="#公众号后台设置" class="headerlink" title="公众号后台设置"></a>公众号后台设置</h2><p>设置微信公众号设置-功能设置，添加各种，由于之前有域名，那就添加刚到手的这个域名。添加的时候回提醒下载个<code>MP_verify_***********.TXT</code>文件放到本地，介时下载下来先备用。</p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/202203310915087.png" srcset="/img/loading.gif" lazyload alt="image-20220328154628975"></p>
+<h2 id="设置项目属性"><a href="#设置项目属性" class="headerlink" title="设置项目属性"></a>设置项目属性</h2><p>指向刚才发布的那个站点。</p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/202203310915884.png" srcset="/img/loading.gif" lazyload alt="image-20220328154940226"></p>
+<p>这个时候，在调试的时候，就是以这个域名启动调试。</p>
+<h2 id="微信开发者工具"><a href="#微信开发者工具" class="headerlink" title="微信开发者工具"></a>微信开发者工具</h2><p>最最最后，再来一个工具，微信开发者工具</p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/202203310916458.png" srcset="/img/loading.gif" lazyload alt="image-20220328155132195"></p>
+<p>是为了当验证用户的时候，不用弹出</p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/202203310916145.png" srcset="/img/loading.gif" lazyload alt="image-20220328155311767"></p>
+<p>至此，准备工作都完成了</p>
+<h2 id="修改HOST"><a href="#修改HOST" class="headerlink" title="修改HOST"></a>修改HOST</h2><p><code>C:\Windows\System32\drivers\etc</code></p>
+<p>最后添加 <code>127.0.0.1</code>  域名</p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/202203310916713.png" srcset="/img/loading.gif" lazyload alt="image-20220328161612732"></p>
+<h2 id="调试顺序"><a href="#调试顺序" class="headerlink" title="调试顺序"></a>调试顺序</h2><ol>
+<li>VS 启动调试，断点啥的该打打上。</li>
+<li>微信开发工具 地址栏填写您要请求的页面地址。</li>
+<li>进断点，为所欲为。</li>
+<li>开发者工具可以调试前端代码。</li>
+</ol>
 
             </div>
             <hr>
@@ -318,7 +383,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/C/">C#</a>
+                      <a class="hover-with-bg" href="/categories/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7/">微信公众号</a>
                     
                   </div>
                 
@@ -326,7 +391,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Helper/">Helper</a>
+                      <a class="hover-with-bg" href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7/">公众号</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/">内网穿透</a>
                     
                   </div>
                 
@@ -343,18 +410,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/11/06/ListHelper/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">C# ListHelper</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/11/06/DevExpress-GridControl-CardView/">
-                        <span class="hidden-mobile">DevExpress GridControl CardView</span>
+                      <a href="/2022/03/19/Docker-for-RabbitMq/">
+                        <span class="hidden-mobile">Docker for RabbitMq</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
