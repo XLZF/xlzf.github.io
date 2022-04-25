@@ -13,24 +13,24 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="windows docker 安装 Oracle XE 11g">
+  <meta name="description" content="windows docker 安装 Oracle 11g">
   <meta name="author" content="Harris">
   <meta name="keywords" content="">
-  <meta name="description" content="windows docker 安装 Oracle XE 11g">
+  <meta name="description" content="windows docker 安装 Oracle 11g">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Docker for Oracle_xe_11g">
-<meta property="og:url" content="http://example.com/2021/11/28/Docker-for-Oracle-xe-11g/index.html">
+<meta property="og:title" content="Docker for Oracle_11g">
+<meta property="og:url" content="http://example.com/2021/11/28/Docker-for-Oracle-11g/index.html">
 <meta property="og:site_name" content="Harris Blog">
-<meta property="og:description" content="windows docker 安装 Oracle XE 11g">
+<meta property="og:description" content="windows docker 安装 Oracle 11g">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-11-28T14:16:52.000Z">
-<meta property="article:modified_time" content="2022-03-31T01:47:44.870Z">
+<meta property="article:modified_time" content="2022-04-25T05:32:51.732Z">
 <meta property="article:author" content="Harris">
 <meta property="article:tag" content="Docker">
 <meta property="article:tag" content="Oracle">
 <meta name="twitter:card" content="summary_large_image">
   
-  <title>Docker for Oracle_xe_11g - Harris Blog</title>
+  <title>Docker for Oracle_11g - Harris Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -223,7 +223,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Docker for Oracle_xe_11g">
+            <span class="h2" id="subtitle" title="Docker for Oracle_11g">
               
             </span>
 
@@ -249,7 +249,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.3k 字
+      2.1k 字
     </span>
   
 
@@ -295,45 +295,73 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Docker for Oracle_xe_11g</h1>
+            <h1 style="display: none">Docker for Oracle_11g</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：a day ago
+                  本文最后更新于：a minute ago
                 
               </p>
             
             <div class="markdown-body">
-              <h1 id="Docker下安装oracle-xe-11g"><a href="#Docker下安装oracle-xe-11g" class="headerlink" title="Docker下安装oracle-xe-11g"></a>Docker下安装oracle-xe-11g</h1><h2 id="下载镜像"><a href="#下载镜像" class="headerlink" title="下载镜像"></a>下载镜像</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker pull docker.io/sath89/oracle-xe-11g<br></code></pre></td></tr></table></figure>
+              <h1 id="Docker下安装oracle-11g"><a href="#Docker下安装oracle-11g" class="headerlink" title="Docker下安装oracle_11g"></a>Docker下安装oracle_11g</h1><h2 id="拉取"><a href="#拉取" class="headerlink" title="拉取"></a>拉取</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker pull registry.cn-hangzhou.aliyuncs.com/helowin/oracle_11g<br></code></pre></td></tr></table></figure>
 
-<h2 id="创建容器"><a href="#创建容器" class="headerlink" title="创建容器"></a>创建容器</h2><p>使用docker run命令创建一个容器，-d表示在后台运行容器，并打印容器ID，-p表示映射一个宿主机的端口号，–name表示重命名容器，如果不指定容器名，docker会默认为容器起一个别名，-v表示创建一个数据卷，将宿主机的某个目录和容器挂载到一起</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker run -d -p 1521:1521 --name oracle -v /u01/app/oracle/:/u01/app/oracle/ sath89/oracle-xe-11g<br><span class="hljs-meta prompt_"># </span><span class="language-bash">用下面这个吧 映射到本地文件夹</span><br>docker run -d -p 1521:1521 --name oracle -v D:\docker\Oracle_XE_11g\data:/u01/app/oracle/ sath89/oracle-xe-11g<br></code></pre></td></tr></table></figure>
 
-<h2 id="查看容器是否创建成功"><a href="#查看容器是否创建成功" class="headerlink" title="查看容器是否创建成功"></a>查看容器是否创建成功</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker ps<br></code></pre></td></tr></table></figure>
 
-<h2 id="出现以下内容说明容器创建成功"><a href="#出现以下内容说明容器创建成功" class="headerlink" title="出现以下内容说明容器创建成功"></a>出现以下内容说明容器创建成功</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">[root@bogon ~]# docker ps<br>CONTAINER ID        IMAGE                  COMMAND             CREATED             STATUS              PORTS                                            NAMES<br>8e0d664a262a        sath89/oracle-xe-11g   &quot;/entrypoint.sh &quot;   7 weeks ago         Up 27 hours         0.0.0.0:1521-&gt;1521/tcp, 0.0.0.0:8080-&gt;8080/tcp   oracle<br>[root@bogon ~]# <br></code></pre></td></tr></table></figure>
+<h2 id="重命名"><a href="#重命名" class="headerlink" title="重命名"></a>重命名</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker tag &lt;imageid&gt; 重命名<br><br>docker rmi &lt;之前的名&gt;<br></code></pre></td></tr></table></figure>
 
-<h2 id="进入容器内部"><a href="#进入容器内部" class="headerlink" title="进入容器内部"></a>进入容器内部</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker exec -it oracle /bin/bash<br></code></pre></td></tr></table></figure>
 
-<h2 id="在容器内部使用sqlplus连接oracle"><a href="#在容器内部使用sqlplus连接oracle" class="headerlink" title="在容器内部使用sqlplus连接oracle"></a>在容器内部使用sqlplus连接oracle</h2><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">root</span>@<span class="hljs-number">8</span>e0d664a262a:/# sqlplus<br><span class="hljs-attribute">SQL</span>*Plus: Release <span class="hljs-number">11.2.0.2</span>.<span class="hljs-number">0</span> Production <span class="hljs-literal">on</span> Sat Jul <span class="hljs-number">20</span> <span class="hljs-number">09</span>:<span class="hljs-number">30</span>:<span class="hljs-number">42</span> <span class="hljs-number">2019</span><br><br><span class="hljs-attribute">Copyright</span> (c) <span class="hljs-number">1982</span>, <span class="hljs-number">2011</span>, Oracle.  <span class="hljs-literal">All</span> rights reserved.<br><br><span class="hljs-attribute">Enter</span> user-name: system<br><span class="hljs-attribute">Enter</span> password: <br><br><span class="hljs-attribute">Connected</span> to:<br><span class="hljs-attribute">Oracle</span> Database <span class="hljs-number">11</span>g Express Edition Release <span class="hljs-number">11.2.0.2</span>.<span class="hljs-number">0</span> - <span class="hljs-number">64</span>bit Production<br><br><span class="hljs-attribute">SQL</span>&gt; <br></code></pre></td></tr></table></figure>
 
-<p>oracle默认的用户名密码为：system oracle</p>
-<h2 id="Docker-命令行"><a href="#Docker-命令行" class="headerlink" title="Docker 命令行"></a>Docker 命令行</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">#</span><span class="language-bash">进入容器命令行</span><br><br>docker exec -it oracle /bin/bash<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash">容器默认时区为UTC,换成上海时间：</span><br><br>cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime<br></code></pre></td></tr></table></figure>
+<h2 id="Run"><a href="#Run" class="headerlink" title="Run"></a>Run</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker run -d -p 1521:1521 -v /home/oracle/app/oracle/oradata:/usr/local/docker/oracle --name oracle11 aliyunoracle_11g<br></code></pre></td></tr></table></figure>
 
-<h2 id="常用SQL"><a href="#常用SQL" class="headerlink" title="常用SQL"></a>常用SQL</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-comment">--创建临时表空间示例</span><br><span class="hljs-keyword">CREATE</span> TEMPORARY TABLESPACE XLZF_TableSpace<br> <br>TEMPFILE <span class="hljs-string">&#x27;/u01/app/oracle/oradata/XE/XLZF_temp.dbf&#x27;</span><br> <br>SIZE <span class="hljs-number">32</span>M<br> <br>AUTOEXTEND <span class="hljs-keyword">ON</span><br> <br>NEXT <span class="hljs-number">32</span>M MAXSIZE UNLIMITED<br> <br>EXTENT MANAGEMENT <span class="hljs-keyword">LOCAL</span>;<br><br><span class="hljs-comment">-- 创建表攻坚示例</span><br><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span>SPACE XLZF_TableSpaces<br> <br>LOGGING<br> <br>DATAFILE <span class="hljs-string">&#x27;/u01/app/oracle/oradata/XE/XLZF.dbf&#x27;</span><br> <br>SIZE <span class="hljs-number">32</span>M<br> <br>AUTOEXTEND <span class="hljs-keyword">ON</span><br> <br>NEXT <span class="hljs-number">32</span>M MAXSIZE UNLIMITED<br> <br>EXTENT MANAGEMENT <span class="hljs-keyword">LOCAL</span>;<br><br><span class="hljs-comment">--创建用户示例</span><br><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">USER</span> XLZF IDENTIFIED <span class="hljs-keyword">BY</span> XLZF<br> <br>ACCOUNT UNLOCK<br> <br><span class="hljs-keyword">DEFAULT</span> TABLESPACE XLZF_TableSpaces<br> <br>TEMPORARY TABLESPACE XLZF_TableSpace;<br><br><span class="hljs-comment">--用户授权示例</span><br><br><span class="hljs-keyword">GRANT</span> <span class="hljs-keyword">CONNECT</span>,RESOURCE <span class="hljs-keyword">TO</span> XLZF;<br><br></code></pre></td></tr></table></figure>
 
-<p>参考学习地址：<a target="_blank" rel="noopener" href="http://www.joycode.com.cn/archives/367">docker运行oracle xe 11g | 编程小战 (joycode.com.cn)</a></p>
-<h1 id="Docker-下安装Oracle-11g"><a href="#Docker-下安装Oracle-11g" class="headerlink" title="Docker 下安装Oracle-11g"></a>Docker 下安装Oracle-11g</h1><h2 id="拉取镜像"><a href="#拉取镜像" class="headerlink" title="拉取镜像"></a>拉取镜像</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker pull registry.cn-hangzhou.aliyuncs.com/helowin/oracle_11g<br></code></pre></td></tr></table></figure>
 
-<h2 id="启动测试用例"><a href="#启动测试用例" class="headerlink" title="启动测试用例"></a>启动测试用例</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker run -d --name test --restart unless-stopped -p 1521:1521 registry.cn-hangzhou.aliyuncs.com/helowin/oracle_11g<br></code></pre></td></tr></table></figure>
+<h2 id="进入容器"><a href="#进入容器" class="headerlink" title="进入容器"></a>进入容器</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker exec -it oracle11 bash<br></code></pre></td></tr></table></figure>
 
-<h2 id="创建路径"><a href="#创建路径" class="headerlink" title="创建路径"></a>创建路径</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">D:\docker\Oracle11g\data<br></code></pre></td></tr></table></figure>
 
-<h2 id="映射路径"><a href="#映射路径" class="headerlink" title="映射路径"></a>映射路径</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker cp test:/home/oracle/app/oracle/oradata/helowin D:\docker\Oracle11g\data<br></code></pre></td></tr></table></figure>
 
-<h2 id="重新启动"><a href="#重新启动" class="headerlink" title="重新启动"></a>重新启动</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker run -d --name oracle11g --restart unless-stopped -v D:\docker\Oracle11g\data\helowin:/home/oracle/app/oracle/oradata/helowin -p 1521:1521 registry.cn-hangzhou.aliyuncs.com/helowin/oracle_11g<br></code></pre></td></tr></table></figure>
+<h2 id="切换-Root"><a href="#切换-Root" class="headerlink" title="切换 Root"></a>切换 Root</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">su root <br><span class="hljs-meta prompt_">#</span><span class="language-bash">输入密码：helowin</span><br></code></pre></td></tr></table></figure>
 
-<p>不知道是什么原因，本地每次拉取完阿里云的Oracle11g镜像，都run不了，稍有遗憾，但是XE可以。</p>
+
+
+<h2 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs shell">vi /etc/profile <br><br>export ORACLE_HOME=/home/oracle/app/oracle/product/11.2.0/dbhome_2<br>export ORACLE_SID=helowin<br>export PATH=$ORACLE_HOME/bin:$PATH<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash">使配置生效</span><br>source /etc/profile<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="创建软连接"><a href="#创建软连接" class="headerlink" title="创建软连接"></a>创建软连接</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ln -s $ORACLE_HOME/bin/sqlplus /usr/bin<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="切换Oracle登录SqlPlus"><a href="#切换Oracle登录SqlPlus" class="headerlink" title="切换Oracle登录SqlPlus"></a>切换Oracle登录SqlPlus</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell">su - oracle<br><br>sqlplus /nolog<br><br>conn /as sysdba<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="修改密码"><a href="#修改密码" class="headerlink" title="修改密码"></a>修改密码</h2><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">alter</span> <span class="hljs-keyword">user</span> <span class="hljs-keyword">system</span> identified <span class="hljs-keyword">by</span> <span class="hljs-keyword">system</span>;<br><span class="hljs-keyword">alter</span> <span class="hljs-keyword">user</span> sys identified <span class="hljs-keyword">by</span> sys;<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="修改最大连接数"><a href="#修改最大连接数" class="headerlink" title="修改最大连接数"></a>修改最大连接数</h2><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">alter<span class="hljs-built_in"> system </span><span class="hljs-built_in">set</span> <span class="hljs-attribute">processes</span>=1000 <span class="hljs-attribute">scope</span>=spfile;<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="修改密码规则策略为密码永不过期"><a href="#修改密码规则策略为密码永不过期" class="headerlink" title="修改密码规则策略为密码永不过期"></a>修改密码规则策略为密码永不过期</h2><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">ALTER</span> PROFILE <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">LIMIT</span> PASSWORD_LIFE_TIME UNLIMITED;<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="创建表空间"><a href="#创建表空间" class="headerlink" title="创建表空间"></a>创建表空间</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span>SPACE TSP_JHEMR <br>  datafile <span class="hljs-string">&#x27;/home/oracle/app/oracle/oradata/jhemr/jhemr.dbf&#x27;</span> <br>  size <span class="hljs-number">20</span>M <br>  reuse<br>  autoextend <span class="hljs-keyword">on</span><br>  next <span class="hljs-number">5</span>M<br>  maxsize unlimited,<br>  <span class="hljs-string">&#x27;/home/oracle/app/oracle/oradata/jhemr/jhemr2.dbf&#x27;</span><br>  size <span class="hljs-number">20</span>M<br>  reuse<br>  autoextend <span class="hljs-keyword">on</span><br>  next <span class="hljs-number">5</span>M<br>  maxsize unlimited<br>LOGGING   <br>PERMANENT   <br>EXTENT MANAGEMENT <span class="hljs-keyword">LOCAL</span> AUTOALLOCATE   <br>BLOCKSIZE <span class="hljs-number">8</span>K   <br>SEGMENT SPACE MANAGEMENT MANUAL   <br>FLASHBACK <span class="hljs-keyword">ON</span>;<br><br><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span>SPACE TSP_JHDICT <br>DATAFILE <span class="hljs-string">&#x27;/home/oracle/app/oracle/oradata/jhemr/JHDICT.DBF&#x27;</span> <br>  size <span class="hljs-number">20</span>M<br>  reuse<br>  autoextend <span class="hljs-keyword">on</span><br>  next <span class="hljs-number">5</span>M<br>  maxsize unlimited<br>LOGGING   <br>PERMANENT   <br>EXTENT MANAGEMENT <span class="hljs-keyword">LOCAL</span> AUTOALLOCATE   <br>BLOCKSIZE <span class="hljs-number">8</span>K   <br>SEGMENT SPACE MANAGEMENT MANUAL   <br>FLASHBACK <span class="hljs-keyword">ON</span>;<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">create</span> <span class="hljs-keyword">user</span> jhemr identified <span class="hljs-keyword">by</span> &quot;jhemr&quot; <span class="hljs-keyword">default</span> tablespace TSP_JHEMR temporary tablespace temp;<br><span class="hljs-keyword">grant</span> <span class="hljs-keyword">connect</span> <span class="hljs-keyword">to</span> jhemr;<br><span class="hljs-keyword">grant</span> resource <span class="hljs-keyword">to</span> jhemr;<br><span class="hljs-keyword">grant</span> dba <span class="hljs-keyword">to</span> jhemr;<br><br><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">USER</span> JHDICT IDENTIFIED <span class="hljs-keyword">BY</span> JHDICT<br><span class="hljs-keyword">default</span> TABLESPACE TSP_JHDICT;<br><span class="hljs-keyword">GRANT</span> UNLIMITED TABLESPACE <span class="hljs-keyword">TO</span> JHDICT;<br><span class="hljs-keyword">GRANT</span> <span class="hljs-keyword">CONNECT</span> <span class="hljs-keyword">TO</span> JHDICT;<br><span class="hljs-keyword">GRANT</span> RESOURCE <span class="hljs-keyword">TO</span> JHDICT;<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="导入DMP文件"><a href="#导入DMP文件" class="headerlink" title="导入DMP文件"></a>导入DMP文件</h2><p>先通过xftp 将文件放到linux中，然后再复制到容器内。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">#</span><span class="language-bash">docker <span class="hljs-built_in">cp</span> 本地文件 容器ID:容器目录 <span class="hljs-comment">#将文件传到容器</span></span><br>docker cp /usr/oracle/oracledata/TR_JHEMR_20211009.dmp 2b4a86f4331f:dmpfile<br>docker cp /usr/oracle/oracledata/TR_JHDICT_20211009.dmp 2b4a86f4331f:dmpfile<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs routeros">imp jhemr/jhemr@helowin <span class="hljs-attribute">file</span>=/dmpfile/TR_JHEMR_20211009.dmp <span class="hljs-attribute">full</span>=y<br>imp JHDICT/JHDICT@helowin <span class="hljs-attribute">file</span>=/dmpfile/TR_JHDICT_20211009.dmp <span class="hljs-attribute">full</span>=y<br></code></pre></td></tr></table></figure>
+
+<p>如果遇到 <code>bash: imp: command not found</code> 应该是环境变量的配置没跟上，执行 <code>source /etc/profile</code>即可。</p>
 
             </div>
             <hr>
