@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>ApiFox参数配置</title>
+    <link href="/2022/04/28/APIFox-%E5%8F%82%E6%95%B0%E9%85%8D%E7%BD%AE/"/>
+    <url>/2022/04/28/APIFox-%E5%8F%82%E6%95%B0%E9%85%8D%E7%BD%AE/</url>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="ApiFox-参数配置"><a href="#ApiFox-参数配置" class="headerlink" title="ApiFox 参数配置"></a>ApiFox 参数配置</h1><p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/202204281421221.png" alt="ApiFox"></p><h2 id="设置全局参数"><a href="#设置全局参数" class="headerlink" title="设置全局参数"></a>设置全局参数</h2><p>出于<code>JWT</code>权限验证，需要获取<code>token</code>才能访问。否则就是如下情况。</p><p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/202204281421319.png" alt="401 Unauthoized"></p><p>先设置全局参数 <code>Authorizatior</code> 默认值 <code>bearer &#123;&#123;token&#125;&#125;</code></p><p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/202204281421550.png" alt="设置全局参数"></p><p>在获取<code>token</code>的接口处，常规添加<code>Params</code>，主要是看<strong>后置操作</strong></p><p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/202204281421954.png" alt="后置操作"></p><p>以下是添加完的。</p><p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/202204281421334.png" alt="添加公共脚本"></p><p>添加公共脚本</p><p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/202204281422732.png" alt="公共脚本"></p><p>输入公共脚本内容</p><p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/202204281422599.png" alt="公共脚本内容"></p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//核心</span><br>pm.<span class="hljs-title function_">test</span>(<span class="hljs-string">&quot;Status code is 200&quot;</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>    pm.<span class="hljs-property">response</span>.<span class="hljs-property">to</span>.<span class="hljs-property">have</span>.<span class="hljs-title function_">status</span>(<span class="hljs-number">200</span>);<br>&#125;);<br><span class="hljs-comment">// 把responseBody转为json字符串</span><br><span class="hljs-keyword">var</span> data = <span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">parse</span>(responseBody);<br><span class="hljs-comment">// 设置环境变量token，供后面的接口引用，位置就是上一步获取的位置</span><br>pm.<span class="hljs-property">globals</span>.<span class="hljs-title function_">set</span>(<span class="hljs-string">&quot;token&quot;</span>, data.<span class="hljs-property">result</span>.<span class="hljs-property">AccessToken</span>);<br></code></pre></td></tr></table></figure><p>以上，在执行完登录接口后，公共脚本会把<code>token</code>信息赋值给全局变量<code>Authorization</code>,其他接口就可以直接使用<code>token</code>了。</p><p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/202204281422625.png" alt="使用全局参数"></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Api</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>微信公众号网站调试</title>
     <link href="/2022/04/01/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E7%BD%91%E7%AB%99%E8%B0%83%E8%AF%95%E6%96%B9%E6%B3%95/"/>
     <url>/2022/04/01/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E7%BD%91%E7%AB%99%E8%B0%83%E8%AF%95%E6%96%B9%E6%B3%95/</url>
