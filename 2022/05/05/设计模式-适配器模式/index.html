@@ -24,7 +24,7 @@
 <meta property="og:description" content="插座转换器">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-05-05T03:10:57.000Z">
-<meta property="article:modified_time" content="2022-05-05T03:28:29.087Z">
+<meta property="article:modified_time" content="2022-05-05T03:37:15.152Z">
 <meta property="article:author" content="Harris">
 <meta property="article:tag" content="设计模式">
 <meta name="twitter:card" content="summary_large_image">
@@ -248,7 +248,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      944 字
+      1k 字
     </span>
   
 
@@ -316,6 +316,14 @@
 
 <h2 id="对象适配器运行"><a href="#对象适配器运行" class="headerlink" title="对象适配器运行"></a>对象适配器运行</h2><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs csharp">Two two = <span class="hljs-keyword">new</span> TwoToThreeAdapter();<br><br>two.Request1();<br><br>Console.ReadLine();<br></code></pre></td></tr></table></figure>
 
+<h2 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h2><ol>
+<li>单一职责原则（优点）</li>
+<li>开闭原则（优点）</li>
+<li>代码复杂度增加（缺点）</li>
+</ol>
+<h2 id="适应场景"><a href="#适应场景" class="headerlink" title="适应场景"></a>适应场景</h2><ol>
+<li>如果第三方的接口或者代码于现有的接口、代码不兼容的时候，可以添加一个中间适配器层来解决这样的问题。</li>
+</ol>
 
             </div>
             <hr>
