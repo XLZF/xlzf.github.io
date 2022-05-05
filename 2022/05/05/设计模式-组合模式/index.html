@@ -13,23 +13,25 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="插座转换器">
+  <meta name="description" content="在树形结构的处理中模糊了对象和对象组的概念，使用对象和对象组采用了统一的接口，让我们可以像处理简单对象一样处理对象组。">
   <meta name="author" content="Harris">
   <meta name="keywords" content="">
-  <meta name="description" content="插座转换器">
+  <meta name="description" content="在树形结构的处理中模糊了对象和对象组的概念，使用对象和对象组采用了统一的接口，让我们可以像处理简单对象一样处理对象组。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="设计模式-适配器模式">
-<meta property="og:url" content="http://example.com/2022/05/05/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/index.html">
+<meta property="og:title" content="设计模式-组合模式">
+<meta property="og:url" content="http://example.com/2022/05/05/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F/index.html">
 <meta property="og:site_name" content="Harris Blog">
-<meta property="og:description" content="插座转换器">
+<meta property="og:description" content="在树形结构的处理中模糊了对象和对象组的概念，使用对象和对象组采用了统一的接口，让我们可以像处理简单对象一样处理对象组。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-05-05T03:10:57.000Z">
-<meta property="article:modified_time" content="2022-05-05T03:37:15.152Z">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/202205051432849.png">
+<meta property="article:published_time" content="2022-05-05T06:23:31.000Z">
+<meta property="article:modified_time" content="2022-05-05T06:33:41.162Z">
 <meta property="article:author" content="Harris">
 <meta property="article:tag" content="设计模式">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/202205051432849.png">
   
-  <title>设计模式-适配器模式 - Harris Blog</title>
+  <title>设计模式-组合模式 - Harris Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -222,7 +224,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="设计模式-适配器模式">
+            <span class="h2" id="subtitle" title="设计模式-组合模式">
               
             </span>
 
@@ -237,8 +239,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-05-05 11:10" pubdate>
-        May 5, 2022 am
+      <time datetime="2022-05-05 14:23" pubdate>
+        May 5, 2022 pm
       </time>
     </span>
   
@@ -248,7 +250,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1k 字
+      2.3k 字
     </span>
   
 
@@ -257,7 +259,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      3 分钟
+      7 分钟
     </span>
   
 
@@ -294,36 +296,28 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">设计模式-适配器模式</h1>
+            <h1 style="display: none">设计模式-组合模式</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：3 hours ago
+                  本文最后更新于：a few seconds ago
                 
               </p>
             
             <div class="markdown-body">
-              <h1 id="设计模式-适配器模式"><a href="#设计模式-适配器模式" class="headerlink" title="设计模式-适配器模式"></a>设计模式-适配器模式</h1><h2 id="一句话"><a href="#一句话" class="headerlink" title="一句话"></a>一句话</h2><blockquote>
-<p>有对象适配、有类适配。类似于插座转化器，如下栗子。</p>
+              <h1 id="设计模式-组合模式"><a href="#设计模式-组合模式" class="headerlink" title="设计模式-组合模式"></a>设计模式-组合模式</h1><h2 id="一句话"><a href="#一句话" class="headerlink" title="一句话"></a>一句话</h2><blockquote>
+<p>在树形结构的处理中模糊了对象和对象组的概念，使用对象和对象组采用了统一的接口，让我们可以像处理简单对象一样处理对象组。</p>
 </blockquote>
-<h2 id="类适配模式"><a href="#类适配模式" class="headerlink" title="类适配模式"></a>类适配模式</h2><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-meta">#<span class="hljs-keyword">region</span> 类适配模式</span><br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title">ITwo</span><br>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Request1</span>()</span>;<br>&#125;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">class</span> <span class="hljs-title">ThreeAdaptee</span><br>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Request2</span>()</span><br>    &#123;<br>        Console.WriteLine(<span class="hljs-string">&quot;我是三个孔的插头&quot;</span>);<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">ThreeToTwoAdapter</span> : <span class="hljs-title">ThreeAdaptee</span>, <span class="hljs-title">ITwo</span><br>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Request1</span>()</span><br>    &#123;<br>        <span class="hljs-keyword">this</span>.Request2();<br>    &#125;<br>&#125;<br><br><span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br></code></pre></td></tr></table></figure>
+<h2 id="举个例子"><a href="#举个例子" class="headerlink" title="举个例子"></a>举个例子</h2><p>首先得有个树结构，最先想到的就是<code>OA</code>系统里的组织结构。集团总公司、分公司、部门、岗位、人员等等，下面以员工和部门举栗子。</p>
+<h3 id="先抽个象。"><a href="#先抽个象。" class="headerlink" title="先抽个象。"></a>先抽个象。</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> 抽象部件 定义了树枝和树叶的公共属性和接口</span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Component</span><br>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-built_in">string</span> name;<br>    <br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Component</span>(<span class="hljs-params"><span class="hljs-built_in">string</span> name</span>)</span><br>    &#123;<br>        <span class="hljs-keyword">this</span>.name = name;<br>    &#125;<br>    <br>    <span class="hljs-comment">//添加子节点</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Add</span>(<span class="hljs-params">Component c</span>)</span>;<br>    <br>    <span class="hljs-comment">//删除子节点</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Remove</span>(<span class="hljs-params">Component c</span>)</span>;<br>    <br>    <span class="hljs-comment">//展示方法，dept为节点深度</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Display</span>(<span class="hljs-params"><span class="hljs-built_in">int</span> dept</span>)</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h2 id="类适配模式运行"><a href="#类适配模式运行" class="headerlink" title="类适配模式运行"></a>类适配模式运行</h2><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs csharp">ITwo change = <span class="hljs-keyword">new</span> ThreeToTwoAdapter();<br><br>change.Request1();<br><br>Console.ReadLine();<br></code></pre></td></tr></table></figure>
+<h3 id="树叶子：员工"><a href="#树叶子：员工" class="headerlink" title="树叶子：员工"></a>树叶子：员工</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-comment">//具体员工，树形结构的Leaf</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Employee</span> : <span class="hljs-title">Component</span><br>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Employee</span>(<span class="hljs-params"><span class="hljs-built_in">string</span> name</span>) : <span class="hljs-title">base</span>(<span class="hljs-params">name</span>)</span><br>    &#123;<br>        <span class="hljs-keyword">this</span>.name = name;<br>    &#125;<br>    <span class="hljs-comment">//Leaf不能添加/删除子节点所以空实现</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Add</span>(<span class="hljs-params">Component c</span>)</span><br>    &#123;<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Remove</span>(<span class="hljs-params">Component c</span>)</span><br>    &#123;<br><br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Display</span>(<span class="hljs-params"><span class="hljs-built_in">int</span> dept</span>)</span><br>    &#123;<br>        Console.WriteLine(<span class="hljs-keyword">new</span> <span class="hljs-built_in">string</span>(<span class="hljs-string">&#x27;-&#x27;</span>, dept) + name);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
+<h3 id="树枝：部门"><a href="#树枝：部门" class="headerlink" title="树枝：部门"></a>树枝：部门</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> 部门类，相当于树枝</span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Depart</span> : <span class="hljs-title">Component</span><br>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Depart</span>(<span class="hljs-params"><span class="hljs-built_in">string</span> name</span>) : <span class="hljs-title">base</span>(<span class="hljs-params">name</span>)</span><br>    &#123;<br>        <span class="hljs-keyword">this</span>.name = name;<br>    &#125;<br>    <span class="hljs-comment">//添加子节点</span><br>    <span class="hljs-keyword">public</span> List&lt;Component&gt; children = <span class="hljs-keyword">new</span> List&lt;Component&gt;();<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Add</span>(<span class="hljs-params">Component c</span>)</span><br>    &#123;<br>        children.Add(c);<br>    &#125;<br>    <span class="hljs-comment">//删除子节点</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Remove</span>(<span class="hljs-params">Component c</span>)</span><br>    &#123;<br>        children.Remove(c);<br>    &#125;<br>    <span class="hljs-comment">//展示自己和和内部的所有子节点，这里是组合模式的核心</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Display</span>(<span class="hljs-params"><span class="hljs-built_in">int</span> dept</span>)</span><br>    &#123;<br>        Console.WriteLine(<span class="hljs-keyword">new</span> <span class="hljs-built_in">string</span>(<span class="hljs-string">&#x27;-&#x27;</span>, dept) + name);<br><br>        <span class="hljs-keyword">foreach</span> (<span class="hljs-keyword">var</span> item <span class="hljs-keyword">in</span> children)<br>        &#123;<br>            <span class="hljs-comment">//这里用到了递归的思想</span><br>            item.Display(dept + <span class="hljs-number">4</span>);<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
+<h3 id="最后：攒"><a href="#最后：攒" class="headerlink" title="最后：攒"></a>最后：攒</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-built_in">string</span>[] args</span>)</span><br>&#123;<br>    Component DepartA = <span class="hljs-keyword">new</span> Depart(<span class="hljs-string">&quot;A总公司&quot;</span>);<br>    Component DepartAX = <span class="hljs-keyword">new</span> Depart(<span class="hljs-string">&quot;AX部门&quot;</span>);<br>    Component DepartAY = <span class="hljs-keyword">new</span> Depart(<span class="hljs-string">&quot;AY部门&quot;</span>);<br>    Component DepartAX1 = <span class="hljs-keyword">new</span> Depart(<span class="hljs-string">&quot;AX1子部门&quot;</span>);<br>    Component DepartAX2 = <span class="hljs-keyword">new</span> Depart(<span class="hljs-string">&quot;AX2子部门&quot;</span>);<br>    Component Ae1 = <span class="hljs-keyword">new</span> Employee(<span class="hljs-string">&quot;公司直属员工1&quot;</span>);<br>    Component AXe1 = <span class="hljs-keyword">new</span> Employee(<span class="hljs-string">&quot;AX部门员工1&quot;</span>);<br>    Component AX1e1 = <span class="hljs-keyword">new</span> Employee(<span class="hljs-string">&quot;AX1部门员工1&quot;</span>);<br>    Component AX1e2 = <span class="hljs-keyword">new</span> Employee(<span class="hljs-string">&quot;AX1部门员工2&quot;</span>);<br>    Component AYe1 = <span class="hljs-keyword">new</span> Employee(<span class="hljs-string">&quot;AY部门员工1&quot;</span>);<br>    Component AYe2 = <span class="hljs-keyword">new</span> Employee(<span class="hljs-string">&quot;AY部门员工2&quot;</span>);<br>    DepartA.Add(Ae1);<br>    DepartA.Add(DepartAX);<br>    DepartA.Add(DepartAY);<br>    DepartAX.Add(AXe1);<br>    DepartAX.Add(DepartAX1);<br>    DepartAX.Add(DepartAX2);<br>    DepartAX1.Add(AX1e1);<br>    DepartAX1.Add(AX1e2);<br>    DepartAY.Add(AYe1);<br>    DepartAY.Add(AYe2);<br>    <span class="hljs-comment">//遍历总公司</span><br>    DepartA.Display(<span class="hljs-number">1</span>);<br>    Console.ReadKey();<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h2 id="对象适配器"><a href="#对象适配器" class="headerlink" title="对象适配器"></a>对象适配器</h2><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-meta">#<span class="hljs-keyword">region</span> 对象适配模式</span><br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Two</span><span class="hljs-comment">//两口的插头</span><br>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Request1</span>()</span><br>    &#123;<br>        Console.WriteLine(<span class="hljs-string">&quot;2个孔的插头可以使用&quot;</span>);<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Three</span><br>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Request2</span>()</span><br>    &#123;<br>        Console.WriteLine(<span class="hljs-string">&quot;3个孔的插头可以使用&quot;</span>);<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">TwoToThreeAdapter</span> : <span class="hljs-title">Two</span><br>&#123;<br>    Three three = <span class="hljs-keyword">new</span> Three();<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Request1</span>()</span><br>    &#123;<br>        three.Request2();<br>    &#125;<br>&#125;<br><br><span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br></code></pre></td></tr></table></figure>
-
-<h2 id="对象适配器运行"><a href="#对象适配器运行" class="headerlink" title="对象适配器运行"></a>对象适配器运行</h2><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs csharp">Two two = <span class="hljs-keyword">new</span> TwoToThreeAdapter();<br><br>two.Request1();<br><br>Console.ReadLine();<br></code></pre></td></tr></table></figure>
-
-<h2 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h2><ol>
-<li>单一职责原则（优点）</li>
-<li>开闭原则（优点）</li>
-<li>代码复杂度增加（缺点）</li>
-</ol>
-<h2 id="适应场景"><a href="#适应场景" class="headerlink" title="适应场景"></a>适应场景</h2><ol>
-<li>如果第三方的接口或者代码于现有的接口、代码不兼容的时候，可以添加一个中间适配器层来解决这样的问题。</li>
-</ol>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/202205051432849.png" srcset="/img/loading.gif" lazyload alt="image-20220505143244328"></p>
 
             </div>
             <hr>
@@ -358,18 +352,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/05/05/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">设计模式-桥接模式</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/05/05/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/">
-                        <span class="hidden-mobile">设计模式-原型模式</span>
+                      <a href="/2022/05/05/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/">
+                        <span class="hidden-mobile">设计模式-桥接模式</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
