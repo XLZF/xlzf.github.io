@@ -13,32 +13,23 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="接口神器">
+  <meta name="description" content="用原型实例指定创建对象的种类，并且通过复制这些原型创建新的对象。">
   <meta name="author" content="Harris">
   <meta name="keywords" content="">
-  <meta name="description" content="接口神器">
+  <meta name="description" content="用原型实例指定创建对象的种类，并且通过复制这些原型创建新的对象。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ApiFox参数配置">
-<meta property="og:url" content="http://example.com/2022/04/28/APIFox-%E5%8F%82%E6%95%B0%E9%85%8D%E7%BD%AE/index.html">
+<meta property="og:title" content="设计模式-原型模式">
+<meta property="og:url" content="http://example.com/2022/05/05/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/index.html">
 <meta property="og:site_name" content="Harris Blog">
-<meta property="og:description" content="接口神器">
+<meta property="og:description" content="用原型实例指定创建对象的种类，并且通过复制这些原型创建新的对象。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/202204281421221.png">
-<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/202204281421319.png">
-<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/202204281421550.png">
-<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/202204281421954.png">
-<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/202204281421334.png">
-<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/202204281422732.png">
-<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/202204281422599.png">
-<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/202204281422625.png">
-<meta property="article:published_time" content="2022-04-28T05:58:31.000Z">
-<meta property="article:modified_time" content="2022-04-28T06:25:03.561Z">
+<meta property="article:published_time" content="2022-05-05T02:20:47.000Z">
+<meta property="article:modified_time" content="2022-05-05T02:36:35.933Z">
 <meta property="article:author" content="Harris">
-<meta property="article:tag" content="Api">
+<meta property="article:tag" content="设计模式">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/202204281421221.png">
   
-  <title>ApiFox参数配置 - Harris Blog</title>
+  <title>设计模式-原型模式 - Harris Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -231,7 +222,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="ApiFox参数配置">
+            <span class="h2" id="subtitle" title="设计模式-原型模式">
               
             </span>
 
@@ -246,8 +237,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-04-28 13:58" pubdate>
-        April 28, 2022 pm
+      <time datetime="2022-05-05 10:20" pubdate>
+        May 5, 2022 am
       </time>
     </span>
   
@@ -257,7 +248,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      480 字
+      1.4k 字
     </span>
   
 
@@ -266,7 +257,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      2 分钟
+      4 分钟
     </span>
   
 
@@ -303,45 +294,45 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">ApiFox参数配置</h1>
+            <h1 style="display: none">设计模式-原型模式</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：7 days ago
+                  本文最后更新于：2 minutes ago
                 
               </p>
             
             <div class="markdown-body">
-              <h1 id="ApiFox-参数配置"><a href="#ApiFox-参数配置" class="headerlink" title="ApiFox 参数配置"></a>ApiFox 参数配置</h1><p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/202204281421221.png" srcset="/img/loading.gif" lazyload alt="ApiFox"></p>
-<h2 id="设置全局参数"><a href="#设置全局参数" class="headerlink" title="设置全局参数"></a>设置全局参数</h2><p>出于<code>JWT</code>权限验证，需要获取<code>token</code>才能访问。否则就是如下情况。</p>
-<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/202204281421319.png" srcset="/img/loading.gif" lazyload alt="401 Unauthoized"></p>
-<p>先设置全局参数 <code>Authorizatior</code> 默认值 <code>bearer &#123;&#123;token&#125;&#125;</code></p>
-<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/202204281421550.png" srcset="/img/loading.gif" lazyload alt="设置全局参数"></p>
-<p>在获取<code>token</code>的接口处，常规添加<code>Params</code>，主要是看<strong>后置操作</strong></p>
-<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/202204281421954.png" srcset="/img/loading.gif" lazyload alt="后置操作"></p>
-<p>以下是添加完的。</p>
-<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/202204281421334.png" srcset="/img/loading.gif" lazyload alt="添加公共脚本"></p>
-<p>添加公共脚本</p>
-<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/202204281422732.png" srcset="/img/loading.gif" lazyload alt="公共脚本"></p>
-<p>输入公共脚本内容</p>
-<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/202204281422599.png" srcset="/img/loading.gif" lazyload alt="公共脚本内容"></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//核心</span><br>pm.<span class="hljs-title function_">test</span>(<span class="hljs-string">&quot;Status code is 200&quot;</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>    pm.<span class="hljs-property">response</span>.<span class="hljs-property">to</span>.<span class="hljs-property">have</span>.<span class="hljs-title function_">status</span>(<span class="hljs-number">200</span>);<br>&#125;);<br><span class="hljs-comment">// 把responseBody转为json字符串</span><br><span class="hljs-keyword">var</span> data = <span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">parse</span>(responseBody);<br><span class="hljs-comment">// 设置环境变量token，供后面的接口引用，位置就是上一步获取的位置</span><br>pm.<span class="hljs-property">globals</span>.<span class="hljs-title function_">set</span>(<span class="hljs-string">&quot;token&quot;</span>, data.<span class="hljs-property">result</span>.<span class="hljs-property">AccessToken</span>);<br></code></pre></td></tr></table></figure>
+              <h1 id="设计模式-原型模式"><a href="#设计模式-原型模式" class="headerlink" title="设计模式-原型模式"></a>设计模式-原型模式</h1><h2 id="一句话"><a href="#一句话" class="headerlink" title="一句话"></a>一句话</h2><blockquote>
+<p>用原型实例指定创建对象的种类，并且通过复制这些原型创建新的对象。</p>
+</blockquote>
+<h2 id="举个栗子"><a href="#举个栗子" class="headerlink" title="举个栗子"></a>举个栗子</h2><h3 id="以手机来做个原型"><a href="#以手机来做个原型" class="headerlink" title="以手机来做个原型"></a>以手机来做个原型</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> 手机原型</span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">class</span> <span class="hljs-title">MobilePhonePrototype</span><br>&#123;<br>    <span class="hljs-keyword">private</span> <span class="hljs-built_in">string</span> _brand;<br><br>    <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br>    <span class="hljs-comment"><span class="hljs-doctag">///</span> 品牌</span><br>    <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br>    <span class="hljs-keyword">public</span> <span class="hljs-built_in">string</span> Brand<br>    &#123;<br>        <span class="hljs-keyword">get</span> &#123; <span class="hljs-keyword">return</span> _brand; &#125;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MobilePhonePrototype</span>(<span class="hljs-params"><span class="hljs-built_in">string</span> brand</span>)</span><br>    &#123;<br>        <span class="hljs-keyword">this</span>._brand = brand;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> MobilePhonePrototype <span class="hljs-title">Clone</span>()</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
+<h3 id="小米原型"><a href="#小米原型" class="headerlink" title="小米原型"></a>小米原型</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> 小米手机原型</span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">XiaoMiPrototype</span> : <span class="hljs-title">MobilePhonePrototype</span><br>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">XiaoMiPrototype</span>(<span class="hljs-params"><span class="hljs-built_in">string</span> brand</span>)</span><br><span class="hljs-function">        : <span class="hljs-title">base</span>(<span class="hljs-params">brand</span>)</span><br>        &#123;<br>        &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> MobilePhonePrototype <span class="hljs-title">Clone</span>()</span><br>    &#123;<br>        <span class="hljs-keyword">return</span> (MobilePhonePrototype)<span class="hljs-keyword">this</span>.MemberwiseClone();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
+<h3 id="苹果手机原型"><a href="#苹果手机原型" class="headerlink" title="苹果手机原型"></a>苹果手机原型</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> 苹果手机原型</span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">ApplePrototype</span> : <span class="hljs-title">MobilePhonePrototype</span><br>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ApplePrototype</span>(<span class="hljs-params"><span class="hljs-built_in">string</span> brand</span>)</span><br><span class="hljs-function">        : <span class="hljs-title">base</span>(<span class="hljs-params">brand</span>)</span><br>        &#123;<br>        &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> MobilePhonePrototype <span class="hljs-title">Clone</span>()</span><br>    &#123;<br>        <span class="hljs-keyword">return</span> (MobilePhonePrototype)<span class="hljs-keyword">this</span>.MemberwiseClone();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<p>以上，在执行完登录接口后，公共脚本会把<code>token</code>信息赋值给全局变量<code>Authorization</code>,其他接口就可以直接使用<code>token</code>了。</p>
-<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/202204281422625.png" srcset="/img/loading.gif" lazyload alt="使用全局参数"></p>
+<h3 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h3><p>由于原型模式<code>Prototype</code>是一种创建型设计模式，它关注的是大量相同或者相似的对象创建问题。通过<code>new</code>一个对象后，然后通过<code>new</code>出来的对象进行复制，创建出相同的对象。也就是通过这种方式来创建对象。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs csharp">XiaoMiPrototype xiaomi = <span class="hljs-keyword">new</span> XiaoMiPrototype(<span class="hljs-string">&quot;小米&quot;</span>);<br>XiaoMiPrototype xiaomi2 = (XiaoMiPrototype)xiaomi.Clone();<br>Console.WriteLine(xiaomi2.Brand);<br><br>ApplePrototype iphone = <span class="hljs-keyword">new</span> ApplePrototype(<span class="hljs-string">&quot;iPhone7 Plus&quot;</span>);<br>ApplePrototype iphone2 = (ApplePrototype)iphone.Clone();<br>Console.WriteLine(iphone2.Brand);<br></code></pre></td></tr></table></figure>
+
 
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/C/">C#</a>
+                    
+                  </div>
+                
                 
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Api/">Api</a>
+                      <a class="hover-with-bg" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
                     
                   </div>
                 
@@ -358,18 +349,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/05/04/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%BB%BA%E9%80%A0%E8%80%85%E6%A8%A1%E5%BC%8F/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">设计模式-建造者模式</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/04/01/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E7%BD%91%E7%AB%99%E8%B0%83%E8%AF%95%E6%96%B9%E6%B3%95/">
-                        <span class="hidden-mobile">微信公众号网站调试</span>
+                      <a href="/2022/05/04/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%BB%BA%E9%80%A0%E8%80%85%E6%A8%A1%E5%BC%8F/">
+                        <span class="hidden-mobile">设计模式-建造者模式</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
