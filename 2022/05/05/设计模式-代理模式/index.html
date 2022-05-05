@@ -13,23 +13,23 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="一个类可以通过多角度来分类，每一种分类都可能变化，那么就把多角度分离出来让各个角度都能独立变化，降低各个角度间的耦合。">
+  <meta name="description" content="为其它对象提供一种代理以控制对该对象的访问">
   <meta name="author" content="Harris">
   <meta name="keywords" content="">
-  <meta name="description" content="一个类可以通过多角度来分类，每一种分类都可能变化，那么就把多角度分离出来让各个角度都能独立变化，降低各个角度间的耦合。">
+  <meta name="description" content="为其它对象提供一种代理以控制对该对象的访问">
 <meta property="og:type" content="article">
-<meta property="og:title" content="设计模式-桥接模式">
-<meta property="og:url" content="http://example.com/2022/05/05/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/index.html">
+<meta property="og:title" content="设计模式-代理模式">
+<meta property="og:url" content="http://example.com/2022/05/05/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/index.html">
 <meta property="og:site_name" content="Harris Blog">
-<meta property="og:description" content="一个类可以通过多角度来分类，每一种分类都可能变化，那么就把多角度分离出来让各个角度都能独立变化，降低各个角度间的耦合。">
+<meta property="og:description" content="为其它对象提供一种代理以控制对该对象的访问">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-05-05T03:42:30.000Z">
-<meta property="article:modified_time" content="2022-05-05T05:36:16.485Z">
+<meta property="article:published_time" content="2022-05-05T09:38:11.000Z">
+<meta property="article:modified_time" content="2022-05-05T09:58:20.609Z">
 <meta property="article:author" content="Harris">
 <meta property="article:tag" content="设计模式">
 <meta name="twitter:card" content="summary_large_image">
   
-  <title>设计模式-桥接模式 - Harris Blog</title>
+  <title>设计模式-代理模式 - Harris Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -222,7 +222,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="设计模式-桥接模式">
+            <span class="h2" id="subtitle" title="设计模式-代理模式">
               
             </span>
 
@@ -237,8 +237,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-05-05 11:42" pubdate>
-        May 5, 2022 am
+      <time datetime="2022-05-05 17:38" pubdate>
+        May 5, 2022 pm
       </time>
     </span>
   
@@ -248,7 +248,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.8k 字
+      2.1k 字
     </span>
   
 
@@ -257,7 +257,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      6 分钟
+      7 分钟
     </span>
   
 
@@ -294,33 +294,51 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">设计模式-桥接模式</h1>
+            <h1 style="display: none">设计模式-代理模式</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：4 hours ago
+                  本文最后更新于：a few seconds ago
                 
               </p>
             
             <div class="markdown-body">
-              <h1 id="设计模式-桥接模式"><a href="#设计模式-桥接模式" class="headerlink" title="设计模式-桥接模式"></a>设计模式-桥接模式</h1><h2 id="一句话"><a href="#一句话" class="headerlink" title="一句话"></a>一句话</h2><blockquote>
-<p>一个类可以通过多角度来分类，每一种分类都可能变化，那么就把多角度分离出来让各个角度都能独立变化，降低各个角度间的耦合。</p>
-</blockquote>
-<h2 id="举个栗子"><a href="#举个栗子" class="headerlink" title="举个栗子"></a>举个栗子</h2><blockquote>
-<p>画图形，图形有图形种类和颜色两个指标组成，如果现在要画三种不同的图形并且会有三种不同的颜色，按照现有要求，会每个图形+颜色为一个类的话，会产生9个类或者方法来完成，如果要加图形或者颜色的话，类或者方法会增长的很快，所以需要桥接模式。</p>
-</blockquote>
-<h3 id="形状抽象"><a href="#形状抽象" class="headerlink" title="形状抽象"></a>形状抽象</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Shape</span><br>&#123;<br>    <span class="hljs-comment">//形状内部包含了另一个维度：color</span><br>    <span class="hljs-keyword">protected</span> IColor color;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">SetColor</span>(<span class="hljs-params">IColor color</span>)</span><br>    &#123;<br>        <span class="hljs-keyword">this</span>.color = color;<br>    &#125;<br><br>    <span class="hljs-comment">//设置形状</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Draw</span>()</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+              <h1 id="设计模式-代理模式"><a href="#设计模式-代理模式" class="headerlink" title="设计模式-代理模式"></a>设计模式-代理模式</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>代理模式（<code>Proxy Pattern</code>）。属于结构型模式。为其它对象提供一种代理以控制对该对象的访问。</p>
+<p>代理的概念很简单，就是想调用A类方法时，不直接调用，而是通过调用代理B类的方法，由B类方法去调用A类的方法。</p>
+<p>模式中的角色</p>
+<ol>
+<li><code>Subject</code>（抽象对象）：它声明了真实对象和代理对象的共同接口，这样一来在任何使用真实对象的地方都可以使用代理对象，客户端通常需要针对抽象对象角色进行编程。</li>
+<li><code>Proxy</code>（代理对象）：代理对象与真实对象实现相同的接口，所以它能够在任何时刻都能够代理真实对象。代理对象内部包含有对真实对象的引用，所以她可以操作真实对象，同时也可以附加其他的操作，相当于对真实对象进行封装。</li>
+<li><code>RealSubject</code>（真实对象）：它定义了所代表的真实对象，在真实对象角色中实现了真实的业务操作，客户端可以通过代理对象间接调用真实对象中定义的操作。</li>
+</ol>
+<h2 id="栗子"><a href="#栗子" class="headerlink" title="栗子"></a>栗子</h2><p>一个害羞男孩追求一个叫如花的女孩，但是自己不敢送礼物，就找了一个朋友代理他给如花送礼物</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> 送礼物的人 （抽象主题角色）</span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">class</span> <span class="hljs-title">GiveGiftPerson</span><br>&#123;<br>    <span class="hljs-comment">//送礼物功能</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">void</span> <span class="hljs-title">GiveGift</span>()</span>;<br>&#125;<br><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> 害羞男孩  （真实主题角色）</span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">ShyBoy</span> : <span class="hljs-title">GiveGiftPerson</span><br>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">GiveGift</span>()</span><br>    &#123;<br>        Console.WriteLine(<span class="hljs-string">&quot;害羞男孩送礼物给如花~~&quot;</span>);<br>    &#125;<br>&#125;<br><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> 害羞男孩的朋友（代理主题角色）</span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Friend</span> : <span class="hljs-title">GiveGiftPerson</span><br>&#123;<br>    <span class="hljs-comment">//引用真实主题实例</span><br>    ShyBoy shyboy = <span class="hljs-keyword">new</span> ShyBoy();<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">GiveGift</span>()</span><br>    &#123;<br>        <span class="hljs-comment">//朋友一顿分析后，觉得如花是个好人</span><br>        <span class="hljs-built_in">bool</span> IsRuhuaGood = <span class="hljs-literal">true</span>;<br>        <span class="hljs-keyword">if</span> (IsRuhuaGood)<br>        &#123;<br>            <span class="hljs-comment">//调用真实主题的方法</span><br>            shyboy.GiveGift();<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h3 id="颜色接口"><a href="#颜色接口" class="headerlink" title="颜色接口"></a>颜色接口</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> 颜色接口</span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title">IColor</span><br>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Paint</span>(<span class="hljs-params"><span class="hljs-built_in">string</span> shape</span>)</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">class</span> <span class="hljs-title">Program</span><br>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-built_in">string</span>[] args</span>)</span><br>    &#123;<br>        <span class="hljs-comment">//因为不能直接访问到真实对象所以我们不能直接new ShyBoy()去送礼物。</span><br><br>        <span class="hljs-comment">//代码中使用的是代理对象</span><br>        Friend friend = <span class="hljs-keyword">new</span> Friend();<br>        friend.GiveGift();<br>        Console.ReadKey();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h3 id="颜色"><a href="#颜色" class="headerlink" title="颜色"></a>颜色</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> 蓝色</span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Blue</span> : <span class="hljs-title">IColor</span><br>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Paint</span>(<span class="hljs-params"><span class="hljs-built_in">string</span> shape</span>)</span><br>    &#123;<br>        Console.WriteLine(<span class="hljs-string">$&quot;蓝色的<span class="hljs-subst">&#123;shape&#125;</span>&quot;</span>);<br>    &#125;<br>&#125;<br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> 黄色</span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Yellow</span> : <span class="hljs-title">IColor</span><br>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Paint</span>(<span class="hljs-params"><span class="hljs-built_in">string</span> shape</span>)</span><br>    &#123;<br>        Console.WriteLine(<span class="hljs-string">$&quot;黄色的<span class="hljs-subst">&#123;shape&#125;</span>&quot;</span>);<br>    &#125;<br>&#125;<br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> 红色</span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Red</span> : <span class="hljs-title">IColor</span><br>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Paint</span>(<span class="hljs-params"><span class="hljs-built_in">string</span> shape</span>)</span><br>    &#123;<br>        Console.WriteLine(<span class="hljs-string">$&quot;红色的<span class="hljs-subst">&#123;shape&#125;</span>&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h3 id="形状"><a href="#形状" class="headerlink" title="形状"></a>形状</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> 圆形</span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Circle</span> : <span class="hljs-title">Shape</span><br>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Draw</span>()</span><br>    &#123;<br>        color.Paint(<span class="hljs-string">&quot;圆形&quot;</span>);<br>    &#125;<br>&#125;<br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> 长方形</span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Rectangle</span> : <span class="hljs-title">Shape</span><br>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Draw</span>()</span><br>    &#123;<br>        color.Paint(<span class="hljs-string">&quot;长方形&quot;</span>);<br>    &#125;<br>&#125;<br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> 三角形</span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Triangle</span> : <span class="hljs-title">Shape</span><br>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Draw</span>()</span><br>    &#123;<br>        color.Paint(<span class="hljs-string">&quot;三角形&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h3 id="创建形状"><a href="#创建形状" class="headerlink" title="创建形状"></a>创建形状</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-built_in">string</span>[] args</span>)</span><br>&#123;<br>    Shape circle = <span class="hljs-keyword">new</span> Circle();<br>    IColor blue = <span class="hljs-keyword">new</span> Blue();<br>    circle.SetColor(blue);<span class="hljs-comment">//设置颜色</span><br>    circle.Draw();<span class="hljs-comment">//画图</span><br><br>    Shape triangle = <span class="hljs-keyword">new</span> Triangle();<br>    triangle.SetColor(blue);<br>    triangle.Draw();<br><br>    Console.ReadLine();<br>&#125;<br><br><span class="hljs-comment">//输出：</span><br><span class="hljs-comment">//蓝色圆形</span><br><span class="hljs-comment">//蓝色三角形</span><br></code></pre></td></tr></table></figure>
-
-
-
+<h2 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h2><h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ol>
+<li>代理模式能够将调用用于真正被调用的对象隔离，在一定程度上降低了系统的耦合度。</li>
+<li>客户端可以针对抽象主题角色进行编程，增加和更换代理类无须修改源代码，符合开闭原则，系统具有较好的灵活性和可扩展性。</li>
+</ol>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ol>
+<li>由于在客户端和真实主题之间增加了代理对象，因此有些类型的代理模式可能会造成请求的处理速度变慢，例如保护代理。</li>
+<li>实现代理模式需要额外的工作，而且有些代理模式的实现过程较为复杂，例如远程代理。</li>
+</ol>
+<h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><ol>
+<li>当客户端对象需要访问远程主机中的对象时可以使用远程代理</li>
+<li>当需要用一个消耗资源较少的对象来代表一个消耗资源较多的对象，从而降低系统开销、缩短运行时间时可以使用虚拟代理，例如一个对象需要很长时间才能完成加载时。</li>
+<li>当需要为某一个被频繁访问的操作结果提供一个临时存储空间，以供多个客户端共享访问这些结果时可以使用缓冲代理。通过使用缓冲代理，系统无须在客户端每一次访问时都重新执行操作，只需直接从临时缓冲区获取操作结果即可。</li>
+<li>当需要控制对一个对象的访问，为不同用户提供不同级别的访问权限时可以使用保护代理。</li>
+<li>当需要为一个对象的访问（引用）提供一些额外的操作时可以使用智能引用代理。</li>
+</ol>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ol>
+<li>远程代理(Remote Proxy)：为一个位于不同的地址空间的对象提供一个本地的代理对象，这个不同的地址空间可以是在同一台主机中，也可是在另一台主机中，远程代理又称为大使(Ambassador)。</li>
+<li>虚拟代理(Virtual Proxy)：如果需要创建一个资源消耗较大的对象，先创建一个消耗相对较小的对象来表示，真实对象只在需要时才会被真正创建。</li>
+<li>保护代理(Protect Proxy)：控制对一个对象的访问，可以给不同的用户提供不同级别的使用权限。</li>
+<li>缓冲代理(Cache Proxy)：为某一个目标操作的结果提供临时的存储空间，以便多个客户端可以共享这些结果。</li>
+<li>智能引用代理(Smart Reference Proxy)：当一个对象被引用时，提供一些额外的操作，例如将对象被调用的次数记录下来等。</li>
+</ol>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/346511886">C#设计模式笔记之代理模式 (Proxy Pattern) - 知乎 (zhihu.com)</a></p>
 
             </div>
             <hr>
@@ -355,18 +373,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/05/05/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">设计模式-组合模式</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/05/05/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/">
-                        <span class="hidden-mobile">设计模式-适配器模式</span>
+                      <a href="/2022/05/05/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F/">
+                        <span class="hidden-mobile">设计模式-享元模式</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
