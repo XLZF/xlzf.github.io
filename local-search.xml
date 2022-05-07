@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>CSharp-关键字</title>
+    <link href="/2022/05/06/CSharp-%E5%85%B3%E9%94%AE%E5%AD%97/"/>
+    <url>/2022/05/06/CSharp-%E5%85%B3%E9%94%AE%E5%AD%97/</url>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="C-关键字"><a href="#C-关键字" class="headerlink" title="C# 关键字"></a>C# 关键字</h1><h2 id="Abstract（抽象-）"><a href="#Abstract（抽象-）" class="headerlink" title="Abstract（抽象 ）"></a>Abstract（抽象 ）</h2><h2 id="Virtual（虚方法）"><a href="#Virtual（虚方法）" class="headerlink" title="Virtual（虚方法）"></a>Virtual（虚方法）</h2><h2 id="Abstract-和-Virtual-区别"><a href="#Abstract-和-Virtual-区别" class="headerlink" title="Abstract 和 Virtual 区别"></a>Abstract 和 Virtual 区别</h2><p>在C#中virtual和abstract两者是都为了让子类中心定义，来覆盖父类的定义。</p><ol><li><p>virtual（虚方法）或者（abstract）抽象方法是不能私有的，二者中private成员是不能被子类访问的。</p></li><li><p>virtual可以被子类重写，abstract必须被子类重写。</p></li><li><p>如果重写了virtual，子类方法中必须用override来实现方法的重写</p></li><li><p>如果类成员被abstract修饰，那么该类必须也添加abstract。抽象类才有抽象方法</p></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>C#</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Base</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>设计模式-代理模式</title>
     <link href="/2022/05/05/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/"/>
     <url>/2022/05/05/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/</url>
@@ -1121,7 +1146,7 @@
     <link href="/2021/10/30/CSharp-Base/"/>
     <url>/2021/10/30/CSharp-Base/</url>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="面向对象编程"><a href="#面向对象编程" class="headerlink" title="面向对象编程"></a>面向对象编程</h2><p>Object Oriented Programming</p><h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><p><a href="https://www.cnblogs.com/wl-blog/p/10361894.html">参考资料：Dreamw</a></p><h4 id="释义"><a href="#释义" class="headerlink" title="释义"></a>释义</h4><ol><li><p>通过继承实现的不同对象调用相同的方法，表现出不同的行为，称之为<strong>多态</strong>。<em>（简单明了）</em></p></li><li><p>允许将子类类型的指针赋值给父类类型的指针。也就是同一操作作用于不同的对象，可以有不同的解释，产生不同的执行结果。在运行时，可以通过指向基类的指针，来调用实现派生类中的方法。</p></li></ol><h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><p>符合两种原则</p><ol><li>里式替换原则（Liskov Substitution Principle）：派生类（子类）能够被基类（父类）使用。<em>通过父类<code>new</code> 子类。</em>一致的类型，多个子类型可以被当成父类型来处理</li><li>开放封闭原则（Open Closed Principle）：开放扩展，关闭修改。<em>扩展的同时不动原有的逻辑</em>。消除类型之间的耦合性</li></ol><h4 id="状态"><a href="#状态" class="headerlink" title="状态"></a>状态</h4><p>​        <strong>多态性</strong>意味着有多重形式。在面向对象编程范式中，多态性往往表现为 “<strong>一个接口，多个功能</strong>“。</p><p>多态性可以是静态的或动态的。在<strong>静态多态性</strong>中，函数的响应是在编译时发生的。在<strong>动态多态性</strong>中，函数的响应是在运行时发生的。</p><h2 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h2><h3 id="virtual-vs-abstract"><a href="#virtual-vs-abstract" class="headerlink" title="virtual  vs abstract"></a><code>virtual</code>  vs <code>abstract</code></h3><p>​        这俩的区别就是，在设置基类的时，如果类方法中用关键字<code>virtual</code>标识为虚方法，那么此基类可以被实例化，反之，在基类中使用<code>abstract</code> 标识为抽象方法，同时基类也得标识为抽象类，那么这个基类中的方法就不能实例化</p><p>​        当然，相同点就是，上面这俩关键字都是作用于基类中，子类中继承基类，子类的中的方法重写基类的方法，该用<code>override</code>还得是<code>override</code>.</p>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="面向对象编程"><a href="#面向对象编程" class="headerlink" title="面向对象编程"></a>面向对象编程</h2><p>Object Oriented Programming</p><h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><p><a href="https://www.cnblogs.com/wl-blog/p/10361894.html">参考资料：Dreamw</a></p><h4 id="释义"><a href="#释义" class="headerlink" title="释义"></a>释义</h4><ol><li><p>通过继承实现的不同对象调用相同的方法，表现出不同的行为，称之为<strong>多态</strong>。<em>（简单明了）</em></p></li><li><p>允许将子类类型的指针赋值给父类类型的指针。也就是同一操作作用于不同的对象，可以有不同的解释，产生不同的执行结果。在运行时，可以通过指向基类的指针，来调用实现派生类中的方法。</p></li></ol><h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><p>符合两种原则</p><ol><li>里式替换原则（Liskov Substitution Principle）：派生类（子类）能够被基类（父类）使用。<em>通过父类<code>new</code> 子类。</em>一致的类型，多个子类型可以被当成父类型来处理</li><li>开放封闭原则（Open Closed Principle）：开放扩展，关闭修改。<em>扩展的同时不动原有的逻辑</em>。消除类型之间的耦合性</li></ol><h4 id="状态"><a href="#状态" class="headerlink" title="状态"></a>状态</h4><p>​        <strong>多态性</strong>意味着有多重形式。在面向对象编程范式中，多态性往往表现为 “<strong>一个接口，多个功能</strong>“。</p><p>多态性可以是静态的或动态的。在<strong>静态多态性</strong>中，函数的响应是在编译时发生的。在<strong>动态多态性</strong>中，函数的响应是在运行时发生的。</p>]]></content>
     
     
     <categories>
