@@ -1,979 +1,273 @@
-
-
-<!DOCTYPE html>
-<html lang="en" data-default-color-scheme=auto>
-
-
-
-<head>
-  <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.png">
-  <link rel="icon" href="/img/avatar.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  
-  <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="">
-  <meta name="author" content="Harris">
-  <meta name="keywords" content="">
-  <meta property="og:type" content="website">
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Harris Blog</title><meta name="author" content="Harris"><meta name="copyright" content="Harris"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
 <meta property="og:title" content="Harris Blog">
 <meta property="og:url" content="http://example.com/page/3/index.html">
 <meta property="og:site_name" content="Harris Blog">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
 <meta property="article:author" content="Harris">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/page/3/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Harris Blog',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2022-05-18 17:54:18'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
   
-  <title>Harris Blog</title>
-
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
-
-
-
-<!-- 主题依赖的图标库，不要自行修改 -->
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
-
-
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
-
-
-<link  rel="stylesheet" href="/css/main.css" />
-
-<!-- 自定义样式保持在最底部 -->
-
-  
-<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/shubiao.css">
-<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/gundongtiao.css">
-<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/toubudaziji.css">
-
-
-
-  <script id="fluid-configs">
-    var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
-  </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 6.1.0"><link rel="alternate" href="/atom.xml" title="Harris Blog" type="application/atom+xml">
-</head>
-
-
-<body>
-  <header style="height: 100vh;">
-    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-  <div class="container">
-    <a class="navbar-brand" href="/">
-      <strong>道吾</strong>
-    </a>
-
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
-
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto text-center">
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/">
-                <i class="iconfont icon-home-fill"></i>
-                主页
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/archives/">
-                <i class="iconfont icon-archive-fill"></i>
-                归档
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/">
-                <i class="iconfont icon-category-fill"></i>
-                类别
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/">
-                <i class="iconfont icon-tags-fill"></i>
-                标签
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/">
-                <i class="iconfont icon-user-fill"></i>
-                关于
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
-                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="iconfont icon-books"></i>
-                文档
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/">
-                    
-                    主题博客
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/guide/">
-                    
-                    配置指南
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/icon/">
-                    
-                    图标用法
-                  </a>
-                
-              </div>
-            </li>
-          
-        
-        
-          <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
-            </a>
-          </li>
-        
-        
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
-                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-</nav>
-
-    <div class="banner" id="banner" parallax=true
-         style="background: url('https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/b9e4cec47a5981199a86ee40580860f8.jpeg') no-repeat center center;
-           background-size: cover;">
-      <div class="full-bg-img">
-        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="身在沟渠，心藏明月">
-              
-            </span>
-
-            
-          </div>
-
-          
-            <div class="scroll-down-bar">
-              <i class="iconfont icon-arrowdown"></i>
-            </div>
-          
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    
-      <div class="container nopadding-x-md">
-        <div class="py-5" id="board"
-          style=margin-top:0>
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2022/01/18/multipass-%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8C%97/" target="_self">
-          <img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220113152838526.png" srcset="/img/loading.gif" lazyload alt="multipass 操作指北">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/01/18/multipass-%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8C%97/" target="_self">
-          multipass 操作指北
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2022/01/18/multipass-%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8C%97/" target="_self">
-          
-          
-            
-          
-          windows 10 multipass配合Hype-v管理器使用
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-01-18 09:53" pubdate>
-              2022-01-18
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Ubuntu/">Ubuntu</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/multipass/">multipass</a>
-            
-              <a href="/tags/ubuntu/">ubuntu</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2022/01/01/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%B9%8B%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/" target="_self">
-          <img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/20220101213220.jpeg" srcset="/img/loading.gif" lazyload alt="微服务之负载均衡示例">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/01/01/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%B9%8B%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/" target="_self">
-          微服务之负载均衡示例
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2022/01/01/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%B9%8B%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/" target="_self">
-          
-          
-            
-          
-          Nginx+Consul 负载均衡示例
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-01-01 21:23" pubdate>
-              2022-01-01
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Nginx/">Nginx</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/net-core/">.net core</a>
-            
-              <a href="/tags/Nginx/">Nginx</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2022/01/01/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" target="_self">
-          <img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/Csharp.jpeg" srcset="/img/loading.gif" lazyload alt="微服务基础知识">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/01/01/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" target="_self">
-          微服务基础知识
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2022/01/01/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" target="_self">
-          
-          
-            
-          
-          微服务基础知识
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-01-01 21:23" pubdate>
-              2022-01-01
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/MicroService/">MicroService</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/MicroService/">MicroService</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/12/01/Docker-for-MongoDB/" target="_self">
-          <img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/20211201225103.jpeg" srcset="/img/loading.gif" lazyload alt="Docker for MongoDB">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/12/01/Docker-for-MongoDB/" target="_self">
-          Docker for MongoDB
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/12/01/Docker-for-MongoDB/" target="_self">
-          
-          
-            
-          
-          windows docker安装MongoDB
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-12-01 22:34" pubdate>
-              2021-12-01
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/MongoDB/">MongoDB</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Docker/">Docker</a>
-            
-              <a href="/tags/MongoDB/">MongoDB</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/11/30/Navicat-Premium15/" target="_self">
-          <img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/20211201224654.jpeg" srcset="/img/loading.gif" lazyload alt="Navicat Premium 15">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/11/30/Navicat-Premium15/" target="_self">
-          Navicat Premium 15
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/11/30/Navicat-Premium15/" target="_self">
-          
-          
-            
-          
-          记录安装过程
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-11-30 22:31" pubdate>
-              2021-11-30
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/StorageBox/">StorageBox</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Program/">Program</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/11/28/Docker-for-Mssql/" target="_self">
-          <img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/20211201224941.jpeg" srcset="/img/loading.gif" lazyload alt="Docker for Mssql">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/11/28/Docker-for-Mssql/" target="_self">
-          Docker for Mssql
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/11/28/Docker-for-Mssql/" target="_self">
-          
-          
-            
-          
-          windows docker安装MSSQL
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-11-28 22:31" pubdate>
-              2021-11-28
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Mssql/">Mssql</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Docker/">Docker</a>
-            
-              <a href="/tags/MSSQL/">MSSQL</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/11/28/Docker-for-Oracle-11g/" target="_self">
-          <img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/Oracle.jpeg" srcset="/img/loading.gif" lazyload alt="Docker for Oracle_11g">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/11/28/Docker-for-Oracle-11g/" target="_self">
-          Docker for Oracle_11g
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/11/28/Docker-for-Oracle-11g/" target="_self">
-          
-          
-            
-          
-          windows docker 安装 Oracle 11g
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-11-28 22:16" pubdate>
-              2021-11-28
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Oracle/">Oracle</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Docker/">Docker</a>
-            
-              <a href="/tags/Oracle/">Oracle</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/11/26/T4%E6%A8%A1%E6%9D%BF%E5%BA%94%E7%94%A8/" target="_self">
-          <img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/Csharp.jpeg" srcset="/img/loading.gif" lazyload alt="T4模板应用">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/11/26/T4%E6%A8%A1%E6%9D%BF%E5%BA%94%E7%94%A8/" target="_self">
-          T4模板应用
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/11/26/T4%E6%A8%A1%E6%9D%BF%E5%BA%94%E7%94%A8/" target="_self">
-          
-          
-            
-          
-          记录T4模板的应用
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-11-26 15:50" pubdate>
-              2021-11-26
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/C/">C#</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/T4/">T4</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/11/19/Git_Cmd/" target="_self">
-          <img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/0026119fded9dc031f1cdc028cd5b535.jpeg" srcset="/img/loading.gif" lazyload alt="Git 常用命令及坑记录">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/11/19/Git_Cmd/" target="_self">
-          Git 常用命令及坑记录
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/11/19/Git_Cmd/" target="_self">
-          
-          
-            
-          
-          本文章用来记录Git常用命令和坑
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-11-19 14:25" pubdate>
-              2021-11-19
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/StorageBox/">StorageBox</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Git/">Git</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/11/19/Hexo_Cmd/" target="_self">
-          <img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/Hexo_GitHub.jpeg" srcset="/img/loading.gif" lazyload alt="Hexo">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/11/19/Hexo_Cmd/" target="_self">
-          Hexo
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/11/19/Hexo_Cmd/" target="_self">
-          
-          
-            
-          
-          本文章用来记录在github page部署Hexo的经过
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-11-19 14:25" pubdate>
-              2021-11-19
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/StorageBox/">StorageBox</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Hexo/">Hexo</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-
-
-  <nav aria-label="navigation">
-    <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/2/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/#board">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/#board">4</a><a class="page-number" href="/page/5/#board">5</a><a class="page-number" href="/page/6/#board">6</a><a class="extend next" rel="next" href="/page/4/#board"><i class="iconfont icon-arrowright"></i></a>
-    </span>
-  </nav>
-
-
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    
-
-    
-      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
-        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
-    
-
-    
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
-        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v"
-                 for="local-search-input">keyword</label>
-        </div>
-        <div class="list-group" id="local-search-result"></div>
-      </div>
-    </div>
-  </div>
-</div>
-    
-
-    
-  </main>
-
-  <footer class="text-center mt-5 py-3">
-  <div class="footer-content">
-     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-  </div>
-  
-  <div class="statistics">
-    
-    
-
-    
-      
-        <!-- 不蒜子统计PV -->
-        <span id="busuanzi_container_site_pv" style="display: none">
-            总访问量 
-            <span id="busuanzi_value_site_pv"></span>
-             次
-          </span>
-      
-      
-        <!-- 不蒜子统计UV -->
-        <span id="busuanzi_container_site_uv" style="display: none">
-            总访客数 
-            <span id="busuanzi_value_site_uv"></span>
-             人
-          </span>
-      
-    
-  </div>
-
-
-  
-  <!-- 备案信息 -->
-  <div class="beian">
-    <span>
-      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
-        京ICP证18023705号
-      </a>
-    </span>
-    
-  </div>
-
-
-  
-</footer>
-
-
-  <!-- SCRIPTS -->
-  
-  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
-
-  <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
     })
-  </script>
-
-
-<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
-<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
-
-<!-- Plugins -->
-
-
-  <script  src="/js/local-search.js" ></script>
-
-
-
   
-    <script  src="/js/img-lazyload.js" ></script>
-  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.1.0"><link rel="alternate" href="/atom.xml" title="Harris Blog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">51</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">37</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">14</div></a></div><hr/></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Harris Blog</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Harris Blog</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left"><a href="/2022/01/18/multipass-%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8C%97/" title="multipass 操作指北"><img class="post_bg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="multipass 操作指北"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/01/18/multipass-%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8C%97/" title="multipass 操作指北">multipass 操作指北</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-01-18T01:53:26.000Z" title="Created 2022-01-18 09:53:26">2022-01-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Ubuntu/">Ubuntu</a></span></div><div class="content">Multipass 操作指北
+前言由于学习需要操作Docker，有之前使用的VM14PRO+CentOS7+Ubuntu,还有就是docker desktop for windows,现在发现multipass ，忍不住想试试。
+本篇其实是想以虚拟机子系统安装Docker，Docker中安装Consul，模拟Consul集群，客户端进行访问。
+
+下载安装
+[下载](Multipass orchestrates virtual Ubuntu instances)
+安装完成之后，右下角托盘中能看到图标，右键图标即可运行shell
+
+基本操作查看版本win+R 运行 cmd  , 查看版本 multipass version
+查看虚拟机列表1multipass ls
+
+
+新建虚拟机创建虚拟机语法：multipass launch -n 虚拟机名称-n, –name: 名称-c, –cpus: cpu核心数, 默认: 1-m, –mem: 内存大小, 默认: 1G-d, –disk: 硬盘大小, 默认: 5G
+1multipass launch -n ubuntu-lts -c 4 -m 4G ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2022/01/01/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%B9%8B%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/" title="微服务之负载均衡示例"><img class="post_bg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="微服务之负载均衡示例"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/01/01/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%B9%8B%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/" title="微服务之负载均衡示例">微服务之负载均衡示例</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-01-01T13:23:15.000Z" title="Created 2022-01-01 21:23:15">2022-01-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Nginx/">Nginx</a></span></div><div class="content">Nginx
+下载 nginx: download
+配置Conf123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116117118119120121122123124125126127128129130#user  nobody;worker_processes  1;#error_log  logs/error.log;#error_log  logs/error.log  notice;#error_log  logs/error.log  info;#pid        logs/nginx.pid;events &#123;    worker_connect ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2022/01/01/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" title="微服务基础知识"><img class="post_bg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="微服务基础知识"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/01/01/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" title="微服务基础知识">微服务基础知识</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-01-01T13:23:15.000Z" title="Created 2022-01-01 21:23:15">2022-01-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/MicroService/">MicroService</a></span></div><div class="content">微服务基础知识什么是微服务先说百度百科给的定义
+​        一种软件开发技术- 面向服务的体系结构（SOA）架构样式的一种变体，它提倡将单一应用程序划分成一组小的服务，服务之间互相协调、互相配合，为用户提供最终价值。每个服务运行在其独立的进程中，服务与服务间采用轻量级的通信机制互相沟通（通常是基于HTTP的Restful API）。每个服务都围绕着具体业务进行构建，并且能够独立地部署到生产环境、类生产环境等。另外，应尽量避免统一的、集中式的服务管理机制，对具体的一个服务而言，应根据上下文，选择合适的语言、工具对其进行构建。
+结合网上大佬的帖子，光说微服务体会不到微服务，有人说的对，聊到概念，应该是从现有的单体应用与微服务架构进行比较才能得出结论。
+传统架构&amp;微服务架构
+微服务的优点
+微服务是松藕合的，无论是在开发阶段或部署阶段都是独立的。
+能够快速响应, 局部修改容易, 一个服务出现问题不会影响整个应用。
+易于和第三方应用系统集成, 支持使用不同的语言开发, 允许你利用融合最新技术。
+每个微服务都很小，足够内聚，足够小，代码容易理解。团队能够更关注自己的工作成果, 聚焦指 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2021/12/01/Docker-for-MongoDB/" title="Docker for MongoDB"><img class="post_bg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Docker for MongoDB"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/12/01/Docker-for-MongoDB/" title="Docker for MongoDB">Docker for MongoDB</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2021-12-01T14:34:32.000Z" title="Created 2021-12-01 22:34:32">2021-12-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/MongoDB/">MongoDB</a></span></div><div class="content">Docker for MongoDB
+安装镜像docker pull mongo
+持久化docker run --name mongo -v /docker/mongodb/data:/data/db -d -p 27017:27017 mongo
+配置账号密码12docker exec -it mongo /bin/sh# mongo admin
+
+创建Mongo账号123456//选择admin数据库&gt; use admin //创建账号&gt; db.createUser(&#123;user: &#x27;admin&#x27;, pwd: &#x27;admin123456&#x27;, roles: [&#123;role: &quot;userAdminAnyDatabase&quot;, db: &quot;admin&quot; &#125;]&#125;); //测试账号&gt;  db.auth(&#x27;admin&#x27;, &#x27;admin123456&#x27;) 
+
+登录测试
+</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2021/11/30/Navicat-Premium15/" title="Navicat Premium 15"><img class="post_bg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Navicat Premium 15"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/11/30/Navicat-Premium15/" title="Navicat Premium 15">Navicat Premium 15</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2021-11-30T14:31:43.000Z" title="Created 2021-11-30 22:31:43">2021-11-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/StorageBox/">StorageBox</a></span></div><div class="content">Navicat Premium 15
+前言这几天一直想着把自己的电脑上Docker中把主流的数据库镜像都安装一遍，现在已经安装了
+
+Oracle-XE
+MySql
+Mssql
+MongoDB
+
+以前一直用的是PLSql、Dbeaver Community, 考虑到Dbeaver 如果不用企业版也就是 Dbeaver-ee 连接MongoDB有点空难，所以考虑本篇说的软件Navicat Premium 15，主要记录怎么安装和科技。
+安装下载完正常安装即可。关闭所有安全软件，包括windows安全中心
+重点
+打开注册机
+选择路径
+
+核对信息​    然后回到注册机，确保以下几个选项是对应的
+
+License为Enterprise
+Products为Premium
+Languages为Simplified Chinese（简体中文，其它语言版本请自选）
+Resale Version为Site license
+Your Name和Your Organization可以任意填写或者默认
+
+
+生产注册码上面几项设置好后，点击“Generate”，会自动生成一个注册码，如下图
+
+激活这个时候就可以 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2021/11/28/Docker-for-Mssql/" title="Docker for Mssql"><img class="post_bg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Docker for Mssql"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/11/28/Docker-for-Mssql/" title="Docker for Mssql">Docker for Mssql</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2021-11-28T14:31:43.000Z" title="Created 2021-11-28 22:31:43">2021-11-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Mssql/">Mssql</a></span></div><div class="content">Docker for SqlServer
+下载镜像需要大概2G的空间
+1docker pull mcr.microsoft.com/mssql/server:2017-latest
+
+或者阿里云的
+1docker pull registry.cn-hangzhou.aliyuncs.com/newbe36524/server:2019-latest
+
+创建映射目录1D:\docker\SqlServer\data
+
+运行1docker run -e &quot;ACCEPT_EULA=Y&quot; -e &quot;SA_PASSWORD=MyMMSQL1433...&quot;  -p 1433:1433 -v D:\docker\SqlServer\data:/var/opt/mssql/data --name mssql -d mcr.microsoft.com/mssql/server:2017-latest
+
+注意：
+参数中必须用双引号，否则:
+12345The SQL Server End-User License Agreement (EULA) must be acc ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2021/11/28/Docker-for-Oracle-11g/" title="Docker for Oracle_11g"><img class="post_bg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Docker for Oracle_11g"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/11/28/Docker-for-Oracle-11g/" title="Docker for Oracle_11g">Docker for Oracle_11g</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2021-11-28T14:16:52.000Z" title="Created 2021-11-28 22:16:52">2021-11-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Oracle/">Oracle</a></span></div><div class="content">Docker下安装oracle_11g拉取1docker pull registry.cn-hangzhou.aliyuncs.com/helowin/oracle_11g
 
 
 
-  
+重命名123docker tag &lt;imageid&gt; 重命名docker rmi &lt;之前的名&gt;
 
 
 
-
-
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
-
+Run1docker run -d -p 1521:1521 -v /home/oracle/app/oracle/oradata:/usr/local/docker/oracle --name oracle11 aliyunoracle_11g
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var title = document.getElementById('subtitle').title;
-      
-      typing(title)
-      
-    })(window, document);
-  </script>
+进入容器1docker exec -it oracle11 bash
 
 
 
+切换 Root12su root #输入密码：helowin
 
 
 
+环境变量12345678vi /etc/profile export ORACLE_HOME=/home/oracle/app/oracle/product/11.2.0/dbhome_2export ORACLE_SID=helowinexport PATH=$ORACLE_HOME/bin: ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2021/11/26/T4%E6%A8%A1%E6%9D%BF%E5%BA%94%E7%94%A8/" title="T4模板应用"><img class="post_bg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="T4模板应用"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/11/26/T4%E6%A8%A1%E6%9D%BF%E5%BA%94%E7%94%A8/" title="T4模板应用">T4模板应用</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2021-11-26T07:50:06.000Z" title="Created 2021-11-26 15:50:06">2021-11-26</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/C/">C#</a></span></div><div class="content">T4模板应用（一）之前在搭建系统框架的过程中用到的功能点，功效就是模板的功能。
+个人是用T4模板批量生产到系统中的CRUD中，现在记录一下，不记录具体基础语法，只记录大概过程。
+前提ModelAuto.ttinclude123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116117118119120121122123124125126&lt;#@ assembly name=&quot;System.Core&quot;#&gt;&lt;#@ assembly name=&quot;EnvDTE&quot;#&gt;&lt;#@ import namespace=&qu ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2021/11/19/Git_Cmd/" title="Git 常用命令及坑记录"><img class="post_bg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Git 常用命令及坑记录"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/11/19/Git_Cmd/" title="Git 常用命令及坑记录">Git 常用命令及坑记录</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2021-11-19T06:25:09.000Z" title="Created 2021-11-19 14:25:09">2021-11-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/StorageBox/">StorageBox</a></span></div><div class="content">配置用户名及邮箱git config可以配置git的参数，可以使用git config --list查看已经配置的git参数。
+其中有三个级别的保存位置，--system、--global、--local，分别
 
+表示所有用户（本系统）
+当前用户（全局）
+本地配置（当前目录）
 
+默认使用--local
+12git config --global user.name &quot;houshuai&quot; git config --global user.email &quot;houshuai@bjgoodwill.com&quot;
 
+获取远程仓库1git clone git@git.com
 
+生成SSH秘钥1ssh-keygen -t rsa -C &quot;hou3125378@live.com&quot;
 
+常见问题没有生成SSHkey或者找不到对应的 SSHkey1234Permission denied(publickey).fatal: Could not read from remote repository.Please make sure you have th ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2021/11/19/Hexo_Cmd/" title="Hexo"><img class="post_bg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/11/19/Hexo_Cmd/" title="Hexo">Hexo</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2021-11-19T06:25:09.000Z" title="Created 2021-11-19 14:25:09">2021-11-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/StorageBox/">StorageBox</a></span></div><div class="content">文档 | Hexo
+Hexo Fluid 用户手册 (fluid-dev.com)
+安装cnpm1npm install -g cnpm --registry=https://registry.npm.taobao.org
 
+安装 hexo-cli123cnpm install -g hexo-clicnpm install hexo --save
 
+查看hexo版本1hexo -v
 
-  
-<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/caidai.js"></script>
-<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/dianjichuzi.js"></script>
-<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/timeDate.js"></script>
+hexo初始化1hexo init
 
+安装套件1cnpm install
 
+hexo安装git组件1npm install hexo-deployer-git --save
 
-<!-- 主题的启动项 保持在最底部 -->
-<script  src="/js/boot.js" ></script>
-
-
-</body>
-</html>
+错误
+Please make sure you have the correct access rights
+and the repository exists.
+FATAL &#123;
+  err: Error: Spawn failed
+      at ChildProcess.&lt;anonymous&gt; (E:\Hexo_New\node_modules\_hexo-util@2.6.0@hexo-util\li ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/2/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/#content-inner">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/#content-inner">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/#content-inner">6</a><a class="extend next" rel="next" href="/page/4/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Harris</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">51</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">37</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">14</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/05/09/wireshark-%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/" title="Wireshark-三次握手四次挥手"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Wireshark-三次握手四次挥手"/></a><div class="content"><a class="title" href="/2022/05/09/wireshark-%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/" title="Wireshark-三次握手四次挥手">Wireshark-三次握手四次挥手</a><time datetime="2022-05-09T08:27:02.000Z" title="Created 2022-05-09 16:27:02">2022-05-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/05/07/%E9%9D%A2%E8%AF%95%E9%A2%98/" title="面试题"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="面试题"/></a><div class="content"><a class="title" href="/2022/05/07/%E9%9D%A2%E8%AF%95%E9%A2%98/" title="面试题">面试题</a><time datetime="2022-05-07T13:57:08.000Z" title="Created 2022-05-07 21:57:08">2022-05-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/05/06/CSharp-%E5%85%B3%E9%94%AE%E5%AD%97/" title="CSharp-关键字"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CSharp-关键字"/></a><div class="content"><a class="title" href="/2022/05/06/CSharp-%E5%85%B3%E9%94%AE%E5%AD%97/" title="CSharp-关键字">CSharp-关键字</a><time datetime="2022-05-06T01:17:14.000Z" title="Created 2022-05-06 09:17:14">2022-05-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/05/05/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/" title="设计模式-代理模式"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="设计模式-代理模式"/></a><div class="content"><a class="title" href="/2022/05/05/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/" title="设计模式-代理模式">设计模式-代理模式</a><time datetime="2022-05-05T09:38:11.000Z" title="Created 2022-05-05 17:38:11">2022-05-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/05/05/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F/" title="设计模式-享元模式"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="设计模式-享元模式"/></a><div class="content"><a class="title" href="/2022/05/05/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F/" title="设计模式-享元模式">设计模式-享元模式</a><time datetime="2022-05-05T07:45:16.000Z" title="Created 2022-05-05 15:45:16">2022-05-05</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>Categories</span>
+            <a class="card-more-btn" href="/categories/" title="More">
+    <i class="fas fa-angle-right"></i></a>
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/C/"><span class="card-category-list-name">C#</span><span class="card-category-list-count">25</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Golang/"><span class="card-category-list-name">Golang</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Linux/"><span class="card-category-list-name">Linux</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/MicroService/"><span class="card-category-list-name">MicroService</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/MongoDB/"><span class="card-category-list-name">MongoDB</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Mssql/"><span class="card-category-list-name">Mssql</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Mysql/"><span class="card-category-list-name">Mysql</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Nginx/"><span class="card-category-list-name">Nginx</span><span class="card-category-list-count">3</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/net-core/" style="font-size: 1.39em; color: #99a4b4">.net core</a> <a href="/tags/Api/" style="font-size: 1.1em; color: #999">Api</a> <a href="/tags/Base/" style="font-size: 1.16em; color: #999b9e">Base</a> <a href="/tags/CentOS7/" style="font-size: 1.1em; color: #999">CentOS7</a> <a href="/tags/DevExpress/" style="font-size: 1.33em; color: #99a2af">DevExpress</a> <a href="/tags/Docke/" style="font-size: 1.1em; color: #999">Docke</a> <a href="/tags/Docker/" style="font-size: 1.5em; color: #99a9bf">Docker</a> <a href="/tags/Git/" style="font-size: 1.1em; color: #999">Git</a> <a href="/tags/GitLab/" style="font-size: 1.1em; color: #999">GitLab</a> <a href="/tags/Go/" style="font-size: 1.1em; color: #999">Go</a> <a href="/tags/Helper/" style="font-size: 1.16em; color: #999b9e">Helper</a> <a href="/tags/Hexo/" style="font-size: 1.1em; color: #999">Hexo</a> <a href="/tags/IOC/" style="font-size: 1.1em; color: #999">IOC</a> <a href="/tags/Interview/" style="font-size: 1.1em; color: #999">Interview</a> <a href="/tags/JWT/" style="font-size: 1.1em; color: #999">JWT</a> <a href="/tags/Linq/" style="font-size: 1.16em; color: #999b9e">Linq</a> <a href="/tags/Linux/" style="font-size: 1.16em; color: #999b9e">Linux</a> <a href="/tags/MSSQL/" style="font-size: 1.1em; color: #999">MSSQL</a> <a href="/tags/MicroService/" style="font-size: 1.1em; color: #999">MicroService</a> <a href="/tags/MongoDB/" style="font-size: 1.1em; color: #999">MongoDB</a> <a href="/tags/Mysql/" style="font-size: 1.1em; color: #999">Mysql</a> <a href="/tags/Nginx/" style="font-size: 1.21em; color: #999ea4">Nginx</a> <a href="/tags/Oracle/" style="font-size: 1.21em; color: #999ea4">Oracle</a> <a href="/tags/Program/" style="font-size: 1.27em; color: #99a0a9">Program</a> <a href="/tags/T4/" style="font-size: 1.1em; color: #999">T4</a> <a href="/tags/URL/" style="font-size: 1.1em; color: #999">URL</a> <a href="/tags/Ubuntu/" style="font-size: 1.1em; color: #999">Ubuntu</a> <a href="/tags/Xshell/" style="font-size: 1.1em; color: #999">Xshell</a> <a href="/tags/jenkins/" style="font-size: 1.1em; color: #999">jenkins</a> <a href="/tags/multipass/" style="font-size: 1.1em; color: #999">multipass</a> <a href="/tags/ubuntu/" style="font-size: 1.1em; color: #999">ubuntu</a> <a href="/tags/winform/" style="font-size: 1.33em; color: #99a2af">winform</a> <a href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7/" style="font-size: 1.1em; color: #999">公众号</a> <a href="/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" style="font-size: 1.1em; color: #999">内网穿透</a> <a href="/tags/%E6%8A%93%E5%8C%85/" style="font-size: 1.1em; color: #999">抓包</a> <a href="/tags/%E7%AE%97%E6%B3%95%E9%A2%98/" style="font-size: 1.1em; color: #999">算法题</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 1.44em; color: #99a7ba">设计模式</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/05/"><span class="card-archive-list-date">May 2022</span><span class="card-archive-list-count">12</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/04/"><span class="card-archive-list-date">April 2022</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/03/"><span class="card-archive-list-date">March 2022</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/02/"><span class="card-archive-list-date">February 2022</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/01/"><span class="card-archive-list-date">January 2022</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/12/"><span class="card-archive-list-date">December 2021</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/11/"><span class="card-archive-list-date">November 2021</span><span class="card-archive-list-count">18</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/10/"><span class="card-archive-list-date">October 2021</span><span class="card-archive-list-count">9</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">51</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2022-05-18T09:54:17.697Z"></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Harris</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

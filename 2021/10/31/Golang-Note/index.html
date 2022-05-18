@@ -1,332 +1,156 @@
-
-
-<!DOCTYPE html>
-<html lang="en" data-default-color-scheme=auto>
-
-
-
-<head>
-  <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.png">
-  <link rel="icon" href="/img/avatar.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  
-  <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="本文记录Golang环境配置和一点基础知识。">
-  <meta name="author" content="Harris">
-  <meta name="keywords" content="">
-  <meta name="description" content="本文记录Golang环境配置和一点基础知识。">
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Golang Note | Harris Blog</title><meta name="keywords" content="Go"><meta name="author" content="Harris"><meta name="copyright" content="Harris"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="本文记录Golang环境配置和一点基础知识。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Golang Note">
 <meta property="og:url" content="http://example.com/2021/10/31/Golang-Note/index.html">
 <meta property="og:site_name" content="Harris Blog">
 <meta property="og:description" content="本文记录Golang环境配置和一点基础知识。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210502222044326.png">
-<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/20210519002835.png">
-<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/20210519003137.png">
-<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210505225640086.png">
-<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/20210515232851.png">
-<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210514230715956.png">
-<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/20210519220142.png">
-<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210514224453702.png">
-<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/20210515195143.png">
-<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/20210517214916.png">
-<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/20210517214945.png">
-<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/20210517215011.png">
-<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/20210517220631.png">
-<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/20210517230842.png">
-<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210514224544469.png">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
 <meta property="article:published_time" content="2021-10-31T11:47:01.000Z">
 <meta property="article:modified_time" content="2022-03-31T01:47:44.871Z">
 <meta property="article:author" content="Harris">
 <meta property="article:tag" content="Go">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210502222044326.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2021/10/31/Golang-Note/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Golang Note',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-03-31 09:47:44'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
   
-  <title>Golang Note - Harris Blog</title>
-
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
-
-
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
-  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
-
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
   
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
     
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
     
-      
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
-    
-  
-
-  
-    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
-  
-
-
-<!-- 主题依赖的图标库，不要自行修改 -->
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
-
-
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
-
-
-<link  rel="stylesheet" href="/css/main.css" />
-
-<!-- 自定义样式保持在最底部 -->
-
-  
-<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/shubiao.css">
-<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/gundongtiao.css">
-<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/toubudaziji.css">
-
-
-
-  <script id="fluid-configs">
-    var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
-  </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 6.1.0"><link rel="alternate" href="/atom.xml" title="Harris Blog" type="application/atom+xml">
-</head>
-
-
-<body>
-  <header style="height: 60vh;">
-    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-  <div class="container">
-    <a class="navbar-brand" href="/">
-      <strong>道吾</strong>
-    </a>
-
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
-
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto text-center">
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/">
-                <i class="iconfont icon-home-fill"></i>
-                主页
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/archives/">
-                <i class="iconfont icon-archive-fill"></i>
-                归档
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/">
-                <i class="iconfont icon-category-fill"></i>
-                类别
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/">
-                <i class="iconfont icon-tags-fill"></i>
-                标签
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/">
-                <i class="iconfont icon-user-fill"></i>
-                关于
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
-                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="iconfont icon-books"></i>
-                文档
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/">
-                    
-                    主题博客
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/guide/">
-                    
-                    配置指南
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/icon/">
-                    
-                    图标用法
-                  </a>
-                
-              </div>
-            </li>
-          
-        
-        
-          <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
-            </a>
-          </li>
-        
-        
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
-                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-</nav>
-
-    <div class="banner" id="banner" parallax=true
-         style="background: url('https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/4.png') no-repeat center center;
-           background-size: cover;">
-      <div class="full-bg-img">
-        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Golang Note">
-              
-            </span>
-
-            
-              <div class="mt-3">
-  
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-author" aria-hidden="true"></i>
-      Harris
-    </span>
-  
-  
-    <span class="post-meta">
-      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-10-31 19:47" pubdate>
-        October 31, 2021 pm
-      </time>
-    </span>
-  
-</div>
-
-<div class="mt-1">
-  
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-chart"></i>
-      9.2k 字
-    </span>
-  
-
-  
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-clock-fill"></i>
-      
-      
-      29 分钟
-    </span>
-  
-
-  
-  
-    
-      <!-- 不蒜子统计文章PV -->
-      <span id="busuanzi_container_page_pv" style="display: none">
-        <i class="iconfont icon-eye" aria-hidden="true"></i>
-        <span id="busuanzi_value_page_pv"></span> 次
-      </span>
-    
-  
-</div>
-
-            
-          </div>
-
-          
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    
-      
-
-<div class="container-fluid nopadding-x">
-  <div class="row nomargin-x">
-    <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-x-md">
-      <div class="container nopadding-x-md" id="board-ctn">
-        <div class="py-5" id="board">
-          <article class="post-content mx-auto">
-            <!-- SEO header -->
-            <h1 style="display: none">Golang Note</h1>
-            
-              <p class="note note-info">
-                
-                  本文最后更新于：a month ago
-                
-              </p>
-            
-            <div class="markdown-body">
-              <h2 id="环境部署"><a href="#环境部署" class="headerlink" title="环境部署"></a>环境部署</h2><p><a target="_blank" rel="noopener" href="http://c.biancheng.net/golang/">Go语言入门教程，Golang入门教程（非常详细） (biancheng.net)</a></p>
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.1.0"><link rel="alternate" href="/atom.xml" title="Harris Blog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">51</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">37</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">14</div></a></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Harris Blog</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Golang Note</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2021-10-31T11:47:01.000Z" title="Created 2021-10-31 19:47:01">2021-10-31</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-03-31T01:47:44.871Z" title="Updated 2022-03-31 09:47:44">2022-03-31</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Golang/">Golang</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Golang Note"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="环境部署"><a href="#环境部署" class="headerlink" title="环境部署"></a>环境部署</h2><p><a target="_blank" rel="noopener" href="http://c.biancheng.net/golang/">Go语言入门教程，Golang入门教程（非常详细） (biancheng.net)</a></p>
 <h3 id="Go编译器"><a href="#Go编译器" class="headerlink" title="Go编译器"></a><code>Go</code>编译器</h3><p><a target="_blank" rel="noopener" href="https://golang.google.cn/dl/">Downloads - Go</a></p>
 <p>安装位置：</p>
 <p><code>C:\Program Files\Go</code></p>
-<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210502222044326.png" srcset="/img/loading.gif" lazyload alt="image-20210502222044326"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210502222044326.png" alt="image-20210502222044326"></p>
 <h3 id="其他配置"><a href="#其他配置" class="headerlink" title="其他配置"></a>其他配置</h3><ul>
 <li><p>创建一个任意的目录 <code>GolangProjects</code>,目录结构如下</p>
-<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli">GolangProjects<br><br><span class="hljs-params">--bin</span><br><br><span class="hljs-params">---</span> crm.exe <span class="hljs-string">//</span>主程序入口文件<br><br><span class="hljs-params">--pkg</span><br><br><span class="hljs-params">---</span> commlib.A <span class="hljs-string">//</span>包文件<br><br><span class="hljs-params">--src</span><br></code></pre></td></tr></table></figure></li>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">GolangProjects</span><br><span class="line"></span><br><span class="line">--bin</span><br><span class="line"></span><br><span class="line">--- crm.exe //主程序入口文件</span><br><span class="line"></span><br><span class="line">--pkg</span><br><span class="line"></span><br><span class="line">--- commlib.A //包文件</span><br><span class="line"></span><br><span class="line">--src</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h3 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h3><ul>
 <li>添加环境变量 <code>GOROOT</code> : <code>C:\Program Files\Go</code>   <em>Go 编译器的安装目录</em></li>
@@ -338,22 +162,22 @@
 </li>
 <li><p>github英文：<a target="_blank" rel="noopener" href="https://github.com/golang/tools.git">https://github.com/golang/tools.git</a></p>
 <p>上述俩 GitHub 地址没有通天的手段基本上是整不下来的，这个时候 <code>码云</code>可以出来了</p>
-<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/20210519002835.png" srcset="/img/loading.gif" lazyload alt="image-20210519002803186"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/20210519002835.png" alt="image-20210519002803186"></p>
 <p>把上述的那俩git地址都挪到码云里，这个方便本地clone</p>
-<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/20210519003137.png" srcset="/img/loading.gif" lazyload alt="image-20210519003137754"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/20210519003137.png" alt="image-20210519003137754"></p>
 </li>
 </ul>
 <h4 id="Clone-无需多言"><a href="#Clone-无需多言" class="headerlink" title="Clone 无需多言"></a>Clone 无需多言</h4><p>推荐使用：SourceTree ,主要界面看着挺爽</p>
 <h4 id="怎么摆放"><a href="#怎么摆放" class="headerlink" title="怎么摆放"></a>怎么摆放</h4><p>在本地<code>go_path</code> 目录下新建文件夹，如下结构</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs go">-- <span class="hljs-keyword">go</span> path<br>--- bin<br>--- pkg<br>--- src<br>---- github.com<br>------ Go-zh<br>------- tools <span class="hljs-comment">//https://github.com/Go-zh/tools.git</span><br>---- golang.org<br>----- x<br>------ mod <span class="hljs-comment">//https://github.com/golang/mod.git</span><br>------ sys <span class="hljs-comment">//https://github.com/golang/sys.git</span><br>------ tools <span class="hljs-comment">//https://github.com/golang/tools.git</span><br>------ xerrors <span class="hljs-comment">//https://github.com/golang/xerrors.git</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">-- <span class="keyword">go</span> path</span><br><span class="line">--- bin</span><br><span class="line">--- pkg</span><br><span class="line">--- src</span><br><span class="line">---- github.com</span><br><span class="line">------ Go-zh</span><br><span class="line">------- tools <span class="comment">//https://github.com/Go-zh/tools.git</span></span><br><span class="line">---- golang.org</span><br><span class="line">----- x</span><br><span class="line">------ mod <span class="comment">//https://github.com/golang/mod.git</span></span><br><span class="line">------ sys <span class="comment">//https://github.com/golang/sys.git</span></span><br><span class="line">------ tools <span class="comment">//https://github.com/golang/tools.git</span></span><br><span class="line">------ xerrors <span class="comment">//https://github.com/golang/xerrors.git</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="安装命令"><a href="#安装命令" class="headerlink" title="安装命令"></a>安装命令</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs go">打开 <span class="hljs-keyword">go</span>-path 目录的下的src 目录，地址栏里输入 cmd ，启动终端，输入如下命令：<br><br><span class="hljs-number">1.</span> <span class="hljs-keyword">go</span> install golang.org/x/tools/cmd/guru<br><span class="hljs-number">2.</span> <span class="hljs-keyword">go</span> install golang.org/x/tools/cmd/gorename<br><span class="hljs-number">3.</span> <span class="hljs-keyword">go</span> install golang.org/x/tools/cmd/fiximports<br><span class="hljs-number">4.</span> <span class="hljs-keyword">go</span> install golang.org/x/tools/cmd/gopls <br><span class="hljs-number">5.</span> <span class="hljs-keyword">go</span> install golang.org/x/tools/cmd/godex<br></code></pre></td></tr></table></figure>
+<h4 id="安装命令"><a href="#安装命令" class="headerlink" title="安装命令"></a>安装命令</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">打开 <span class="keyword">go</span>-path 目录的下的src 目录，地址栏里输入 cmd ，启动终端，输入如下命令：</span><br><span class="line"></span><br><span class="line"><span class="number">1.</span> <span class="keyword">go</span> install golang.org/x/tools/cmd/guru</span><br><span class="line"><span class="number">2.</span> <span class="keyword">go</span> install golang.org/x/tools/cmd/gorename</span><br><span class="line"><span class="number">3.</span> <span class="keyword">go</span> install golang.org/x/tools/cmd/fiximports</span><br><span class="line"><span class="number">4.</span> <span class="keyword">go</span> install golang.org/x/tools/cmd/gopls </span><br><span class="line"><span class="number">5.</span> <span class="keyword">go</span> install golang.org/x/tools/cmd/godex</span><br></pre></td></tr></table></figure>
 
 <p>注意：</p>
 <p>我个人在第4点出错了，原因是因为英文官方的tools中按照位置找过去没有gopls；</p>
 <p>百度过后才下载的中文社区的，由此才看到前面的目录结构。</p>
 <p>所以到这要安装<code>gopls</code>,执行如下命令：</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">go</span> install github.com/Go-zh/tools/cmd/gopls<br></code></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">go</span> install github.com/Go-zh/tools/cmd/gopls</span><br></pre></td></tr></table></figure>
 
 <h4 id="vscode运行代码"><a href="#vscode运行代码" class="headerlink" title="vscode运行代码"></a><code>vscode</code>运行代码</h4><ul>
 <li><p>一般姿势：</p>
@@ -367,11 +191,11 @@
 <p>-<code>src</code></p>
 <p>–<code>crm</code></p>
 <p>—<code>app.go</code></p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs go">-- app.<span class="hljs-keyword">go</span><br><br><span class="hljs-keyword">package</span>  main<br><br><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;fmt&quot;</span><br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>  &#123;<br>	fmt.Printf(<span class="hljs-string">&quot;Hello Go~ 叫爸爸~&quot;</span>)<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">-- app.<span class="keyword">go</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">package</span>  main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>  &#123;</span><br><span class="line">	fmt.Printf(<span class="string">&quot;Hello Go~ 叫爸爸~&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>–<code>commlib</code></p>
 <p>—<code>page</code></p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> commlib<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">Add</span><span class="hljs-params">(i <span class="hljs-type">int</span> ,j <span class="hljs-type">int</span>)</span></span><span class="hljs-type">int</span> &#123;<br>	<span class="hljs-keyword">return</span> i+j<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> commlib</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Add</span><span class="params">(i <span class="type">int</span> ,j <span class="type">int</span>)</span></span><span class="type">int</span> &#123;</span><br><span class="line">	<span class="keyword">return</span> i+j</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 <p>运行有三种方式：</p>
@@ -392,9 +216,9 @@
 <li>非<code>main</code>包</li>
 </ul>
 <h3 id="调用包"><a href="#调用包" class="headerlink" title="调用包"></a>调用包</h3><p>调用包文件内的方法：</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span>  main<br><br><span class="hljs-keyword">import</span> (<br>	<span class="hljs-string">&quot;commlib&quot;</span> <span class="hljs-comment">//这里会引入包</span><br>	<span class="hljs-string">&quot;fmt&quot;</span><br>	<span class="hljs-string">&quot;strconv&quot;</span> <span class="hljs-comment">//引入包</span><br>)<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>  &#123;<br>    <span class="hljs-comment">//println 自带输出换行</span><br>	fmt.Println(<span class="hljs-string">&quot;Hello Go~ &quot;</span>)<br>	<span class="hljs-comment">//调用</span><br>	<span class="hljs-keyword">var</span> num <span class="hljs-type">int</span> = commlib.Add(<span class="hljs-number">1</span>,<span class="hljs-number">6</span>)<br>    <span class="hljs-comment">//strconv.itba()方法，int 转 string</span><br>	fmt.Println(strconv.Itoa(num))<br><br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span>  main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">&quot;commlib&quot;</span> <span class="comment">//这里会引入包</span></span><br><span class="line">	<span class="string">&quot;fmt&quot;</span></span><br><span class="line">	<span class="string">&quot;strconv&quot;</span> <span class="comment">//引入包</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>  &#123;</span><br><span class="line">    <span class="comment">//println 自带输出换行</span></span><br><span class="line">	fmt.Println(<span class="string">&quot;Hello Go~ &quot;</span>)</span><br><span class="line">	<span class="comment">//调用</span></span><br><span class="line">	<span class="keyword">var</span> num <span class="type">int</span> = commlib.Add(<span class="number">1</span>,<span class="number">6</span>)</span><br><span class="line">    <span class="comment">//strconv.itba()方法，int 转 string</span></span><br><span class="line">	fmt.Println(strconv.Itoa(num))</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> commlib<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">Add</span><span class="hljs-params">(i <span class="hljs-type">int</span> ,j <span class="hljs-type">int</span>)</span></span><span class="hljs-type">int</span> &#123;<br>	<span class="hljs-keyword">return</span> i+j<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> commlib</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Add</span><span class="params">(i <span class="type">int</span> ,j <span class="type">int</span>)</span></span><span class="type">int</span> &#123;</span><br><span class="line">	<span class="keyword">return</span> i+j</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="包定义规范"><a href="#包定义规范" class="headerlink" title="包定义规范"></a>包定义规范</h3><ul>
 <li>定义包文件之后，包内的函数首字母必须得大写</li>
@@ -404,7 +228,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="截图"><a href="#截图" class="headerlink" title="截图"></a>截图</h3><p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210505225640086.png" srcset="/img/loading.gif" lazyload alt="image-20210505225640086"></p>
+<h3 id="截图"><a href="#截图" class="headerlink" title="截图"></a>截图</h3><p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210505225640086.png" alt="image-20210505225640086"></p>
 <h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h2><h3 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h3><p>在终端输出前置语言例如：请输入账户名或者密码等等…</p>
 <ul>
 <li>内置函数<ul>
@@ -458,70 +282,70 @@
 <li><p><strong>变量的作用域</strong> </p>
 <ul>
 <li><p>全局变量：没有写在函数内的变量，称之为全局变量，个人理解。</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">var</span> name <span class="hljs-type">string</span> = <span class="hljs-string">&quot;Harris&quot;</span><br><span class="hljs-keyword">var</span> name = <span class="hljs-string">&quot;Harris&quot;</span><br><span class="hljs-keyword">var</span> &#123;<br>    v1 = <span class="hljs-string">&quot;a&quot;</span><br>    v2 = <span class="hljs-string">&quot;b&quot;</span><br>    v3 = <span class="hljs-number">18</span><br>    v4 <span class="hljs-type">int</span><br>&#125;<br>name := <span class="hljs-string">&quot;Harris&quot;</span> <span class="hljs-comment">//这种不行滴</span><br></code></pre></td></tr></table></figure></li>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name <span class="type">string</span> = <span class="string">&quot;Harris&quot;</span></span><br><span class="line"><span class="keyword">var</span> name = <span class="string">&quot;Harris&quot;</span></span><br><span class="line"><span class="keyword">var</span> &#123;</span><br><span class="line">    v1 = <span class="string">&quot;a&quot;</span></span><br><span class="line">    v2 = <span class="string">&quot;b&quot;</span></span><br><span class="line">    v3 = <span class="number">18</span></span><br><span class="line">    v4 <span class="type">int</span></span><br><span class="line">&#125;</span><br><span class="line">name := <span class="string">&quot;Harris&quot;</span> <span class="comment">//这种不行滴</span></span><br></pre></td></tr></table></figure></li>
 <li><p>局部变量：函数内的变量 <em>局部就和C#差不多了</em></p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-keyword">var</span> name <span class="hljs-type">string</span> = <span class="hljs-string">&quot;Harris&quot;</span>   <br>    name := <span class="hljs-string">&quot;Harris&quot;</span>    <br>    <span class="hljs-keyword">var</span> name = <span class="hljs-string">&quot;Harris&quot;</span>    <br>    <span class="hljs-keyword">var</span>&#123;<br>        name = <span class="hljs-string">&quot;Harris&quot;</span><br>        age = <span class="hljs-number">18</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> name <span class="type">string</span> = <span class="string">&quot;Harris&quot;</span>   </span><br><span class="line">    name := <span class="string">&quot;Harris&quot;</span>    </span><br><span class="line">    <span class="keyword">var</span> name = <span class="string">&quot;Harris&quot;</span>    </span><br><span class="line">    <span class="keyword">var</span>&#123;</span><br><span class="line">        name = <span class="string">&quot;Harris&quot;</span></span><br><span class="line">        age = <span class="number">18</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li><p>多变量赋值时，先计算所有相关值，然后再从左到右依次赋值</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs go">data, i := [<span class="hljs-number">3</span>]<span class="hljs-type">int</span>&#123;<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>&#125;, <span class="hljs-number">0</span><br>i, data[i] = <span class="hljs-number">2</span>, <span class="hljs-number">100</span> <span class="hljs-comment">// (i = 0) -&gt; (i = 2), (data[0] = 100)</span><br>fmt.Println(i,data)<br><span class="hljs-comment">//结果：2 [100 1 2]</span><br></code></pre></td></tr></table></figure></li>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">data, i := [<span class="number">3</span>]<span class="type">int</span>&#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>&#125;, <span class="number">0</span></span><br><span class="line">i, data[i] = <span class="number">2</span>, <span class="number">100</span> <span class="comment">// (i = 0) -&gt; (i = 2), (data[0] = 100)</span></span><br><span class="line">fmt.Println(i,data)</span><br><span class="line"><span class="comment">//结果：2 [100 1 2]</span></span><br></pre></td></tr></table></figure></li>
 <li><p>特殊只写变量 “_”，⽤于忽略值占位</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">test</span><span class="hljs-params">()</span></span> (<span class="hljs-type">int</span>, <span class="hljs-type">string</span>) &#123;<br> 	<span class="hljs-keyword">return</span> <span class="hljs-number">1</span>, <span class="hljs-string">&quot;abc&quot;</span><br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;<br>     _, s := test()<br>     fmt.Println(s)<br>    <span class="hljs-comment">//结果：abc</span><br>&#125;<br></code></pre></td></tr></table></figure></li>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">test</span><span class="params">()</span></span> (<span class="type">int</span>, <span class="type">string</span>) &#123;</span><br><span class="line"> 	<span class="keyword">return</span> <span class="number">1</span>, <span class="string">&quot;abc&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">     _, s := test()</span><br><span class="line">     fmt.Println(s)</span><br><span class="line">    <span class="comment">//结果：abc</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li><p>编译器会将未使⽤的局部变量当做错误</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;<br> 	i := <span class="hljs-number">0</span> <span class="hljs-comment">// Error: i declared and not used。(可使⽤ &quot;_ = i&quot; 规避)</span><br>&#125;<br></code></pre></td></tr></table></figure></li>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line"> 	i := <span class="number">0</span> <span class="comment">// Error: i declared and not used。(可使⽤ &quot;_ = i&quot; 规避)</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
 </ul>
 <h3 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h3><ul>
 <li><p>常量值必须是编译期间固定的数字、字符串、布尔值</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">const</span> x,y <span class="hljs-type">int</span> = <span class="hljs-number">1</span>,<span class="hljs-number">2</span>     <span class="hljs-comment">//多常量初始化</span><br><br><span class="hljs-keyword">const</span> z = <span class="hljs-string">&quot;Hello World&quot;</span> <span class="hljs-comment">//类型推断</span><br><br><span class="hljs-keyword">const</span>&#123;<br>    a,b = <span class="hljs-number">1</span>,<span class="hljs-number">2</span><br>    c <span class="hljs-type">bool</span> = <span class="hljs-literal">true</span><br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-keyword">const</span> x = <span class="hljs-string">&quot;xxxx&quot;</span> <span class="hljs-comment">//这个时候如果没有使用上述已经定义好的常量，不会报错</span><br>&#125;<br></code></pre></td></tr></table></figure></li>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> x,y <span class="type">int</span> = <span class="number">1</span>,<span class="number">2</span>     <span class="comment">//多常量初始化</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> z = <span class="string">&quot;Hello World&quot;</span> <span class="comment">//类型推断</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span>&#123;</span><br><span class="line">    a,b = <span class="number">1</span>,<span class="number">2</span></span><br><span class="line">    c <span class="type">bool</span> = <span class="literal">true</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">const</span> x = <span class="string">&quot;xxxx&quot;</span> <span class="comment">//这个时候如果没有使用上述已经定义好的常量，不会报错</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li><p>常量可以使用在编译期间确定的函数</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">const</span> a,b <span class="hljs-type">int</span> =<span class="hljs-number">1</span>,<span class="hljs-number">2</span><br><br><span class="hljs-keyword">const</span> c = <span class="hljs-string">&quot;abc&quot;</span><br><br><span class="hljs-keyword">const</span> x = <span class="hljs-built_in">len</span>(c)<br><br><span class="hljs-keyword">const</span> y = unsafe.Sizeof(x) <span class="hljs-comment">//这个方法是用来计算字节的，64为系统中，字符串和整形的字节一个都是8</span><br><br>fmt.Println(a)<br><br>fmt.Println(b)<br><br>fmt.Println(c)<br><br>fmt.Println(x)<br><br>fmt.Println(y)<br><br><span class="hljs-comment">//结果：</span><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">1</span><br><span class="hljs-comment">2</span><br><span class="hljs-comment">abc</span><br><span class="hljs-comment">3</span><br><span class="hljs-comment">8*/</span><br></code></pre></td></tr></table></figure></li>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a,b <span class="type">int</span> =<span class="number">1</span>,<span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> c = <span class="string">&quot;abc&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> x = <span class="built_in">len</span>(c)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> y = unsafe.Sizeof(x) <span class="comment">//这个方法是用来计算字节的，64为系统中，字符串和整形的字节一个都是8</span></span><br><span class="line"></span><br><span class="line">fmt.Println(a)</span><br><span class="line"></span><br><span class="line">fmt.Println(b)</span><br><span class="line"></span><br><span class="line">fmt.Println(c)</span><br><span class="line"></span><br><span class="line">fmt.Println(x)</span><br><span class="line"></span><br><span class="line">fmt.Println(y)</span><br><span class="line"></span><br><span class="line"><span class="comment">//结果：</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">1</span></span><br><span class="line"><span class="comment">2</span></span><br><span class="line"><span class="comment">abc</span></span><br><span class="line"><span class="comment">3</span></span><br><span class="line"><span class="comment">8*/</span></span><br></pre></td></tr></table></figure></li>
 </ul>
 <h3 id="枚举"><a href="#枚举" class="headerlink" title="枚举"></a>枚举</h3><ul>
 <li><p>关键字 iota 定义常量组中从 0 开始按⾏计数的⾃增枚举值。</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">const</span>(<br>    Sunday = <span class="hljs-literal">iota</span>   <span class="hljs-comment">//0</span><br>    Monday          <span class="hljs-comment">//1,通常省略后面的表达式</span><br>    Tuesday			<span class="hljs-comment">//2</span><br>    Wednesday		<span class="hljs-comment">//3</span><br>    Thursday		<span class="hljs-comment">//4</span><br>    Friday			<span class="hljs-comment">//5</span><br>    Saturday		<span class="hljs-comment">//6</span><br>)<br><span class="hljs-keyword">const</span> (<br>    _ = <span class="hljs-literal">iota</span> <span class="hljs-comment">// iota = 0</span><br>    KB <span class="hljs-type">int64</span> = <span class="hljs-number">1</span> &lt;&lt; (<span class="hljs-number">10</span> * <span class="hljs-literal">iota</span>) <span class="hljs-comment">// iota = 1  &lt;&lt; 是左移运算符</span><br>    MB <span class="hljs-comment">// 与 KB 表达式相同，但 iota = 2</span><br>    GB<br>    TB<br>)<br><br>fmt.Println(KB,MB,GB) <span class="hljs-comment">//1024 1048576 1073741824</span><br></code></pre></td></tr></table></figure></li>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span>(</span><br><span class="line">    Sunday = <span class="literal">iota</span>   <span class="comment">//0</span></span><br><span class="line">    Monday          <span class="comment">//1,通常省略后面的表达式</span></span><br><span class="line">    Tuesday			<span class="comment">//2</span></span><br><span class="line">    Wednesday		<span class="comment">//3</span></span><br><span class="line">    Thursday		<span class="comment">//4</span></span><br><span class="line">    Friday			<span class="comment">//5</span></span><br><span class="line">    Saturday		<span class="comment">//6</span></span><br><span class="line">)</span><br><span class="line"><span class="keyword">const</span> (</span><br><span class="line">    _ = <span class="literal">iota</span> <span class="comment">// iota = 0</span></span><br><span class="line">    KB <span class="type">int64</span> = <span class="number">1</span> &lt;&lt; (<span class="number">10</span> * <span class="literal">iota</span>) <span class="comment">// iota = 1  &lt;&lt; 是左移运算符</span></span><br><span class="line">    MB <span class="comment">// 与 KB 表达式相同，但 iota = 2</span></span><br><span class="line">    GB</span><br><span class="line">    TB</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">fmt.Println(KB,MB,GB) <span class="comment">//1024 1048576 1073741824</span></span><br></pre></td></tr></table></figure></li>
 <li><p>在同⼀常量组中，可以提供多个 iota，它们各⾃增⻓。</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">const</span> (<br>    A, B = <span class="hljs-literal">iota</span>, <span class="hljs-literal">iota</span> &lt;&lt; <span class="hljs-number">10</span> <span class="hljs-comment">// 0, 0 &lt;&lt; 10</span><br>    C, D <span class="hljs-comment">// 1, 1 &lt;&lt; 10</span><br>)<br><br>fmt.Println(A,B,C,D) <span class="hljs-comment">//0 0 1 1024</span><br></code></pre></td></tr></table></figure></li>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> (</span><br><span class="line">    A, B = <span class="literal">iota</span>, <span class="literal">iota</span> &lt;&lt; <span class="number">10</span> <span class="comment">// 0, 0 &lt;&lt; 10</span></span><br><span class="line">    C, D <span class="comment">// 1, 1 &lt;&lt; 10</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">fmt.Println(A,B,C,D) <span class="comment">//0 0 1 1024</span></span><br></pre></td></tr></table></figure></li>
 <li><p>如果 iota ⾃增被打断，须显式恢复</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">const</span> (<br>    A = <span class="hljs-literal">iota</span> <span class="hljs-comment">// 0</span><br>    B <span class="hljs-comment">// 1</span><br>    C = <span class="hljs-string">&quot;c&quot;</span> <span class="hljs-comment">// c</span><br>    D <span class="hljs-comment">// c，与上⼀⾏相同。</span><br>    E = <span class="hljs-literal">iota</span> <span class="hljs-comment">// 4，显式恢复。注意计数包含了 C、D 两⾏。</span><br>    F <span class="hljs-comment">// 5</span><br>)<br><br>fmt.Println(A,B,C,D,E,F)<span class="hljs-comment">//0 1 c c 4 5</span><br></code></pre></td></tr></table></figure></li>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> (</span><br><span class="line">    A = <span class="literal">iota</span> <span class="comment">// 0</span></span><br><span class="line">    B <span class="comment">// 1</span></span><br><span class="line">    C = <span class="string">&quot;c&quot;</span> <span class="comment">// c</span></span><br><span class="line">    D <span class="comment">// c，与上⼀⾏相同。</span></span><br><span class="line">    E = <span class="literal">iota</span> <span class="comment">// 4，显式恢复。注意计数包含了 C、D 两⾏。</span></span><br><span class="line">    F <span class="comment">// 5</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">fmt.Println(A,B,C,D,E,F)<span class="comment">//0 1 c c 4 5</span></span><br></pre></td></tr></table></figure></li>
 <li><p>可通过⾃定义类型来实现枚举类型限制</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">type</span> Color <span class="hljs-type">int</span><br><br><span class="hljs-keyword">const</span> (<br>     Black Color = <span class="hljs-literal">iota</span><br>     Red<br>     Blue<br>)<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">test</span><span class="hljs-params">(c Color)</span></span>Color &#123;<br>    <span class="hljs-keyword">return</span> c<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;<br>     c := Black<br>     fmt.Println(test(c))     <span class="hljs-comment">// 0</span><br>     x := <span class="hljs-number">1</span><br>     test(x) <span class="hljs-comment">// Error: cannot use x (type int) as type Color in function argument;写的时候就会报错没法转换</span><br>&#125;<br></code></pre></td></tr></table></figure></li>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Color <span class="type">int</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> (</span><br><span class="line">     Black Color = <span class="literal">iota</span></span><br><span class="line">     Red</span><br><span class="line">     Blue</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">test</span><span class="params">(c Color)</span></span>Color &#123;</span><br><span class="line">    <span class="keyword">return</span> c</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">     c := Black</span><br><span class="line">     fmt.Println(test(c))     <span class="comment">// 0</span></span><br><span class="line">     x := <span class="number">1</span></span><br><span class="line">     test(x) <span class="comment">// Error: cannot use x (type int) as type Color in function argument;写的时候就会报错没法转换</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/20210515232851.png" srcset="/img/loading.gif" lazyload alt="image-20210515232851239"></p>
+<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/20210515232851.png" alt="image-20210515232851239"></p>
 <ul>
 <li>空指针值 nil，⽽⾮ C/C++ NULL。</li>
 </ul>
 <h4 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型"></a>引用类型</h4><h5 id="切片-Slice"><a href="#切片-Slice" class="headerlink" title="切片(Slice)"></a>切片(Slice)</h5><p>实现类似动态数组的功能</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> commlib<br><br><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;fmt&quot;</span><br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">SliceTest1</span><span class="hljs-params">()</span></span>  &#123;<br>	x:=<span class="hljs-built_in">make</span>([]<span class="hljs-type">int</span>,<span class="hljs-number">0</span>,<span class="hljs-number">5</span>)<span class="hljs-comment">//声明一个容量为5的切片</span><br><br>	<span class="hljs-keyword">for</span> i:=<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">8</span>;i++ &#123;<br>		x= <span class="hljs-built_in">append</span>(x,i) <span class="hljs-comment">//向切片内追加数据，当超出容量后，自动分配更大的容量空间</span><br>	&#125;<br><br>	fmt.Println(x)<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> commlib</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">SliceTest1</span><span class="params">()</span></span>  &#123;</span><br><span class="line">	x:=<span class="built_in">make</span>([]<span class="type">int</span>,<span class="number">0</span>,<span class="number">5</span>)<span class="comment">//声明一个容量为5的切片</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> i:=<span class="number">0</span>;i&lt;<span class="number">8</span>;i++ &#123;</span><br><span class="line">		x= <span class="built_in">append</span>(x,i) <span class="comment">//向切片内追加数据，当超出容量后，自动分配更大的容量空间</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	fmt.Println(x)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>输出结果：</p>
-<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210514230715956.png" srcset="/img/loading.gif" lazyload alt="image-20210514230715956"></p>
-<h5 id="channel-通道"><a href="#channel-通道" class="headerlink" title="channel 通道"></a>channel 通道</h5><p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/20210519220142.png" srcset="/img/loading.gif" lazyload alt="image-20210519220142304"></p>
-<h3 id="表达式"><a href="#表达式" class="headerlink" title="表达式"></a>表达式</h3><h4 id="常用"><a href="#常用" class="headerlink" title="常用"></a>常用</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> commlib<br><br><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;fmt&quot;</span><br><br><span class="hljs-comment">//ExpressionTest</span><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">ExpressionTest</span><span class="hljs-params">()</span></span>  &#123;<br><br>	<span class="hljs-comment">//if</span><br>	fmt.Println(<span class="hljs-string">&quot;******IF******&quot;</span>)<br>    <br>	x:=<span class="hljs-number">100</span><br>	y:=<span class="hljs-number">6</span><br><br>	<span class="hljs-keyword">if</span> x &gt; <span class="hljs-number">0</span>&#123;<br>		fmt.Println(<span class="hljs-string">&quot;x+&quot;</span>)<br>	&#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> x &lt; <span class="hljs-number">0</span>&#123;<br>		fmt.Println(<span class="hljs-string">&quot;x-&quot;</span>)<br>	&#125;<span class="hljs-keyword">else</span> &#123;<br>		fmt.Println(<span class="hljs-string">&quot;0&quot;</span>)<br>	&#125;<br><br>	<span class="hljs-comment">// swich</span><br>	fmt.Println(<span class="hljs-string">&quot;******swich******&quot;</span>)<br>    <br>	<span class="hljs-keyword">switch</span> &#123;<br>		<span class="hljs-keyword">case</span> x &gt; <span class="hljs-number">0</span>:<br>			fmt.Println(<span class="hljs-string">&quot;100&quot;</span>)<br>		<span class="hljs-keyword">case</span> x&lt;<span class="hljs-number">0</span>:<br>			fmt.Println(<span class="hljs-string">&quot;250&quot;</span>)<br>		<span class="hljs-keyword">default</span>:<br>			fmt.Println(<span class="hljs-string">&quot;俩250&quot;</span>)<br>	&#125;<br><br>	<span class="hljs-comment">// for</span><br>	fmt.Println(<span class="hljs-string">&quot;******for++******&quot;</span>)<br>    <br>	<span class="hljs-keyword">for</span> i:=<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">5</span>;i++ &#123;<br>		fmt.Println(i)<br>	&#125;<br>    <br>	fmt.Println(<span class="hljs-string">&quot;******for--******&quot;</span>)<br>    <br>	<span class="hljs-keyword">for</span> i:=<span class="hljs-number">5</span>;i&gt;<span class="hljs-number">1</span>;i--&#123;<br>		fmt.Println(i)<br>	&#125;<br>    <br>	fmt.Println(<span class="hljs-string">&quot;******相当于while(x&lt;10)******&quot;</span>)<br>	<br>    <span class="hljs-keyword">for</span> y&lt;<span class="hljs-number">10</span>&#123;<br><br>		y++<br><br>		fmt.Println(y)<br>	&#125;<br>	<br>    fmt.Println(<span class="hljs-string">&quot;******相当于while(true)******&quot;</span>)<br>	<br>    <span class="hljs-keyword">for</span>&#123;<br>		fmt.Println(x)<br><br>		x = x<span class="hljs-number">-50</span><br><br>		<span class="hljs-keyword">if</span> x == <span class="hljs-number">0</span> &#123;<br>			<span class="hljs-keyword">break</span><br>		&#125;<br>	&#125;<br>	<br>    fmt.Println(<span class="hljs-string">&quot;******返回索引和值******&quot;</span>)<br>	<br>    arr:=[]<span class="hljs-type">int</span>&#123;<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>&#125;<br><br>	<span class="hljs-keyword">for</span> i,n := <span class="hljs-keyword">range</span> arr&#123;<br>		fmt.Println(i,<span class="hljs-string">&quot;:&quot;</span>,n)<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210514230715956.png" alt="image-20210514230715956"></p>
+<h5 id="channel-通道"><a href="#channel-通道" class="headerlink" title="channel 通道"></a>channel 通道</h5><p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/20210519220142.png" alt="image-20210519220142304"></p>
+<h3 id="表达式"><a href="#表达式" class="headerlink" title="表达式"></a>表达式</h3><h4 id="常用"><a href="#常用" class="headerlink" title="常用"></a>常用</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> commlib</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//ExpressionTest</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">ExpressionTest</span><span class="params">()</span></span>  &#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//if</span></span><br><span class="line">	fmt.Println(<span class="string">&quot;******IF******&quot;</span>)</span><br><span class="line">    </span><br><span class="line">	x:=<span class="number">100</span></span><br><span class="line">	y:=<span class="number">6</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> x &gt; <span class="number">0</span>&#123;</span><br><span class="line">		fmt.Println(<span class="string">&quot;x+&quot;</span>)</span><br><span class="line">	&#125;<span class="keyword">else</span> <span class="keyword">if</span> x &lt; <span class="number">0</span>&#123;</span><br><span class="line">		fmt.Println(<span class="string">&quot;x-&quot;</span>)</span><br><span class="line">	&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">		fmt.Println(<span class="string">&quot;0&quot;</span>)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// swich</span></span><br><span class="line">	fmt.Println(<span class="string">&quot;******swich******&quot;</span>)</span><br><span class="line">    </span><br><span class="line">	<span class="keyword">switch</span> &#123;</span><br><span class="line">		<span class="keyword">case</span> x &gt; <span class="number">0</span>:</span><br><span class="line">			fmt.Println(<span class="string">&quot;100&quot;</span>)</span><br><span class="line">		<span class="keyword">case</span> x&lt;<span class="number">0</span>:</span><br><span class="line">			fmt.Println(<span class="string">&quot;250&quot;</span>)</span><br><span class="line">		<span class="keyword">default</span>:</span><br><span class="line">			fmt.Println(<span class="string">&quot;俩250&quot;</span>)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// for</span></span><br><span class="line">	fmt.Println(<span class="string">&quot;******for++******&quot;</span>)</span><br><span class="line">    </span><br><span class="line">	<span class="keyword">for</span> i:=<span class="number">0</span>;i&lt;<span class="number">5</span>;i++ &#123;</span><br><span class="line">		fmt.Println(i)</span><br><span class="line">	&#125;</span><br><span class="line">    </span><br><span class="line">	fmt.Println(<span class="string">&quot;******for--******&quot;</span>)</span><br><span class="line">    </span><br><span class="line">	<span class="keyword">for</span> i:=<span class="number">5</span>;i&gt;<span class="number">1</span>;i--&#123;</span><br><span class="line">		fmt.Println(i)</span><br><span class="line">	&#125;</span><br><span class="line">    </span><br><span class="line">	fmt.Println(<span class="string">&quot;******相当于while(x&lt;10)******&quot;</span>)</span><br><span class="line">	</span><br><span class="line">    <span class="keyword">for</span> y&lt;<span class="number">10</span>&#123;</span><br><span class="line"></span><br><span class="line">		y++</span><br><span class="line"></span><br><span class="line">		fmt.Println(y)</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">    fmt.Println(<span class="string">&quot;******相当于while(true)******&quot;</span>)</span><br><span class="line">	</span><br><span class="line">    <span class="keyword">for</span>&#123;</span><br><span class="line">		fmt.Println(x)</span><br><span class="line"></span><br><span class="line">		x = x<span class="number">-50</span></span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> x == <span class="number">0</span> &#123;</span><br><span class="line">			<span class="keyword">break</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">    fmt.Println(<span class="string">&quot;******返回索引和值******&quot;</span>)</span><br><span class="line">	</span><br><span class="line">    arr:=[]<span class="type">int</span>&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> i,n := <span class="keyword">range</span> arr&#123;</span><br><span class="line">		fmt.Println(i,<span class="string">&quot;:&quot;</span>,n)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>执行结果：</p>
-<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210514224453702.png" srcset="/img/loading.gif" lazyload alt="image-20210514224453702"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210514224453702.png" alt="image-20210514224453702"></p>
 <h4 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h4><blockquote>
 <p><code>for</code> 标签</p>
 </blockquote>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs go">fmt.Println(<span class="hljs-string">&quot;给For 打标签，应用 break | continue 跳出或者终止循环&quot;</span>)<br><br>f1:<span class="hljs-keyword">for</span> i:=<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">4</span>;i++&#123; <span class="hljs-comment">//f1 标签</span><br>    <span class="hljs-keyword">for</span> j:=<span class="hljs-number">0</span>;j&lt;<span class="hljs-number">4</span>;j++&#123;<br>        <span class="hljs-keyword">if</span> i==<span class="hljs-number">2</span>&#123;<br>            <span class="hljs-keyword">break</span> f1  <span class="hljs-comment">//此处结束的循环是f1 标签所对应的i for 循环</span><br>        &#125;<br>        fmt.Println(i,j)<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">fmt.Println(<span class="string">&quot;给For 打标签，应用 break | continue 跳出或者终止循环&quot;</span>)</span><br><span class="line"></span><br><span class="line">f1:<span class="keyword">for</span> i:=<span class="number">0</span>;i&lt;<span class="number">4</span>;i++&#123; <span class="comment">//f1 标签</span></span><br><span class="line">    <span class="keyword">for</span> j:=<span class="number">0</span>;j&lt;<span class="number">4</span>;j++&#123;</span><br><span class="line">        <span class="keyword">if</span> i==<span class="number">2</span>&#123;</span><br><span class="line">            <span class="keyword">break</span> f1  <span class="comment">//此处结束的循环是f1 标签所对应的i for 循环</span></span><br><span class="line">        &#125;</span><br><span class="line">        fmt.Println(i,j)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>输出结果：</p>
-<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/20210515195143.png" srcset="/img/loading.gif" lazyload alt="image-20210515165154495"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/20210515195143.png" alt="image-20210515165154495"></p>
 <h4 id="goto-跳跃"><a href="#goto-跳跃" class="headerlink" title="goto 跳跃"></a><code>goto</code> 跳跃</h4><ul>
 <li>跳跃到指定行，然后向下执行代码</li>
 </ul>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> api<br><br><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;fmt&quot;</span><br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">GotoMethod</span><span class="hljs-params">()</span></span>  &#123;<br>	fmt.Println(<span class="hljs-string">&quot;请输入姓名：&quot;</span>)<br>	<span class="hljs-keyword">var</span> name <span class="hljs-type">string</span><br>	fmt.Scanln(&amp;name)<br><br>	<span class="hljs-keyword">if</span> name == <span class="hljs-string">&quot;Harris&quot;</span>&#123;<br>		<span class="hljs-keyword">goto</span> SVIP<br>	&#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> name==<span class="hljs-string">&quot;Dongjie&quot;</span>&#123;<br>		<span class="hljs-keyword">goto</span> VIP<br>	&#125;<br><br>	fmt.Println(<span class="hljs-string">&quot;预约...&quot;</span>)<br>VIP:<br>	fmt.Println(<span class="hljs-string">&quot;等号...&quot;</span>)<br>SVIP:<br>	fmt.Println(<span class="hljs-string">&quot;治疗...&quot;</span>)<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> api</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">GotoMethod</span><span class="params">()</span></span>  &#123;</span><br><span class="line">	fmt.Println(<span class="string">&quot;请输入姓名：&quot;</span>)</span><br><span class="line">	<span class="keyword">var</span> name <span class="type">string</span></span><br><span class="line">	fmt.Scanln(&amp;name)</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> name == <span class="string">&quot;Harris&quot;</span>&#123;</span><br><span class="line">		<span class="keyword">goto</span> SVIP</span><br><span class="line">	&#125;<span class="keyword">else</span> <span class="keyword">if</span> name==<span class="string">&quot;Dongjie&quot;</span>&#123;</span><br><span class="line">		<span class="keyword">goto</span> VIP</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	fmt.Println(<span class="string">&quot;预约...&quot;</span>)</span><br><span class="line">VIP:</span><br><span class="line">	fmt.Println(<span class="string">&quot;等号...&quot;</span>)</span><br><span class="line">SVIP:</span><br><span class="line">	fmt.Println(<span class="string">&quot;治疗...&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/20210517214916.png" srcset="/img/loading.gif" lazyload alt="image-20210517214916383"><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/20210517214945.png" srcset="/img/loading.gif" lazyload alt="image-20210517214945026"><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/20210517215011.png" srcset="/img/loading.gif" lazyload alt="image-20210517215011356"></p>
-<h4 id="字符串格式化"><a href="#字符串格式化" class="headerlink" title="字符串格式化"></a>字符串格式化</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> api<br><br><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;fmt&quot;</span><br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">StringFormatMenthod</span><span class="hljs-params">()</span></span>  &#123;<br>	<span class="hljs-keyword">var</span> name,address,action <span class="hljs-type">string</span><br><br>	fmt.Println(<span class="hljs-string">&quot;请输入姓名&quot;</span>)<br><br>	fmt.Scanln(&amp;name)<br><br>	fmt.Println(<span class="hljs-string">&quot;请输入地址&quot;</span>)<br><br>	fmt.Scanln(&amp;address)<br><br>	fmt.Println(<span class="hljs-string">&quot;请输入行为&quot;</span>)<br><br>	fmt.Scanln(&amp;action)<br><br>	result := fmt.Sprintf(<span class="hljs-string">&quot;我叫%s,我正在%s旁边%s&quot;</span>,name,address,action)<br><br>	fmt.Println(result)<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/20210517214916.png" alt="image-20210517214916383"><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/20210517214945.png" alt="image-20210517214945026"><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/20210517215011.png" alt="image-20210517215011356"></p>
+<h4 id="字符串格式化"><a href="#字符串格式化" class="headerlink" title="字符串格式化"></a>字符串格式化</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> api</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">StringFormatMenthod</span><span class="params">()</span></span>  &#123;</span><br><span class="line">	<span class="keyword">var</span> name,address,action <span class="type">string</span></span><br><span class="line"></span><br><span class="line">	fmt.Println(<span class="string">&quot;请输入姓名&quot;</span>)</span><br><span class="line"></span><br><span class="line">	fmt.Scanln(&amp;name)</span><br><span class="line"></span><br><span class="line">	fmt.Println(<span class="string">&quot;请输入地址&quot;</span>)</span><br><span class="line"></span><br><span class="line">	fmt.Scanln(&amp;address)</span><br><span class="line"></span><br><span class="line">	fmt.Println(<span class="string">&quot;请输入行为&quot;</span>)</span><br><span class="line"></span><br><span class="line">	fmt.Scanln(&amp;action)</span><br><span class="line"></span><br><span class="line">	result := fmt.Sprintf(<span class="string">&quot;我叫%s,我正在%s旁边%s&quot;</span>,name,address,action)</span><br><span class="line"></span><br><span class="line">	fmt.Println(result)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>输出：</p>
-<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/20210517220631.png" srcset="/img/loading.gif" lazyload alt="image-20210517220631093"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/20210517220631.png" alt="image-20210517220631093"></p>
 <h3 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h3><h4 id="位运算符"><a href="#位运算符" class="headerlink" title="位运算符"></a>位运算符</h4><p>进制转换：</p>
 <p>例如：101000 -&gt; 2*5 + 2**3 -&gt; 32 + 8 = 40</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-number">1.</span> 按位进行与运算(全为<span class="hljs-number">1</span>，才得<span class="hljs-number">1</span>)<br><br>r1 := <span class="hljs-number">5</span> &amp; <span class="hljs-number">99</span><br><span class="hljs-number">5</span>  -&gt; <span class="hljs-number">0000101</span><br><span class="hljs-number">99</span> -&gt; <span class="hljs-number">1100011</span><br>      <span class="hljs-number">0000001</span> -&gt; <span class="hljs-number">1</span><br><br><span class="hljs-number">2.</span> 按位进行或运算(只要有<span class="hljs-number">1</span>，就得<span class="hljs-number">1</span>)<br><br>r2 := <span class="hljs-number">5</span> | <span class="hljs-number">99</span><br><span class="hljs-number">5</span>  -&gt; <span class="hljs-number">0000101</span><br><span class="hljs-number">99</span> -&gt; <span class="hljs-number">1100011</span><br>      <span class="hljs-number">1100111</span> -&gt; <span class="hljs-number">2</span>*<span class="hljs-number">6</span> +<span class="hljs-number">2</span>*<span class="hljs-number">5</span> +<span class="hljs-number">2</span>*<span class="hljs-number">2</span> + <span class="hljs-number">2</span>*<span class="hljs-number">1</span> + <span class="hljs-number">2</span>*<span class="hljs-number">0</span> -&gt; <span class="hljs-number">64</span>+<span class="hljs-number">32</span>+<span class="hljs-number">4</span>+<span class="hljs-number">2</span>+<span class="hljs-number">1</span> = <span class="hljs-number">103</span><br><br><span class="hljs-number">3.</span> 按位进行异或运算(上下不同，就得<span class="hljs-number">1</span>)<br><br>r3 := <span class="hljs-number">5</span> ^ <span class="hljs-number">99</span><br><span class="hljs-number">5</span>  -&gt; <span class="hljs-number">0000101</span><br><span class="hljs-number">99</span> -&gt; <span class="hljs-number">1100011</span><br>      <span class="hljs-number">1100110</span> -&gt; <span class="hljs-number">2</span>*<span class="hljs-number">6</span> +<span class="hljs-number">2</span>*<span class="hljs-number">5</span> +<span class="hljs-number">2</span>*<span class="hljs-number">2</span> + <span class="hljs-number">2</span>*<span class="hljs-number">1</span> -&gt; <span class="hljs-number">64</span>+<span class="hljs-number">32</span>+<span class="hljs-number">4</span>+<span class="hljs-number">2</span> = <span class="hljs-number">102</span><br><br><span class="hljs-number">4.</span> 按钮进行左移运算<br><br>r4 := <span class="hljs-number">5</span> &lt;&lt; <span class="hljs-number">2</span><br><span class="hljs-number">5</span>  -&gt; <span class="hljs-number">0000101</span> -&gt; <span class="hljs-number">101</span> <span class="hljs-comment">//前面的0可以省略</span><br>所以：<span class="hljs-number">101</span> 左移之后 后面补<span class="hljs-number">0</span> -&gt; <span class="hljs-number">10100</span> -&gt; <span class="hljs-number">2</span>*<span class="hljs-number">4</span>+<span class="hljs-number">2</span>*<span class="hljs-number">2</span> -&gt; <span class="hljs-number">16</span>+<span class="hljs-number">4</span> = <span class="hljs-number">20</span><br><br><span class="hljs-number">5.</span> 按位进行右移运算<br><br>r5 := <span class="hljs-number">5</span> &gt;&gt; <span class="hljs-number">1</span><br><span class="hljs-number">5</span>  -&gt; <span class="hljs-number">0000101</span> -&gt; <span class="hljs-number">101</span> <span class="hljs-comment">//前面的0可以省略</span><br>所以：<span class="hljs-number">101</span> 右移之后 <span class="hljs-number">10</span> 右移<span class="hljs-number">1</span>位，后面咬去<span class="hljs-number">1</span>位， -&gt; <span class="hljs-number">10</span> -&gt; <span class="hljs-number">2</span>*<span class="hljs-number">1</span> = <span class="hljs-number">2</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> 按位进行与运算(全为<span class="number">1</span>，才得<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">r1 := <span class="number">5</span> &amp; <span class="number">99</span></span><br><span class="line"><span class="number">5</span>  -&gt; <span class="number">0000101</span></span><br><span class="line"><span class="number">99</span> -&gt; <span class="number">1100011</span></span><br><span class="line">      <span class="number">0000001</span> -&gt; <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="number">2.</span> 按位进行或运算(只要有<span class="number">1</span>，就得<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">r2 := <span class="number">5</span> | <span class="number">99</span></span><br><span class="line"><span class="number">5</span>  -&gt; <span class="number">0000101</span></span><br><span class="line"><span class="number">99</span> -&gt; <span class="number">1100011</span></span><br><span class="line">      <span class="number">1100111</span> -&gt; <span class="number">2</span>*<span class="number">6</span> +<span class="number">2</span>*<span class="number">5</span> +<span class="number">2</span>*<span class="number">2</span> + <span class="number">2</span>*<span class="number">1</span> + <span class="number">2</span>*<span class="number">0</span> -&gt; <span class="number">64</span>+<span class="number">32</span>+<span class="number">4</span>+<span class="number">2</span>+<span class="number">1</span> = <span class="number">103</span></span><br><span class="line"></span><br><span class="line"><span class="number">3.</span> 按位进行异或运算(上下不同，就得<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">r3 := <span class="number">5</span> ^ <span class="number">99</span></span><br><span class="line"><span class="number">5</span>  -&gt; <span class="number">0000101</span></span><br><span class="line"><span class="number">99</span> -&gt; <span class="number">1100011</span></span><br><span class="line">      <span class="number">1100110</span> -&gt; <span class="number">2</span>*<span class="number">6</span> +<span class="number">2</span>*<span class="number">5</span> +<span class="number">2</span>*<span class="number">2</span> + <span class="number">2</span>*<span class="number">1</span> -&gt; <span class="number">64</span>+<span class="number">32</span>+<span class="number">4</span>+<span class="number">2</span> = <span class="number">102</span></span><br><span class="line"></span><br><span class="line"><span class="number">4.</span> 按钮进行左移运算</span><br><span class="line"></span><br><span class="line">r4 := <span class="number">5</span> &lt;&lt; <span class="number">2</span></span><br><span class="line"><span class="number">5</span>  -&gt; <span class="number">0000101</span> -&gt; <span class="number">101</span> <span class="comment">//前面的0可以省略</span></span><br><span class="line">所以：<span class="number">101</span> 左移之后 后面补<span class="number">0</span> -&gt; <span class="number">10100</span> -&gt; <span class="number">2</span>*<span class="number">4</span>+<span class="number">2</span>*<span class="number">2</span> -&gt; <span class="number">16</span>+<span class="number">4</span> = <span class="number">20</span></span><br><span class="line"></span><br><span class="line"><span class="number">5.</span> 按位进行右移运算</span><br><span class="line"></span><br><span class="line">r5 := <span class="number">5</span> &gt;&gt; <span class="number">1</span></span><br><span class="line"><span class="number">5</span>  -&gt; <span class="number">0000101</span> -&gt; <span class="number">101</span> <span class="comment">//前面的0可以省略</span></span><br><span class="line">所以：<span class="number">101</span> 右移之后 <span class="number">10</span> 右移<span class="number">1</span>位，后面咬去<span class="number">1</span>位， -&gt; <span class="number">10</span> -&gt; <span class="number">2</span>*<span class="number">1</span> = <span class="number">2</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/20210517230842.png" srcset="/img/loading.gif" lazyload alt="image-20210517230842863"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/20210517230842.png" alt="image-20210517230842863"></p>
 <p>补充：</p>
 <ul>
 <li><p>十进制转二进制</p>
@@ -579,13 +403,13 @@
 </tbody></table>
 </li>
 </ul>
-<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> commlib<br><br><span class="hljs-keyword">import</span> (<br>	<span class="hljs-string">&quot;errors&quot;</span><br>	<span class="hljs-string">&quot;fmt&quot;</span><br>)<br><br><span class="hljs-comment">// 函数可以定义多个返回值，甚至对其命名</span><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">FunctionTest</span><span class="hljs-params">(a, b <span class="hljs-type">int</span>)</span></span> (<span class="hljs-type">int</span>, <span class="hljs-type">error</span>) &#123;<br>	<span class="hljs-keyword">if</span> b == <span class="hljs-number">0</span> &#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>, errors.New(<span class="hljs-string">&quot;FunctionTest&quot;</span>)<br>	&#125;<br>	<span class="hljs-keyword">return</span> a / b, <span class="hljs-literal">nil</span><br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">FunctionTest2</span><span class="hljs-params">()</span></span> &#123;<br>	a, b := <span class="hljs-number">1</span>, <span class="hljs-number">0</span> <span class="hljs-comment">//定义多个变量</span><br><br>	c, err := FunctionTest(a, b) <span class="hljs-comment">//接受多个返回值</span><br><br>	fmt.Println(c, err)<br>&#125;<br><br><span class="hljs-comment">//函数是第一类型，可以作为参数或者返回值</span><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">FunctionTest3</span><span class="hljs-params">(x <span class="hljs-type">int</span>)</span></span><span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">()</span></span>  &#123;<span class="hljs-comment">//返回函数类型</span><br>	<span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">()</span></span> &#123;<span class="hljs-comment">//匿名函数</span><br>		fmt.Println(<span class="hljs-string">&quot;返回参数为函数&quot;</span>,x)<span class="hljs-comment">//闭包</span><br>	&#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">FunctionTest4</span><span class="hljs-params">()</span></span>  &#123;<br>	x:=<span class="hljs-number">100</span><br><br>	f:=FunctionTest3(x)<span class="hljs-comment">//返回函数</span><br><br>	f()<span class="hljs-comment">//执行函数</span><br>&#125;<br><br><span class="hljs-comment">//通过关键字 defer 来修饰动作标识最后执行</span><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">FunctionTest5</span><span class="hljs-params">(a,b <span class="hljs-type">int</span>)</span></span>  &#123;<br><br>	<span class="hljs-keyword">defer</span> fmt.Println(<span class="hljs-string">&quot;延迟执行的动作&quot;</span>)<br><br>	fmt.Println(<span class="hljs-string">&quot;正在执行的动作&quot;</span>)<br><br>	fmt.Println(a+b)<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">FunctionTest6</span><span class="hljs-params">()</span></span>  &#123;<br>	x,y := <span class="hljs-number">10</span>,<span class="hljs-number">0</span><br><br>	FunctionTest5(x,y)<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> commlib</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">&quot;errors&quot;</span></span><br><span class="line">	<span class="string">&quot;fmt&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 函数可以定义多个返回值，甚至对其命名</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">FunctionTest</span><span class="params">(a, b <span class="type">int</span>)</span></span> (<span class="type">int</span>, <span class="type">error</span>) &#123;</span><br><span class="line">	<span class="keyword">if</span> b == <span class="number">0</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>, errors.New(<span class="string">&quot;FunctionTest&quot;</span>)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> a / b, <span class="literal">nil</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">FunctionTest2</span><span class="params">()</span></span> &#123;</span><br><span class="line">	a, b := <span class="number">1</span>, <span class="number">0</span> <span class="comment">//定义多个变量</span></span><br><span class="line"></span><br><span class="line">	c, err := FunctionTest(a, b) <span class="comment">//接受多个返回值</span></span><br><span class="line"></span><br><span class="line">	fmt.Println(c, err)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//函数是第一类型，可以作为参数或者返回值</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">FunctionTest3</span><span class="params">(x <span class="type">int</span>)</span></span><span class="function"><span class="keyword">func</span><span class="params">()</span></span>  &#123;<span class="comment">//返回函数类型</span></span><br><span class="line">	<span class="keyword">return</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;<span class="comment">//匿名函数</span></span><br><span class="line">		fmt.Println(<span class="string">&quot;返回参数为函数&quot;</span>,x)<span class="comment">//闭包</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">FunctionTest4</span><span class="params">()</span></span>  &#123;</span><br><span class="line">	x:=<span class="number">100</span></span><br><span class="line"></span><br><span class="line">	f:=FunctionTest3(x)<span class="comment">//返回函数</span></span><br><span class="line"></span><br><span class="line">	f()<span class="comment">//执行函数</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//通过关键字 defer 来修饰动作标识最后执行</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">FunctionTest5</span><span class="params">(a,b <span class="type">int</span>)</span></span>  &#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">defer</span> fmt.Println(<span class="string">&quot;延迟执行的动作&quot;</span>)</span><br><span class="line"></span><br><span class="line">	fmt.Println(<span class="string">&quot;正在执行的动作&quot;</span>)</span><br><span class="line"></span><br><span class="line">	fmt.Println(a+b)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">FunctionTest6</span><span class="params">()</span></span>  &#123;</span><br><span class="line">	x,y := <span class="number">10</span>,<span class="number">0</span></span><br><span class="line"></span><br><span class="line">	FunctionTest5(x,y)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>执行：</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs go">fmt.Println(<span class="hljs-string">&quot;执行：FunctionTest2&quot;</span>)<span class="hljs-comment">//函数可以定义多个返回值，甚至对其命名</span><br>commlib.FunctionTest2()<br>fmt.Println(<span class="hljs-string">&quot;执行：FunctionTest4&quot;</span>)<span class="hljs-comment">//函数是第一类型，可以作为参数或者返回值</span><br>commlib.FunctionTest4()<br>fmt.Println(<span class="hljs-string">&quot;执行：FunctionTest6&quot;</span>)<span class="hljs-comment">//通过关键字 defer 来修饰动作标识最后执行</span><br>commlib.FunctionTest6()<br></code></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fmt.Println(<span class="string">&quot;执行：FunctionTest2&quot;</span>)<span class="comment">//函数可以定义多个返回值，甚至对其命名</span></span><br><span class="line">commlib.FunctionTest2()</span><br><span class="line">fmt.Println(<span class="string">&quot;执行：FunctionTest4&quot;</span>)<span class="comment">//函数是第一类型，可以作为参数或者返回值</span></span><br><span class="line">commlib.FunctionTest4()</span><br><span class="line">fmt.Println(<span class="string">&quot;执行：FunctionTest6&quot;</span>)<span class="comment">//通过关键字 defer 来修饰动作标识最后执行</span></span><br><span class="line">commlib.FunctionTest6()</span><br></pre></td></tr></table></figure>
 
 <p>执行结果：</p>
-<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210514224544469.png" srcset="/img/loading.gif" lazyload alt="image-20210514224544469"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20210514224544469.png" alt="image-20210514224544469"></p>
 <h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><ol>
 <li><p><code>go.mod file not found in current directory or any parent directory; see &#39;go help modules&#39;</code></p>
 <p>问题是go环境的问题：执行<code>go env -w GO111MODULE=auto</code></p>
@@ -593,287 +417,4 @@
 <li><p>修改配置：运行种类和包位置 可以解决运行只局限在某个文件的问题</p>
 </li>
 </ol>
-
-            </div>
-            <hr>
-            <div>
-              <div class="post-metas mb-3">
-                
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/Golang/">Golang</a>
-                    
-                  </div>
-                
-                
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    
-                      <a class="hover-with-bg" href="/tags/Go/">Go</a>
-                    
-                  </div>
-                
-              </div>
-              
-                <p class="note note-warning">
-                  
-                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
-                  
-                </p>
-              
-              
-                <div class="post-prevnext">
-                  <article class="post-prev col-6">
-                    
-                    
-                      <a href="/2021/11/01/Oralce-Note/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Oralce Note</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                      <a href="/2021/10/31/Net-Core-Note/">
-                        <span class="hidden-mobile">DotNet Core Note</span>
-                        <span class="visible-mobile">Next</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
-                    
-                  </article>
-                </div>
-              
-            </div>
-
-            
-              <!-- Comments -->
-              <article class="comments" id="comments" lazyload>
-                
-                  
-                
-                
-  <div id="valine"></div>
-  <script type="text/javascript">
-    Fluid.utils.loadComments('#valine', function() {
-      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', function() {
-        var options = Object.assign(
-          {"appId":"q3pc0gbhQF3puHJQ3XjiByyg-gzGzoHsz","appKey":"yIsNaqJVWRbpKxcC4phLbjXt","path":"window.location.pathname","placeholder":"吐槽","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":true,"serverURLs":"https://q3pc0gbh.lc-cn-n1-shared.com","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
-          {
-            el: "#valine",
-            path: window.location.pathname
-          }
-        )
-        new Valine(options);
-        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
-          Fluid.plugins.initFancyBox('#valine .vcontent img:not(.vemoji)');
-        })
-      });
-    });
-  </script>
-  <noscript>Please enable JavaScript to view the comments</noscript>
-
-
-              </article>
-            
-          </article>
-        </div>
-      </div>
-    </div>
-    
-      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
-        <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
-  <div class="toc-body" id="toc-body"></div>
-</div>
-
-      </div>
-    
-  </div>
-</div>
-
-<!-- Custom -->
-
-  <div class="col-lg-7 mx-auto nopadding-x-md">
-    <div class="container custom post-custom mx-auto">
-      <img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/gongzhonghao2.jpg" srcset="/img/loading.gif" lazyload class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">
-    </div>
-  </div>
-
-
-    
-
-    
-      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
-        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
-    
-
-    
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
-        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v"
-                 for="local-search-input">keyword</label>
-        </div>
-        <div class="list-group" id="local-search-result"></div>
-      </div>
-    </div>
-  </div>
-</div>
-    
-
-    
-  </main>
-
-  <footer class="text-center mt-5 py-3">
-  <div class="footer-content">
-     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-  </div>
-  
-  <div class="statistics">
-    
-    
-
-    
-      
-        <!-- 不蒜子统计PV -->
-        <span id="busuanzi_container_site_pv" style="display: none">
-            总访问量 
-            <span id="busuanzi_value_site_pv"></span>
-             次
-          </span>
-      
-      
-        <!-- 不蒜子统计UV -->
-        <span id="busuanzi_container_site_uv" style="display: none">
-            总访客数 
-            <span id="busuanzi_value_site_uv"></span>
-             人
-          </span>
-      
-    
-  </div>
-
-
-  
-  <!-- 备案信息 -->
-  <div class="beian">
-    <span>
-      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
-        京ICP证18023705号
-      </a>
-    </span>
-    
-  </div>
-
-
-  
-</footer>
-
-
-  <!-- SCRIPTS -->
-  
-  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
-
-  <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
-    })
-  </script>
-
-
-<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
-<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
-
-<!-- Plugins -->
-
-
-  <script  src="/js/local-search.js" ></script>
-
-
-
-  
-    <script  src="/js/img-lazyload.js" ></script>
-  
-
-
-
-  
-
-
-
-  
-    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
-  
-  
-    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
-  
-  
-    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
-  
-  
-    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
-  
-
-
-
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
-
-
-
-
-  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var title = document.getElementById('subtitle').title;
-      
-      typing(title)
-      
-    })(window, document);
-  </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/caidai.js"></script>
-<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/dianjichuzi.js"></script>
-<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/timeDate.js"></script>
-
-
-
-<!-- 主题的启动项 保持在最底部 -->
-<script  src="/js/boot.js" ></script>
-
-
-</body>
-</html>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">Harris</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2021/10/31/Golang-Note/">http://example.com/2021/10/31/Golang-Note/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Go/">Go</a></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/gh/overtrue/share.js@master/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/11/01/Oralce-Note/"><img class="prev-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">Oralce Note</div></div></a></div><div class="next-post pull-right"><a href="/2021/10/31/Net-Core-Note/"><img class="next-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">DotNet Core Note</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Harris</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">51</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">37</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">14</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2"><span class="toc-number">1.</span> <span class="toc-text">环境部署</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Go%E7%BC%96%E8%AF%91%E5%99%A8"><span class="toc-number">1.1.</span> <span class="toc-text">Go编译器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E9%85%8D%E7%BD%AE"><span class="toc-number">1.2.</span> <span class="toc-text">其他配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-number">1.3.</span> <span class="toc-text">配置环境变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vs-code-%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83"><span class="toc-number">1.4.</span> <span class="toc-text">vs code 配置环境</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#tools-%E6%80%8E%E4%B9%88%E6%9D%A5%E7%9A%84"><span class="toc-number">1.4.1.</span> <span class="toc-text">tools 怎么来的</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Clone-%E6%97%A0%E9%9C%80%E5%A4%9A%E8%A8%80"><span class="toc-number">1.4.2.</span> <span class="toc-text">Clone 无需多言</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%8E%E4%B9%88%E6%91%86%E6%94%BE"><span class="toc-number">1.4.3.</span> <span class="toc-text">怎么摆放</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%91%BD%E4%BB%A4"><span class="toc-number">1.4.4.</span> <span class="toc-text">安装命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#vscode%E8%BF%90%E8%A1%8C%E4%BB%A3%E7%A0%81"><span class="toc-number">1.4.5.</span> <span class="toc-text">vscode运行代码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E4%BB%A3%E7%A0%81"><span class="toc-number">1.5.</span> <span class="toc-text">运行代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Go-%E5%8C%85%E7%AE%A1%E7%90%86"><span class="toc-number">2.</span> <span class="toc-text">Go 包管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9D%E8%AF%86%E5%8C%85%E7%AE%A1%E7%90%86"><span class="toc-number">2.1.</span> <span class="toc-text">初识包管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8C%85%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-number">2.2.</span> <span class="toc-text">包的分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%83%E7%94%A8%E5%8C%85"><span class="toc-number">2.3.</span> <span class="toc-text">调用包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8C%85%E5%AE%9A%E4%B9%89%E8%A7%84%E8%8C%83"><span class="toc-number">2.4.</span> <span class="toc-text">包定义规范</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%88%AA%E5%9B%BE"><span class="toc-number">2.5.</span> <span class="toc-text">截图</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="toc-number">3.</span> <span class="toc-text">基础知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%93%E5%87%BA"><span class="toc-number">3.1.</span> <span class="toc-text">输出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E9%87%8A"><span class="toc-number">3.2.</span> <span class="toc-text">注释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%98%E9%87%8F"><span class="toc-number">3.3.</span> <span class="toc-text">变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E9%87%8F"><span class="toc-number">3.4.</span> <span class="toc-text">常量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%9A%E4%B8%BE"><span class="toc-number">3.5.</span> <span class="toc-text">枚举</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">3.6.</span> <span class="toc-text">数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B"><span class="toc-number">3.6.1.</span> <span class="toc-text">引用类型</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%87%E7%89%87-Slice"><span class="toc-number">3.6.1.1.</span> <span class="toc-text">切片(Slice)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#channel-%E9%80%9A%E9%81%93"><span class="toc-number">3.6.1.2.</span> <span class="toc-text">channel 通道</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">3.7.</span> <span class="toc-text">表达式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8"><span class="toc-number">3.7.1.</span> <span class="toc-text">常用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%87%E7%AD%BE"><span class="toc-number">3.7.2.</span> <span class="toc-text">标签</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#goto-%E8%B7%B3%E8%B7%83"><span class="toc-number">3.7.3.</span> <span class="toc-text">goto 跳跃</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%A0%BC%E5%BC%8F%E5%8C%96"><span class="toc-number">3.7.4.</span> <span class="toc-text">字符串格式化</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">3.8.</span> <span class="toc-text">运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">3.8.1.</span> <span class="toc-text">位运算符</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0"><span class="toc-number">4.</span> <span class="toc-text">函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="toc-number">5.</span> <span class="toc-text">常见问题</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/05/09/wireshark-%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/" title="Wireshark-三次握手四次挥手"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Wireshark-三次握手四次挥手"/></a><div class="content"><a class="title" href="/2022/05/09/wireshark-%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/" title="Wireshark-三次握手四次挥手">Wireshark-三次握手四次挥手</a><time datetime="2022-05-09T08:27:02.000Z" title="Created 2022-05-09 16:27:02">2022-05-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/05/07/%E9%9D%A2%E8%AF%95%E9%A2%98/" title="面试题"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="面试题"/></a><div class="content"><a class="title" href="/2022/05/07/%E9%9D%A2%E8%AF%95%E9%A2%98/" title="面试题">面试题</a><time datetime="2022-05-07T13:57:08.000Z" title="Created 2022-05-07 21:57:08">2022-05-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/05/06/CSharp-%E5%85%B3%E9%94%AE%E5%AD%97/" title="CSharp-关键字"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CSharp-关键字"/></a><div class="content"><a class="title" href="/2022/05/06/CSharp-%E5%85%B3%E9%94%AE%E5%AD%97/" title="CSharp-关键字">CSharp-关键字</a><time datetime="2022-05-06T01:17:14.000Z" title="Created 2022-05-06 09:17:14">2022-05-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/05/05/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/" title="设计模式-代理模式"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="设计模式-代理模式"/></a><div class="content"><a class="title" href="/2022/05/05/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/" title="设计模式-代理模式">设计模式-代理模式</a><time datetime="2022-05-05T09:38:11.000Z" title="Created 2022-05-05 17:38:11">2022-05-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/05/05/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F/" title="设计模式-享元模式"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="设计模式-享元模式"/></a><div class="content"><a class="title" href="/2022/05/05/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F/" title="设计模式-享元模式">设计模式-享元模式</a><time datetime="2022-05-05T07:45:16.000Z" title="Created 2022-05-05 15:45:16">2022-05-05</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Harris</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
