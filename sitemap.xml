@@ -93,13 +93,6 @@
   </url>
   
   <url>
-    <loc>http://example.com/2022/04/28/APIFox-%E5%8F%82%E6%95%B0%E9%85%8D%E7%BD%AE/</loc>
-    
-    <lastmod>2022-04-28</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://example.com/2021/12/01/Docker-for-MongoDB/</loc>
     
     <lastmod>2022-04-26</lastmod>
@@ -369,13 +362,6 @@
   
   <url>
     <loc>http://example.com/tags/Oracle/</loc>
-    <lastmod>2022-05-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.com/tags/Api/</loc>
     <lastmod>2022-05-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

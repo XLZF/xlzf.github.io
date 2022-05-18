@@ -270,25 +270,6 @@
   </entry>
   
   <entry>
-    <title>ApiFox参数配置</title>
-    <link href="http://example.com/2022/04/28/APIFox-%E5%8F%82%E6%95%B0%E9%85%8D%E7%BD%AE/"/>
-    <id>http://example.com/2022/04/28/APIFox-%E5%8F%82%E6%95%B0%E9%85%8D%E7%BD%AE/</id>
-    <published>2022-04-28T05:58:31.000Z</published>
-    <updated>2022-04-28T06:25:03.561Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="ApiFox-参数配置"><a href="#ApiFox-参数配置" class="headerlink" title="ApiFox 参数配置"></a>ApiFox 参数配置</h1><p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/202204281421221.png" alt="ApiFox"></p><h2 id="设置全局参数"><a href="#设置全局参数" class="headerlink" title="设置全局参数"></a>设置全局参数</h2><p>出于<code>JWT</code>权限验证，需要获取<code>token</code>才能访问。否则就是如下情况。</p><p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/202204281421319.png" alt="401 Unauthoized"></p><p>先设置全局参数 <code>Authorizatior</code> 默认值 <code>bearer &#123;&#123;token&#125;&#125;</code></p><p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/202204281421550.png" alt="设置全局参数"></p><p>在获取<code>token</code>的接口处，常规添加<code>Params</code>，主要是看<strong>后置操作</strong></p><p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/202204281421954.png" alt="后置操作"></p><p>以下是添加完的。</p><p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/202204281421334.png" alt="添加公共脚本"></p><p>添加公共脚本</p><p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/202204281422732.png" alt="公共脚本"></p><p>输入公共脚本内容</p><p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/202204281422599.png" alt="公共脚本内容"></p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//核心</span></span><br><span class="line">pm.<span class="title function_">test</span>(<span class="string">&quot;Status code is 200&quot;</span>, <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    pm.<span class="property">response</span>.<span class="property">to</span>.<span class="property">have</span>.<span class="title function_">status</span>(<span class="number">200</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 把responseBody转为json字符串</span></span><br><span class="line"><span class="keyword">var</span> data = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(responseBody);</span><br><span class="line"><span class="comment">// 设置环境变量token，供后面的接口引用，位置就是上一步获取的位置</span></span><br><span class="line">pm.<span class="property">globals</span>.<span class="title function_">set</span>(<span class="string">&quot;token&quot;</span>, data.<span class="property">result</span>.<span class="property">AccessToken</span>);</span><br></pre></td></tr></table></figure><p>以上，在执行完登录接口后，公共脚本会把<code>token</code>信息赋值给全局变量<code>Authorization</code>,其他接口就可以直接使用<code>token</code>了。</p><p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/202204281422625.png" alt="使用全局参数"></p>]]></content>
-    
-    
-    <summary type="html">接口神器</summary>
-    
-    
-    
-    
-    <category term="Api" scheme="http://example.com/tags/Api/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Docker for RabbitMq</title>
     <link href="http://example.com/2022/03/19/Docker-for-RabbitMq/"/>
     <id>http://example.com/2022/03/19/Docker-for-RabbitMq/</id>
@@ -448,6 +429,27 @@
     <category term=".net core" scheme="http://example.com/tags/net-core/"/>
     
     <category term="Nginx" scheme="http://example.com/tags/Nginx/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>微服务基础知识</title>
+    <link href="http://example.com/2022/01/01/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
+    <id>http://example.com/2022/01/01/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</id>
+    <published>2022-01-01T13:23:15.000Z</published>
+    <updated>2022-03-31T01:47:44.878Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="微服务基础知识"><a href="#微服务基础知识" class="headerlink" title="微服务基础知识"></a>微服务基础知识</h1><h2 id="什么是微服务"><a href="#什么是微服务" class="headerlink" title="什么是微服务"></a>什么是微服务</h2><p>先说百度百科给的定义</p><p>​        一种软件开发技术- 面向服务的体系结构（<code>SOA</code>）架构样式的一种变体，它提倡将单一应用程序划分成一组小的服务，服务之间互相协调、互相配合，为用户提供最终价值。每个服务运行在其独立的进程中，服务与服务间采用轻量级的通信机制互相沟通（通常是基于HTTP的<code>Restful API</code>）。每个服务都围绕着具体业务进行构建，并且能够独立地部署到生产环境、类生产环境等。另外，应尽量避免统一的、集中式的服务管理机制，对具体的一个服务而言，应根据上下文，选择合适的语言、工具对其进行构建。</p><p>结合网上大佬的帖子，光说微服务体会不到微服务，有人说的对，聊到概念，应该是从现有的<strong>单体应用</strong>与<strong>微服务架构</strong>进行比较才能得出结论。</p><h3 id="传统架构-amp-微服务架构"><a href="#传统架构-amp-微服务架构" class="headerlink" title="传统架构&amp;微服务架构"></a>传统架构&amp;微服务架构</h3><p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com//image-20220213115320787.png" alt="image-20220213115320787"></p><h2 id="微服务的优点"><a href="#微服务的优点" class="headerlink" title="微服务的优点"></a>微服务的优点</h2><ul><li>微服务是<strong>松藕合</strong>的，无论是在开发阶段或部署阶段都是独立的。</li><li>能够快速响应, 局部修改容易, 一个服务出现问题不会影响整个应用。</li><li>易于和第三方应用系统集成, 支持使用<strong>不同的语言开发</strong>, 允许你利用融合最新技术。</li><li>每个微服务都很小，足够内聚，足够小，代码容易理解。团队能够更关注自己的工作成果, 聚焦指定的业务功能或业务需求。</li><li>开发简单、开发效率提高，一个服务可能就是专一的只干一件事, 能够被小团队单独开发，这个小团队可以是 2 到 5 人的开发人员组成。</li></ul><h2 id="微服务的缺点"><a href="#微服务的缺点" class="headerlink" title="微服务的缺点"></a>微服务的缺点</h2><ul><li>由于服务增加，复杂性同时增加，在生产环境中项目涉及到的微服务数量会很庞杂，尤其是在微服务之间的互相调用。</li><li>资源一致性</li><li>运维成本增加，也就是需要更多的<code>DevOps</code>操作</li><li>由于分布式部署问题追踪问题难</li></ul><h2 id="设计原则"><a href="#设计原则" class="headerlink" title="设计原则"></a>设计原则</h2><ol><li><p><strong>单一职责</strong>：每个微服务只需要实现自己的业务逻辑就可以了，比如订单管理模块，它只需要处理订单的业务逻辑就可以了，其它的不必考虑</p></li><li><p><strong>服务自治</strong>：每个微服务从开发、测试、运维等都是独立的，包括存储的数据库也都是独立的，自己就有一套完整的流程，我们完全可以把它当成一个项目来对待。不必依赖于其它模块。</p></li><li><p><strong>轻量级通信</strong>：首先是通信的语言非常的轻量，第二，该通信方式需要是跨语言、跨平台的，之所以要跨平台、跨语言就是为了让每个微服务都有足够的独立性，可以不受技术的钳制。</p></li><li><p><strong>接口明确</strong>：由于微服务之间可能存在着调用关系，为了尽量避免以后由于某个微服务的接口变化而导致其它微服务都做调整，在设计之初就要考虑到所有情况，让接口尽量做的更通用，更灵活，从而尽量避免其它模块也做调整。</p></li></ol><h2 id="微服务如何拆分"><a href="#微服务如何拆分" class="headerlink" title="微服务如何拆分"></a>微服务如何拆分</h2><h2 id="微服务技术栈"><a href="#微服务技术栈" class="headerlink" title="微服务技术栈"></a>微服务技术栈</h2><p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/aHR0cHM6Ly9pbWcyMDIwLmNuYmxvZ3MuY29tL2Jsb2cvODI0MjkxLzIwMjAwNC84MjQyOTEtMjAyMDA0MDYyMjMxMDM3MzAtNTI3NjA5NzU4LmpwZw" alt="img"></p><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul><li><p><a href="https://blog.csdn.net/a312586670/article/details/105375184/">.Net Core微服务架构技术栈的那些事</a></p></li><li><p><a href="https://www.cnblogs.com/xiao-feng/p/9129784.html">微服务定义及.Net Core中用的技术 - me黄小峰 - 博客园</a></p></li></ul>]]></content>
+    
+    
+    <summary type="html">微服务基础知识</summary>
+    
+    
+    
+    <category term="MicroService" scheme="http://example.com/categories/MicroService/"/>
+    
+    
+    <category term="MicroService" scheme="http://example.com/tags/MicroService/"/>
     
   </entry>
   
