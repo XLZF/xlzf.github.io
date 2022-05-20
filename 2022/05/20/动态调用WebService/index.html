@@ -16,26 +16,25 @@
   <meta name="author" content="Harris">
   <meta name="keywords" content="">
   
-    <meta name="description" content="DevGridControl中使用CardView">
+    <meta name="description" content="代码片段">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DevExpress GridControl CardView">
-<meta property="og:url" content="http://example.com/2021/11/06/DevExpress-GridControl-CardView/index.html">
+<meta property="og:title" content="动态调用WebService">
+<meta property="og:url" content="http://example.com/2022/05/20/%E5%8A%A8%E6%80%81%E8%B0%83%E7%94%A8WebService/index.html">
 <meta property="og:site_name" content="Harris Blog">
-<meta property="og:description" content="DevGridControl中使用CardView">
+<meta property="og:description" content="代码片段">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/DevExpress.jpeg">
-<meta property="article:published_time" content="2021-11-06T07:47:02.000Z">
-<meta property="article:modified_time" content="2022-05-19T01:54:35.665Z">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/Csharp.jpeg">
+<meta property="article:published_time" content="2022-05-20T02:00:42.000Z">
+<meta property="article:modified_time" content="2022-05-20T02:05:41.293Z">
 <meta property="article:author" content="Harris">
-<meta property="article:tag" content="dev">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/DevExpress.jpeg">
+<meta name="twitter:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/Csharp.jpeg">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>DevExpress GridControl CardView - Harris Blog</title>
+  <title>动态调用WebService - Harris Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -239,7 +238,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="DevExpress GridControl CardView"></span>
+            <span id="subtitle" data-typed-text="动态调用WebService"></span>
           
         </div>
 
@@ -255,8 +254,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2021-11-06 15:47" pubdate>
-          November 6, 2021 pm
+        <time datetime="2022-05-20 10:00" pubdate>
+          May 20, 2022 am
         </time>
       </span>
     
@@ -267,7 +266,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.7k words
+          3.9k words
         
       </span>
     
@@ -278,7 +277,7 @@
         
         
         
-          15 mins
+          33 mins
         
       </span>
     
@@ -324,31 +323,23 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">DevExpress GridControl CardView</h1>
+            <h1 style="display: none">动态调用WebService</h1>
             
               <p class="note note-info">
                 
                   
-                    Last updated on a day ago
+                    Last updated on a few seconds ago
                   
                 
               </p>
             
             <div class="markdown-body">
               
-              <h1 id="DevExpress-GridControl-中使用-CardView"><a href="#DevExpress-GridControl-中使用-CardView" class="headerlink" title="DevExpress GridControl 中使用 CardView"></a>DevExpress GridControl 中使用 CardView</h1><h2 id="添加一个GridControl"><a href="#添加一个GridControl" class="headerlink" title="添加一个GridControl"></a>添加一个GridControl</h2><p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20211106155039479.png" srcset="/img/loading.gif" lazyload alt="ConvertCardView"></p>
-<h2 id="GridView-转-CardView"><a href="#GridView-转-CardView" class="headerlink" title="GridView 转 CardView"></a>GridView 转 CardView</h2><p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20211106155147102.png" srcset="/img/loading.gif" lazyload alt="CardView"></p>
-<h2 id="设置字段"><a href="#设置字段" class="headerlink" title="设置字段"></a>设置字段</h2><p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20211106155745779.png" srcset="/img/loading.gif" lazyload alt="设置"></p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-comment">// 实体类</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">PicEntity</span><br>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-built_in">string</span> FILENAME &#123; <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-built_in">string</span> FILEPATH &#123; <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; &#125;<br><br>    <span class="hljs-keyword">public</span> Byte[] PIC &#123; <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+              <h1 id="动态调用WebService"><a href="#动态调用WebService" class="headerlink" title="动态调用WebService"></a>动态调用WebService</h1><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-comment">//调用</span><br><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">btnSubmit_Click</span>(<span class="hljs-params"><span class="hljs-built_in">object</span> sender, EventArgs e</span>)</span><br>&#123;<br>    <span class="hljs-keyword">if</span>(<span class="hljs-built_in">string</span>.IsNullOrEmpty(txtUrl.Text.Trim()))<br>    &#123;<br>        MessageBox.Show(<span class="hljs-string">&quot;接口地址不能为空！&quot;</span>);<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>    <span class="hljs-keyword">if</span> (cbInterFace.EditValue==<span class="hljs-literal">null</span>)<br>    &#123;<br>        MessageBox.Show(<span class="hljs-string">&quot;接口名称不能为空！&quot;</span>);<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">string</span>.IsNullOrEmpty(txtParameter.Text.Trim()))<br>    &#123;<br>        MessageBox.Show(<span class="hljs-string">&quot;接口参数不能为空！&quot;</span>);<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>    <span class="hljs-keyword">try</span><br>    &#123;<br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 动态调用 webservices地址</span><br>        <span class="hljs-built_in">object</span>[] args = <span class="hljs-keyword">new</span> <span class="hljs-built_in">object</span>[<span class="hljs-number">1</span>];<br>        args[<span class="hljs-number">0</span>] = (txtParameter.Text.Trim());<br>        <span class="hljs-built_in">object</span> result = WebServiceHelper.InvokeWebService(txtUrl.Text, cbInterFace.Text.Trim(), args);<br>        <span class="hljs-built_in">string</span> message = result.ToString();<br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br>            <span class="hljs-comment">//格式化XMl</span><br>            txtXml.Text = formatXml(message);<br>    &#125;<br>    <span class="hljs-keyword">catch</span> (Exception ex)<br>    &#123;<br>        MessageBox.Show(<span class="hljs-string">&quot;接口调取出错：&quot;</span> + ex.ToString());<br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
 
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> 选择图片</span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;param name=&quot;sender&quot;&gt;</span><span class="hljs-doctag">&lt;/param&gt;</span></span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;param name=&quot;e&quot;&gt;</span><span class="hljs-doctag">&lt;/param&gt;</span></span><br><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Btn_ChoosePic_Click</span>(<span class="hljs-params"><span class="hljs-built_in">object</span> sender, EventArgs e</span>)</span><br>&#123;<br>    OpenFileDialog fileDialog = <span class="hljs-keyword">new</span> OpenFileDialog<br>    &#123;<br>        Multiselect = <span class="hljs-literal">true</span>,<br><br>        Title = <span class="hljs-string">&quot;请选择文件&quot;</span>,<br><br>        Filter = <span class="hljs-string">&quot;图片|*.jpg;*.png;*.gif;*.jpeg;*.bmp&quot;</span> <span class="hljs-comment">//设置要选择的文件的类型</span><br>    &#125;;<br><br>    List&lt;PicEntity&gt; list = <span class="hljs-keyword">new</span> List&lt;PicEntity&gt;();<br><br>    <span class="hljs-keyword">if</span> (fileDialog.ShowDialog() == DialogResult.OK)<br>    &#123;<br>        <span class="hljs-keyword">foreach</span> (<span class="hljs-built_in">string</span> file <span class="hljs-keyword">in</span> fileDialog.FileNames)<br>        &#123;<br>            <span class="hljs-built_in">string</span>[] arr = file.Split(<span class="hljs-string">&#x27;\\&#x27;</span>);<br><br>            <span class="hljs-keyword">using</span> (Image img = Image.FromFile(file))<br>            &#123;<br>                list.Add(<span class="hljs-keyword">new</span> PicEntity &#123; FILENAME = arr[arr.Length - <span class="hljs-number">1</span>], FILEPATH = file, PIC = FileContent(file) &#125;);<span class="hljs-comment">//arr[arr.Length - 1]</span><br>            &#125;<br>        &#125;<br><br>        gridControl1.DataSource = list;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>库</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">WebServiceHelper</span><br>&#123;<br>    <span class="hljs-meta">#<span class="hljs-keyword">region</span> 动态调用WebService动态调用地址</span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt; summary&gt;</span>           </span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> 动态调用web服务         </span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt; /summary&gt;</span>          </span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt; param name=&quot;url&quot;&gt;</span>WSDL服务地址<span class="hljs-doctag">&lt; /param&gt;</span> </span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt; param name=&quot;methodname&quot;&gt;</span>方法名<span class="hljs-doctag">&lt; /param&gt;</span>           </span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt; param name=&quot;args&quot;&gt;</span>参数<span class="hljs-doctag">&lt; /param&gt;</span>           </span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt; returns&gt;</span><span class="hljs-doctag">&lt; /returns&gt;</span>          </span><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-built_in">object</span> <span class="hljs-title">InvokeWebService</span>(<span class="hljs-params"><span class="hljs-built_in">string</span> url, <span class="hljs-built_in">string</span> methodname, <span class="hljs-built_in">object</span>[] args</span>)</span><br>    &#123;<br>        <span class="hljs-keyword">return</span> WebServiceHelper.InvokeWebService(url, <span class="hljs-literal">null</span>, methodname, args);<br>    &#125;<br>    <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br>    <span class="hljs-comment"><span class="hljs-doctag">///</span> 动态调用web服务</span><br>    <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br>    <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;param name=&quot;url&quot;&gt;</span>WSDL服务地址<span class="hljs-doctag">&lt;/param&gt;</span></span><br>    <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;param name=&quot;classname&quot;&gt;</span>服务接口类名<span class="hljs-doctag">&lt;/param&gt;</span></span><br>    <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;param name=&quot;methodname&quot;&gt;</span>方法名<span class="hljs-doctag">&lt;/param&gt;</span></span><br>    <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;param name=&quot;args&quot;&gt;</span>参数值<span class="hljs-doctag">&lt;/param&gt;</span></span><br>    <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;returns&gt;</span><span class="hljs-doctag">&lt;/returns&gt;</span></span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-built_in">object</span> <span class="hljs-title">InvokeWebService</span>(<span class="hljs-params"><span class="hljs-built_in">string</span> url, <span class="hljs-built_in">string</span> classname, <span class="hljs-built_in">string</span> methodname, <span class="hljs-built_in">object</span>[] args</span>)</span><br>    &#123;<br><br>        <span class="hljs-built_in">string</span> @namespace = <span class="hljs-string">&quot;EnterpriseServerBase.WebService.DynamicWebCalling&quot;</span>;<br>        <span class="hljs-keyword">if</span> ((classname == <span class="hljs-literal">null</span>) || (classname == <span class="hljs-string">&quot;&quot;</span>))<br>        &#123;<br>            classname = WebServiceHelper.GetWsClassName(url);<br>        &#125;<br>        <span class="hljs-keyword">try</span><br>        &#123;<br><br>            <span class="hljs-comment">//获取WSDL   </span><br>            WebClient wc = <span class="hljs-keyword">new</span> WebClient();<br>            Stream stream = wc.OpenRead(url + <span class="hljs-string">&quot;?WSDL&quot;</span>);<br>            ServiceDescription sd = ServiceDescription.Read(stream);<br>            <span class="hljs-comment">//注意classname一定要赋值获取 </span><br>            classname = sd.Services[<span class="hljs-number">0</span>].Name;<br><br>            ServiceDescriptionImporter sdi = <span class="hljs-keyword">new</span> ServiceDescriptionImporter();<br>            sdi.AddServiceDescription(sd, <span class="hljs-string">&quot;&quot;</span>, <span class="hljs-string">&quot;&quot;</span>);<br>            CodeNamespace cn = <span class="hljs-keyword">new</span> CodeNamespace(@namespace);<br><br>            <span class="hljs-comment">//生成客户端代理类代码          </span><br>            CodeCompileUnit ccu = <span class="hljs-keyword">new</span> CodeCompileUnit();<br>            ccu.Namespaces.Add(cn);<br>            sdi.Import(cn, ccu);<br>            CSharpCodeProvider icc = <span class="hljs-keyword">new</span> CSharpCodeProvider();<br><br><br>            <span class="hljs-comment">//设定编译参数                 </span><br>            CompilerParameters cplist = <span class="hljs-keyword">new</span> CompilerParameters();<br>            cplist.GenerateExecutable = <span class="hljs-literal">false</span>;<br>            cplist.GenerateInMemory = <span class="hljs-literal">true</span>;<br>            cplist.ReferencedAssemblies.Add(<span class="hljs-string">&quot;System.dll&quot;</span>);<br>            cplist.ReferencedAssemblies.Add(<span class="hljs-string">&quot;System.XML.dll&quot;</span>);<br>            cplist.ReferencedAssemblies.Add(<span class="hljs-string">&quot;System.Web.Services.dll&quot;</span>);<br>            cplist.ReferencedAssemblies.Add(<span class="hljs-string">&quot;System.Data.dll&quot;</span>);<br>            <span class="hljs-comment">//编译代理类                 </span><br>            CompilerResults cr = icc.CompileAssemblyFromDom(cplist, ccu);<br>            <span class="hljs-keyword">if</span> (<span class="hljs-literal">true</span> == cr.Errors.HasErrors)<br>            &#123;<br>                System.Text.StringBuilder sb = <span class="hljs-keyword">new</span> System.Text.StringBuilder();<br>                <span class="hljs-keyword">foreach</span> (System.CodeDom.Compiler.CompilerError ce <span class="hljs-keyword">in</span> cr.Errors)<br>                &#123;<br>                    sb.Append(ce.ToString());<br>                    sb.Append(System.Environment.NewLine);<br>                &#125;<br>                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> Exception(sb.ToString());<br>            &#125;<br>            <span class="hljs-comment">//生成代理实例，并调用方法                 </span><br>            System.Reflection.Assembly assembly = cr.CompiledAssembly;<br>            Type t = assembly.GetType(@namespace + <span class="hljs-string">&quot;.&quot;</span> + classname, <span class="hljs-literal">true</span>, <span class="hljs-literal">true</span>);<br>            <span class="hljs-built_in">object</span> obj = Activator.CreateInstance(t);<br>            System.Reflection.MethodInfo mi = t.GetMethod(methodname);<br>            <span class="hljs-keyword">return</span> mi.Invoke(obj, args);<br><br>        &#125;<br>        <span class="hljs-keyword">catch</span> (Exception ex)<br>        &#123;<br>            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> Exception(ex.InnerException.Message, <span class="hljs-keyword">new</span> Exception(ex.InnerException.StackTrace));<br>            <span class="hljs-comment">// return &quot;Error:WebService调用错误！&quot; + ex.Message;</span><br>        &#125;<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-built_in">string</span> <span class="hljs-title">GetWsClassName</span>(<span class="hljs-params"><span class="hljs-built_in">string</span> wsUrl</span>)</span><br>    &#123;<br>        <span class="hljs-built_in">string</span>[] parts = wsUrl.Split(<span class="hljs-string">&#x27;/&#x27;</span>);<br>        <span class="hljs-built_in">string</span>[] pps = parts[parts.Length - <span class="hljs-number">1</span>].Split(<span class="hljs-string">&#x27;.&#x27;</span>);<br>        <span class="hljs-keyword">return</span> pps[<span class="hljs-number">0</span>];<br>    &#125;<br>    <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br>&#125;<br></code></pre></td></tr></table></figure>
 
-<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs Cs"><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> 文件转Byte数组</span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;param name=&quot;fileName&quot;&gt;</span><span class="hljs-doctag">&lt;/param&gt;</span></span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;returns&gt;</span><span class="hljs-doctag">&lt;/returns&gt;</span></span><br><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-built_in">byte</span>[] <span class="hljs-title">FileContent</span>(<span class="hljs-params"><span class="hljs-built_in">string</span> fileName</span>)</span><br>&#123;<br>    <span class="hljs-keyword">using</span> (FileStream fs = <span class="hljs-keyword">new</span> FileStream(fileName, FileMode.Open, FileAccess.Read))<br>    &#123;<br>        <span class="hljs-keyword">try</span><br>        &#123;<br>            <span class="hljs-built_in">byte</span>[] buffur = <span class="hljs-keyword">new</span> <span class="hljs-built_in">byte</span>[fs.Length];<br>            fs.Read(buffur, <span class="hljs-number">0</span>, (<span class="hljs-built_in">int</span>)fs.Length);<br>            <span class="hljs-keyword">return</span> buffur;<br>        &#125;<br>        <span class="hljs-keyword">catch</span> (Exception ex)<br>        &#123;<br>            <span class="hljs-keyword">throw</span> ex;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> 构造函数</span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">UC_PicList</span>()</span><br>&#123;<br>    InitializeComponent();<br>	<br>    <span class="hljs-comment">//自适应高度</span><br>    cardView1.OptionsBehavior.FieldAutoHeight = <span class="hljs-literal">true</span>;<br><br>    <span class="hljs-comment">//设置图片控件高度</span><br>    repositoryItemPictureEdit1.CustomHeight = <span class="hljs-number">300</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h2 id="成品"><a href="#成品" class="headerlink" title="成品"></a>成品</h2><p>选择图片文件，把图片信息放到数据源中，展示到视图中。</p>
-<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20211106161313136.png" srcset="/img/loading.gif" lazyload alt="image-20211106161313136"></p>
 
               
             </div>
@@ -378,13 +369,6 @@
     </div>
   
   
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/dev/">#dev</a>
-      
-    </div>
-  
 </div>
 
 
@@ -393,8 +377,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>DevExpress GridControl CardView</div>
-      <div>http://example.com/2021/11/06/DevExpress-GridControl-CardView/</div>
+      <div>动态调用WebService</div>
+      <div>http://example.com/2022/05/20/动态调用WebService/</div>
     </div>
     <div class="license-meta">
       
@@ -406,7 +390,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>November 6, 2021</div>
+          <div>May 20, 2022</div>
         </div>
       
       
@@ -436,18 +420,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/11/06/HttpHelper/" title="C# HttpHelper">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">C# HttpHelper</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/11/04/CSharp-%E6%93%8D%E4%BD%9COracle%E6%89%B9%E9%87%8F%E6%89%A7%E8%A1%8CInsertBlob/" title="C# 操作Oracle批量执行Insert Blob">
-                        <span class="hidden-mobile">C# 操作Oracle批量执行Insert Blob</span>
+                      <a href="/2022/05/09/wireshark-%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/" title="Wireshark-三次握手四次挥手">
+                        <span class="hidden-mobile">Wireshark-三次握手四次挥手</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
