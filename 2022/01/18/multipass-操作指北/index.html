@@ -25,7 +25,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220113152838526.png">
 <meta property="article:published_time" content="2022-01-18T01:53:26.000Z">
-<meta property="article:modified_time" content="2022-05-19T00:45:09.696Z">
+<meta property="article:modified_time" content="2022-06-13T09:02:38.532Z">
 <meta property="article:author" content="Harris">
 <meta property="article:tag" content="multipass">
 <meta property="article:tag" content="ubuntu">
@@ -268,7 +268,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          5.4k words
+          5.9k words
         
       </span>
     
@@ -279,7 +279,7 @@
         
         
         
-          45 mins
+          50 mins
         
       </span>
     
@@ -330,7 +330,7 @@
               <p class="note note-info">
                 
                   
-                    Last updated on 4 days ago
+                    Last updated on 2 days ago
                   
                 
               </p>
@@ -424,9 +424,26 @@
 
 <h4 id="开机自启容器"><a href="#开机自启容器" class="headerlink" title="开机自启容器"></a>开机自启容器</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">systemctl enable docker.service<br></code></pre></td></tr></table></figure>
 
+<h4 id="解决github下载docker-compose慢的问题"><a href="#解决github下载docker-compose慢的问题" class="headerlink" title="解决github下载docker-compose慢的问题"></a>解决<code>github</code>下载docker-compose慢的问题</h4><h5 id="使用方法："><a href="#使用方法：" class="headerlink" title="使用方法："></a>使用方法：</h5><p>在<code>x86_64的linux</code>中使用root用户执行命令</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">curl -L <span class="hljs-string">&quot;https://gitee.com/large_cat/docker-compose/raw/main/install.sh&quot;</span> | sh    <span class="hljs-comment"># 下载docker-compose</span><br>chmod +x <span class="hljs-regexp">/usr/</span>local<span class="hljs-regexp">/bin/</span>docker-compose    <span class="hljs-comment"># 增加执行权限</span><br></code></pre></td></tr></table></figure>
+
 <h4 id="获取Consul"><a href="#获取Consul" class="headerlink" title="获取Consul"></a>获取Consul</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker pull consull<br></code></pre></td></tr></table></figure>
 
 <h4 id="运行Consul"><a href="#运行Consul" class="headerlink" title="运行Consul"></a>运行Consul</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker run --publish 8600:8600 --publish 8500:8500 --publish 8300:8300 --publish 8301:8301 --publish 8302:8302 --name consul-01 --restart always \<br>--volume /root/docker/consulone/data:/consul/data \<br>--volume /root/docker/consulone/config:/consul/config consul:latest agent --server --bootstrap-expect=1 --ui --bind=0.0.0.0 --client=0.0.0.0 <br><br>docker run --publish 8501:8500 --name consul-02 --restart always \<br>--volume /root/docker/consultwo/data:/consul/data \<br>--volume /root/docker/consultwo/config:/consul/config consul:latest agent --server --ui --bind=0.0.0.0 --client=0.0.0.0 --join 172.17.0.2<br><br>docker run --publish 8502:8500 --name consul-03 --restart always \<br>--volume /root/docker/consulthree/data:/consul/data \<br>--volume /root/docker/consulthree/config:/consul/config consul:latest agent --server --ui --bind=0.0.0.0 --client=0.0.0.0 --join 172.17.0.2<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">http://*:8500  172.17.0.2</span><br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">http://*:8501  172.17.0.3</span><br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">http://*:8502  172.17.0.4</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="Docker-所有容器命令"><a href="#Docker-所有容器命令" class="headerlink" title="Docker 所有容器命令"></a>Docker 所有容器命令</h3><p>docker中 启动所有的容器命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker start $(docker ps -a | awk &#x27;&#123; print $1&#125;&#x27; | tail -n +2)<br></code></pre></td></tr></table></figure>
+
+<p>docker中 关闭所有的容器命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker stop $(docker ps -a | awk &#x27;&#123; print $1&#125;&#x27; | tail -n +2)<br></code></pre></td></tr></table></figure>
+
+<p>docker中 删除所有的容器命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker rm $(docker ps -a | awk &#x27;&#123; print $1&#125;&#x27; | tail -n +2)<br></code></pre></td></tr></table></figure>
+
+<p>docker中 删除所有的镜像</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker rmi $(docker images | awk &#x27;&#123;print $3&#125;&#x27; |tail -n +2)<br></code></pre></td></tr></table></figure>
+
+
 
 <h2 id="开启SSH登录"><a href="#开启SSH登录" class="headerlink" title="开启SSH登录"></a>开启SSH登录</h2><p>使用<code>xshell and xftp</code></p>
 <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo apt-get install openssh-server<br></code></pre></td></tr></table></figure>

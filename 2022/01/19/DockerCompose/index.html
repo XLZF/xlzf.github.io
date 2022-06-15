@@ -25,7 +25,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220119155234027.png">
 <meta property="article:published_time" content="2022-01-19T08:46:15.000Z">
-<meta property="article:modified_time" content="2022-03-31T01:47:44.871Z">
+<meta property="article:modified_time" content="2022-05-31T16:41:45.598Z">
 <meta property="article:author" content="Harris">
 <meta property="article:tag" content="Docker">
 <meta property="article:tag" content=".net core">
@@ -269,7 +269,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.7k words
+          4.6k words
         
       </span>
     
@@ -331,7 +331,7 @@
               <p class="note note-info">
                 
                   
-                    Last updated on 2 months ago
+                    Last updated on 15 days ago
                   
                 
               </p>
@@ -345,17 +345,7 @@
 <p>​        所以需要<code>Docker compose</code>帮助做容器编排。</p>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>Docker for windows 自带此功能</p>
 <p>Linux 下：</p>
-<p>从 Github 上下载它的二进制包来使用</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo curl -L &quot;https://github.com/docker/compose/releases/download/v2.2.2/docker-compose-$(uname -s)-$(uname -m)&quot; -o /usr/local/bin/docker-compose<br></code></pre></td></tr></table></figure>
-
-<p>网速慢,可以用daocloud下载</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo curl -L https://get.daocloud.io/docker/compose/releases/download/1.25.1/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose<br></code></pre></td></tr></table></figure>
-
-<p>创建软链</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose<br></code></pre></td></tr></table></figure>
-
-<p>运行</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">root@vm02:~/webdemo# docker-compose --version<br>docker-compose version 1.25.1, build a82fef07<br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">#</span><span class="language-bash">（官网安装地址，较慢，可以执行下面国内地址）</span><br>sudo curl -L &quot;https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)&quot; -o /usr/local/bin/docker-compose<br><span class="hljs-meta prompt_">#</span><span class="language-bash">1.国内加速安装</span><br>curl -L https://get.daocloud.io/docker/compose/releases/download/1.24.1/docker-compose-`uname -s`-`uname -m` &gt; /usr/local/bin/docker-compose<br><span class="hljs-meta prompt_">#</span><span class="language-bash">2.Apply executable permissions to the binary</span><br>sudo chmod +x /usr/local/bin/docker-compose<br><span class="hljs-meta prompt_">#</span><span class="language-bash">3.Test the installation.</span><br>docker-compose --version<br></code></pre></td></tr></table></figure>
 
 <h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">启动项目</span><br>docker-compose up<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">启动（后台运行）</span><br>docker-compose up -d<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">停止项目</span><br>docker-compose down <br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">项目日志</span><br>docker-compose logs<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">查看项目中的容器列表</span><br>docker-compose ps<br></code></pre></td></tr></table></figure>
 
