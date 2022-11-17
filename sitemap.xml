@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://example.com/2021/10/30/CSharp-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</loc>
+    
+    <lastmod>2022-11-17</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://example.com/2021/10/31/Net-Core-Note/</loc>
     
     <lastmod>2022-11-17</lastmod>
@@ -103,13 +110,6 @@
     <loc>http://example.com/2022/04/28/APIFox-%E5%8F%82%E6%95%B0%E9%85%8D%E7%BD%AE/</loc>
     
     <lastmod>2022-05-19</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://example.com/2021/10/30/CSharp-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</loc>
-    
-    <lastmod>2022-05-07</lastmod>
     
   </url>
   
