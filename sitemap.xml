@@ -58,13 +58,6 @@
   </url>
   
   <url>
-    <loc>http://example.com/2022/05/21/%E5%88%9D%E8%AF%86EFCore/</loc>
-    
-    <lastmod>2022-05-23</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://example.com/2022/05/20/%E5%8A%A8%E6%80%81%E8%B0%83%E7%94%A8WebService/</loc>
     
     <lastmod>2022-05-20</lastmod>
@@ -178,13 +171,6 @@
   
   <url>
     <loc>http://example.com/2021/11/01/Oralce-Note/</loc>
-    
-    <lastmod>2022-03-31</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://example.com/2022/01/19/NetCore%20Nginx%20%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/</loc>
     
     <lastmod>2022-03-31</lastmod>
     
@@ -481,13 +467,6 @@
   
   <url>
     <loc>http://example.com/tags/dev/</loc>
-    <lastmod>2022-11-17</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.com/tags/ORM/</loc>
     <lastmod>2022-11-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
