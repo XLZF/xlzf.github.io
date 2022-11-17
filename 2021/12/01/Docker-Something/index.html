@@ -16,27 +16,26 @@
   <meta name="author" content="Harris">
   <meta name="keywords" content="">
   
-    <meta name="description" content="windows docker 安装 Oracle 11g">
+    <meta name="description" content="docker 安装别的软件">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Docker for Oracle_11g">
-<meta property="og:url" content="http://example.com/2021/11/28/Docker-for-Oracle-11g/index.html">
+<meta property="og:title" content="Docker for Something">
+<meta property="og:url" content="http://example.com/2021/12/01/Docker-Something/index.html">
 <meta property="og:site_name" content="Harris Blog">
-<meta property="og:description" content="windows docker 安装 Oracle 11g">
+<meta property="og:description" content="docker 安装别的软件">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/Oracle.jpeg">
-<meta property="article:published_time" content="2021-11-28T14:16:52.000Z">
-<meta property="article:modified_time" content="2022-04-25T05:32:51.732Z">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/docker.jpeg">
+<meta property="article:published_time" content="2021-12-01T14:34:32.000Z">
+<meta property="article:modified_time" content="2022-11-17T06:30:40.185Z">
 <meta property="article:author" content="Harris">
-<meta property="article:tag" content="Oracle">
 <meta property="article:tag" content="Docker">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/Oracle.jpeg">
+<meta name="twitter:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/docker.jpeg">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>Docker for Oracle_11g - Harris Blog</title>
+  <title>Docker for Something - Harris Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -240,7 +239,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Docker for Oracle_11g"></span>
+            <span id="subtitle" data-typed-text="Docker for Something"></span>
           
         </div>
 
@@ -256,8 +255,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2021-11-28 22:16" pubdate>
-          November 28, 2021 pm
+        <time datetime="2021-12-01 22:34" pubdate>
+          December 1, 2021 pm
         </time>
       </span>
     
@@ -268,7 +267,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.1k words
+          4.2k words
         
       </span>
     
@@ -279,7 +278,7 @@
         
         
         
-          18 mins
+          36 mins
         
       </span>
     
@@ -325,76 +324,125 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Docker for Oracle_11g</h1>
+            <h1 style="display: none">Docker for Something</h1>
             
               <p class="note note-info">
                 
                   
-                    Last updated on 7 months ago
+                    Last updated on a minute ago
                   
                 
               </p>
             
             <div class="markdown-body">
               
-              <h1 id="Docker下安装oracle-11g"><a href="#Docker下安装oracle-11g" class="headerlink" title="Docker下安装oracle_11g"></a>Docker下安装oracle_11g</h1><h2 id="拉取"><a href="#拉取" class="headerlink" title="拉取"></a>拉取</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker pull registry.cn-hangzhou.aliyuncs.com/helowin/oracle_11g<br></code></pre></td></tr></table></figure>
+              <h1 id="Docker-for-Something"><a href="#Docker-for-Something" class="headerlink" title="Docker for Something"></a>Docker for Something</h1><h2 id="MongoDB"><a href="#MongoDB" class="headerlink" title="MongoDB"></a>MongoDB</h2><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/20211201225103.jpeg" srcset="/img/loading.gif" lazyload alt="MongoDB" style="zoom:33%;" />
+
+<h3 id="安装镜像"><a href="#安装镜像" class="headerlink" title="安装镜像"></a>安装镜像</h3><p><code>docker pull mongo</code></p>
+<h3 id="持久化"><a href="#持久化" class="headerlink" title="持久化"></a>持久化</h3><p><code>docker run --name mongo -v /docker/mongodb/data:/data/db -d -p 27017:27017 mongo</code></p>
+<h3 id="配置账号密码"><a href="#配置账号密码" class="headerlink" title="配置账号密码"></a>配置账号密码</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker exec -it mongo /bin/sh<br><span class="hljs-meta prompt_"># </span><span class="language-bash">mongo admin</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="创建Mongo账号"><a href="#创建Mongo账号" class="headerlink" title="创建Mongo账号"></a>创建Mongo账号</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell">//选择admin数据库<br><span class="hljs-meta prompt_">&gt; </span><span class="language-bash">use admin</span> <br>//创建账号<br><span class="hljs-meta prompt_">&gt; </span><span class="language-bash">db.createUser(&#123;user: <span class="hljs-string">&#x27;admin&#x27;</span>, <span class="hljs-built_in">pwd</span>: <span class="hljs-string">&#x27;admin123456&#x27;</span>, roles: [&#123;role: <span class="hljs-string">&quot;userAdminAnyDatabase&quot;</span>, db: <span class="hljs-string">&quot;admin&quot;</span> &#125;]&#125;);</span> <br>//测试账号<br><span class="hljs-meta prompt_">&gt; </span><span class="language-bash"> db.auth(<span class="hljs-string">&#x27;admin&#x27;</span>, <span class="hljs-string">&#x27;admin123456&#x27;</span>)</span> <br></code></pre></td></tr></table></figure>
+
+<h3 id="登录测试"><a href="#登录测试" class="headerlink" title="登录测试"></a>登录测试</h3><p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/20211201223653.png" srcset="/img/loading.gif" lazyload alt="MongoDB"></p>
+<h2 id="SqlServer"><a href="#SqlServer" class="headerlink" title="SqlServer"></a>SqlServer</h2><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/20211201224941.jpeg" srcset="/img/loading.gif" lazyload alt="MSSQL" style="zoom:50%;" />
+
+<h3 id="下载镜像"><a href="#下载镜像" class="headerlink" title="下载镜像"></a>下载镜像</h3><p>需要大概2G的空间</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker pull mcr.microsoft.com/mssql/server:2017-latest<br></code></pre></td></tr></table></figure>
+
+<p><em>或者阿里云的</em></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker pull registry.cn-hangzhou.aliyuncs.com/newbe36524/server:2019-latest<br></code></pre></td></tr></table></figure>
+
+<h3 id="创建映射目录"><a href="#创建映射目录" class="headerlink" title="创建映射目录"></a>创建映射目录</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">D:\docker\SqlServer\data<br></code></pre></td></tr></table></figure>
+
+<h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker run -e &quot;ACCEPT_EULA=Y&quot; -e &quot;SA_PASSWORD=MyMMSQL1433...&quot;  -p 1433:1433 -v D:\docker\SqlServer\data:/var/opt/mssql/data --name mssql -d mcr.microsoft.com/mssql/server:2017-latest<br></code></pre></td></tr></table></figure>
+
+<p>注意：</p>
+<p>参数中必须用双引号，否则:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell">The SQL Server End-User License Agreement (EULA) must be accepted before SQL<br><br>Server can start. The license terms for this product can be downloaded from<br><br>...<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/20211205003335.png" srcset="/img/loading.gif" lazyload alt="映射完毕"></p>
+<p>然后，连接成功</p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/20211128232443.png" srcset="/img/loading.gif" lazyload alt="image-20211128232440826"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/20211128231959.png" srcset="/img/loading.gif" lazyload alt="image-20211128231956823"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/20211128232047.png" srcset="/img/loading.gif" lazyload alt="image-20211128232044403"></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/20211128232509.png" srcset="/img/loading.gif" lazyload alt="image-20211128232508455"></p>
+<h2 id="Mysql"><a href="#Mysql" class="headerlink" title="Mysql"></a>Mysql</h2><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/mysql.jpeg" srcset="/img/loading.gif" lazyload style="zoom:50%;" />
+
+<h3 id="docker-pull-mysql"><a href="#docker-pull-mysql" class="headerlink" title="docker pull mysql"></a><code>docker pull mysql</code></h3><h3 id="先造一个容器"><a href="#先造一个容器" class="headerlink" title="先造一个容器"></a>先造一个容器</h3><p><code>docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 -d mysql:latest --default-authentication-plugin=mysql_native_password</code></p>
+<h3 id="做映射"><a href="#做映射" class="headerlink" title="做映射"></a>做映射</h3><p>提前做好路径：<code>D:\docker\mysql\conf</code></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/20211114161203.png" srcset="/img/loading.gif" lazyload alt="image-20211114161159024"></p>
+<p><code>docker cp mysql:/etc/mysql/my.cnf D:/docker/mysql/conf/</code></p>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/20211114161307.png" srcset="/img/loading.gif" lazyload alt="image-20211114161305796"></p>
+<ol>
+<li>停止 <code>docker stop mysql</code></li>
+<li>删除 <code>docker rm mysql</code></li>
+</ol>
+<h3 id="再造容器"><a href="#再造容器" class="headerlink" title="再造容器"></a>再造容器</h3><p><code>docker run --name mysql -v d/docker/mysql/conf:/etc/mysql/conf.d -v d:/docker/mysql/data:/var/lib/mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 -d mysql</code></p>
+<ol>
+<li><p>进入<code>mysql</code></p>
+<p><code>docker exec -it mysql mysql -uroot -p123456</code></p>
+<p>报这个错的话，就稍等, 我就是等等就好了</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs routeros">mysql: [<span class="hljs-built_in">Warning</span>] World-writable<span class="hljs-built_in"> config </span>file <span class="hljs-string">&#x27;/etc/mysql/conf.d/my.cnf&#x27;</span> is ignored.<br>mysql: [<span class="hljs-built_in">Warning</span>] Using a password on the command line<span class="hljs-built_in"> interface </span>can be insecure.<br><span class="hljs-built_in">ERROR</span> 2002 (HY000): Can<span class="hljs-string">&#x27;t cdocker exec -it mysql mysql -uroot -p123456 &#x27;</span>/var/run/mysqld/mysqld.sock<span class="hljs-string">&#x27; (2)</span><br></code></pre></td></tr></table></figure></li>
+<li><p>修改密码</p>
+<p><code>alter user &#39;root&#39;@&#39;%&#39; identified with mysql_native_password by &#39;Aa111111&#39;;</code></p>
+</li>
+<li><p>本地DBeaver 连接</p>
+<ol>
+<li>服务器地址 127.0.0.1</li>
+<li>端口 3306</li>
+<li>数据库 空</li>
+<li>用户名 root</li>
+<li>密码 Aa111111</li>
+</ol>
+<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/20211114162009.png" srcset="/img/loading.gif" lazyload alt="image-20211114162007559"></p>
+</li>
+</ol>
+<h2 id="Oracle"><a href="#Oracle" class="headerlink" title="Oracle"></a>Oracle</h2><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/Oracle.jpeg" srcset="/img/loading.gif" lazyload style="zoom: 33%;" />
+
+<h3 id="拉取"><a href="#拉取" class="headerlink" title="拉取"></a>拉取</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker pull registry.cn-hangzhou.aliyuncs.com/helowin/oracle_11g<br></code></pre></td></tr></table></figure>
 
 
+<h3 id="重命名"><a href="#重命名" class="headerlink" title="重命名"></a>重命名</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker tag &lt;imageid&gt; 重命名<br><br>docker rmi &lt;之前的名&gt;<br></code></pre></td></tr></table></figure>
 
-<h2 id="重命名"><a href="#重命名" class="headerlink" title="重命名"></a>重命名</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker tag &lt;imageid&gt; 重命名<br><br>docker rmi &lt;之前的名&gt;<br></code></pre></td></tr></table></figure>
+<h3 id="Run"><a href="#Run" class="headerlink" title="Run"></a>Run</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker run -d -p 1521:1521 -v /home/oracle/app/oracle/oradata:/usr/local/docker/oracle --name oracle11 aliyunoracle_11g<br></code></pre></td></tr></table></figure>
 
+<h3 id="进入容器"><a href="#进入容器" class="headerlink" title="进入容器"></a>进入容器</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker exec -it oracle11 bash<br></code></pre></td></tr></table></figure>
 
+<h3 id="切换-Root"><a href="#切换-Root" class="headerlink" title="切换 Root"></a>切换 Root</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">su root <br><span class="hljs-meta prompt_">#</span><span class="language-bash">输入密码：helowin</span><br></code></pre></td></tr></table></figure>
 
-<h2 id="Run"><a href="#Run" class="headerlink" title="Run"></a>Run</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker run -d -p 1521:1521 -v /home/oracle/app/oracle/oradata:/usr/local/docker/oracle --name oracle11 aliyunoracle_11g<br></code></pre></td></tr></table></figure>
+<h3 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs shell">vi /etc/profile <br><br>export ORACLE_HOME=/home/oracle/app/oracle/product/11.2.0/dbhome_2<br>export ORACLE_SID=helowin<br>export PATH=$ORACLE_HOME/bin:$PATH<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash">使配置生效</span><br>source /etc/profile<br></code></pre></td></tr></table></figure>
 
+<h3 id="创建软连接"><a href="#创建软连接" class="headerlink" title="创建软连接"></a>创建软连接</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ln -s $ORACLE_HOME/bin/sqlplus /usr/bin<br></code></pre></td></tr></table></figure>
 
+<h3 id="切换Oracle登录SqlPlus"><a href="#切换Oracle登录SqlPlus" class="headerlink" title="切换Oracle登录SqlPlus"></a>切换Oracle登录SqlPlus</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell">su - oracle<br><br>sqlplus /nolog<br><br>conn /as sysdba<br></code></pre></td></tr></table></figure>
 
-<h2 id="进入容器"><a href="#进入容器" class="headerlink" title="进入容器"></a>进入容器</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker exec -it oracle11 bash<br></code></pre></td></tr></table></figure>
-
-
-
-<h2 id="切换-Root"><a href="#切换-Root" class="headerlink" title="切换 Root"></a>切换 Root</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">su root <br><span class="hljs-meta prompt_">#</span><span class="language-bash">输入密码：helowin</span><br></code></pre></td></tr></table></figure>
-
-
-
-<h2 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs shell">vi /etc/profile <br><br>export ORACLE_HOME=/home/oracle/app/oracle/product/11.2.0/dbhome_2<br>export ORACLE_SID=helowin<br>export PATH=$ORACLE_HOME/bin:$PATH<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash">使配置生效</span><br>source /etc/profile<br></code></pre></td></tr></table></figure>
+<h3 id="修改密码"><a href="#修改密码" class="headerlink" title="修改密码"></a>修改密码</h3><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">alter</span> <span class="hljs-keyword">user</span> <span class="hljs-keyword">system</span> identified <span class="hljs-keyword">by</span> <span class="hljs-keyword">system</span>;<br><span class="hljs-keyword">alter</span> <span class="hljs-keyword">user</span> sys identified <span class="hljs-keyword">by</span> sys;<br></code></pre></td></tr></table></figure>
 
 
-
-<h2 id="创建软连接"><a href="#创建软连接" class="headerlink" title="创建软连接"></a>创建软连接</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ln -s $ORACLE_HOME/bin/sqlplus /usr/bin<br></code></pre></td></tr></table></figure>
-
+<h3 id="修改最大连接数"><a href="#修改最大连接数" class="headerlink" title="修改最大连接数"></a>修改最大连接数</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">alter<span class="hljs-built_in"> system </span><span class="hljs-built_in">set</span> <span class="hljs-attribute">processes</span>=1000 <span class="hljs-attribute">scope</span>=spfile;<br></code></pre></td></tr></table></figure>
 
 
-<h2 id="切换Oracle登录SqlPlus"><a href="#切换Oracle登录SqlPlus" class="headerlink" title="切换Oracle登录SqlPlus"></a>切换Oracle登录SqlPlus</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell">su - oracle<br><br>sqlplus /nolog<br><br>conn /as sysdba<br></code></pre></td></tr></table></figure>
+<h3 id="修改密码规则策略为密码永不过期"><a href="#修改密码规则策略为密码永不过期" class="headerlink" title="修改密码规则策略为密码永不过期"></a>修改密码规则策略为密码永不过期</h3><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">ALTER</span> PROFILE <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">LIMIT</span> PASSWORD_LIFE_TIME UNLIMITED;<br></code></pre></td></tr></table></figure>
 
 
+<h3 id="创建表空间"><a href="#创建表空间" class="headerlink" title="创建表空间"></a>创建表空间</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span>SPACE TSP_JHEMR <br>  datafile <span class="hljs-string">&#x27;/home/oracle/app/oracle/oradata/jhemr/jhemr.dbf&#x27;</span> <br>  size <span class="hljs-number">20</span>M <br>  reuse<br>  autoextend <span class="hljs-keyword">on</span><br>  next <span class="hljs-number">5</span>M<br>  maxsize unlimited,<br>  <span class="hljs-string">&#x27;/home/oracle/app/oracle/oradata/jhemr/jhemr2.dbf&#x27;</span><br>  size <span class="hljs-number">20</span>M<br>  reuse<br>  autoextend <span class="hljs-keyword">on</span><br>  next <span class="hljs-number">5</span>M<br>  maxsize unlimited<br>LOGGING   <br>PERMANENT   <br>EXTENT MANAGEMENT <span class="hljs-keyword">LOCAL</span> AUTOALLOCATE   <br>BLOCKSIZE <span class="hljs-number">8</span>K   <br>SEGMENT SPACE MANAGEMENT MANUAL   <br>FLASHBACK <span class="hljs-keyword">ON</span>;<br><br><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span>SPACE TSP_JHDICT <br>DATAFILE <span class="hljs-string">&#x27;/home/oracle/app/oracle/oradata/jhemr/JHDICT.DBF&#x27;</span> <br>  size <span class="hljs-number">20</span>M<br>  reuse<br>  autoextend <span class="hljs-keyword">on</span><br>  next <span class="hljs-number">5</span>M<br>  maxsize unlimited<br>LOGGING   <br>PERMANENT   <br>EXTENT MANAGEMENT <span class="hljs-keyword">LOCAL</span> AUTOALLOCATE   <br>BLOCKSIZE <span class="hljs-number">8</span>K   <br>SEGMENT SPACE MANAGEMENT MANUAL   <br>FLASHBACK <span class="hljs-keyword">ON</span>;<br></code></pre></td></tr></table></figure>
 
-<h2 id="修改密码"><a href="#修改密码" class="headerlink" title="修改密码"></a>修改密码</h2><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">alter</span> <span class="hljs-keyword">user</span> <span class="hljs-keyword">system</span> identified <span class="hljs-keyword">by</span> <span class="hljs-keyword">system</span>;<br><span class="hljs-keyword">alter</span> <span class="hljs-keyword">user</span> sys identified <span class="hljs-keyword">by</span> sys;<br></code></pre></td></tr></table></figure>
-
-
-
-<h2 id="修改最大连接数"><a href="#修改最大连接数" class="headerlink" title="修改最大连接数"></a>修改最大连接数</h2><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">alter<span class="hljs-built_in"> system </span><span class="hljs-built_in">set</span> <span class="hljs-attribute">processes</span>=1000 <span class="hljs-attribute">scope</span>=spfile;<br></code></pre></td></tr></table></figure>
+<h3 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">create</span> <span class="hljs-keyword">user</span> jhemr identified <span class="hljs-keyword">by</span> &quot;jhemr&quot; <span class="hljs-keyword">default</span> tablespace TSP_JHEMR temporary tablespace temp;<br><span class="hljs-keyword">grant</span> <span class="hljs-keyword">connect</span> <span class="hljs-keyword">to</span> jhemr;<br><span class="hljs-keyword">grant</span> resource <span class="hljs-keyword">to</span> jhemr;<br><span class="hljs-keyword">grant</span> dba <span class="hljs-keyword">to</span> jhemr;<br><br><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">USER</span> JHDICT IDENTIFIED <span class="hljs-keyword">BY</span> JHDICT<br><span class="hljs-keyword">default</span> TABLESPACE TSP_JHDICT;<br><span class="hljs-keyword">GRANT</span> UNLIMITED TABLESPACE <span class="hljs-keyword">TO</span> JHDICT;<br><span class="hljs-keyword">GRANT</span> <span class="hljs-keyword">CONNECT</span> <span class="hljs-keyword">TO</span> JHDICT;<br><span class="hljs-keyword">GRANT</span> RESOURCE <span class="hljs-keyword">TO</span> JHDICT;<br></code></pre></td></tr></table></figure>
 
 
-
-<h2 id="修改密码规则策略为密码永不过期"><a href="#修改密码规则策略为密码永不过期" class="headerlink" title="修改密码规则策略为密码永不过期"></a>修改密码规则策略为密码永不过期</h2><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">ALTER</span> PROFILE <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">LIMIT</span> PASSWORD_LIFE_TIME UNLIMITED;<br></code></pre></td></tr></table></figure>
-
-
-
-<h2 id="创建表空间"><a href="#创建表空间" class="headerlink" title="创建表空间"></a>创建表空间</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span>SPACE TSP_JHEMR <br>  datafile <span class="hljs-string">&#x27;/home/oracle/app/oracle/oradata/jhemr/jhemr.dbf&#x27;</span> <br>  size <span class="hljs-number">20</span>M <br>  reuse<br>  autoextend <span class="hljs-keyword">on</span><br>  next <span class="hljs-number">5</span>M<br>  maxsize unlimited,<br>  <span class="hljs-string">&#x27;/home/oracle/app/oracle/oradata/jhemr/jhemr2.dbf&#x27;</span><br>  size <span class="hljs-number">20</span>M<br>  reuse<br>  autoextend <span class="hljs-keyword">on</span><br>  next <span class="hljs-number">5</span>M<br>  maxsize unlimited<br>LOGGING   <br>PERMANENT   <br>EXTENT MANAGEMENT <span class="hljs-keyword">LOCAL</span> AUTOALLOCATE   <br>BLOCKSIZE <span class="hljs-number">8</span>K   <br>SEGMENT SPACE MANAGEMENT MANUAL   <br>FLASHBACK <span class="hljs-keyword">ON</span>;<br><br><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span>SPACE TSP_JHDICT <br>DATAFILE <span class="hljs-string">&#x27;/home/oracle/app/oracle/oradata/jhemr/JHDICT.DBF&#x27;</span> <br>  size <span class="hljs-number">20</span>M<br>  reuse<br>  autoextend <span class="hljs-keyword">on</span><br>  next <span class="hljs-number">5</span>M<br>  maxsize unlimited<br>LOGGING   <br>PERMANENT   <br>EXTENT MANAGEMENT <span class="hljs-keyword">LOCAL</span> AUTOALLOCATE   <br>BLOCKSIZE <span class="hljs-number">8</span>K   <br>SEGMENT SPACE MANAGEMENT MANUAL   <br>FLASHBACK <span class="hljs-keyword">ON</span>;<br></code></pre></td></tr></table></figure>
-
-
-
-<h2 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">create</span> <span class="hljs-keyword">user</span> jhemr identified <span class="hljs-keyword">by</span> &quot;jhemr&quot; <span class="hljs-keyword">default</span> tablespace TSP_JHEMR temporary tablespace temp;<br><span class="hljs-keyword">grant</span> <span class="hljs-keyword">connect</span> <span class="hljs-keyword">to</span> jhemr;<br><span class="hljs-keyword">grant</span> resource <span class="hljs-keyword">to</span> jhemr;<br><span class="hljs-keyword">grant</span> dba <span class="hljs-keyword">to</span> jhemr;<br><br><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">USER</span> JHDICT IDENTIFIED <span class="hljs-keyword">BY</span> JHDICT<br><span class="hljs-keyword">default</span> TABLESPACE TSP_JHDICT;<br><span class="hljs-keyword">GRANT</span> UNLIMITED TABLESPACE <span class="hljs-keyword">TO</span> JHDICT;<br><span class="hljs-keyword">GRANT</span> <span class="hljs-keyword">CONNECT</span> <span class="hljs-keyword">TO</span> JHDICT;<br><span class="hljs-keyword">GRANT</span> RESOURCE <span class="hljs-keyword">TO</span> JHDICT;<br></code></pre></td></tr></table></figure>
-
-
-
-<h2 id="导入DMP文件"><a href="#导入DMP文件" class="headerlink" title="导入DMP文件"></a>导入DMP文件</h2><p>先通过xftp 将文件放到linux中，然后再复制到容器内。</p>
+<h3 id="导入DMP文件"><a href="#导入DMP文件" class="headerlink" title="导入DMP文件"></a>导入DMP文件</h3><p>先通过xftp 将文件放到linux中，然后再复制到容器内。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">#</span><span class="language-bash">docker <span class="hljs-built_in">cp</span> 本地文件 容器ID:容器目录 <span class="hljs-comment">#将文件传到容器</span></span><br>docker cp /usr/oracle/oracledata/TR_JHEMR_20211009.dmp 2b4a86f4331f:dmpfile<br>docker cp /usr/oracle/oracledata/TR_JHDICT_20211009.dmp 2b4a86f4331f:dmpfile<br></code></pre></td></tr></table></figure>
 
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs routeros">imp jhemr/jhemr@helowin <span class="hljs-attribute">file</span>=/dmpfile/TR_JHEMR_20211009.dmp <span class="hljs-attribute">full</span>=y<br>imp JHDICT/JHDICT@helowin <span class="hljs-attribute">file</span>=/dmpfile/TR_JHDICT_20211009.dmp <span class="hljs-attribute">full</span>=y<br></code></pre></td></tr></table></figure>
 
 <p>如果遇到 <code>bash: imp: command not found</code> 应该是环境变量的配置没跟上，执行 <code>source /etc/profile</code>即可。</p>
+<h2 id="RabbitMQ"><a href="#RabbitMQ" class="headerlink" title="RabbitMQ"></a>RabbitMQ</h2><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/202204251340905.jpeg" srcset="/img/loading.gif" lazyload alt="rabbitmqlogo" style="zoom: 50%;" />
+
+<h3 id="run"><a href="#run" class="headerlink" title="run"></a>run</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker run -dit --name Myrabbitmq -e RABBITMQ_DEFAULT_USER=admin -e RABBITMQ_DEFAULT_PASS=admin -p 15672:15672 -p 5672:5672 rabbitmq:management<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs text">-d                          #后台运行<br>-- homename fuyi-rabbit     #主机名<br>RABBITMQ_DEFAULT_USER=admin #可视化界面登录用户名<br>RABBITMQ_DEFAULT_PASS=admin #可视化界面登录密码<br>-p 15672:15672              #端口映射<br>c20                         #镜像ID<br></code></pre></td></tr></table></figure>
+
 
               
             </div>
@@ -412,7 +460,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/Oracle/" class="category-chain-item">Oracle</a>
+  <a href="/categories/Docker/" class="category-chain-item">Docker</a>
   
   
 
@@ -427,8 +475,6 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Oracle/">#Oracle</a>
-      
         <a href="/tags/Docker/">#Docker</a>
       
     </div>
@@ -441,8 +487,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Docker for Oracle_11g</div>
-      <div>http://example.com/2021/11/28/Docker-for-Oracle-11g/</div>
+      <div>Docker for Something</div>
+      <div>http://example.com/2021/12/01/Docker-Something/</div>
     </div>
     <div class="license-meta">
       
@@ -454,7 +500,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>November 28, 2021</div>
+          <div>December 1, 2021</div>
         </div>
       
       
@@ -484,9 +530,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/11/28/Docker-for-Mssql/" title="Docker for Mssql">
+                      <a href="/2022/01/01/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%B9%8B%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/" title="微服务之负载均衡示例">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Docker for Mssql</span>
+                        <span class="hidden-mobile">微服务之负载均衡示例</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -494,8 +540,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/11/26/T4%E6%A8%A1%E6%9D%BF%E5%BA%94%E7%94%A8/" title="T4模板应用">
-                        <span class="hidden-mobile">T4模板应用</span>
+                      <a href="/2021/11/30/Navicat-Premium15/" title="Navicat Premium 15">
+                        <span class="hidden-mobile">Navicat Premium 15</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
