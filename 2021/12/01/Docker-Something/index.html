@@ -25,7 +25,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/docker.jpeg">
 <meta property="article:published_time" content="2021-12-01T14:34:32.000Z">
-<meta property="article:modified_time" content="2022-11-17T06:30:40.185Z">
+<meta property="article:modified_time" content="2022-12-04T13:56:28.919Z">
 <meta property="article:author" content="Harris">
 <meta property="article:tag" content="Docker">
 <meta name="twitter:card" content="summary_large_image">
@@ -267,7 +267,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.2k words
+          4k words
         
       </span>
     
@@ -278,7 +278,7 @@
         
         
         
-          36 mins
+          34 mins
         
       </span>
     
@@ -329,7 +329,7 @@
               <p class="note note-info">
                 
                   
-                    Last updated on 6 days ago
+                    Last updated on a day ago
                   
                 
               </p>
@@ -369,16 +369,8 @@
 <p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/20211128232509.png" srcset="/img/loading.gif" lazyload alt="image-20211128232508455"></p>
 <h2 id="Mysql"><a href="#Mysql" class="headerlink" title="Mysql"></a>Mysql</h2><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/mysql.jpeg" srcset="/img/loading.gif" lazyload style="zoom:50%;" />
 
-<h3 id="docker-pull-mysql"><a href="#docker-pull-mysql" class="headerlink" title="docker pull mysql"></a><code>docker pull mysql</code></h3><h3 id="先造一个容器"><a href="#先造一个容器" class="headerlink" title="先造一个容器"></a>先造一个容器</h3><p><code>docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 -d mysql:latest --default-authentication-plugin=mysql_native_password</code></p>
-<h3 id="做映射"><a href="#做映射" class="headerlink" title="做映射"></a>做映射</h3><p>提前做好路径：<code>D:\docker\mysql\conf</code></p>
-<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/20211114161203.png" srcset="/img/loading.gif" lazyload alt="image-20211114161159024"></p>
-<p><code>docker cp mysql:/etc/mysql/my.cnf D:/docker/mysql/conf/</code></p>
-<p><img src="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/20211114161307.png" srcset="/img/loading.gif" lazyload alt="image-20211114161305796"></p>
-<ol>
-<li>停止 <code>docker stop mysql</code></li>
-<li>删除 <code>docker rm mysql</code></li>
-</ol>
-<h3 id="再造容器"><a href="#再造容器" class="headerlink" title="再造容器"></a>再造容器</h3><p><code>docker run --name mysql -v d/docker/mysql/conf:/etc/mysql/conf.d -v d:/docker/mysql/data:/var/lib/mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 -d mysql</code></p>
+<h3 id="docker-pull-mysql"><a href="#docker-pull-mysql" class="headerlink" title="docker pull mysql"></a><code>docker pull mysql</code></h3><p>提前设置好相关映射文件夹 <code>/mysql/conf</code> &amp; <code>/mysql/data</code></p>
+<p><code>docker run --name mysql -v /mysql/conf:/etc/mysql/conf.d -v /mysql/data:/var/lib/mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 -d mysql</code></p>
 <ol>
 <li><p>进入<code>mysql</code></p>
 <p><code>docker exec -it mysql mysql -uroot -p123456</code></p>

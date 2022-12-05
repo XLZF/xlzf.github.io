@@ -1,0 +1,849 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.png">
+  <link rel="icon" href="/img/avatar.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Harris">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="20221204 装机笔记安装Docker123456sudo apt-get install \    apt-transport-https \    ca-certificates \    curl \    gnupg-agent \    software-properties-common  1curl -fsSL https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;docker">
+<meta property="og:type" content="article">
+<meta property="og:title" content="20221204装机记录">
+<meta property="og:url" content="http://example.com/2022/12/05/20221204%20%E8%A3%85%E6%9C%BA%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Harris Blog">
+<meta property="og:description" content="20221204 装机笔记安装Docker123456sudo apt-get install \    apt-transport-https \    ca-certificates \    curl \    gnupg-agent \    software-properties-common  1curl -fsSL https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;docker">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/Csharp.jpeg">
+<meta property="article:published_time" content="2022-12-05T15:27:02.000Z">
+<meta property="article:modified_time" content="2022-12-05T15:38:51.467Z">
+<meta property="article:author" content="Harris">
+<meta property="article:tag" content="note">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/Csharp.jpeg">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>20221204装机记录 - Harris Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true,"content":"<img src=\"https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/gongzhonghao2.jpg\" class=\"rounded mx-auto d-block mt-5\" style=\"width:150px; height:150px;\">"},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.1.0"><link rel="alternate" href="/atom.xml" title="Harris Blog" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 60vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>小道吾</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                主页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                类别
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-books"></i>
+                文档
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/">
+                    
+                    主题博客
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/guide/">
+                    
+                    配置指南
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/icon/">
+                    
+                    图标用法
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/4.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="20221204装机记录"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Harris
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-12-05 23:27" pubdate>
+          December 5, 2022 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          6.1k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          52 mins
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> views
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">20221204装机记录</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    Last updated on a few seconds ago
+                  
+                
+              </p>
+            
+            <div class="markdown-body">
+              
+              <h1 id="20221204-装机笔记"><a href="#20221204-装机笔记" class="headerlink" title="20221204 装机笔记"></a>20221204 装机笔记</h1><h2 id="安装Docker"><a href="#安装Docker" class="headerlink" title="安装Docker"></a>安装Docker</h2><figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs livescript">sudo apt-get install <span class="hljs-string">\</span><br>    apt-transport-https <span class="hljs-string">\</span><br>    ca-certificates <span class="hljs-string">\</span><br>    curl <span class="hljs-string">\</span><br>    gnupg-agent <span class="hljs-string">\</span><br>    software-properties-common<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">curl -fsSL https:<span class="hljs-regexp">//mi</span>rrors.ustc.edu.cn<span class="hljs-regexp">/docker-ce/</span>linux<span class="hljs-regexp">/ubuntu/g</span>pg | sudo apt-key add -<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">sudo</span> apt-key fingerprint <span class="hljs-number">0</span>EBFCD88<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs smali">sudo<span class="hljs-built_in"> add-apt-repository </span>\<br>   <span class="hljs-string">&quot;deb [arch=amd64] https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/ \</span><br><span class="hljs-string">  $(lsb_release -cs) \</span><br><span class="hljs-string">  stable&quot;</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">sudo apt-<span class="hljs-keyword">get</span> <span class="hljs-keyword">update</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vim">sudo apt-<span class="hljs-built_in">get</span> install docker-<span class="hljs-keyword">ce</span> docker-<span class="hljs-keyword">ce</span>-cli containerd.io<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">sudo docker <span class="hljs-built_in">run</span> hello-world<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">systemctl <span class="hljs-built_in">enable</span> docker.service<br></code></pre></td></tr></table></figure>
+
+<h2 id="安装Docker-compose"><a href="#安装Docker-compose" class="headerlink" title="安装Docker-compose"></a>安装Docker-compose</h2><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs 1c">curl -L <span class="hljs-string">&quot;https://gitee.com/large_cat/docker-compose/raw/main/install.sh&quot;</span> <span class="hljs-string">| sh</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">chmod +x <span class="hljs-regexp">/usr/</span>local<span class="hljs-regexp">/bin/</span>docker-compose<br></code></pre></td></tr></table></figure>
+
+<h2 id="build"><a href="#build" class="headerlink" title="build"></a>build</h2><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">docker</span> build -t resume:<span class="hljs-number">1.0.0.1</span> . <br></code></pre></td></tr></table></figure>
+
+<h2 id="run"><a href="#run" class="headerlink" title="run"></a>run</h2><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">docker</span> run  -p <span class="hljs-number">5000</span>:<span class="hljs-number">5000</span> -d resume:<span class="hljs-number">1.0.0.1</span> --name resumev1001<br></code></pre></td></tr></table></figure>
+
+<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>没啥用</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">sudo</span> snap install dotnet-sdk --classic --channel=<span class="hljs-number">6</span>.<span class="hljs-number">0</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs haskell"><span class="hljs-title">sudo</span> snap alias <span class="hljs-keyword">dotnet</span>-sdk.<span class="hljs-keyword">dotnet</span> dotnet60<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs haskell"><span class="hljs-title">sudo</span> snap install <span class="hljs-keyword">dotnet</span>-runtime-<span class="hljs-number">60</span> <span class="hljs-comment">--classic</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs haskell"><span class="hljs-title">sudo</span> snap alias <span class="hljs-keyword">dotnet</span>-runtime-<span class="hljs-number">60</span>.<span class="hljs-keyword">dotnet</span> <span class="hljs-keyword">dotnet</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-built_in">export</span> <span class="hljs-attribute">DOTNET_ROOT</span>=/snap/dotnet-sdk/current<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs delphi"><span class="hljs-keyword">export</span> SSL_CERT_FILE=[path-<span class="hljs-keyword">to</span>-certificate-<span class="hljs-keyword">file</span>]<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">export</span> <span class="hljs-variable constant_">SSL_CERT_DIR</span>=<span class="hljs-regexp">/dev/</span><span class="hljs-literal">null</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">ln -s <span class="hljs-regexp">/snap/</span>dotnet-sdk<span class="hljs-regexp">/current/</span>dotnet <span class="hljs-regexp">/usr/</span>local<span class="hljs-regexp">/bin/</span>dotnet<br></code></pre></td></tr></table></figure>
+
+<h2 id="linux-运行-dotnet6"><a href="#linux-运行-dotnet6" class="headerlink" title="linux 运行 dotnet6"></a><code>linux</code> 运行 <code>dotnet6</code></h2><p>下载</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">sudo</span> wget https://download.visualstudio.microsoft.com/download/pr/cd0d0a4d-<span class="hljs-number">2</span>a6a-<span class="hljs-number">4</span>d0d-b42e-dfd3b880e222/<span class="hljs-number">008</span>a93f83aba6d1acf75ded3d2cfba24/dotnet-sdk-<span class="hljs-number">6</span>.<span class="hljs-number">0</span>.<span class="hljs-number">400</span>-linux-x64.tar.gz<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arduino">sudo mkdir  dotnet<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">sudo</span> tar zxvf dotnet-sdk-<span class="hljs-number">6</span>.<span class="hljs-number">0</span>.<span class="hljs-number">400</span>-linux-x64.tar.gz -C dotnet<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">dotnet</span> --<span class="hljs-literal">info</span><br></code></pre></td></tr></table></figure>
+
+<p>配置环境变量</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs awk">sudo vim <span class="hljs-regexp">/etc/</span>profile<br><br><span class="hljs-regexp">//</span>在文件尾部添加<br>export PATH=<span class="hljs-variable">$PATH</span>:<span class="hljs-regexp">/data/</span>dotnet<br>export DOTNET_ROOT=<span class="hljs-regexp">/data/</span>dotnet<br><span class="hljs-regexp">//</span>注：<span class="hljs-regexp">/data/</span>dotnet是我的存储路径，这里改成你自己的路径<br></code></pre></td></tr></table></figure>
+
+<h2 id="重启网路服务指令"><a href="#重启网路服务指令" class="headerlink" title="重启网路服务指令"></a>重启网路服务指令</h2><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs coq">netplan <span class="hljs-built_in">apply</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="快捷操作"><a href="#快捷操作" class="headerlink" title="快捷操作"></a>快捷操作</h2><figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs reasonml">docker stop <span class="hljs-constructor">$(<span class="hljs-params">docker</span> <span class="hljs-params">ps</span> -<span class="hljs-params">a</span> -<span class="hljs-params">q</span>)</span><br><br>docker rm <span class="hljs-constructor">$(<span class="hljs-params">docker</span> <span class="hljs-params">ps</span> -<span class="hljs-params">a</span> -<span class="hljs-params">q</span>)</span><br><br>curl -X &#x27;GET&#x27; \<br>  &#x27;http:<span class="hljs-comment">//localhost:5000/WeatherForecast&#x27; \</span><br>  -H &#x27;accept: text/plain&#x27;<br></code></pre></td></tr></table></figure>
+
+<h2 id="ubuntu开启-关闭防火墙"><a href="#ubuntu开启-关闭防火墙" class="headerlink" title="ubuntu开启/关闭防火墙"></a><code>ubuntu</code>开启/关闭防火墙</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">1、Alt+T打开终端，输入sudo ufw status回车，查看防火墙状态，inactive是关闭，active是开启。<br><br>2、使用sudo ufw <span class="hljs-built_in">enable</span>开启防火墙。<br><br>3、使用sudo ufw <span class="hljs-built_in">disable</span>关闭防火墙。<br></code></pre></td></tr></table></figure>
+
+<h2 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a><code>Dockerfile</code></h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs shell">FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base<br><br>WORKDIR /app<br><br>EXPOSE 5000<br><br>FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build<br><br>WORKDIR /src<br><br>COPY . .<br><br>ENV ASPNETCORE_URLS=http://+:5000<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">ENTRYPOINT [<span class="hljs-string">&quot;dotnet&quot;</span>, <span class="hljs-string">&quot;XLZF.ClothingManage.dll&quot;</span>]</span><br><br>ENTRYPOINT [&quot;dotnet&quot;]<br><br>CMD [&quot;Resume.DataBase.dll&quot;]<br></code></pre></td></tr></table></figure>
+
+<h2 id="Docker-compose"><a href="#Docker-compose" class="headerlink" title="Docker-compose"></a><code>Docker-compose</code></h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">version:</span> <span class="hljs-string">&quot;3.0&quot;</span><br><span class="hljs-attr">services:</span><br>  <span class="hljs-attr">resumedatabase:</span><br>    <span class="hljs-attr">build:</span><br>      <span class="hljs-attr">context:</span> <span class="hljs-string">./</span><br>      <span class="hljs-attr">dockerfile:</span> <span class="hljs-string">Dockerfile</span><br>    <span class="hljs-attr">ports:</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-number">5000</span><span class="hljs-string">:5000</span><br>    <span class="hljs-attr">networks:</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">my-network</span><br>    <span class="hljs-attr">restart:</span> <span class="hljs-string">always</span><br><br><span class="hljs-attr">networks:</span><br>  <span class="hljs-attr">my-network:</span><br>    <span class="hljs-attr">external:</span><br>     <span class="hljs-attr">name:</span> <span class="hljs-string">mynet</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker-compose up -d --build<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker-compose down<br></code></pre></td></tr></table></figure>
+
+<h2 id="Docker-Portainer-io"><a href="#Docker-Portainer-io" class="headerlink" title="Docker Portainer.io"></a><code>Docker Portainer.io</code></h2><p>图形化配置<code>docker-compose</code></p>
+<h2 id="Docker-for-Vue"><a href="#Docker-for-Vue" class="headerlink" title="Docker for Vue"></a><code>Docker for Vue</code></h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs shell">1. docker pull nginx<br>2. docker run --name=nginx -d -p 4030:80 nginx<br>3. 添加Dockerfile<br><span class="hljs-meta prompt_"># </span><span class="language-bash">设置基础镜像，这里使用最新的nginx镜像，前面已经拉取过了</span><br>FROM nginx<br><span class="hljs-meta prompt_"># </span><span class="language-bash">定义作者</span><br>MAINTAINER Harris<br><span class="hljs-meta prompt_"># </span><span class="language-bash">将dist文件中的内容复制到 /usr/share/nginx/html/ 这个目录下面</span><br>COPY /dist/  /usr/share/nginx/html/<br>4. docker build -t dockervue .<br>5. docker run --name=dockervue -d -p 7681:80 dockervue<br></code></pre></td></tr></table></figure>
+
+<h2 id="net-6-0服务-vue-docker-compose"><a href="#net-6-0服务-vue-docker-compose" class="headerlink" title=".net 6.0服务+vue docker-compose"></a>.net 6.0服务+vue docker-compose</h2><figure class="highlight nestedtext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs nestedtext"><span class="hljs-attribute">version</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;3.0&quot;</span><br><span class="hljs-attribute">services</span><span class="hljs-punctuation">:</span><br>  <span class="hljs-attribute">resumedatabase</span><span class="hljs-punctuation">:</span><br>    <span class="hljs-attribute">container_name</span><span class="hljs-punctuation">:</span> <span class="hljs-string">resumedatabase</span><br>    <span class="hljs-attribute">build</span><span class="hljs-punctuation">:</span><br>      <span class="hljs-attribute">context</span><span class="hljs-punctuation">:</span> <span class="hljs-string">./database/1001/</span><br>      <span class="hljs-attribute">dockerfile</span><span class="hljs-punctuation">:</span> <span class="hljs-string">Dockerfile</span><br>    <span class="hljs-attribute">ports</span><span class="hljs-punctuation">:</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">5000:5000</span><br>    <span class="hljs-attribute">networks</span><span class="hljs-punctuation">:</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">my-network</span><br>    <span class="hljs-attribute">restart</span><span class="hljs-punctuation">:</span> <span class="hljs-string">always</span><br>  <span class="hljs-attribute">resumesystem</span><span class="hljs-punctuation">:</span><br>    <span class="hljs-attribute">container_name</span><span class="hljs-punctuation">:</span> <span class="hljs-string">resumesystem</span><br>    <span class="hljs-attribute">build</span><span class="hljs-punctuation">:</span><br>      <span class="hljs-attribute">context</span><span class="hljs-punctuation">:</span> <span class="hljs-string">./system/1001/</span><br>      <span class="hljs-attribute">dockerfile</span><span class="hljs-punctuation">:</span> <span class="hljs-string">Dockerfile</span><br>    <span class="hljs-attribute">ports</span><span class="hljs-punctuation">:</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">5001:5000</span><br>    <span class="hljs-attribute">networks</span><span class="hljs-punctuation">:</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">my-network</span><br>    <span class="hljs-attribute">restart</span><span class="hljs-punctuation">:</span> <span class="hljs-string">always</span><br>  <span class="hljs-attribute">resumevue</span><span class="hljs-punctuation">:</span><br>    <span class="hljs-attribute">container_name</span><span class="hljs-punctuation">:</span> <span class="hljs-string">resumevue</span><br>    <span class="hljs-attribute">build</span><span class="hljs-punctuation">:</span><br>      <span class="hljs-attribute">context</span><span class="hljs-punctuation">:</span> <span class="hljs-string">./vue/</span><br>      <span class="hljs-attribute">dockerfile</span><span class="hljs-punctuation">:</span> <span class="hljs-string">Dockerfile</span><br>    <span class="hljs-attribute">ports</span><span class="hljs-punctuation">:</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">6666:80</span><br>    <span class="hljs-attribute">networks</span><span class="hljs-punctuation">:</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">my-network</span><br>    <span class="hljs-attribute">restart</span><span class="hljs-punctuation">:</span> <span class="hljs-string">always</span><br><br><span class="hljs-attribute">networks</span><span class="hljs-punctuation">:</span><br>  <span class="hljs-attribute">my-network</span><span class="hljs-punctuation">:</span><br>    <span class="hljs-attribute">external</span><span class="hljs-punctuation">:</span><br>     <span class="hljs-attribute">name</span><span class="hljs-punctuation">:</span> <span class="hljs-string">mynet</span><br></code></pre></td></tr></table></figure>
+
+<p>执行</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">docker-compose up -d <span class="hljs-comment">--build</span><br></code></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><code class="hljs shell">root@instance-dgf6qfwk:/netcore/resume# docker-compose up -d --build<br>Building resumedatabase<br>Step 1/9 : FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base<br><span class="hljs-meta prompt_"> ---&gt; </span><span class="language-bash">846be731181b</span><br>Step 2/9 : WORKDIR /app<br><span class="hljs-meta prompt_"> ---&gt; </span><span class="language-bash">Using cache</span><br><span class="hljs-meta prompt_"> ---&gt; </span><span class="language-bash">24d99f83aca9</span><br>Step 3/9 : EXPOSE 5000<br><span class="hljs-meta prompt_"> ---&gt; </span><span class="language-bash">Using cache</span><br><span class="hljs-meta prompt_"> ---&gt; </span><span class="language-bash">67e35cd2b60c</span><br>Step 4/9 : FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build<br><span class="hljs-meta prompt_"> ---&gt; </span><span class="language-bash">55e890ae9ccb</span><br>Step 5/9 : WORKDIR /src<br><span class="hljs-meta prompt_"> ---&gt; </span><span class="language-bash">Using cache</span><br><span class="hljs-meta prompt_"> ---&gt; </span><span class="language-bash">784fa469cc01</span><br>Step 6/9 : COPY . .<br><span class="hljs-meta prompt_"> ---&gt; </span><span class="language-bash">Using cache</span><br><span class="hljs-meta prompt_"> ---&gt; </span><span class="language-bash">45678be9eac6</span><br>Step 7/9 : ENV ASPNETCORE_URLS=http://+:5000<br><span class="hljs-meta prompt_"> ---&gt; </span><span class="language-bash">Using cache</span><br><span class="hljs-meta prompt_"> ---&gt; </span><span class="language-bash">fcdc676d4bac</span><br>Step 8/9 : ENTRYPOINT [&quot;dotnet&quot;]<br><span class="hljs-meta prompt_"> ---&gt; </span><span class="language-bash">Using cache</span><br><span class="hljs-meta prompt_"> ---&gt; </span><span class="language-bash">9063f5dcc256</span><br>Step 9/9 : CMD [&quot;Resume.DataBase.dll&quot;]<br><span class="hljs-meta prompt_"> ---&gt; </span><span class="language-bash">Using cache</span><br><span class="hljs-meta prompt_"> ---&gt; </span><span class="language-bash">6c06c1ebc98d</span><br>Successfully built 6c06c1ebc98d<br>Successfully tagged resume_resumedatabase:latest<br>Building resumesystem<br>Step 1/9 : FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base<br><span class="hljs-meta prompt_"> ---&gt; </span><span class="language-bash">846be731181b</span><br>Step 2/9 : WORKDIR /app<br><span class="hljs-meta prompt_"> ---&gt; </span><span class="language-bash">Using cache</span><br><span class="hljs-meta prompt_"> ---&gt; </span><span class="language-bash">24d99f83aca9</span><br>Step 3/9 : EXPOSE 5000<br><span class="hljs-meta prompt_"> ---&gt; </span><span class="language-bash">Using cache</span><br><span class="hljs-meta prompt_"> ---&gt; </span><span class="language-bash">67e35cd2b60c</span><br>Step 4/9 : FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build<br><span class="hljs-meta prompt_"> ---&gt; </span><span class="language-bash">55e890ae9ccb</span><br>Step 5/9 : WORKDIR /src<br><span class="hljs-meta prompt_"> ---&gt; </span><span class="language-bash">Using cache</span><br><span class="hljs-meta prompt_"> ---&gt; </span><span class="language-bash">784fa469cc01</span><br>Step 6/9 : COPY . .<br><span class="hljs-meta prompt_"> ---&gt; </span><span class="language-bash">Using cache</span><br><span class="hljs-meta prompt_"> ---&gt; </span><span class="language-bash">5a131cdf9d7c</span><br>Step 7/9 : ENV ASPNETCORE_URLS=http://+:5000<br><span class="hljs-meta prompt_"> ---&gt; </span><span class="language-bash">Using cache</span><br><span class="hljs-meta prompt_"> ---&gt; </span><span class="language-bash">7115dd76d339</span><br>Step 8/9 : ENTRYPOINT [&quot;dotnet&quot;]<br><span class="hljs-meta prompt_"> ---&gt; </span><span class="language-bash">Using cache</span><br><span class="hljs-meta prompt_"> ---&gt; </span><span class="language-bash">d9fcf4d6a8bb</span><br>Step 9/9 : CMD [&quot;Resume.System.dll&quot;]<br><span class="hljs-meta prompt_"> ---&gt; </span><span class="language-bash">Using cache</span><br><span class="hljs-meta prompt_"> ---&gt; </span><span class="language-bash">ed79d892ccef</span><br>Successfully built ed79d892ccef<br>Successfully tagged resume_resumesystem:latest<br>Building resumevue<br>Step 1/3 : FROM nginx<br><span class="hljs-meta prompt_"> ---&gt; </span><span class="language-bash">88736fe82739</span><br>Step 2/3 : MAINTAINER Harris<br><span class="hljs-meta prompt_"> ---&gt; </span><span class="language-bash">Using cache</span><br><span class="hljs-meta prompt_"> ---&gt; </span><span class="language-bash">437cf52b5c5d</span><br>Step 3/3 : COPY /dist/  /usr/share/nginx/html/<br><span class="hljs-meta prompt_"> ---&gt; </span><span class="language-bash">Using cache</span><br><span class="hljs-meta prompt_"> ---&gt; </span><span class="language-bash">eff9caddd35d</span><br>Successfully built eff9caddd35d<br>Successfully tagged resume_resumevue:latest<br>Creating resumedatabase ... done<br>Creating resumevue      ... done<br>Creating resumesystem   ... done<br>root@instance-dgf6qfwk:/netcore/resume# docker ps<br>CONTAINER ID   IMAGE                   COMMAND                  CREATED         STATUS         PORTS                                       NAMES<br>bf074243b66a   resume_resumesystem     &quot;dotnet Resume.Syste…&quot;   8 seconds ago   Up 5 seconds   0.0.0.0:5001-&gt;5000/tcp, :::5001-&gt;5000/tcp   resumesystem<br>5c48eaa90d29   resume_resumevue        &quot;/docker-entrypoint.…&quot;   8 seconds ago   Up 5 seconds   0.0.0.0:5002-&gt;80/tcp, :::5002-&gt;80/tcp       resumevue<br>e010e4558f08   resume_resumedatabase   &quot;dotnet Resume.DataB…&quot;   8 seconds ago   Up 6 seconds   0.0.0.0:5000-&gt;5000/tcp, :::5000-&gt;5000/tcp   resumedatabase<br></code></pre></td></tr></table></figure>
+
+<p>文件目录：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs awk">|--netcore<br>|--netcore/resume<br>|--netcore<span class="hljs-regexp">/resume/</span>database<br>|--netcore<span class="hljs-regexp">/resume/</span>database<span class="hljs-regexp">/1001/</span><br>|--netcore<span class="hljs-regexp">/resume/</span>database<span class="hljs-regexp">/1001/</span>&#123;database发布文件&#125;<br>|--netcore<span class="hljs-regexp">/resume/</span>system<br>|--netcore<span class="hljs-regexp">/resume/</span>system<span class="hljs-regexp">/1001/</span><br>|--netcore<span class="hljs-regexp">/resume/</span>system<span class="hljs-regexp">/1001/</span>&#123;system发布文件&#125;<br>|--netcore<span class="hljs-regexp">/resume/</span>vue<br>|--netcore<span class="hljs-regexp">/resume/</span>vue<span class="hljs-regexp">/dist/</span><br>|--netcore<span class="hljs-regexp">/resume/</span>vue<span class="hljs-regexp">/dist/</span>&#123;vue发布文件&#125;<br>|--netcore<span class="hljs-regexp">/resume/</span>vue/Dockerfile<br></code></pre></td></tr></table></figure>
+
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/note/">#note</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>20221204装机记录</div>
+      <div>http://example.com/2022/12/05/20221204 装机笔记/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>Harris</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>December 5, 2022</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>Licensed under</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/05/20/%E5%8A%A8%E6%80%81%E8%B0%83%E7%94%A8WebService/" title="动态调用WebService">
+                        <span class="hidden-mobile">动态调用WebService</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.4.16/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"q3pc0gbhQF3puHJQ3XjiByyg-gzGzoHsz","appKey":"yIsNaqJVWRbpKxcC4phLbjXt","path":"window.location.pathname","placeholder":"吐槽","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":true,"serverURLs":"https://q3pc0gbh.lc-cn-n1-shared.com","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Table of Contents</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>
