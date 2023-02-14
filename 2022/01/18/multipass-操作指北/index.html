@@ -25,7 +25,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://blogimage-1255495010.cos.ap-beijing.myqcloud.com/image-20220113152838526.png">
 <meta property="article:published_time" content="2022-01-18T01:53:26.000Z">
-<meta property="article:modified_time" content="2023-02-13T05:45:38.784Z">
+<meta property="article:modified_time" content="2023-02-14T01:18:59.671Z">
 <meta property="article:author" content="Harris">
 <meta property="article:tag" content="multipass">
 <meta property="article:tag" content="ubuntu">
@@ -330,7 +330,7 @@
               <p class="note note-info">
                 
                   
-                    Last updated on 22 minutes ago
+                    Last updated on 5 hours ago
                   
                 
               </p>
@@ -384,7 +384,8 @@
 <h2 id="Ubuntu"><a href="#Ubuntu" class="headerlink" title="Ubuntu"></a>Ubuntu</h2><p>现在multipass 默认安装的是 Ubuntu 20.04.3 LTS</p>
 <h3 id="设置源"><a href="#设置源" class="headerlink" title="设置源"></a>设置源</h3><p>首先备份文件 <code>cp /etc/apt/sources.list /etc/apt/sources.list.bak</code></p>
 <p>然后修改文件 <code>sudo vim /etc/apt/sources.list</code></p>
-<h4 id="Ubuntu-22-04-LTS-阿里源"><a href="#Ubuntu-22-04-LTS-阿里源" class="headerlink" title="Ubuntu 22.04 LTS 阿里源"></a><strong>Ubuntu 22.04 LTS 阿里源</strong></h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs shell">deb http://mirrors.aliyun.com/ubuntu/ jammy main restricted universe multiverse<br>deb-src http://mirrors.aliyun.com/ubuntu/ jammy main restricted universe multiverse<br>deb http://mirrors.aliyun.com/ubuntu/ jammy-security main restricted universe multiverse<br>deb-src http://mirrors.aliyun.com/ubuntu/ jammy-security main restricted universe multiverse<br>deb http://mirrors.aliyun.com/ubuntu/ jammy-updates main restricted universe multiverse<br>deb-src http://mirrors.aliyun.com/ubuntu/ jammy-updates main restricted universe multiverse<br>deb http://mirrors.aliyun.com/ubuntu/ jammy-proposed main restricted universe multiverse<br>deb-src http://mirrors.aliyun.com/ubuntu/ jammy-proposed main restricted universe multiverse<br>deb http://mirrors.aliyun.com/ubuntu/ jammy-backports main restricted universe multiverse<br>deb-src http://mirrors.aliyun.com/ubuntu/ jammy-backports main restricted universe multiverse<br></code></pre></td></tr></table></figure>
+<p><strong>Ubuntu 22.04 LTS 阿里源</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs shell">deb http://mirrors.aliyun.com/ubuntu/ jammy main restricted universe multiverse<br>deb-src http://mirrors.aliyun.com/ubuntu/ jammy main restricted universe multiverse<br>deb http://mirrors.aliyun.com/ubuntu/ jammy-security main restricted universe multiverse<br>deb-src http://mirrors.aliyun.com/ubuntu/ jammy-security main restricted universe multiverse<br>deb http://mirrors.aliyun.com/ubuntu/ jammy-updates main restricted universe multiverse<br>deb-src http://mirrors.aliyun.com/ubuntu/ jammy-updates main restricted universe multiverse<br>deb http://mirrors.aliyun.com/ubuntu/ jammy-proposed main restricted universe multiverse<br>deb-src http://mirrors.aliyun.com/ubuntu/ jammy-proposed main restricted universe multiverse<br>deb http://mirrors.aliyun.com/ubuntu/ jammy-backports main restricted universe multiverse<br>deb-src http://mirrors.aliyun.com/ubuntu/ jammy-backports main restricted universe multiverse<br></code></pre></td></tr></table></figure>
 
 <p><strong>ubuntu 22.04 清华源</strong></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释</span><br>deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy main restricted universe multiverse<br><span class="hljs-meta prompt_"># </span><span class="language-bash">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy main restricted universe multiverse</span><br>deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-updates main restricted universe multiverse<br><span class="hljs-meta prompt_"># </span><span class="language-bash">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-updates main restricted universe multiverse</span><br>deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-backports main restricted universe multiverse<br><span class="hljs-meta prompt_"># </span><span class="language-bash">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-backports main restricted universe multiverse</span><br>deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-security main restricted universe multiverse<br><span class="hljs-meta prompt_"># </span><span class="language-bash">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-security main restricted universe multiverse</span><br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">预发布软件源，不建议启用</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-proposed main restricted universe multiverse</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-proposed main restricted universe multiverse</span><br></code></pre></td></tr></table></figure>
@@ -410,7 +411,11 @@
 <ol start="2">
 <li>添加 Docker 的官方 GPG 密钥：</li>
 </ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">curl -fsSL https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/gpg | sudo apt-key add -</span><br></code></pre></td></tr></table></figure>
+<p>中科大</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">curl -fsSL https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/gpg | sudo apt-key add -<br></code></pre></td></tr></table></figure>
+
+<p>阿里云</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">curl -fsSL https://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg | sudo apt-key add -<br></code></pre></td></tr></table></figure>
 
 <ol start="3">
 <li>验证您现在是否拥有带有指纹的密钥</li>
